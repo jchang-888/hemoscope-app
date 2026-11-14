@@ -1,0 +1,86 @@
+{
+ "name": "HemoScope next blood check forecast",
+ "type": "kalman_local_level_log",
+ "driftVariancePer30Days": {
+  "wbc": 0.000461,
+  "neu": 0.000574,
+  "lym": 0.0,
+  "mon": 0.0,
+  "eos": 0.056301
+ },
+ "measurementSd": {
+  "wbc": 0.1935,
+  "neu": 0.291,
+  "lym": 0.1911,
+  "mon": 0.2447,
+  "eos": 0.3915
+ },
+ "z": 1.96,
+ "baselineSamples": 2,
+ "metrics": {
+  "trainedOn": "ImmPort SDY180, SDY296, SDY301, SDY1252",
+  "series": 146,
+  "people": 120,
+  "samples": 1284,
+  "trainPeople": 84,
+  "testPeople": 36,
+  "forecasts": 1420,
+  "coverage95": 0.9606,
+  "within25pct": 0.7359,
+  "naiveWithin25pct": 0.6697,
+  "medianError": 0.1465,
+  "naiveMedianError": 0.1644,
+  "perMarker": {
+   "wbc": {
+    "forecasts": 284,
+    "coverage95": 0.9718,
+    "medianError": 0.103,
+    "naiveMedianError": 0.1235,
+    "within25pct": 0.8451,
+    "naiveWithin25pct": 0.7958,
+    "r": 0.1935,
+    "q": 0.0017
+   },
+   "neu": {
+    "forecasts": 284,
+    "coverage95": 0.9648,
+    "medianError": 0.1569,
+    "naiveMedianError": 0.1782,
+    "within25pct": 0.7254,
+    "naiveWithin25pct": 0.662,
+    "r": 0.291,
+    "q": 0.0033
+   },
+   "lym": {
+    "forecasts": 284,
+    "coverage95": 0.9683,
+    "medianError": 0.1112,
+    "naiveMedianError": 0.1445,
+    "within25pct": 0.8134,
+    "naiveWithin25pct": 0.7113,
+    "r": 0.1985,
+    "q": 0.0
+   },
+   "mon": {
+    "forecasts": 284,
+    "coverage95": 0.9577,
+    "medianError": 0.1654,
+    "naiveMedianError": 0.2,
+    "within25pct": 0.7007,
+    "naiveWithin25pct": 0.6056,
+    "r": 0.2447,
+    "q": 0.0
+   },
+   "eos": {
+    "forecasts": 284,
+    "coverage95": 0.9401,
+    "medianError": 0.1963,
+    "naiveMedianError": 0.176,
+    "within25pct": 0.5951,
+    "naiveWithin25pct": 0.5739,
+    "r": 0.3915,
+    "q": 0.0235
+   }
+  }
+ }
+}

@@ -1,0 +1,88 @@
+{
+ "stateMap": [
+  {
+   "name": "at expected values",
+   "z": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "x": 0.03946877766200001,
+   "y": -0.229832804213,
+   "logDensity": -1.5810060344032337,
+   "zone": "Very Common",
+   "typicality": 93
+  },
+  {
+   "name": "small normal variation",
+   "z": [
+    0.6,
+    -0.4,
+    0.3,
+    -0.2
+   ],
+   "x": 0.18217424758700834,
+   "y": 0.33100545021589284,
+   "logDensity": -1.7887806885635318,
+   "zone": "Very Common",
+   "typicality": 80
+  },
+  {
+   "name": "neutrophils far above expected",
+   "z": [
+    4.5,
+    0,
+    0.8,
+    0
+   ],
+   "x": 1.7987862665472467,
+   "y": 2.0713909556593264,
+   "logDensity": -5.290361968226356,
+   "zone": "Uncommon",
+   "typicality": 8
+  },
+  {
+   "name": "lymphocytes far below expected",
+   "z": [
+    0,
+    -3.5,
+    0,
+    -0.5
+   ],
+   "x": -1.4942243790315848,
+   "y": 1.1530847028790732,
+   "logDensity": -4.485590843986259,
+   "zone": "Common",
+   "typicality": 15
+  },
+  {
+   "name": "everything high",
+   "z": [
+    2.5,
+    2.5,
+    2.5,
+    2.5
+   ],
+   "x": 3.94189379177592,
+   "y": -0.13638572975067478,
+   "logDensity": -6.758838449883667,
+   "zone": "Uncommon",
+   "typicality": 1
+  },
+  {
+   "name": "eosinophils high",
+   "z": [
+    0,
+    0.5,
+    0,
+    3.0
+   ],
+   "x": 1.0125254129106782,
+   "y": -1.4011068381168668,
+   "logDensity": -3.2879920660574005,
+   "zone": "Common",
+   "typicality": 30
+  }
+ ]
+}
