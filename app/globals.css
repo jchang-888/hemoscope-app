@@ -1,0 +1,243 @@
+@import "tailwindcss";
+
+/* Theme tokens. Dark is the default, light applies when <html data-theme="light">.
+   Components use these variables (through the Tailwind names below) and never a hex value. */
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #1E1E2C; /* page */
+  --surface: #232636; /* menus, nav, cards, forms, popups, Learn sections */
+  --accent: #3F6FC4; /* muted cobalt: buttons, borders that must stand out, selected tab line */
+  --highlight-bg: #3F6FC4; /* highlight blocks only */
+  --text: #FFFFFF;
+  --text-muted: #B8BCCB;
+  --border: #33374A;
+
+  /* Derived from the tokens above. */
+  --accent-hover: #4F7FD4; /* hover on filled accent buttons */
+  --accent-text: #8DB0E6; /* accent used as text on dark surfaces (logo, links) */
+  --highlight-text: #FFFFFF; /* text on highlight blocks, always bold */
+  --highlight-btn-bg: #FFFFFF; /* buttons inside highlight blocks */
+  --highlight-btn-text: #1E1E2C;
+  --learn-surface: var(--surface); /* Learn sections */
+  --overlay: rgba(10, 10, 20, 0.8); /* behind the start popup */
+  --emergency: #DC2626; /* Emergency Mode tab, red in both modes */
+  --on-emergency: #FFFFFF;
+  --mood: #FACC15; /* mood faces */
+
+  /* Status colors. Each one keeps its meaning in both modes and is checked against the page and surface colors. */
+  --ok: #4ADE80; /* Normal For You */
+  --caution: #FACC15; /* Monitor Closely */
+  --alert: #FF8A3D; /* Contact Flight Surgeon */
+  --danger: #F87171; /* Contact Flight Surgeon Now */
+  --retest: #CBD5E1; /* Retake the Sample */
+
+  /* Charts. */
+  --chart-line: #60A5FA;
+  --chart-flag: #F87171;
+  --chart-threshold: #FACC15;
+  --chart-threshold-text: #FACC15; /* threshold labels */
+  --chart-band: rgba(148, 153, 172, 0.16); /* neutral gray, low opacity */
+  --chart-band-edge: rgba(148, 153, 172, 0.45);
+  --chart-grid: rgba(184, 188, 203, 0.18);
+  --chart-flight: rgba(255, 255, 255, 0.04); /* in-flight shading on the Score Timeline */
+  --chart-today: #FFFFFF; /* fill of the Today point */
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --background: #FFFFFF;
+  --surface: #F3F5F9;
+  --accent: #3F6FC4;
+  --highlight-bg: #3F6FC4;
+  --text: #1E1E2C;
+  --text-muted: #4A4F63;
+  --border: #D9DDE6;
+
+  --learn-surface: #FFFFFF;
+  --accent-text: #3A66B8; /* accent as text on light surfaces, a little darker than the accent so it stays readable */
+  --overlay: rgba(30, 30, 44, 0.55);
+  --mood: #B45309;
+
+  --ok: #15803D;
+  --caution: #8A5A00;
+  --alert: #B84A0B;
+  --danger: #B91C1C;
+  --retest: #475569;
+
+  --chart-line: #0177FB;
+  --chart-flag: #DC2626;
+  --chart-threshold: #CA8A04;
+  --chart-threshold-text: #854D0E; /* darker than the line so the small labels stay readable */
+  --chart-band: rgba(74, 79, 99, 0.1);
+  --chart-band-edge: rgba(74, 79, 99, 0.4);
+  --chart-grid: rgba(74, 79, 99, 0.16);
+  --chart-flight: rgba(30, 30, 44, 0.04);
+}
+
+/* Copies of the tokens that highlight blocks change, so popups inside a highlight block can restore them. */
+:root,
+:root[data-theme="light"] {
+  --text-muted-base: var(--text-muted);
+  --border-base: var(--border);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-accent: var(--accent);
+  --color-accent-text: var(--accent-text);
+  --color-highlight: var(--highlight-bg);
+  --color-foreground: var(--text);
+  --color-muted: var(--text-muted);
+  --color-border: var(--border);
+  --color-learn: var(--learn-surface);
+  --color-emergency: var(--emergency);
+  --color-on-emergency: var(--on-emergency);
+  --color-ok: var(--ok);
+  --color-caution: var(--caution);
+  --color-alert: var(--alert);
+  --color-danger: var(--danger);
+  --color-retest: var(--retest);
+  --font-heading: var(--font-space-grotesk);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+:focus-visible {
+  outline: 3px solid var(--text);
+  outline-offset: 2px;
+}
+
+@layer components {
+/* Buttons and inputs share one look so the page stays easy to scan. */
+.btn {
+  border-radius: 0.5rem;
+  border: 1px solid var(--accent);
+  padding: 0.5rem 0.9rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  background: transparent;
+  color: var(--text);
+}
+.btn:hover:not(:disabled) { background: color-mix(in srgb, var(--accent) 18%, transparent); }
+/* The Demo strip at the top of every page. Same font as the page text, and every control in it has the same height. */
+.strip { font-family: var(--font-inter), system-ui, sans-serif; font-size: 14px; font-weight: 500; line-height: 1; }
+.strip-ctl {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px; box-sizing: border-box;
+  height: 24px; padding: 0 10px; border-radius: 0.5rem; border: 1px solid var(--accent);
+  background: transparent; color: var(--text); cursor: pointer; white-space: nowrap;
+  font-family: var(--font-inter), system-ui, sans-serif; font-size: 14px; font-weight: 500; line-height: 1;
+}
+.strip-ctl:hover { background: color-mix(in srgb, var(--accent) 18%, transparent); }
+select.strip-ctl { background: var(--background); padding-right: 6px; }
+.strip-ctl-icon { width: 24px; padding: 0; }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn-primary,
+.btn-accent { background: var(--accent); border-color: var(--accent); color: #FFFFFF; }
+.btn-primary:hover:not(:disabled),
+.btn-accent:hover:not(:disabled) { background: var(--accent-hover); border-color: var(--accent-hover); }
+.choice {
+  border-radius: 0.5rem;
+  border: 1px solid var(--accent);
+  padding: 0.6rem 0.9rem;
+  font-weight: 600;
+  text-align: left;
+  background: var(--background);
+  color: var(--text);
+}
+.choice:hover { background: color-mix(in srgb, var(--accent) 18%, var(--background)); }
+.input {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid var(--text-muted);
+  padding: 0.45rem 0.6rem;
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  background: var(--background);
+  color: var(--text);
+}
+
+/* Highlight block: the accent blue with white bold text. Muted text, borders and buttons are restyled to stay readable. */
+.highlight {
+  background: var(--highlight-bg);
+  color: var(--highlight-text);
+  font-weight: 700;
+  --text-muted: var(--highlight-text);
+  --border: rgba(255, 255, 255, 0.6);
+}
+.highlight .btn { background: var(--highlight-btn-bg); border-color: var(--highlight-btn-bg); color: var(--highlight-btn-text); }
+.highlight .btn:hover:not(:disabled) { background: color-mix(in srgb, var(--highlight-btn-bg) 85%, var(--highlight-bg)); }
+.highlight .tip-btn { color: var(--highlight-text); border-color: var(--highlight-text); }
+
+/* Chips (a status on the page color) restore the normal tokens when they sit inside a highlight block. */
+.chip { --text-muted: var(--text-muted-base); --border: var(--border-base); font-weight: 600; }
+
+/* Popups restore the normal tokens even when they open inside a highlight block. */
+.popup {
+  --text-muted: var(--text-muted-base);
+  --border: var(--border-base);
+  color: var(--text);
+  font-weight: 400;
+  font-size: 0.75rem;
+}
+.popup b { font-weight: 700; }
+.highlight .popup .btn { background: transparent; border-color: var(--accent); color: var(--text); font-weight: 600; }
+}
+
+/* Compression Pacer: one pulse per beat. The duration is set inline from the beats per minute. */
+@keyframes pace {
+  0%, 100% { transform: scale(0.8); opacity: 0.75; }
+  15% { transform: scale(1.1); opacity: 1; }
+}
+
+/* Native dropdown lists follow the theme so option text stays readable. */
+select option { background: var(--background); color: var(--text); }
+
+/* Learn sections: a chevron that turns when the section is open. */
+summary.learn-summary { list-style: none; }
+summary.learn-summary::-webkit-details-marker { display: none; }
+details[open] > summary .chevron { transform: rotate(90deg); }
+
+/* About HemoScope pipeline: each step lights up in turn. The delay is set inline per step. */
+@keyframes flow {
+  0%, 12%, 100% { background-color: var(--surface); border-color: var(--border); color: var(--text); }
+  4%, 8% { background-color: var(--accent); border-color: var(--accent); color: #FFFFFF; }
+}
+.flow-step { animation: flow 8.4s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .flow-step { animation: none; }
+}
+
+/* Body Map dots: a ring pulses gently around each one. The color of the dot and the ring is set where the dot is used. */
+.hotspot {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  transform: translate(-50%, -50%);
+  border-radius: 9999px;
+  border: 2px solid var(--text);
+  cursor: pointer;
+}
+.hotspot::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  border: 2px solid currentColor;
+  animation: hotspot-pulse 2.6s ease-out infinite;
+  pointer-events: none;
+}
+.hotspot[aria-pressed="true"] { box-shadow: 0 0 0 3px var(--background), 0 0 0 5px var(--text); }
+@keyframes hotspot-pulse {
+  0% { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hotspot::after { animation: none; opacity: 0; }
+}
