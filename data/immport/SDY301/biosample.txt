@@ -1,0 +1,780 @@
+BIOSAMPLE_ACCESSION	DESCRIPTION	NAME	PLANNED_VISIT_ACCESSION	STUDY_ACCESSION	STUDY_TIME_COLLECTED	STUDY_TIME_COLLECTED_UNIT	STUDY_TIME_T0_EVENT	STUDY_TIME_T0_EVENT_SPECIFY	SUBJECT_ACCESSION	SUBTYPE	TYPE	WORKSPACE_ID
+BS712286			PV2890	SDY301	1	Days	Time of enrollment		SUB122716		Other	2799
+BS712287			PV2890	SDY301	1	Days	Time of enrollment		SUB122716		Other	2799
+BS712288			PV2891	SDY301	3	Days	Time of enrollment		SUB122716		Other	2799
+BS712289			PV2891	SDY301	3	Days	Time of enrollment		SUB122716		Other	2799
+BS712290			PV2892	SDY301	7	Days	Time of enrollment		SUB122716		Other	2799
+BS712291			PV2892	SDY301	7	Days	Time of enrollment		SUB122716		Other	2799
+BS712292			PV2893	SDY301	28	Days	Time of enrollment		SUB122716		Other	2799
+BS712293			PV2893	SDY301	28	Days	Time of enrollment		SUB122716		Other	2799
+BS712294			PV2893	SDY301	28	Days	Time of enrollment		SUB122716		Other	2799
+BS712295			PV2893	SDY301	28	Days	Time of enrollment		SUB122716		Other	2799
+BS712296			PV2889	SDY301	0	Days	Time of enrollment		SUB122716		Other	2799
+BS712297			PV2889	SDY301	0	Days	Time of enrollment		SUB122716		Other	2799
+BS712298			PV2889	SDY301	0	Days	Time of enrollment		SUB122716		Other	2799
+BS712299			PV2889	SDY301	0	Days	Time of enrollment		SUB122716		Other	2799
+BS712300			PV2890	SDY301	1	Days	Time of enrollment		SUB122718		Other	2799
+BS712301			PV2890	SDY301	1	Days	Time of enrollment		SUB122718		Other	2799
+BS712302			PV2891	SDY301	3	Days	Time of enrollment		SUB122718		Other	2799
+BS712303			PV2891	SDY301	3	Days	Time of enrollment		SUB122718		Other	2799
+BS712304			PV2892	SDY301	7	Days	Time of enrollment		SUB122718		Other	2799
+BS712305			PV2892	SDY301	7	Days	Time of enrollment		SUB122718		Other	2799
+BS712306			PV2893	SDY301	28	Days	Time of enrollment		SUB122718		Other	2799
+BS712307			PV2893	SDY301	28	Days	Time of enrollment		SUB122718		Other	2799
+BS712308			PV2893	SDY301	28	Days	Time of enrollment		SUB122718		Other	2799
+BS712309			PV2893	SDY301	28	Days	Time of enrollment		SUB122718		Other	2799
+BS712310			PV2889	SDY301	0	Days	Time of enrollment		SUB122718		Other	2799
+BS712311			PV2889	SDY301	0	Days	Time of enrollment		SUB122718		Other	2799
+BS712312			PV2889	SDY301	0	Days	Time of enrollment		SUB122718		Other	2799
+BS712313			PV2889	SDY301	0	Days	Time of enrollment		SUB122718		Other	2799
+BS712314			PV2890	SDY301	1	Days	Time of enrollment		SUB122719		Other	2799
+BS712315			PV2890	SDY301	1	Days	Time of enrollment		SUB122719		Other	2799
+BS712316			PV2891	SDY301	3	Days	Time of enrollment		SUB122719		Other	2799
+BS712317			PV2891	SDY301	3	Days	Time of enrollment		SUB122719		Other	2799
+BS712318			PV2892	SDY301	7	Days	Time of enrollment		SUB122719		Other	2799
+BS712319			PV2892	SDY301	7	Days	Time of enrollment		SUB122719		Other	2799
+BS712320			PV2893	SDY301	28	Days	Time of enrollment		SUB122719		Other	2799
+BS712321			PV2893	SDY301	28	Days	Time of enrollment		SUB122719		Other	2799
+BS712322			PV2893	SDY301	28	Days	Time of enrollment		SUB122719		Other	2799
+BS712323			PV2893	SDY301	28	Days	Time of enrollment		SUB122719		Other	2799
+BS712324			PV2889	SDY301	0	Days	Time of enrollment		SUB122719		Other	2799
+BS712325			PV2889	SDY301	0	Days	Time of enrollment		SUB122719		Other	2799
+BS712326			PV2889	SDY301	0	Days	Time of enrollment		SUB122719		Other	2799
+BS712327			PV2889	SDY301	0	Days	Time of enrollment		SUB122719		Other	2799
+BS712328			PV2890	SDY301	1	Days	Time of enrollment		SUB122722		Other	2799
+BS712329			PV2890	SDY301	1	Days	Time of enrollment		SUB122722		Other	2799
+BS712330			PV2891	SDY301	3	Days	Time of enrollment		SUB122722		Other	2799
+BS712331			PV2891	SDY301	3	Days	Time of enrollment		SUB122722		Other	2799
+BS712332			PV2892	SDY301	7	Days	Time of enrollment		SUB122722		Other	2799
+BS712333			PV2892	SDY301	7	Days	Time of enrollment		SUB122722		Other	2799
+BS712334			PV2893	SDY301	28	Days	Time of enrollment		SUB122722		Other	2799
+BS712335			PV2893	SDY301	28	Days	Time of enrollment		SUB122722		Other	2799
+BS712336			PV2893	SDY301	28	Days	Time of enrollment		SUB122722		Other	2799
+BS712337			PV2893	SDY301	28	Days	Time of enrollment		SUB122722		Other	2799
+BS712338			PV2889	SDY301	0	Days	Time of enrollment		SUB122722		Other	2799
+BS712339			PV2889	SDY301	0	Days	Time of enrollment		SUB122722		Other	2799
+BS712340			PV2889	SDY301	0	Days	Time of enrollment		SUB122722		Other	2799
+BS712341			PV2889	SDY301	0	Days	Time of enrollment		SUB122722		Other	2799
+BS712342			PV2890	SDY301	1	Days	Time of enrollment		SUB122723		Other	2799
+BS712343			PV2890	SDY301	1	Days	Time of enrollment		SUB122723		Other	2799
+BS712344			PV2891	SDY301	3	Days	Time of enrollment		SUB122723		Other	2799
+BS712345			PV2891	SDY301	3	Days	Time of enrollment		SUB122723		Other	2799
+BS712346			PV2892	SDY301	7	Days	Time of enrollment		SUB122723		Other	2799
+BS712347			PV2892	SDY301	7	Days	Time of enrollment		SUB122723		Other	2799
+BS712348			PV2893	SDY301	28	Days	Time of enrollment		SUB122723		Other	2799
+BS712349			PV2893	SDY301	28	Days	Time of enrollment		SUB122723		Other	2799
+BS712350			PV2893	SDY301	28	Days	Time of enrollment		SUB122723		Other	2799
+BS712351			PV2893	SDY301	28	Days	Time of enrollment		SUB122723		Other	2799
+BS712352			PV2889	SDY301	0	Days	Time of enrollment		SUB122723		Other	2799
+BS712353			PV2889	SDY301	0	Days	Time of enrollment		SUB122723		Other	2799
+BS712354			PV2889	SDY301	0	Days	Time of enrollment		SUB122723		Other	2799
+BS712355			PV2889	SDY301	0	Days	Time of enrollment		SUB122723		Other	2799
+BS712356			PV2890	SDY301	1	Days	Time of enrollment		SUB122724		Other	2799
+BS712357			PV2890	SDY301	1	Days	Time of enrollment		SUB122724		Other	2799
+BS712358			PV2891	SDY301	3	Days	Time of enrollment		SUB122724		Other	2799
+BS712359			PV2891	SDY301	3	Days	Time of enrollment		SUB122724		Other	2799
+BS712360			PV2892	SDY301	7	Days	Time of enrollment		SUB122724		Other	2799
+BS712361			PV2892	SDY301	7	Days	Time of enrollment		SUB122724		Other	2799
+BS712362			PV2893	SDY301	28	Days	Time of enrollment		SUB122724		Other	2799
+BS712363			PV2893	SDY301	28	Days	Time of enrollment		SUB122724		Other	2799
+BS712364			PV2893	SDY301	28	Days	Time of enrollment		SUB122724		Other	2799
+BS712365			PV2893	SDY301	28	Days	Time of enrollment		SUB122724		Other	2799
+BS712366			PV2889	SDY301	0	Days	Time of enrollment		SUB122724		Other	2799
+BS712367			PV2889	SDY301	0	Days	Time of enrollment		SUB122724		Other	2799
+BS712368			PV2889	SDY301	0	Days	Time of enrollment		SUB122724		Other	2799
+BS712369			PV2889	SDY301	0	Days	Time of enrollment		SUB122724		Other	2799
+BS712370			PV2890	SDY301	1	Days	Time of enrollment		SUB122725		Other	2799
+BS712371			PV2890	SDY301	1	Days	Time of enrollment		SUB122725		Other	2799
+BS712372			PV2891	SDY301	3	Days	Time of enrollment		SUB122725		Other	2799
+BS712373			PV2891	SDY301	3	Days	Time of enrollment		SUB122725		Other	2799
+BS712374			PV2892	SDY301	7	Days	Time of enrollment		SUB122725		Other	2799
+BS712375			PV2892	SDY301	7	Days	Time of enrollment		SUB122725		Other	2799
+BS712376			PV2893	SDY301	28	Days	Time of enrollment		SUB122725		Other	2799
+BS712377			PV2893	SDY301	28	Days	Time of enrollment		SUB122725		Other	2799
+BS712378			PV2893	SDY301	28	Days	Time of enrollment		SUB122725		Other	2799
+BS712379			PV2893	SDY301	28	Days	Time of enrollment		SUB122725		Other	2799
+BS712380			PV2889	SDY301	0	Days	Time of enrollment		SUB122725		Other	2799
+BS712381			PV2889	SDY301	0	Days	Time of enrollment		SUB122725		Other	2799
+BS712382			PV2889	SDY301	0	Days	Time of enrollment		SUB122725		Other	2799
+BS712383			PV2889	SDY301	0	Days	Time of enrollment		SUB122725		Other	2799
+BS712384			PV2890	SDY301	1	Days	Time of enrollment		SUB122728		Other	2799
+BS712385			PV2890	SDY301	1	Days	Time of enrollment		SUB122728		Other	2799
+BS712386			PV2891	SDY301	3	Days	Time of enrollment		SUB122728		Other	2799
+BS712387			PV2891	SDY301	3	Days	Time of enrollment		SUB122728		Other	2799
+BS712388			PV2892	SDY301	7	Days	Time of enrollment		SUB122728		Other	2799
+BS712389			PV2892	SDY301	7	Days	Time of enrollment		SUB122728		Other	2799
+BS712390			PV2893	SDY301	28	Days	Time of enrollment		SUB122728		Other	2799
+BS712391			PV2893	SDY301	28	Days	Time of enrollment		SUB122728		Other	2799
+BS712392			PV2893	SDY301	28	Days	Time of enrollment		SUB122728		Other	2799
+BS712393			PV2893	SDY301	28	Days	Time of enrollment		SUB122728		Other	2799
+BS712394			PV2889	SDY301	0	Days	Time of enrollment		SUB122728		Other	2799
+BS712395			PV2889	SDY301	0	Days	Time of enrollment		SUB122728		Other	2799
+BS712396			PV2889	SDY301	0	Days	Time of enrollment		SUB122728		Other	2799
+BS712397			PV2889	SDY301	0	Days	Time of enrollment		SUB122728		Other	2799
+BS712398			PV2890	SDY301	1	Days	Time of enrollment		SUB122729		Other	2799
+BS712399			PV2890	SDY301	1	Days	Time of enrollment		SUB122729		Other	2799
+BS712400			PV2891	SDY301	3	Days	Time of enrollment		SUB122729		Other	2799
+BS712401			PV2891	SDY301	3	Days	Time of enrollment		SUB122729		Other	2799
+BS712402			PV2892	SDY301	7	Days	Time of enrollment		SUB122729		Other	2799
+BS712403			PV2892	SDY301	7	Days	Time of enrollment		SUB122729		Other	2799
+BS712404			PV2893	SDY301	28	Days	Time of enrollment		SUB122729		Other	2799
+BS712405			PV2893	SDY301	28	Days	Time of enrollment		SUB122729		Other	2799
+BS712406			PV2893	SDY301	28	Days	Time of enrollment		SUB122729		Other	2799
+BS712407			PV2893	SDY301	28	Days	Time of enrollment		SUB122729		Other	2799
+BS712408			PV2889	SDY301	0	Days	Time of enrollment		SUB122729		Other	2799
+BS712409			PV2889	SDY301	0	Days	Time of enrollment		SUB122729		Other	2799
+BS712410			PV2889	SDY301	0	Days	Time of enrollment		SUB122729		Other	2799
+BS712411			PV2889	SDY301	0	Days	Time of enrollment		SUB122729		Other	2799
+BS712412			PV2890	SDY301	1	Days	Time of enrollment		SUB122732		Other	2799
+BS712413			PV2890	SDY301	1	Days	Time of enrollment		SUB122732		Other	2799
+BS712414			PV2891	SDY301	3	Days	Time of enrollment		SUB122732		Other	2799
+BS712415			PV2891	SDY301	3	Days	Time of enrollment		SUB122732		Other	2799
+BS712416			PV2892	SDY301	7	Days	Time of enrollment		SUB122732		Other	2799
+BS712417			PV2892	SDY301	7	Days	Time of enrollment		SUB122732		Other	2799
+BS712418			PV2893	SDY301	28	Days	Time of enrollment		SUB122732		Other	2799
+BS712419			PV2893	SDY301	28	Days	Time of enrollment		SUB122732		Other	2799
+BS712420			PV2893	SDY301	28	Days	Time of enrollment		SUB122732		Other	2799
+BS712421			PV2893	SDY301	28	Days	Time of enrollment		SUB122732		Other	2799
+BS712422			PV2889	SDY301	0	Days	Time of enrollment		SUB122732		Other	2799
+BS712423			PV2889	SDY301	0	Days	Time of enrollment		SUB122732		Other	2799
+BS712424			PV2889	SDY301	0	Days	Time of enrollment		SUB122732		Other	2799
+BS712425			PV2890	SDY301	1	Days	Time of enrollment		SUB122733		Other	2799
+BS712426			PV2890	SDY301	1	Days	Time of enrollment		SUB122733		Other	2799
+BS712427			PV2891	SDY301	3	Days	Time of enrollment		SUB122733		Other	2799
+BS712428			PV2891	SDY301	3	Days	Time of enrollment		SUB122733		Other	2799
+BS712429			PV2892	SDY301	7	Days	Time of enrollment		SUB122733		Other	2799
+BS712430			PV2892	SDY301	7	Days	Time of enrollment		SUB122733		Other	2799
+BS712431			PV2893	SDY301	28	Days	Time of enrollment		SUB122733		Other	2799
+BS712432			PV2893	SDY301	28	Days	Time of enrollment		SUB122733		Other	2799
+BS712433			PV2893	SDY301	28	Days	Time of enrollment		SUB122733		Other	2799
+BS712434			PV2893	SDY301	28	Days	Time of enrollment		SUB122733		Other	2799
+BS712435			PV2889	SDY301	0	Days	Time of enrollment		SUB122733		Other	2799
+BS712436			PV2889	SDY301	0	Days	Time of enrollment		SUB122733		Other	2799
+BS712437			PV2889	SDY301	0	Days	Time of enrollment		SUB122733		Other	2799
+BS712438			PV2889	SDY301	0	Days	Time of enrollment		SUB122733		Other	2799
+BS712439			PV2890	SDY301	1	Days	Time of enrollment		SUB122734		Other	2799
+BS712440			PV2890	SDY301	1	Days	Time of enrollment		SUB122734		Other	2799
+BS712441			PV2891	SDY301	3	Days	Time of enrollment		SUB122734		Other	2799
+BS712442			PV2891	SDY301	3	Days	Time of enrollment		SUB122734		Other	2799
+BS712443			PV2892	SDY301	7	Days	Time of enrollment		SUB122734		Other	2799
+BS712444			PV2892	SDY301	7	Days	Time of enrollment		SUB122734		Other	2799
+BS712445			PV2893	SDY301	28	Days	Time of enrollment		SUB122734		Other	2799
+BS712446			PV2893	SDY301	28	Days	Time of enrollment		SUB122734		Other	2799
+BS712447			PV2893	SDY301	28	Days	Time of enrollment		SUB122734		Other	2799
+BS712448			PV2893	SDY301	28	Days	Time of enrollment		SUB122734		Other	2799
+BS712449			PV2889	SDY301	0	Days	Time of enrollment		SUB122734		Other	2799
+BS712450			PV2889	SDY301	0	Days	Time of enrollment		SUB122734		Other	2799
+BS712451			PV2889	SDY301	0	Days	Time of enrollment		SUB122734		Other	2799
+BS712452			PV2889	SDY301	0	Days	Time of enrollment		SUB122734		Other	2799
+BS712453			PV2890	SDY301	1	Days	Time of enrollment		SUB122735		Other	2799
+BS712454			PV2890	SDY301	1	Days	Time of enrollment		SUB122735		Other	2799
+BS712455			PV2891	SDY301	3	Days	Time of enrollment		SUB122735		Other	2799
+BS712456			PV2891	SDY301	3	Days	Time of enrollment		SUB122735		Other	2799
+BS712457			PV2892	SDY301	7	Days	Time of enrollment		SUB122735		Other	2799
+BS712458			PV2892	SDY301	7	Days	Time of enrollment		SUB122735		Other	2799
+BS712459			PV2893	SDY301	28	Days	Time of enrollment		SUB122735		Other	2799
+BS712460			PV2893	SDY301	28	Days	Time of enrollment		SUB122735		Other	2799
+BS712461			PV2893	SDY301	28	Days	Time of enrollment		SUB122735		Other	2799
+BS712462			PV2893	SDY301	28	Days	Time of enrollment		SUB122735		Other	2799
+BS712463			PV2889	SDY301	0	Days	Time of enrollment		SUB122735		Other	2799
+BS712464			PV2889	SDY301	0	Days	Time of enrollment		SUB122735		Other	2799
+BS712465			PV2889	SDY301	0	Days	Time of enrollment		SUB122735		Other	2799
+BS712466			PV2889	SDY301	0	Days	Time of enrollment		SUB122735		Other	2799
+BS712467			PV2890	SDY301	1	Days	Time of enrollment		SUB122737		Other	2799
+BS712468			PV2890	SDY301	1	Days	Time of enrollment		SUB122737		Other	2799
+BS712469			PV2891	SDY301	3	Days	Time of enrollment		SUB122737		Other	2799
+BS712470			PV2891	SDY301	3	Days	Time of enrollment		SUB122737		Other	2799
+BS712471			PV2892	SDY301	7	Days	Time of enrollment		SUB122737		Other	2799
+BS712472			PV2892	SDY301	7	Days	Time of enrollment		SUB122737		Other	2799
+BS712473			PV2893	SDY301	28	Days	Time of enrollment		SUB122737		Other	2799
+BS712474			PV2893	SDY301	28	Days	Time of enrollment		SUB122737		Other	2799
+BS712475			PV2893	SDY301	28	Days	Time of enrollment		SUB122737		Other	2799
+BS712476			PV2893	SDY301	28	Days	Time of enrollment		SUB122737		Other	2799
+BS712477			PV2889	SDY301	0	Days	Time of enrollment		SUB122737		Other	2799
+BS712478			PV2889	SDY301	0	Days	Time of enrollment		SUB122737		Other	2799
+BS712479			PV2889	SDY301	0	Days	Time of enrollment		SUB122737		Other	2799
+BS712480			PV2889	SDY301	0	Days	Time of enrollment		SUB122737		Other	2799
+BS712481			PV2890	SDY301	1	Days	Time of enrollment		SUB122739		Other	2799
+BS712482			PV2890	SDY301	1	Days	Time of enrollment		SUB122739		Other	2799
+BS712483			PV2891	SDY301	3	Days	Time of enrollment		SUB122739		Other	2799
+BS712484			PV2891	SDY301	3	Days	Time of enrollment		SUB122739		Other	2799
+BS712485			PV2892	SDY301	7	Days	Time of enrollment		SUB122739		Other	2799
+BS712486			PV2892	SDY301	7	Days	Time of enrollment		SUB122739		Other	2799
+BS712487			PV2893	SDY301	28	Days	Time of enrollment		SUB122739		Other	2799
+BS712488			PV2893	SDY301	28	Days	Time of enrollment		SUB122739		Other	2799
+BS712489			PV2893	SDY301	28	Days	Time of enrollment		SUB122739		Other	2799
+BS712490			PV2893	SDY301	28	Days	Time of enrollment		SUB122739		Other	2799
+BS712491			PV2889	SDY301	0	Days	Time of enrollment		SUB122739		Other	2799
+BS712492			PV2889	SDY301	0	Days	Time of enrollment		SUB122739		Other	2799
+BS712493			PV2889	SDY301	0	Days	Time of enrollment		SUB122739		Other	2799
+BS712494			PV2889	SDY301	0	Days	Time of enrollment		SUB122739		Other	2799
+BS712495			PV2890	SDY301	1	Days	Time of enrollment		SUB122740		Other	2799
+BS712496			PV2890	SDY301	1	Days	Time of enrollment		SUB122740		Other	2799
+BS712497			PV2891	SDY301	3	Days	Time of enrollment		SUB122740		Other	2799
+BS712498			PV2891	SDY301	3	Days	Time of enrollment		SUB122740		Other	2799
+BS712499			PV2892	SDY301	7	Days	Time of enrollment		SUB122740		Other	2799
+BS712500			PV2892	SDY301	7	Days	Time of enrollment		SUB122740		Other	2799
+BS712501			PV2893	SDY301	28	Days	Time of enrollment		SUB122740		Other	2799
+BS712502			PV2893	SDY301	28	Days	Time of enrollment		SUB122740		Other	2799
+BS712503			PV2893	SDY301	28	Days	Time of enrollment		SUB122740		Other	2799
+BS712504			PV2893	SDY301	28	Days	Time of enrollment		SUB122740		Other	2799
+BS712505			PV2889	SDY301	0	Days	Time of enrollment		SUB122740		Other	2799
+BS712506			PV2889	SDY301	0	Days	Time of enrollment		SUB122740		Other	2799
+BS712507			PV2889	SDY301	0	Days	Time of enrollment		SUB122740		Other	2799
+BS712508			PV2889	SDY301	0	Days	Time of enrollment		SUB122740		Other	2799
+BS712509			PV2890	SDY301	1	Days	Time of enrollment		SUB122742		Other	2799
+BS712510			PV2890	SDY301	1	Days	Time of enrollment		SUB122742		Other	2799
+BS712511			PV2891	SDY301	3	Days	Time of enrollment		SUB122742		Other	2799
+BS712512			PV2891	SDY301	3	Days	Time of enrollment		SUB122742		Other	2799
+BS712513			PV2892	SDY301	7	Days	Time of enrollment		SUB122742		Other	2799
+BS712514			PV2892	SDY301	7	Days	Time of enrollment		SUB122742		Other	2799
+BS712515			PV2893	SDY301	28	Days	Time of enrollment		SUB122742		Other	2799
+BS712516			PV2893	SDY301	28	Days	Time of enrollment		SUB122742		Other	2799
+BS712517			PV2893	SDY301	28	Days	Time of enrollment		SUB122742		Other	2799
+BS712518			PV2893	SDY301	28	Days	Time of enrollment		SUB122742		Other	2799
+BS712519			PV2889	SDY301	0	Days	Time of enrollment		SUB122742		Other	2799
+BS712520			PV2889	SDY301	0	Days	Time of enrollment		SUB122742		Other	2799
+BS712521			PV2889	SDY301	0	Days	Time of enrollment		SUB122742		Other	2799
+BS712522			PV2889	SDY301	0	Days	Time of enrollment		SUB122742		Other	2799
+BS712523			PV2890	SDY301	1	Days	Time of enrollment		SUB122743		Other	2799
+BS712524			PV2890	SDY301	1	Days	Time of enrollment		SUB122743		Other	2799
+BS712525			PV2891	SDY301	3	Days	Time of enrollment		SUB122743		Other	2799
+BS712526			PV2891	SDY301	3	Days	Time of enrollment		SUB122743		Other	2799
+BS712527			PV2892	SDY301	7	Days	Time of enrollment		SUB122743		Other	2799
+BS712528			PV2892	SDY301	7	Days	Time of enrollment		SUB122743		Other	2799
+BS712529			PV2893	SDY301	28	Days	Time of enrollment		SUB122743		Other	2799
+BS712530			PV2893	SDY301	28	Days	Time of enrollment		SUB122743		Other	2799
+BS712531			PV2893	SDY301	28	Days	Time of enrollment		SUB122743		Other	2799
+BS712532			PV2893	SDY301	28	Days	Time of enrollment		SUB122743		Other	2799
+BS712533			PV2889	SDY301	0	Days	Time of enrollment		SUB122743		Other	2799
+BS712534			PV2889	SDY301	0	Days	Time of enrollment		SUB122743		Other	2799
+BS712535			PV2889	SDY301	0	Days	Time of enrollment		SUB122743		Other	2799
+BS712536			PV2889	SDY301	0	Days	Time of enrollment		SUB122743		Other	2799
+BS712537			PV2890	SDY301	1	Days	Time of enrollment		SUB122744		Other	2799
+BS712538			PV2890	SDY301	1	Days	Time of enrollment		SUB122744		Other	2799
+BS712539			PV2891	SDY301	3	Days	Time of enrollment		SUB122744		Other	2799
+BS712540			PV2891	SDY301	3	Days	Time of enrollment		SUB122744		Other	2799
+BS712541			PV2892	SDY301	7	Days	Time of enrollment		SUB122744		Other	2799
+BS712542			PV2892	SDY301	7	Days	Time of enrollment		SUB122744		Other	2799
+BS712543			PV2893	SDY301	28	Days	Time of enrollment		SUB122744		Other	2799
+BS712544			PV2893	SDY301	28	Days	Time of enrollment		SUB122744		Other	2799
+BS712545			PV2893	SDY301	28	Days	Time of enrollment		SUB122744		Other	2799
+BS712546			PV2893	SDY301	28	Days	Time of enrollment		SUB122744		Other	2799
+BS712547			PV2889	SDY301	0	Days	Time of enrollment		SUB122744		Other	2799
+BS712548			PV2889	SDY301	0	Days	Time of enrollment		SUB122744		Other	2799
+BS712549			PV2889	SDY301	0	Days	Time of enrollment		SUB122744		Other	2799
+BS712550			PV2889	SDY301	0	Days	Time of enrollment		SUB122744		Other	2799
+BS712551			PV2890	SDY301	1	Days	Time of enrollment		SUB122747		Other	2799
+BS712552			PV2890	SDY301	1	Days	Time of enrollment		SUB122747		Other	2799
+BS712553			PV2891	SDY301	3	Days	Time of enrollment		SUB122747		Other	2799
+BS712554			PV2891	SDY301	3	Days	Time of enrollment		SUB122747		Other	2799
+BS712555			PV2892	SDY301	7	Days	Time of enrollment		SUB122747		Other	2799
+BS712556			PV2892	SDY301	7	Days	Time of enrollment		SUB122747		Other	2799
+BS712557			PV2893	SDY301	28	Days	Time of enrollment		SUB122747		Other	2799
+BS712558			PV2893	SDY301	28	Days	Time of enrollment		SUB122747		Other	2799
+BS712559			PV2893	SDY301	28	Days	Time of enrollment		SUB122747		Other	2799
+BS712560			PV2893	SDY301	28	Days	Time of enrollment		SUB122747		Other	2799
+BS712561			PV2889	SDY301	0	Days	Time of enrollment		SUB122747		Other	2799
+BS712562			PV2889	SDY301	0	Days	Time of enrollment		SUB122747		Other	2799
+BS712563			PV2889	SDY301	0	Days	Time of enrollment		SUB122747		Other	2799
+BS712564			PV2889	SDY301	0	Days	Time of enrollment		SUB122747		Other	2799
+BS712565			PV2890	SDY301	1	Days	Time of enrollment		SUB122748		Other	2799
+BS712566			PV2890	SDY301	1	Days	Time of enrollment		SUB122748		Other	2799
+BS712567			PV2891	SDY301	3	Days	Time of enrollment		SUB122748		Other	2799
+BS712568			PV2891	SDY301	3	Days	Time of enrollment		SUB122748		Other	2799
+BS712569			PV2892	SDY301	7	Days	Time of enrollment		SUB122748		Other	2799
+BS712570			PV2892	SDY301	7	Days	Time of enrollment		SUB122748		Other	2799
+BS712571			PV2893	SDY301	28	Days	Time of enrollment		SUB122748		Other	2799
+BS712572			PV2893	SDY301	28	Days	Time of enrollment		SUB122748		Other	2799
+BS712573			PV2893	SDY301	28	Days	Time of enrollment		SUB122748		Other	2799
+BS712574			PV2893	SDY301	28	Days	Time of enrollment		SUB122748		Other	2799
+BS712575			PV2889	SDY301	0	Days	Time of enrollment		SUB122748		Other	2799
+BS712576			PV2889	SDY301	0	Days	Time of enrollment		SUB122748		Other	2799
+BS712577			PV2889	SDY301	0	Days	Time of enrollment		SUB122748		Other	2799
+BS712578			PV2889	SDY301	0	Days	Time of enrollment		SUB122748		Other	2799
+BS712579			PV2890	SDY301	1	Days	Time of enrollment		SUB122749		Other	2799
+BS712580			PV2890	SDY301	1	Days	Time of enrollment		SUB122749		Other	2799
+BS712581			PV2891	SDY301	3	Days	Time of enrollment		SUB122749		Other	2799
+BS712582			PV2891	SDY301	3	Days	Time of enrollment		SUB122749		Other	2799
+BS712583			PV2892	SDY301	7	Days	Time of enrollment		SUB122749		Other	2799
+BS712584			PV2892	SDY301	7	Days	Time of enrollment		SUB122749		Other	2799
+BS712585			PV2893	SDY301	28	Days	Time of enrollment		SUB122749		Other	2799
+BS712586			PV2893	SDY301	28	Days	Time of enrollment		SUB122749		Other	2799
+BS712587			PV2893	SDY301	28	Days	Time of enrollment		SUB122749		Other	2799
+BS712588			PV2893	SDY301	28	Days	Time of enrollment		SUB122749		Other	2799
+BS712589			PV2889	SDY301	0	Days	Time of enrollment		SUB122749		Other	2799
+BS712590			PV2889	SDY301	0	Days	Time of enrollment		SUB122749		Other	2799
+BS712591			PV2889	SDY301	0	Days	Time of enrollment		SUB122749		Other	2799
+BS712592			PV2889	SDY301	0	Days	Time of enrollment		SUB122749		Other	2799
+BS712593			PV2890	SDY301	1	Days	Time of enrollment		SUB122750		Other	2799
+BS712594			PV2890	SDY301	1	Days	Time of enrollment		SUB122750		Other	2799
+BS712595			PV2891	SDY301	3	Days	Time of enrollment		SUB122750		Other	2799
+BS712596			PV2891	SDY301	3	Days	Time of enrollment		SUB122750		Other	2799
+BS712597			PV2892	SDY301	7	Days	Time of enrollment		SUB122750		Other	2799
+BS712598			PV2892	SDY301	7	Days	Time of enrollment		SUB122750		Other	2799
+BS712599			PV2893	SDY301	28	Days	Time of enrollment		SUB122750		Other	2799
+BS712600			PV2893	SDY301	28	Days	Time of enrollment		SUB122750		Other	2799
+BS712601			PV2893	SDY301	28	Days	Time of enrollment		SUB122750		Other	2799
+BS712602			PV2893	SDY301	28	Days	Time of enrollment		SUB122750		Other	2799
+BS712603			PV2889	SDY301	0	Days	Time of enrollment		SUB122750		Other	2799
+BS712604			PV2889	SDY301	0	Days	Time of enrollment		SUB122750		Other	2799
+BS712605			PV2889	SDY301	0	Days	Time of enrollment		SUB122750		Other	2799
+BS712606			PV2889	SDY301	0	Days	Time of enrollment		SUB122750		Other	2799
+BS712607			PV2890	SDY301	1	Days	Time of enrollment		SUB122752		Other	2799
+BS712608			PV2890	SDY301	1	Days	Time of enrollment		SUB122752		Other	2799
+BS712609			PV2891	SDY301	3	Days	Time of enrollment		SUB122752		Other	2799
+BS712610			PV2891	SDY301	3	Days	Time of enrollment		SUB122752		Other	2799
+BS712611			PV2892	SDY301	7	Days	Time of enrollment		SUB122752		Other	2799
+BS712612			PV2892	SDY301	7	Days	Time of enrollment		SUB122752		Other	2799
+BS712613			PV2893	SDY301	28	Days	Time of enrollment		SUB122752		Other	2799
+BS712614			PV2893	SDY301	28	Days	Time of enrollment		SUB122752		Other	2799
+BS712615			PV2893	SDY301	28	Days	Time of enrollment		SUB122752		Other	2799
+BS712616			PV2893	SDY301	28	Days	Time of enrollment		SUB122752		Other	2799
+BS712617			PV2889	SDY301	0	Days	Time of enrollment		SUB122752		Other	2799
+BS712618			PV2889	SDY301	0	Days	Time of enrollment		SUB122752		Other	2799
+BS712619			PV2889	SDY301	0	Days	Time of enrollment		SUB122752		Other	2799
+BS712620			PV2889	SDY301	0	Days	Time of enrollment		SUB122752		Other	2799
+BS712621			PV2890	SDY301	1	Days	Time of enrollment		SUB122753		Other	2799
+BS712622			PV2890	SDY301	1	Days	Time of enrollment		SUB122753		Other	2799
+BS712623			PV2891	SDY301	3	Days	Time of enrollment		SUB122753		Other	2799
+BS712624			PV2891	SDY301	3	Days	Time of enrollment		SUB122753		Other	2799
+BS712625			PV2892	SDY301	7	Days	Time of enrollment		SUB122753		Other	2799
+BS712626			PV2892	SDY301	7	Days	Time of enrollment		SUB122753		Other	2799
+BS712627			PV2893	SDY301	28	Days	Time of enrollment		SUB122753		Other	2799
+BS712628			PV2893	SDY301	28	Days	Time of enrollment		SUB122753		Other	2799
+BS712629			PV2893	SDY301	28	Days	Time of enrollment		SUB122753		Other	2799
+BS712630			PV2893	SDY301	28	Days	Time of enrollment		SUB122753		Other	2799
+BS712631			PV2889	SDY301	0	Days	Time of enrollment		SUB122753		Other	2799
+BS712632			PV2889	SDY301	0	Days	Time of enrollment		SUB122753		Other	2799
+BS712633			PV2889	SDY301	0	Days	Time of enrollment		SUB122753		Other	2799
+BS712634			PV2889	SDY301	0	Days	Time of enrollment		SUB122753		Other	2799
+BS712635			PV2890	SDY301	1	Days	Time of enrollment		SUB122756		Other	2799
+BS712636			PV2890	SDY301	1	Days	Time of enrollment		SUB122756		Other	2799
+BS712637			PV2891	SDY301	3	Days	Time of enrollment		SUB122756		Other	2799
+BS712638			PV2891	SDY301	3	Days	Time of enrollment		SUB122756		Other	2799
+BS712639			PV2892	SDY301	7	Days	Time of enrollment		SUB122756		Other	2799
+BS712640			PV2892	SDY301	7	Days	Time of enrollment		SUB122756		Other	2799
+BS712641			PV2893	SDY301	28	Days	Time of enrollment		SUB122756		Other	2799
+BS712642			PV2893	SDY301	28	Days	Time of enrollment		SUB122756		Other	2799
+BS712643			PV2893	SDY301	28	Days	Time of enrollment		SUB122756		Other	2799
+BS712644			PV2893	SDY301	28	Days	Time of enrollment		SUB122756		Other	2799
+BS712645			PV2889	SDY301	0	Days	Time of enrollment		SUB122756		Other	2799
+BS712646			PV2889	SDY301	0	Days	Time of enrollment		SUB122756		Other	2799
+BS712647			PV2889	SDY301	0	Days	Time of enrollment		SUB122756		Other	2799
+BS712648			PV2889	SDY301	0	Days	Time of enrollment		SUB122756		Other	2799
+BS712649			PV2888	SDY301	-5	Days	Time of enrollment		SUB133802		Other	2799
+BS712650			PV2888	SDY301	-5	Days	Time of enrollment		SUB133802		Other	2799
+BS712651			PV2889	SDY301	0	Days	Time of enrollment		SUB133802		Other	2799
+BS712652			PV2889	SDY301	0	Days	Time of enrollment		SUB133802		Other	2799
+BS712653			PV2889	SDY301	0	Days	Time of enrollment		SUB133802		Other	2799
+BS712654			PV2889	SDY301	0	Days	Time of enrollment		SUB133802		Other	2799
+BS712655			PV2890	SDY301	1	Days	Time of enrollment		SUB133802		Other	2799
+BS712656			PV2890	SDY301	1	Days	Time of enrollment		SUB133802		Other	2799
+BS712657			PV2891	SDY301	3	Days	Time of enrollment		SUB133802		Other	2799
+BS712658			PV2891	SDY301	3	Days	Time of enrollment		SUB133802		Other	2799
+BS712659			PV2892	SDY301	7	Days	Time of enrollment		SUB133802		Other	2799
+BS712660			PV2892	SDY301	7	Days	Time of enrollment		SUB133802		Other	2799
+BS712661			PV2893	SDY301	28	Days	Time of enrollment		SUB133802		Other	2799
+BS712662			PV2893	SDY301	28	Days	Time of enrollment		SUB133802		Other	2799
+BS712663			PV2893	SDY301	28	Days	Time of enrollment		SUB133802		Other	2799
+BS712664			PV2893	SDY301	28	Days	Time of enrollment		SUB133802		Other	2799
+BS712665			PV2888	SDY301	-5	Days	Time of enrollment		SUB133803		Other	2799
+BS712666			PV2888	SDY301	-5	Days	Time of enrollment		SUB133803		Other	2799
+BS712667			PV2889	SDY301	0	Days	Time of enrollment		SUB133803		Other	2799
+BS712668			PV2889	SDY301	0	Days	Time of enrollment		SUB133803		Other	2799
+BS712669			PV2889	SDY301	0	Days	Time of enrollment		SUB133803		Other	2799
+BS712670			PV2889	SDY301	0	Days	Time of enrollment		SUB133803		Other	2799
+BS712671			PV2890	SDY301	1	Days	Time of enrollment		SUB133803		Other	2799
+BS712672			PV2890	SDY301	1	Days	Time of enrollment		SUB133803		Other	2799
+BS712673			PV2891	SDY301	3	Days	Time of enrollment		SUB133803		Other	2799
+BS712674			PV2891	SDY301	3	Days	Time of enrollment		SUB133803		Other	2799
+BS712675			PV2892	SDY301	7	Days	Time of enrollment		SUB133803		Other	2799
+BS712676			PV2892	SDY301	7	Days	Time of enrollment		SUB133803		Other	2799
+BS712677			PV2893	SDY301	28	Days	Time of enrollment		SUB133803		Other	2799
+BS712678			PV2893	SDY301	28	Days	Time of enrollment		SUB133803		Other	2799
+BS712679			PV2893	SDY301	28	Days	Time of enrollment		SUB133803		Other	2799
+BS712680			PV2893	SDY301	28	Days	Time of enrollment		SUB133803		Other	2799
+BS712681			PV2888	SDY301	-5	Days	Time of enrollment		SUB133804		Other	2799
+BS712682			PV2888	SDY301	-5	Days	Time of enrollment		SUB133804		Other	2799
+BS712683			PV2889	SDY301	0	Days	Time of enrollment		SUB133804		Other	2799
+BS712684			PV2889	SDY301	0	Days	Time of enrollment		SUB133804		Other	2799
+BS712685			PV2889	SDY301	0	Days	Time of enrollment		SUB133804		Other	2799
+BS712686			PV2889	SDY301	0	Days	Time of enrollment		SUB133804		Other	2799
+BS712687			PV2890	SDY301	1	Days	Time of enrollment		SUB133804		Other	2799
+BS712688			PV2890	SDY301	1	Days	Time of enrollment		SUB133804		Other	2799
+BS712689			PV2891	SDY301	3	Days	Time of enrollment		SUB133804		Other	2799
+BS712690			PV2891	SDY301	3	Days	Time of enrollment		SUB133804		Other	2799
+BS712691			PV2892	SDY301	7	Days	Time of enrollment		SUB133804		Other	2799
+BS712692			PV2892	SDY301	7	Days	Time of enrollment		SUB133804		Other	2799
+BS712693			PV2893	SDY301	28	Days	Time of enrollment		SUB133804		Other	2799
+BS712694			PV2893	SDY301	28	Days	Time of enrollment		SUB133804		Other	2799
+BS712695			PV2893	SDY301	28	Days	Time of enrollment		SUB133804		Other	2799
+BS712696			PV2893	SDY301	28	Days	Time of enrollment		SUB133804		Other	2799
+BS712697			PV2888	SDY301	-5	Days	Time of enrollment		SUB133805		Other	2799
+BS712698			PV2888	SDY301	-5	Days	Time of enrollment		SUB133805		Other	2799
+BS712699			PV2889	SDY301	0	Days	Time of enrollment		SUB133805		Other	2799
+BS712700			PV2889	SDY301	0	Days	Time of enrollment		SUB133805		Other	2799
+BS712701			PV2889	SDY301	0	Days	Time of enrollment		SUB133805		Other	2799
+BS712702			PV2889	SDY301	0	Days	Time of enrollment		SUB133805		Other	2799
+BS712703			PV2890	SDY301	1	Days	Time of enrollment		SUB133805		Other	2799
+BS712704			PV2890	SDY301	1	Days	Time of enrollment		SUB133805		Other	2799
+BS712705			PV2891	SDY301	3	Days	Time of enrollment		SUB133805		Other	2799
+BS712706			PV2891	SDY301	3	Days	Time of enrollment		SUB133805		Other	2799
+BS712707			PV2892	SDY301	7	Days	Time of enrollment		SUB133805		Other	2799
+BS712708			PV2892	SDY301	7	Days	Time of enrollment		SUB133805		Other	2799
+BS712709			PV2893	SDY301	28	Days	Time of enrollment		SUB133805		Other	2799
+BS712710			PV2893	SDY301	28	Days	Time of enrollment		SUB133805		Other	2799
+BS712711			PV2893	SDY301	28	Days	Time of enrollment		SUB133805		Other	2799
+BS712712			PV2893	SDY301	28	Days	Time of enrollment		SUB133805		Other	2799
+BS712713			PV2888	SDY301	-5	Days	Time of enrollment		SUB133806		Other	2799
+BS712714			PV2888	SDY301	-5	Days	Time of enrollment		SUB133806		Other	2799
+BS712715			PV2889	SDY301	0	Days	Time of enrollment		SUB133806		Other	2799
+BS712716			PV2889	SDY301	0	Days	Time of enrollment		SUB133806		Other	2799
+BS712717			PV2889	SDY301	0	Days	Time of enrollment		SUB133806		Other	2799
+BS712718			PV2889	SDY301	0	Days	Time of enrollment		SUB133806		Other	2799
+BS712719			PV2890	SDY301	1	Days	Time of enrollment		SUB133806		Other	2799
+BS712720			PV2890	SDY301	1	Days	Time of enrollment		SUB133806		Other	2799
+BS712721			PV2891	SDY301	3	Days	Time of enrollment		SUB133806		Other	2799
+BS712722			PV2891	SDY301	3	Days	Time of enrollment		SUB133806		Other	2799
+BS712723			PV2892	SDY301	7	Days	Time of enrollment		SUB133806		Other	2799
+BS712724			PV2892	SDY301	7	Days	Time of enrollment		SUB133806		Other	2799
+BS712725			PV2893	SDY301	28	Days	Time of enrollment		SUB133806		Other	2799
+BS712726			PV2893	SDY301	28	Days	Time of enrollment		SUB133806		Other	2799
+BS712727			PV2893	SDY301	28	Days	Time of enrollment		SUB133806		Other	2799
+BS712728			PV2893	SDY301	28	Days	Time of enrollment		SUB133806		Other	2799
+BS712729			PV2888	SDY301	-5	Days	Time of enrollment		SUB133807		Other	2799
+BS712730			PV2888	SDY301	-5	Days	Time of enrollment		SUB133807		Other	2799
+BS712731			PV2889	SDY301	0	Days	Time of enrollment		SUB133807		Other	2799
+BS712732			PV2889	SDY301	0	Days	Time of enrollment		SUB133807		Other	2799
+BS712733			PV2889	SDY301	0	Days	Time of enrollment		SUB133807		Other	2799
+BS712734			PV2889	SDY301	0	Days	Time of enrollment		SUB133807		Other	2799
+BS712735			PV2890	SDY301	1	Days	Time of enrollment		SUB133807		Other	2799
+BS712736			PV2890	SDY301	1	Days	Time of enrollment		SUB133807		Other	2799
+BS712737			PV2891	SDY301	3	Days	Time of enrollment		SUB133807		Other	2799
+BS712738			PV2891	SDY301	3	Days	Time of enrollment		SUB133807		Other	2799
+BS712739			PV2892	SDY301	7	Days	Time of enrollment		SUB133807		Other	2799
+BS712740			PV2892	SDY301	7	Days	Time of enrollment		SUB133807		Other	2799
+BS712741			PV2893	SDY301	28	Days	Time of enrollment		SUB133807		Other	2799
+BS712742			PV2893	SDY301	28	Days	Time of enrollment		SUB133807		Other	2799
+BS712743			PV2893	SDY301	28	Days	Time of enrollment		SUB133807		Other	2799
+BS712744			PV2893	SDY301	28	Days	Time of enrollment		SUB133807		Other	2799
+BS712745			PV2888	SDY301	-5	Days	Time of enrollment		SUB133808		Other	2799
+BS712746			PV2888	SDY301	-5	Days	Time of enrollment		SUB133808		Other	2799
+BS712747			PV2889	SDY301	0	Days	Time of enrollment		SUB133808		Other	2799
+BS712748			PV2889	SDY301	0	Days	Time of enrollment		SUB133808		Other	2799
+BS712749			PV2889	SDY301	0	Days	Time of enrollment		SUB133808		Other	2799
+BS712750			PV2889	SDY301	0	Days	Time of enrollment		SUB133808		Other	2799
+BS712751			PV2890	SDY301	1	Days	Time of enrollment		SUB133808		Other	2799
+BS712752			PV2890	SDY301	1	Days	Time of enrollment		SUB133808		Other	2799
+BS712753			PV2891	SDY301	3	Days	Time of enrollment		SUB133808		Other	2799
+BS712754			PV2891	SDY301	3	Days	Time of enrollment		SUB133808		Other	2799
+BS712755			PV2892	SDY301	7	Days	Time of enrollment		SUB133808		Other	2799
+BS712756			PV2892	SDY301	7	Days	Time of enrollment		SUB133808		Other	2799
+BS712757			PV2893	SDY301	28	Days	Time of enrollment		SUB133808		Other	2799
+BS712758			PV2893	SDY301	28	Days	Time of enrollment		SUB133808		Other	2799
+BS712759			PV2893	SDY301	28	Days	Time of enrollment		SUB133808		Other	2799
+BS712760			PV2893	SDY301	28	Days	Time of enrollment		SUB133808		Other	2799
+BS712761			PV2888	SDY301	-5	Days	Time of enrollment		SUB133809		Other	2799
+BS712762			PV2888	SDY301	-5	Days	Time of enrollment		SUB133809		Other	2799
+BS712763			PV2889	SDY301	0	Days	Time of enrollment		SUB133809		Other	2799
+BS712764			PV2889	SDY301	0	Days	Time of enrollment		SUB133809		Other	2799
+BS712765			PV2889	SDY301	0	Days	Time of enrollment		SUB133809		Other	2799
+BS712766			PV2889	SDY301	0	Days	Time of enrollment		SUB133809		Other	2799
+BS712767			PV2890	SDY301	1	Days	Time of enrollment		SUB133809		Other	2799
+BS712768			PV2890	SDY301	1	Days	Time of enrollment		SUB133809		Other	2799
+BS712769			PV2891	SDY301	3	Days	Time of enrollment		SUB133809		Other	2799
+BS712770			PV2891	SDY301	3	Days	Time of enrollment		SUB133809		Other	2799
+BS712771			PV2892	SDY301	7	Days	Time of enrollment		SUB133809		Other	2799
+BS712772			PV2892	SDY301	7	Days	Time of enrollment		SUB133809		Other	2799
+BS712773			PV2893	SDY301	28	Days	Time of enrollment		SUB133809		Other	2799
+BS712774			PV2893	SDY301	28	Days	Time of enrollment		SUB133809		Other	2799
+BS712775			PV2893	SDY301	28	Days	Time of enrollment		SUB133809		Other	2799
+BS712776			PV2893	SDY301	28	Days	Time of enrollment		SUB133809		Other	2799
+BS712777			PV2888	SDY301	-5	Days	Time of enrollment		SUB133810		Other	2799
+BS712778			PV2888	SDY301	-5	Days	Time of enrollment		SUB133810		Other	2799
+BS712779			PV2889	SDY301	0	Days	Time of enrollment		SUB133810		Other	2799
+BS712780			PV2889	SDY301	0	Days	Time of enrollment		SUB133810		Other	2799
+BS712781			PV2889	SDY301	0	Days	Time of enrollment		SUB133810		Other	2799
+BS712782			PV2889	SDY301	0	Days	Time of enrollment		SUB133810		Other	2799
+BS712783			PV2890	SDY301	1	Days	Time of enrollment		SUB133810		Other	2799
+BS712784			PV2890	SDY301	1	Days	Time of enrollment		SUB133810		Other	2799
+BS712785			PV2891	SDY301	3	Days	Time of enrollment		SUB133810		Other	2799
+BS712786			PV2891	SDY301	3	Days	Time of enrollment		SUB133810		Other	2799
+BS712787			PV2892	SDY301	7	Days	Time of enrollment		SUB133810		Other	2799
+BS712788			PV2892	SDY301	7	Days	Time of enrollment		SUB133810		Other	2799
+BS712789			PV2893	SDY301	28	Days	Time of enrollment		SUB133810		Other	2799
+BS712790			PV2893	SDY301	28	Days	Time of enrollment		SUB133810		Other	2799
+BS712791			PV2893	SDY301	28	Days	Time of enrollment		SUB133810		Other	2799
+BS712792			PV2893	SDY301	28	Days	Time of enrollment		SUB133810		Other	2799
+BS712793			PV2888	SDY301	-5	Days	Time of enrollment		SUB133811		Other	2799
+BS712794			PV2888	SDY301	-5	Days	Time of enrollment		SUB133811		Other	2799
+BS712795			PV2889	SDY301	0	Days	Time of enrollment		SUB133811		Other	2799
+BS712796			PV2889	SDY301	0	Days	Time of enrollment		SUB133811		Other	2799
+BS712797			PV2889	SDY301	0	Days	Time of enrollment		SUB133811		Other	2799
+BS712798			PV2889	SDY301	0	Days	Time of enrollment		SUB133811		Other	2799
+BS712799			PV2890	SDY301	1	Days	Time of enrollment		SUB133811		Other	2799
+BS712800			PV2890	SDY301	1	Days	Time of enrollment		SUB133811		Other	2799
+BS712801			PV2891	SDY301	3	Days	Time of enrollment		SUB133811		Other	2799
+BS712802			PV2891	SDY301	3	Days	Time of enrollment		SUB133811		Other	2799
+BS712803			PV2892	SDY301	7	Days	Time of enrollment		SUB133811		Other	2799
+BS712804			PV2892	SDY301	7	Days	Time of enrollment		SUB133811		Other	2799
+BS712805			PV2893	SDY301	28	Days	Time of enrollment		SUB133811		Other	2799
+BS712806			PV2893	SDY301	28	Days	Time of enrollment		SUB133811		Other	2799
+BS712807			PV2893	SDY301	28	Days	Time of enrollment		SUB133811		Other	2799
+BS712808			PV2893	SDY301	28	Days	Time of enrollment		SUB133811		Other	2799
+BS712809			PV2888	SDY301	-5	Days	Time of enrollment		SUB133812		Other	2799
+BS712810			PV2888	SDY301	-5	Days	Time of enrollment		SUB133812		Other	2799
+BS712811			PV2889	SDY301	0	Days	Time of enrollment		SUB133812		Other	2799
+BS712812			PV2889	SDY301	0	Days	Time of enrollment		SUB133812		Other	2799
+BS712813			PV2889	SDY301	0	Days	Time of enrollment		SUB133812		Other	2799
+BS712814			PV2889	SDY301	0	Days	Time of enrollment		SUB133812		Other	2799
+BS712815			PV2890	SDY301	1	Days	Time of enrollment		SUB133812		Other	2799
+BS712816			PV2890	SDY301	1	Days	Time of enrollment		SUB133812		Other	2799
+BS712817			PV2891	SDY301	3	Days	Time of enrollment		SUB133812		Other	2799
+BS712818			PV2891	SDY301	3	Days	Time of enrollment		SUB133812		Other	2799
+BS712819			PV2892	SDY301	7	Days	Time of enrollment		SUB133812		Other	2799
+BS712820			PV2892	SDY301	7	Days	Time of enrollment		SUB133812		Other	2799
+BS712821			PV2893	SDY301	28	Days	Time of enrollment		SUB133812		Other	2799
+BS712822			PV2893	SDY301	28	Days	Time of enrollment		SUB133812		Other	2799
+BS712823			PV2893	SDY301	28	Days	Time of enrollment		SUB133812		Other	2799
+BS712824			PV2893	SDY301	28	Days	Time of enrollment		SUB133812		Other	2799
+BS712825			PV2888	SDY301	-5	Days	Time of enrollment		SUB133813		Other	2799
+BS712826			PV2888	SDY301	-5	Days	Time of enrollment		SUB133813		Other	2799
+BS712827			PV2889	SDY301	0	Days	Time of enrollment		SUB133813		Other	2799
+BS712828			PV2889	SDY301	0	Days	Time of enrollment		SUB133813		Other	2799
+BS712829			PV2889	SDY301	0	Days	Time of enrollment		SUB133813		Other	2799
+BS712830			PV2889	SDY301	0	Days	Time of enrollment		SUB133813		Other	2799
+BS712831			PV2890	SDY301	1	Days	Time of enrollment		SUB133813		Other	2799
+BS712832			PV2890	SDY301	1	Days	Time of enrollment		SUB133813		Other	2799
+BS712833			PV2891	SDY301	3	Days	Time of enrollment		SUB133813		Other	2799
+BS712834			PV2891	SDY301	3	Days	Time of enrollment		SUB133813		Other	2799
+BS712835			PV2892	SDY301	7	Days	Time of enrollment		SUB133813		Other	2799
+BS712836			PV2892	SDY301	7	Days	Time of enrollment		SUB133813		Other	2799
+BS712837			PV2893	SDY301	28	Days	Time of enrollment		SUB133813		Other	2799
+BS712838			PV2893	SDY301	28	Days	Time of enrollment		SUB133813		Other	2799
+BS712839			PV2893	SDY301	28	Days	Time of enrollment		SUB133813		Other	2799
+BS712840			PV2893	SDY301	28	Days	Time of enrollment		SUB133813		Other	2799
+BS712841			PV2888	SDY301	-5	Days	Time of enrollment		SUB133814		Other	2799
+BS712842			PV2888	SDY301	-5	Days	Time of enrollment		SUB133814		Other	2799
+BS712843			PV2889	SDY301	0	Days	Time of enrollment		SUB133814		Other	2799
+BS712844			PV2889	SDY301	0	Days	Time of enrollment		SUB133814		Other	2799
+BS712845			PV2889	SDY301	0	Days	Time of enrollment		SUB133814		Other	2799
+BS712846			PV2889	SDY301	0	Days	Time of enrollment		SUB133814		Other	2799
+BS712847			PV2890	SDY301	1	Days	Time of enrollment		SUB133814		Other	2799
+BS712848			PV2890	SDY301	1	Days	Time of enrollment		SUB133814		Other	2799
+BS712849			PV2891	SDY301	3	Days	Time of enrollment		SUB133814		Other	2799
+BS712850			PV2891	SDY301	3	Days	Time of enrollment		SUB133814		Other	2799
+BS712851			PV2892	SDY301	7	Days	Time of enrollment		SUB133814		Other	2799
+BS712852			PV2892	SDY301	7	Days	Time of enrollment		SUB133814		Other	2799
+BS712853			PV2893	SDY301	28	Days	Time of enrollment		SUB133814		Other	2799
+BS712854			PV2893	SDY301	28	Days	Time of enrollment		SUB133814		Other	2799
+BS712855			PV2893	SDY301	28	Days	Time of enrollment		SUB133814		Other	2799
+BS712856			PV2893	SDY301	28	Days	Time of enrollment		SUB133814		Other	2799
+BS712857			PV2888	SDY301	-5	Days	Time of enrollment		SUB133815		Other	2799
+BS712858			PV2888	SDY301	-5	Days	Time of enrollment		SUB133815		Other	2799
+BS712859			PV2889	SDY301	0	Days	Time of enrollment		SUB133815		Other	2799
+BS712860			PV2889	SDY301	0	Days	Time of enrollment		SUB133815		Other	2799
+BS712861			PV2889	SDY301	0	Days	Time of enrollment		SUB133815		Other	2799
+BS712862			PV2889	SDY301	0	Days	Time of enrollment		SUB133815		Other	2799
+BS712863			PV2890	SDY301	1	Days	Time of enrollment		SUB133815		Other	2799
+BS712864			PV2890	SDY301	1	Days	Time of enrollment		SUB133815		Other	2799
+BS712865			PV2891	SDY301	3	Days	Time of enrollment		SUB133815		Other	2799
+BS712866			PV2891	SDY301	3	Days	Time of enrollment		SUB133815		Other	2799
+BS712867			PV2892	SDY301	7	Days	Time of enrollment		SUB133815		Other	2799
+BS712868			PV2892	SDY301	7	Days	Time of enrollment		SUB133815		Other	2799
+BS712869			PV2893	SDY301	28	Days	Time of enrollment		SUB133815		Other	2799
+BS712870			PV2893	SDY301	28	Days	Time of enrollment		SUB133815		Other	2799
+BS712871			PV2893	SDY301	28	Days	Time of enrollment		SUB133815		Other	2799
+BS712872			PV2893	SDY301	28	Days	Time of enrollment		SUB133815		Other	2799
+BS720957			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122732		Other	2799
+BS720958			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122742		Other	2799
+BS720959			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122734		Other	2799
+BS720960			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122739		Other	2799
+BS720961			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122740		Other	2799
+BS720962			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122741		Other	2799
+BS720963			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122744		Other	2799
+BS720964			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122747		Other	2799
+BS720965			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122748		Other	2799
+BS720966			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122752		Other	2799
+BS720967			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133814		Other	2799
+BS720968			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122735		Other	2799
+BS720969			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133802		Other	2799
+BS720970			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133803		Other	2799
+BS720971			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133804		Other	2799
+BS720972			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133805		Other	2799
+BS720973			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133806		Other	2799
+BS720974			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133807		Other	2799
+BS720975			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133808		Other	2799
+BS720976			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133809		Other	2799
+BS720977			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133809		Other	2799
+BS720978			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133810		Other	2799
+BS720979			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133811		Other	2799
+BS720980			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133812		Other	2799
+BS720981			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133813		Other	2799
+BS720982			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133814		Other	2799
+BS720983			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122732		Other	2799
+BS720984			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122743		Other	2799
+BS720985			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122733		Other	2799
+BS720986			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122740		Other	2799
+BS720987			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122741		Other	2799
+BS720988			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122744		Other	2799
+BS720989			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122747		Other	2799
+BS720990			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122748		Other	2799
+BS720991			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122752		Other	2799
+BS720992			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133814		Other	2799
+BS720993			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122735		Other	2799
+BS720994			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133802		Other	2799
+BS720995			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133803		Other	2799
+BS720996			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133804		Other	2799
+BS720997			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133805		Other	2799
+BS720998			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133806		Other	2799
+BS720999			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133807		Other	2799
+BS721000			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133808		Other	2799
+BS721001			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133809		Other	2799
+BS721002			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133809		Other	2799
+BS721003			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133810		Other	2799
+BS721004			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133811		Other	2799
+BS721005			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133813		Other	2799
+BS721006			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133814		Other	2799
+BS721007			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122732		Other	2799
+BS721008			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122742		Other	2799
+BS721009			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122743		Other	2799
+BS721010			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122733		Other	2799
+BS721011			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122734		Other	2799
+BS721012			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122737		Other	2799
+BS721013			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122739		Other	2799
+BS721014			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122740		Other	2799
+BS721015			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122741		Other	2799
+BS721016			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122744		Other	2799
+BS721017			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122747		Other	2799
+BS721018			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122748		Other	2799
+BS721019			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122749		Other	2799
+BS721020			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122752		Other	2799
+BS721021			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133814		Other	2799
+BS721022			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122735		Other	2799
+BS721023			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133802		Other	2799
+BS721024			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133803		Other	2799
+BS721025			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133804		Other	2799
+BS721026			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133805		Other	2799
+BS721027			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133806		Other	2799
+BS721028			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133807		Other	2799
+BS721029			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133808		Other	2799
+BS721030			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133809		Other	2799
+BS721031			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133811		Other	2799
+BS721032			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133812		Other	2799
+BS721033			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133813		Other	2799
+BS721034			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133814		Other	2799
+BS721035			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122732		Other	2799
+BS721036			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122742		Other	2799
+BS721037			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122743		Other	2799
+BS721038			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122733		Other	2799
+BS721039			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122734		Other	2799
+BS721040			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122737		Other	2799
+BS721041			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122739		Other	2799
+BS721042			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122740		Other	2799
+BS721043			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122741		Other	2799
+BS721044			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122744		Other	2799
+BS721045			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122747		Other	2799
+BS721046			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122748		Other	2799
+BS721047			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122749		Other	2799
+BS721048			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122752		Other	2799
+BS721049			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133814		Other	2799
+BS721050			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122735		Other	2799
+BS721051			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133802		Other	2799
+BS721052			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133803		Other	2799
+BS721053			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133804		Other	2799
+BS721054			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133805		Other	2799
+BS721055			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133806		Other	2799
+BS721056			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133807		Other	2799
+BS721057			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133808		Other	2799
+BS721058			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133809		Other	2799
+BS721059			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133810		Other	2799
+BS721060			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133811		Other	2799
+BS721061			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133812		Other	2799
+BS721062			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133813		Other	2799
+BS721063			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB133814		Other	2799
+BS721064			PV2143	SDY301	0	Days	Time of initial vaccine administration		SUB122753		Other	2799
+BS751054			PV2889	SDY301	0	Days	Time of enrollment		SUB133802		Whole blood	2799
+BS751055			PV2889	SDY301	0	Days	Time of enrollment		SUB133803		Whole blood	2799
+BS751056			PV2889	SDY301	0	Days	Time of enrollment		SUB133804		Whole blood	2799
+BS751057			PV2889	SDY301	0	Days	Time of enrollment		SUB133805		Whole blood	2799
+BS751058			PV2889	SDY301	0	Days	Time of enrollment		SUB133806		Whole blood	2799
+BS751059			PV2889	SDY301	0	Days	Time of enrollment		SUB133807		Whole blood	2799
+BS751060			PV2889	SDY301	0	Days	Time of enrollment		SUB133808		Whole blood	2799
+BS751061			PV2889	SDY301	0	Days	Time of enrollment		SUB133809		Whole blood	2799
+BS751062			PV2889	SDY301	0	Days	Time of enrollment		SUB133810		Whole blood	2799
+BS751063			PV2889	SDY301	0	Days	Time of enrollment		SUB133811		Whole blood	2799
+BS751064			PV2889	SDY301	0	Days	Time of enrollment		SUB133812		Whole blood	2799
+BS751065			PV2889	SDY301	0	Days	Time of enrollment		SUB133813		Whole blood	2799
+BS751066			PV2889	SDY301	0	Days	Time of enrollment		SUB133814		Whole blood	2799
+BS751067			PV2889	SDY301	0	Days	Time of enrollment		SUB133815		Whole blood	2799
+BS751068			PV2889	SDY301	0	Days	Time of enrollment		SUB122716		Whole blood	2799
+BS751069			PV2889	SDY301	0	Days	Time of enrollment		SUB122718		Whole blood	2799
+BS751070			PV2889	SDY301	0	Days	Time of enrollment		SUB122719		Whole blood	2799
+BS751071			PV2889	SDY301	0	Days	Time of enrollment		SUB122722		Whole blood	2799
+BS751072			PV2889	SDY301	0	Days	Time of enrollment		SUB122723		Whole blood	2799
+BS751073			PV2889	SDY301	0	Days	Time of enrollment		SUB122725		Whole blood	2799
+BS751074			PV2889	SDY301	0	Days	Time of enrollment		SUB122728		Whole blood	2799
+BS751075			PV2889	SDY301	0	Days	Time of enrollment		SUB122729		Whole blood	2799
+BS751076			PV2889	SDY301	0	Days	Time of enrollment		SUB122733		Whole blood	2799
+BS751077			PV2889	SDY301	0	Days	Time of enrollment		SUB122734		Whole blood	2799
+BS751078			PV2889	SDY301	0	Days	Time of enrollment		SUB122735		Whole blood	2799
+BS751079			PV2889	SDY301	0	Days	Time of enrollment		SUB122737		Whole blood	2799
+BS751080			PV2889	SDY301	0	Days	Time of enrollment		SUB122739		Whole blood	2799
+BS751081			PV2889	SDY301	0	Days	Time of enrollment		SUB122740		Whole blood	2799
+BS751082			PV2889	SDY301	0	Days	Time of enrollment		SUB122742		Whole blood	2799
+BS751083			PV2889	SDY301	0	Days	Time of enrollment		SUB122743		Whole blood	2799
+BS751084			PV2889	SDY301	0	Days	Time of enrollment		SUB122744		Whole blood	2799
+BS751085			PV2889	SDY301	0	Days	Time of enrollment		SUB122747		Whole blood	2799
+BS751086			PV2889	SDY301	0	Days	Time of enrollment		SUB122748		Whole blood	2799
+BS751087			PV2889	SDY301	0	Days	Time of enrollment		SUB122749		Whole blood	2799
+BS751088			PV2889	SDY301	0	Days	Time of enrollment		SUB122750		Whole blood	2799
+BS751089			PV2889	SDY301	0	Days	Time of enrollment		SUB122752		Whole blood	2799
+BS751090			PV2889	SDY301	0	Days	Time of enrollment		SUB122753		Whole blood	2799
+BS751091			PV2889	SDY301	0	Days	Time of enrollment		SUB122756		Whole blood	2799
+BS770823	WB	V14	PV2894	SDY301	120	Days	Time of initial vaccine administration		SUB122716		Whole blood	2799
+BS770824	WB	V15	PV2895	SDY301	240	Days	Time of initial vaccine administration		SUB122716		Whole blood	2799
+BS770825	WB	V14	PV2894	SDY301	120	Days	Time of initial vaccine administration		SUB122718		Whole blood	2799
+BS770826	WB	V15	PV2895	SDY301	240	Days	Time of initial vaccine administration		SUB122718		Whole blood	2799
+BS770827	WB	V14	PV2894	SDY301	120	Days	Time of initial vaccine administration		SUB122719		Whole blood	2799
+BS770828	WB	V15	PV2895	SDY301	240	Days	Time of initial vaccine administration		SUB122719		Whole blood	2799
+BS770829	WB	V13	PV2893	SDY301	28	Days	Time of initial vaccine administration		SUB122722		Whole blood	2799
+BS770830	WB	V14	PV2894	SDY301	120	Days	Time of initial vaccine administration		SUB122722		Whole blood	2799
+BS770831	WB	V15	PV2895	SDY301	240	Days	Time of initial vaccine administration		SUB122722		Whole blood	2799
+BS770832	WB	V14	PV2894	SDY301	120	Days	Time of initial vaccine administration		SUB122723		Whole blood	2799
+BS770833	WB	V15	PV2895	SDY301	240	Days	Time of initial vaccine administration		SUB122723		Whole blood	2799
+BS770834	WB	V14	PV2894	SDY301	120	Days	Time of initial vaccine administration		SUB122724		Whole blood	2799
+BS770835	WB	V15	PV2895	SDY301	240	Days	Time of initial vaccine administration		SUB122724		Whole blood	2799
+BS770836	WB	V14	PV2894	SDY301	120	Days	Time of initial vaccine administration		SUB122725		Whole blood	2799
+BS770837	WB	V15	PV2895	SDY301	240	Days	Time of initial vaccine administration		SUB122725		Whole blood	2799
+BS770838	WB	V14	PV2894	SDY301	120	Days	Time of initial vaccine administration		SUB122728		Whole blood	2799
+BS770839	WB	V15	PV2895	SDY301	240	Days	Time of initial vaccine administration		SUB122728		Whole blood	2799
+BS770840	WB	V14	PV2894	SDY301	120	Days	Time of initial vaccine administration		SUB122732		Whole blood	2799
+BS770841	WB	V15	PV2895	SDY301	240	Days	Time of initial vaccine administration		SUB122732		Whole blood	2799
+BS770842	WB	V14	PV2894	SDY301	120	Days	Time of initial vaccine administration		SUB122733		Whole blood	2799
+BS770843	WB	V15	PV2895	SDY301	240	Days	Time of initial vaccine administration		SUB122733		Whole blood	2799
+BS770844	WB	V14	PV2894	SDY301	120	Days	Time of initial vaccine administration		SUB122734		Whole blood	2799
+BS770845	WB	V15	PV2895	SDY301	240	Days	Time of initial vaccine administration		SUB122734		Whole blood	2799
+BS770846	WB	V14	PV2894	SDY301	120	Days	Time of initial vaccine administration		SUB122735		Whole blood	2799
+BS770847	WB	V15	PV2895	SDY301	240	Days	Time of initial vaccine administration		SUB122735		Whole blood	2799
+BS770848	WB	V14	PV2894	SDY301	120	Days	Time of initial vaccine administration		SUB122737		Whole blood	2799
+BS770849	WB	V15	PV2895	SDY301	240	Days	Time of initial vaccine administration		SUB122737		Whole blood	2799
+BS770850	WB	V14	PV2894	SDY301	120	Days	Time of initial vaccine administration		SUB122739		Whole blood	2799
+BS770851	WB	V14	PV2894	SDY301	120	Days	Time of initial vaccine administration		SUB122740		Whole blood	2799
+BS770852	WB	V15	PV2895	SDY301	240	Days	Time of initial vaccine administration		SUB122740		Whole blood	2799
+BS770853	WB	V14	PV2894	SDY301	120	Days	Time of initial vaccine administration		SUB122742		Whole blood	2799
+BS770854	WB	V15	PV2895	SDY301	240	Days	Time of initial vaccine administration		SUB122742		Whole blood	2799
+BS770855	WB	V14	PV2894	SDY301	120	Days	Time of initial vaccine administration		SUB122743		Whole blood	2799
+BS770856	WB	V15	PV2895	SDY301	240	Days	Time of initial vaccine administration		SUB122743		Whole blood	2799
+BS770857	WB	V14	PV2894	SDY301	120	Days	Time of initial vaccine administration		SUB122748		Whole blood	2799
+BS770858	WB	V15	PV2895	SDY301	240	Days	Time of initial vaccine administration		SUB122748		Whole blood	2799
+BS770859	WB	V14	PV2894	SDY301	120	Days	Time of initial vaccine administration		SUB122749		Whole blood	2799
+BS770860	WB	V15	PV2895	SDY301	240	Days	Time of initial vaccine administration		SUB122749		Whole blood	2799
+BS770861	WB	V14	PV2894	SDY301	120	Days	Time of initial vaccine administration		SUB122750		Whole blood	2799
+BS770862	WB	V15	PV2895	SDY301	240	Days	Time of initial vaccine administration		SUB122750		Whole blood	2799
+BS770863	WB	V14	PV2894	SDY301	120	Days	Time of initial vaccine administration		SUB122752		Whole blood	2799
+BS770864	WB	V15	PV2895	SDY301	240	Days	Time of initial vaccine administration		SUB122752		Whole blood	2799
+BS770865	WB	V14	PV2894	SDY301	120	Days	Time of initial vaccine administration		SUB122753		Whole blood	2799
+BS770866	WB	V15	PV2895	SDY301	240	Days	Time of initial vaccine administration		SUB122753		Whole blood	2799
+BS770867	WB	V14	PV2894	SDY301	120	Days	Time of initial vaccine administration		SUB122756		Whole blood	2799
+BS770868	WB	V15	PV2895	SDY301	240	Days	Time of initial vaccine administration		SUB122756		Whole blood	2799

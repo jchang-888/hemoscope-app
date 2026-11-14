@@ -1,0 +1,856 @@
+BIOSAMPLE_ACCESSION	DESCRIPTION	NAME	PLANNED_VISIT_ACCESSION	STUDY_ACCESSION	STUDY_TIME_COLLECTED	STUDY_TIME_COLLECTED_UNIT	STUDY_TIME_T0_EVENT	STUDY_TIME_T0_EVENT_SPECIFY	SUBJECT_ACCESSION	SUBTYPE	TYPE	WORKSPACE_ID
+BS709299			PV2855	SDY296	-7	Days	Time of enrollment		SUB122716		Whole blood	2799
+BS709300			PV2855	SDY296	-7	Days	Time of enrollment		SUB122716		Whole blood	2799
+BS709301			PV2856	SDY296	0	Days	Time of enrollment		SUB122716		Serum	2799
+BS709302			PV2856	SDY296	0	Days	Time of enrollment		SUB122716		Whole blood	2799
+BS709303			PV2856	SDY296	0	Days	Time of enrollment		SUB122716		Serum	2799
+BS709304			PV2856	SDY296	0	Days	Time of enrollment		SUB122716		Whole blood	2799
+BS709305			PV2857	SDY296	1	Days	Time of enrollment		SUB122716		Whole blood	2799
+BS709306			PV2857	SDY296	1	Days	Time of enrollment		SUB122716		Whole blood	2799
+BS709307			PV2858	SDY296	3	Days	Time of enrollment		SUB122716		Whole blood	2799
+BS709308			PV2858	SDY296	3	Days	Time of enrollment		SUB122716		Whole blood	2799
+BS709309			PV2859	SDY296	7	Days	Time of enrollment		SUB122716		Whole blood	2799
+BS709310			PV2859	SDY296	7	Days	Time of enrollment		SUB122716		Whole blood	2799
+BS709311			PV2860	SDY296	28	Days	Time of enrollment		SUB122716		Serum	2799
+BS709312			PV2860	SDY296	28	Days	Time of enrollment		SUB122716		Whole blood	2799
+BS709313			PV2860	SDY296	28	Days	Time of enrollment		SUB122716		Serum	2799
+BS709314			PV2860	SDY296	28	Days	Time of enrollment		SUB122716		Whole blood	2799
+BS709315			PV2861	SDY296	120	Days	Time of enrollment		SUB122716		Other	2799
+BS709316			PV2861	SDY296	120	Days	Time of enrollment		SUB122716		Whole blood	2799
+BS709317			PV2862	SDY296	240	Days	Time of enrollment		SUB122716		Other	2799
+BS709318			PV2862	SDY296	240	Days	Time of enrollment		SUB122716		Whole blood	2799
+BS709319			PV2855	SDY296	-7	Days	Time of enrollment		SUB122717		Other	2799
+BS709320			PV2855	SDY296	-7	Days	Time of enrollment		SUB122717		Whole blood	2799
+BS709321			PV2856	SDY296	0	Days	Time of enrollment		SUB122717		Other	2799
+BS709322			PV2856	SDY296	0	Days	Time of enrollment		SUB122717		Other	2799
+BS709323			PV2856	SDY296	0	Days	Time of enrollment		SUB122717		Other	2799
+BS709324			PV2856	SDY296	0	Days	Time of enrollment		SUB122717		Whole blood	2799
+BS709325			PV2857	SDY296	1	Days	Time of enrollment		SUB122717		Other	2799
+BS709326			PV2857	SDY296	1	Days	Time of enrollment		SUB122717		Whole blood	2799
+BS709327			PV2858	SDY296	3	Days	Time of enrollment		SUB122717		Other	2799
+BS709328			PV2858	SDY296	3	Days	Time of enrollment		SUB122717		Whole blood	2799
+BS709329			PV2859	SDY296	7	Days	Time of enrollment		SUB122717		Other	2799
+BS709330			PV2859	SDY296	7	Days	Time of enrollment		SUB122717		Whole blood	2799
+BS709331			PV2860	SDY296	28	Days	Time of enrollment		SUB122717		Other	2799
+BS709332			PV2860	SDY296	28	Days	Time of enrollment		SUB122717		Other	2799
+BS709333			PV2860	SDY296	28	Days	Time of enrollment		SUB122717		Other	2799
+BS709334			PV2860	SDY296	28	Days	Time of enrollment		SUB122717		Whole blood	2799
+BS709335			PV2855	SDY296	-7	Days	Time of enrollment		SUB122718		Whole blood	2799
+BS709336			PV2855	SDY296	-7	Days	Time of enrollment		SUB122718		Whole blood	2799
+BS709337			PV2856	SDY296	0	Days	Time of enrollment		SUB122718		Serum	2799
+BS709338			PV2856	SDY296	0	Days	Time of enrollment		SUB122718		Whole blood	2799
+BS709339			PV2856	SDY296	0	Days	Time of enrollment		SUB122718		Serum	2799
+BS709340			PV2856	SDY296	0	Days	Time of enrollment		SUB122718		Whole blood	2799
+BS709341			PV2857	SDY296	1	Days	Time of enrollment		SUB122718		Whole blood	2799
+BS709342			PV2857	SDY296	1	Days	Time of enrollment		SUB122718		Whole blood	2799
+BS709343			PV2858	SDY296	3	Days	Time of enrollment		SUB122718		Whole blood	2799
+BS709344			PV2858	SDY296	3	Days	Time of enrollment		SUB122718		Whole blood	2799
+BS709345			PV2859	SDY296	7	Days	Time of enrollment		SUB122718		Whole blood	2799
+BS709346			PV2859	SDY296	7	Days	Time of enrollment		SUB122718		Whole blood	2799
+BS709347			PV2860	SDY296	28	Days	Time of enrollment		SUB122718		Serum	2799
+BS709348			PV2860	SDY296	28	Days	Time of enrollment		SUB122718		Whole blood	2799
+BS709349			PV2860	SDY296	28	Days	Time of enrollment		SUB122718		Serum	2799
+BS709350			PV2860	SDY296	28	Days	Time of enrollment		SUB122718		Whole blood	2799
+BS709351			PV2861	SDY296	120	Days	Time of enrollment		SUB122718		Other	2799
+BS709352			PV2861	SDY296	120	Days	Time of enrollment		SUB122718		Whole blood	2799
+BS709353			PV2862	SDY296	240	Days	Time of enrollment		SUB122718		Other	2799
+BS709354			PV2862	SDY296	240	Days	Time of enrollment		SUB122718		Whole blood	2799
+BS709355			PV2855	SDY296	-7	Days	Time of enrollment		SUB122719		Whole blood	2799
+BS709356			PV2855	SDY296	-7	Days	Time of enrollment		SUB122719		Whole blood	2799
+BS709357			PV2856	SDY296	0	Days	Time of enrollment		SUB122719		Serum	2799
+BS709358			PV2856	SDY296	0	Days	Time of enrollment		SUB122719		Whole blood	2799
+BS709359			PV2856	SDY296	0	Days	Time of enrollment		SUB122719		Serum	2799
+BS709360			PV2856	SDY296	0	Days	Time of enrollment		SUB122719		Whole blood	2799
+BS709361			PV2857	SDY296	1	Days	Time of enrollment		SUB122719		Whole blood	2799
+BS709362			PV2857	SDY296	1	Days	Time of enrollment		SUB122719		Whole blood	2799
+BS709363			PV2858	SDY296	3	Days	Time of enrollment		SUB122719		Whole blood	2799
+BS709364			PV2858	SDY296	3	Days	Time of enrollment		SUB122719		Whole blood	2799
+BS709365			PV2859	SDY296	7	Days	Time of enrollment		SUB122719		Whole blood	2799
+BS709366			PV2859	SDY296	7	Days	Time of enrollment		SUB122719		Whole blood	2799
+BS709367			PV2860	SDY296	28	Days	Time of enrollment		SUB122719		Serum	2799
+BS709368			PV2860	SDY296	28	Days	Time of enrollment		SUB122719		Whole blood	2799
+BS709369			PV2860	SDY296	28	Days	Time of enrollment		SUB122719		Serum	2799
+BS709370			PV2860	SDY296	28	Days	Time of enrollment		SUB122719		Whole blood	2799
+BS709371			PV2861	SDY296	120	Days	Time of enrollment		SUB122719		Other	2799
+BS709372			PV2861	SDY296	120	Days	Time of enrollment		SUB122719		Whole blood	2799
+BS709373			PV2862	SDY296	240	Days	Time of enrollment		SUB122719		Other	2799
+BS709374			PV2862	SDY296	240	Days	Time of enrollment		SUB122719		Whole blood	2799
+BS709375			PV2855	SDY296	-7	Days	Time of enrollment		SUB122720		Whole blood	2799
+BS709376			PV2855	SDY296	-7	Days	Time of enrollment		SUB122720		Whole blood	2799
+BS709377			PV2856	SDY296	0	Days	Time of enrollment		SUB122720		Serum	2799
+BS709378			PV2856	SDY296	0	Days	Time of enrollment		SUB122720		Whole blood	2799
+BS709379			PV2856	SDY296	0	Days	Time of enrollment		SUB122720		Serum	2799
+BS709380			PV2856	SDY296	0	Days	Time of enrollment		SUB122720		Whole blood	2799
+BS709381			PV2857	SDY296	1	Days	Time of enrollment		SUB122720		Whole blood	2799
+BS709382			PV2857	SDY296	1	Days	Time of enrollment		SUB122720		Whole blood	2799
+BS709383			PV2858	SDY296	3	Days	Time of enrollment		SUB122720		Whole blood	2799
+BS709384			PV2858	SDY296	3	Days	Time of enrollment		SUB122720		Whole blood	2799
+BS709385			PV2859	SDY296	7	Days	Time of enrollment		SUB122720		Whole blood	2799
+BS709386			PV2859	SDY296	7	Days	Time of enrollment		SUB122720		Whole blood	2799
+BS709387			PV2860	SDY296	28	Days	Time of enrollment		SUB122720		Serum	2799
+BS709388			PV2860	SDY296	28	Days	Time of enrollment		SUB122720		Whole blood	2799
+BS709389			PV2860	SDY296	28	Days	Time of enrollment		SUB122720		Serum	2799
+BS709390			PV2860	SDY296	28	Days	Time of enrollment		SUB122720		Whole blood	2799
+BS709391			PV2861	SDY296	120	Days	Time of enrollment		SUB122720		Other	2799
+BS709392			PV2861	SDY296	120	Days	Time of enrollment		SUB122720		Whole blood	2799
+BS709393			PV2862	SDY296	240	Days	Time of enrollment		SUB122720		Other	2799
+BS709394			PV2862	SDY296	240	Days	Time of enrollment		SUB122720		Whole blood	2799
+BS709395			PV2855	SDY296	-7	Days	Time of enrollment		SUB122721		Other	2799
+BS709396			PV2855	SDY296	-7	Days	Time of enrollment		SUB122721		Whole blood	2799
+BS709397			PV2856	SDY296	0	Days	Time of enrollment		SUB122721		Other	2799
+BS709398			PV2856	SDY296	0	Days	Time of enrollment		SUB122721		Other	2799
+BS709399			PV2856	SDY296	0	Days	Time of enrollment		SUB122721		Other	2799
+BS709400			PV2856	SDY296	0	Days	Time of enrollment		SUB122721		Whole blood	2799
+BS709401			PV2857	SDY296	1	Days	Time of enrollment		SUB122721		Other	2799
+BS709402			PV2857	SDY296	1	Days	Time of enrollment		SUB122721		Whole blood	2799
+BS709403			PV2858	SDY296	3	Days	Time of enrollment		SUB122721		Other	2799
+BS709404			PV2858	SDY296	3	Days	Time of enrollment		SUB122721		Whole blood	2799
+BS709405			PV2859	SDY296	8	Days	Time of enrollment		SUB122721		Other	2799
+BS709406			PV2859	SDY296	8	Days	Time of enrollment		SUB122721		Whole blood	2799
+BS709407			PV2855	SDY296	-7	Days	Time of enrollment		SUB122722		Whole blood	2799
+BS709408			PV2855	SDY296	-7	Days	Time of enrollment		SUB122722		Whole blood	2799
+BS709409			PV2856	SDY296	0	Days	Time of enrollment		SUB122722		Serum	2799
+BS709410			PV2856	SDY296	0	Days	Time of enrollment		SUB122722		Whole blood	2799
+BS709411			PV2856	SDY296	0	Days	Time of enrollment		SUB122722		Serum	2799
+BS709412			PV2856	SDY296	0	Days	Time of enrollment		SUB122722		Whole blood	2799
+BS709413			PV2857	SDY296	1	Days	Time of enrollment		SUB122722		Whole blood	2799
+BS709414			PV2857	SDY296	1	Days	Time of enrollment		SUB122722		Whole blood	2799
+BS709415			PV2858	SDY296	3	Days	Time of enrollment		SUB122722		Whole blood	2799
+BS709416			PV2858	SDY296	3	Days	Time of enrollment		SUB122722		Whole blood	2799
+BS709417			PV2859	SDY296	7	Days	Time of enrollment		SUB122722		Whole blood	2799
+BS709418			PV2859	SDY296	7	Days	Time of enrollment		SUB122722		Whole blood	2799
+BS709419			PV2860	SDY296	28	Days	Time of enrollment		SUB122722		Serum	2799
+BS709420			PV2860	SDY296	28	Days	Time of enrollment		SUB122722		Whole blood	2799
+BS709421			PV2860	SDY296	28	Days	Time of enrollment		SUB122722		Serum	2799
+BS709422			PV2860	SDY296	28	Days	Time of enrollment		SUB122722		Other	2799
+BS709423			PV2861	SDY296	120	Days	Time of enrollment		SUB122722		Other	2799
+BS709424			PV2861	SDY296	120	Days	Time of enrollment		SUB122722		Whole blood	2799
+BS709425			PV2862	SDY296	240	Days	Time of enrollment		SUB122722		Other	2799
+BS709426			PV2862	SDY296	240	Days	Time of enrollment		SUB122722		Whole blood	2799
+BS709427			PV2855	SDY296	-7	Days	Time of enrollment		SUB122723		Whole blood	2799
+BS709428			PV2855	SDY296	-7	Days	Time of enrollment		SUB122723		Whole blood	2799
+BS709429			PV2856	SDY296	0	Days	Time of enrollment		SUB122723		Serum	2799
+BS709430			PV2856	SDY296	0	Days	Time of enrollment		SUB122723		Whole blood	2799
+BS709431			PV2856	SDY296	0	Days	Time of enrollment		SUB122723		Serum	2799
+BS709432			PV2856	SDY296	0	Days	Time of enrollment		SUB122723		Whole blood	2799
+BS709433			PV2857	SDY296	1	Days	Time of enrollment		SUB122723		Whole blood	2799
+BS709434			PV2857	SDY296	1	Days	Time of enrollment		SUB122723		Whole blood	2799
+BS709435			PV2858	SDY296	3	Days	Time of enrollment		SUB122723		Whole blood	2799
+BS709436			PV2858	SDY296	3	Days	Time of enrollment		SUB122723		Whole blood	2799
+BS709437			PV2859	SDY296	7	Days	Time of enrollment		SUB122723		Whole blood	2799
+BS709438			PV2859	SDY296	7	Days	Time of enrollment		SUB122723		Whole blood	2799
+BS709439			PV2860	SDY296	28	Days	Time of enrollment		SUB122723		Serum	2799
+BS709440			PV2860	SDY296	28	Days	Time of enrollment		SUB122723		Whole blood	2799
+BS709441			PV2860	SDY296	28	Days	Time of enrollment		SUB122723		Serum	2799
+BS709442			PV2860	SDY296	28	Days	Time of enrollment		SUB122723		Whole blood	2799
+BS709443			PV2861	SDY296	120	Days	Time of enrollment		SUB122723		Other	2799
+BS709444			PV2861	SDY296	120	Days	Time of enrollment		SUB122723		Whole blood	2799
+BS709445			PV2862	SDY296	240	Days	Time of enrollment		SUB122723		Other	2799
+BS709446			PV2862	SDY296	240	Days	Time of enrollment		SUB122723		Whole blood	2799
+BS709447			PV2855	SDY296	-7	Days	Time of enrollment		SUB122724		Whole blood	2799
+BS709448			PV2855	SDY296	-7	Days	Time of enrollment		SUB122724		Whole blood	2799
+BS709449			PV2856	SDY296	0	Days	Time of enrollment		SUB122724		Serum	2799
+BS709450			PV2856	SDY296	0	Days	Time of enrollment		SUB122724		Whole blood	2799
+BS709451			PV2856	SDY296	0	Days	Time of enrollment		SUB122724		Serum	2799
+BS709452			PV2856	SDY296	0	Days	Time of enrollment		SUB122724		Whole blood	2799
+BS709453			PV2857	SDY296	1	Days	Time of enrollment		SUB122724		Whole blood	2799
+BS709454			PV2857	SDY296	1	Days	Time of enrollment		SUB122724		Whole blood	2799
+BS709455			PV2858	SDY296	3	Days	Time of enrollment		SUB122724		Whole blood	2799
+BS709456			PV2858	SDY296	3	Days	Time of enrollment		SUB122724		Whole blood	2799
+BS709457			PV2859	SDY296	7	Days	Time of enrollment		SUB122724		Whole blood	2799
+BS709458			PV2859	SDY296	7	Days	Time of enrollment		SUB122724		Whole blood	2799
+BS709459			PV2860	SDY296	28	Days	Time of enrollment		SUB122724		Serum	2799
+BS709460			PV2860	SDY296	28	Days	Time of enrollment		SUB122724		Whole blood	2799
+BS709461			PV2860	SDY296	28	Days	Time of enrollment		SUB122724		Serum	2799
+BS709462			PV2860	SDY296	28	Days	Time of enrollment		SUB122724		Whole blood	2799
+BS709463			PV2861	SDY296	120	Days	Time of enrollment		SUB122724		Other	2799
+BS709464			PV2861	SDY296	120	Days	Time of enrollment		SUB122724		Whole blood	2799
+BS709465			PV2862	SDY296	240	Days	Time of enrollment		SUB122724		Other	2799
+BS709466			PV2862	SDY296	240	Days	Time of enrollment		SUB122724		Whole blood	2799
+BS709467			PV2855	SDY296	-7	Days	Time of enrollment		SUB122725		Whole blood	2799
+BS709468			PV2855	SDY296	-7	Days	Time of enrollment		SUB122725		Whole blood	2799
+BS709469			PV2856	SDY296	0	Days	Time of enrollment		SUB122725		Serum	2799
+BS709470			PV2856	SDY296	0	Days	Time of enrollment		SUB122725		Whole blood	2799
+BS709471			PV2856	SDY296	0	Days	Time of enrollment		SUB122725		Serum	2799
+BS709472			PV2856	SDY296	0	Days	Time of enrollment		SUB122725		Whole blood	2799
+BS709473			PV2857	SDY296	1	Days	Time of enrollment		SUB122725		Whole blood	2799
+BS709474			PV2857	SDY296	1	Days	Time of enrollment		SUB122725		Whole blood	2799
+BS709475			PV2858	SDY296	3	Days	Time of enrollment		SUB122725		Whole blood	2799
+BS709476			PV2858	SDY296	3	Days	Time of enrollment		SUB122725		Whole blood	2799
+BS709477			PV2859	SDY296	7	Days	Time of enrollment		SUB122725		Whole blood	2799
+BS709478			PV2859	SDY296	7	Days	Time of enrollment		SUB122725		Whole blood	2799
+BS709479			PV2860	SDY296	28	Days	Time of enrollment		SUB122725		Serum	2799
+BS709480			PV2860	SDY296	28	Days	Time of enrollment		SUB122725		Whole blood	2799
+BS709481			PV2860	SDY296	28	Days	Time of enrollment		SUB122725		Serum	2799
+BS709482			PV2860	SDY296	28	Days	Time of enrollment		SUB122725		Whole blood	2799
+BS709483			PV2861	SDY296	120	Days	Time of enrollment		SUB122725		Other	2799
+BS709484			PV2861	SDY296	120	Days	Time of enrollment		SUB122725		Whole blood	2799
+BS709485			PV2862	SDY296	240	Days	Time of enrollment		SUB122725		Other	2799
+BS709486			PV2862	SDY296	240	Days	Time of enrollment		SUB122725		Whole blood	2799
+BS709487			PV2855	SDY296	-7	Days	Time of enrollment		SUB122726		Whole blood	2799
+BS709488			PV2855	SDY296	-7	Days	Time of enrollment		SUB122726		Whole blood	2799
+BS709489			PV2856	SDY296	0	Days	Time of enrollment		SUB122726		Serum	2799
+BS709490			PV2856	SDY296	0	Days	Time of enrollment		SUB122726		Whole blood	2799
+BS709491			PV2856	SDY296	0	Days	Time of enrollment		SUB122726		Serum	2799
+BS709492			PV2856	SDY296	0	Days	Time of enrollment		SUB122726		Whole blood	2799
+BS709493			PV2857	SDY296	1	Days	Time of enrollment		SUB122726		Whole blood	2799
+BS709494			PV2857	SDY296	1	Days	Time of enrollment		SUB122726		Whole blood	2799
+BS709495			PV2858	SDY296	3	Days	Time of enrollment		SUB122726		Whole blood	2799
+BS709496			PV2858	SDY296	3	Days	Time of enrollment		SUB122726		Whole blood	2799
+BS709497			PV2859	SDY296	7	Days	Time of enrollment		SUB122726		Whole blood	2799
+BS709498			PV2859	SDY296	7	Days	Time of enrollment		SUB122726		Whole blood	2799
+BS709499			PV2860	SDY296	28	Days	Time of enrollment		SUB122726		Serum	2799
+BS709500			PV2860	SDY296	28	Days	Time of enrollment		SUB122726		Whole blood	2799
+BS709501			PV2860	SDY296	28	Days	Time of enrollment		SUB122726		Serum	2799
+BS709502			PV2860	SDY296	28	Days	Time of enrollment		SUB122726		Whole blood	2799
+BS709503			PV2855	SDY296	-7	Days	Time of enrollment		SUB122727		Whole blood	2799
+BS709504			PV2855	SDY296	-7	Days	Time of enrollment		SUB122727		Whole blood	2799
+BS709505			PV2856	SDY296	0	Days	Time of enrollment		SUB122727		Serum	2799
+BS709506			PV2856	SDY296	0	Days	Time of enrollment		SUB122727		Whole blood	2799
+BS709507			PV2856	SDY296	0	Days	Time of enrollment		SUB122727		Serum	2799
+BS709508			PV2856	SDY296	0	Days	Time of enrollment		SUB122727		Whole blood	2799
+BS709509			PV2857	SDY296	1	Days	Time of enrollment		SUB122727		Whole blood	2799
+BS709510			PV2857	SDY296	1	Days	Time of enrollment		SUB122727		Whole blood	2799
+BS709511			PV2858	SDY296	3	Days	Time of enrollment		SUB122727		Whole blood	2799
+BS709512			PV2858	SDY296	3	Days	Time of enrollment		SUB122727		Whole blood	2799
+BS709513			PV2859	SDY296	7	Days	Time of enrollment		SUB122727		Whole blood	2799
+BS709514			PV2859	SDY296	7	Days	Time of enrollment		SUB122727		Whole blood	2799
+BS709515			PV2860	SDY296	28	Days	Time of enrollment		SUB122727		Serum	2799
+BS709516			PV2860	SDY296	28	Days	Time of enrollment		SUB122727		Whole blood	2799
+BS709517			PV2860	SDY296	28	Days	Time of enrollment		SUB122727		Serum	2799
+BS709518			PV2860	SDY296	28	Days	Time of enrollment		SUB122727		Whole blood	2799
+BS709519			PV2861	SDY296	120	Days	Time of enrollment		SUB122727		Other	2799
+BS709520			PV2861	SDY296	120	Days	Time of enrollment		SUB122727		Whole blood	2799
+BS709521			PV2862	SDY296	240	Days	Time of enrollment		SUB122727		Other	2799
+BS709522			PV2862	SDY296	240	Days	Time of enrollment		SUB122727		Whole blood	2799
+BS709523			PV2855	SDY296	-7	Days	Time of enrollment		SUB122728		Whole blood	2799
+BS709524			PV2855	SDY296	-7	Days	Time of enrollment		SUB122728		Whole blood	2799
+BS709525			PV2856	SDY296	0	Days	Time of enrollment		SUB122728		Serum	2799
+BS709526			PV2856	SDY296	0	Days	Time of enrollment		SUB122728		Whole blood	2799
+BS709527			PV2856	SDY296	0	Days	Time of enrollment		SUB122728		Serum	2799
+BS709528			PV2856	SDY296	0	Days	Time of enrollment		SUB122728		Whole blood	2799
+BS709529			PV2857	SDY296	1	Days	Time of enrollment		SUB122728		Whole blood	2799
+BS709530			PV2857	SDY296	1	Days	Time of enrollment		SUB122728		Whole blood	2799
+BS709531			PV2858	SDY296	3	Days	Time of enrollment		SUB122728		Whole blood	2799
+BS709532			PV2858	SDY296	3	Days	Time of enrollment		SUB122728		Whole blood	2799
+BS709533			PV2859	SDY296	7	Days	Time of enrollment		SUB122728		Whole blood	2799
+BS709534			PV2859	SDY296	7	Days	Time of enrollment		SUB122728		Whole blood	2799
+BS709535			PV2860	SDY296	28	Days	Time of enrollment		SUB122728		Serum	2799
+BS709536			PV2860	SDY296	28	Days	Time of enrollment		SUB122728		Whole blood	2799
+BS709537			PV2860	SDY296	28	Days	Time of enrollment		SUB122728		Serum	2799
+BS709538			PV2860	SDY296	28	Days	Time of enrollment		SUB122728		Whole blood	2799
+BS709539			PV2861	SDY296	120	Days	Time of enrollment		SUB122728		Other	2799
+BS709540			PV2861	SDY296	120	Days	Time of enrollment		SUB122728		Whole blood	2799
+BS709541			PV2862	SDY296	240	Days	Time of enrollment		SUB122728		Other	2799
+BS709542			PV2862	SDY296	240	Days	Time of enrollment		SUB122728		Whole blood	2799
+BS709543			PV2855	SDY296	-7	Days	Time of enrollment		SUB122729		Whole blood	2799
+BS709544			PV2855	SDY296	-7	Days	Time of enrollment		SUB122729		Whole blood	2799
+BS709545			PV2856	SDY296	0	Days	Time of enrollment		SUB122729		Serum	2799
+BS709546			PV2856	SDY296	0	Days	Time of enrollment		SUB122729		Whole blood	2799
+BS709547			PV2856	SDY296	0	Days	Time of enrollment		SUB122729		Serum	2799
+BS709548			PV2856	SDY296	0	Days	Time of enrollment		SUB122729		Whole blood	2799
+BS709549			PV2857	SDY296	1	Days	Time of enrollment		SUB122729		Whole blood	2799
+BS709550			PV2857	SDY296	1	Days	Time of enrollment		SUB122729		Whole blood	2799
+BS709551			PV2858	SDY296	3	Days	Time of enrollment		SUB122729		Whole blood	2799
+BS709552			PV2858	SDY296	3	Days	Time of enrollment		SUB122729		Whole blood	2799
+BS709553			PV2859	SDY296	7	Days	Time of enrollment		SUB122729		Whole blood	2799
+BS709554			PV2859	SDY296	7	Days	Time of enrollment		SUB122729		Whole blood	2799
+BS709555			PV2860	SDY296	28	Days	Time of enrollment		SUB122729		Serum	2799
+BS709556			PV2860	SDY296	28	Days	Time of enrollment		SUB122729		Whole blood	2799
+BS709557			PV2860	SDY296	28	Days	Time of enrollment		SUB122729		Serum	2799
+BS709558			PV2860	SDY296	28	Days	Time of enrollment		SUB122729		Whole blood	2799
+BS709559			PV2861	SDY296	120	Days	Time of enrollment		SUB122729		Other	2799
+BS709560			PV2861	SDY296	120	Days	Time of enrollment		SUB122729		Whole blood	2799
+BS709561			PV2862	SDY296	240	Days	Time of enrollment		SUB122729		Other	2799
+BS709562			PV2862	SDY296	240	Days	Time of enrollment		SUB122729		Whole blood	2799
+BS709563			PV2855	SDY296	-7	Days	Time of enrollment		SUB122730		Whole blood	2799
+BS709564			PV2855	SDY296	-7	Days	Time of enrollment		SUB122730		Whole blood	2799
+BS709565			PV2856	SDY296	0	Days	Time of enrollment		SUB122730		Serum	2799
+BS709566			PV2856	SDY296	0	Days	Time of enrollment		SUB122730		Whole blood	2799
+BS709567			PV2856	SDY296	0	Days	Time of enrollment		SUB122730		Serum	2799
+BS709568			PV2856	SDY296	0	Days	Time of enrollment		SUB122730		Whole blood	2799
+BS709569			PV2857	SDY296	1	Days	Time of enrollment		SUB122730		Whole blood	2799
+BS709570			PV2857	SDY296	1	Days	Time of enrollment		SUB122730		Whole blood	2799
+BS709571			PV2858	SDY296	3	Days	Time of enrollment		SUB122730		Whole blood	2799
+BS709572			PV2858	SDY296	3	Days	Time of enrollment		SUB122730		Whole blood	2799
+BS709573			PV2859	SDY296	7	Days	Time of enrollment		SUB122730		Whole blood	2799
+BS709574			PV2859	SDY296	7	Days	Time of enrollment		SUB122730		Whole blood	2799
+BS709575			PV2860	SDY296	28	Days	Time of enrollment		SUB122730		Serum	2799
+BS709576			PV2860	SDY296	28	Days	Time of enrollment		SUB122730		Whole blood	2799
+BS709577			PV2860	SDY296	28	Days	Time of enrollment		SUB122730		Serum	2799
+BS709578			PV2860	SDY296	28	Days	Time of enrollment		SUB122730		Whole blood	2799
+BS709579			PV2861	SDY296	120	Days	Time of enrollment		SUB122730		Other	2799
+BS709580			PV2861	SDY296	120	Days	Time of enrollment		SUB122730		Whole blood	2799
+BS709581			PV2862	SDY296	240	Days	Time of enrollment		SUB122730		Other	2799
+BS709582			PV2862	SDY296	240	Days	Time of enrollment		SUB122730		Whole blood	2799
+BS709583			PV2855	SDY296	-7	Days	Time of enrollment		SUB122731		Whole blood	2799
+BS709584			PV2855	SDY296	-7	Days	Time of enrollment		SUB122731		Whole blood	2799
+BS709585			PV2856	SDY296	0	Days	Time of enrollment		SUB122731		Serum	2799
+BS709586			PV2856	SDY296	0	Days	Time of enrollment		SUB122731		Other	2799
+BS709587			PV2856	SDY296	0	Days	Time of enrollment		SUB122731		Serum	2799
+BS709588			PV2856	SDY296	0	Days	Time of enrollment		SUB122731		Whole blood	2799
+BS709589			PV2857	SDY296	1	Days	Time of enrollment		SUB122731		Whole blood	2799
+BS709590			PV2857	SDY296	1	Days	Time of enrollment		SUB122731		Whole blood	2799
+BS709591			PV2858	SDY296	3	Days	Time of enrollment		SUB122731		Whole blood	2799
+BS709592			PV2858	SDY296	3	Days	Time of enrollment		SUB122731		Whole blood	2799
+BS709593			PV2859	SDY296	7	Days	Time of enrollment		SUB122731		Whole blood	2799
+BS709594			PV2859	SDY296	7	Days	Time of enrollment		SUB122731		Whole blood	2799
+BS709595			PV2860	SDY296	28	Days	Time of enrollment		SUB122731		Serum	2799
+BS709596			PV2860	SDY296	28	Days	Time of enrollment		SUB122731		Whole blood	2799
+BS709597			PV2860	SDY296	28	Days	Time of enrollment		SUB122731		Serum	2799
+BS709598			PV2860	SDY296	28	Days	Time of enrollment		SUB122731		Whole blood	2799
+BS709599			PV2861	SDY296	120	Days	Time of enrollment		SUB122731		Other	2799
+BS709600			PV2861	SDY296	120	Days	Time of enrollment		SUB122731		Whole blood	2799
+BS709601			PV2855	SDY296	-7	Days	Time of enrollment		SUB122732		Whole blood	2799
+BS709602			PV2855	SDY296	-7	Days	Time of enrollment		SUB122732		Whole blood	2799
+BS709603			PV2856	SDY296	0	Days	Time of enrollment		SUB122732		Serum	2799
+BS709604			PV2856	SDY296	0	Days	Time of enrollment		SUB122732		Whole blood	2799
+BS709605			PV2856	SDY296	0	Days	Time of enrollment		SUB122732		Serum	2799
+BS709606			PV2856	SDY296	0	Days	Time of enrollment		SUB122732		Whole blood	2799
+BS709607			PV2857	SDY296	1	Days	Time of enrollment		SUB122732		Whole blood	2799
+BS709608			PV2857	SDY296	1	Days	Time of enrollment		SUB122732		Whole blood	2799
+BS709609			PV2858	SDY296	3	Days	Time of enrollment		SUB122732		Whole blood	2799
+BS709610			PV2858	SDY296	3	Days	Time of enrollment		SUB122732		Whole blood	2799
+BS709611			PV2859	SDY296	7	Days	Time of enrollment		SUB122732		Whole blood	2799
+BS709612			PV2859	SDY296	7	Days	Time of enrollment		SUB122732		Whole blood	2799
+BS709613			PV2860	SDY296	28	Days	Time of enrollment		SUB122732		Serum	2799
+BS709614			PV2860	SDY296	28	Days	Time of enrollment		SUB122732		Whole blood	2799
+BS709615			PV2860	SDY296	28	Days	Time of enrollment		SUB122732		Serum	2799
+BS709616			PV2860	SDY296	28	Days	Time of enrollment		SUB122732		Whole blood	2799
+BS709617			PV2861	SDY296	120	Days	Time of enrollment		SUB122732		Other	2799
+BS709618			PV2861	SDY296	120	Days	Time of enrollment		SUB122732		Whole blood	2799
+BS709619			PV2862	SDY296	240	Days	Time of enrollment		SUB122732		Other	2799
+BS709620			PV2862	SDY296	240	Days	Time of enrollment		SUB122732		Whole blood	2799
+BS709621			PV2855	SDY296	-7	Days	Time of enrollment		SUB122733		Whole blood	2799
+BS709622			PV2855	SDY296	-7	Days	Time of enrollment		SUB122733		Whole blood	2799
+BS709623			PV2856	SDY296	0	Days	Time of enrollment		SUB122733		Serum	2799
+BS709624			PV2856	SDY296	0	Days	Time of enrollment		SUB122733		Whole blood	2799
+BS709625			PV2856	SDY296	0	Days	Time of enrollment		SUB122733		Serum	2799
+BS709626			PV2856	SDY296	0	Days	Time of enrollment		SUB122733		Whole blood	2799
+BS709627			PV2857	SDY296	1	Days	Time of enrollment		SUB122733		Whole blood	2799
+BS709628			PV2857	SDY296	1	Days	Time of enrollment		SUB122733		Whole blood	2799
+BS709629			PV2858	SDY296	3	Days	Time of enrollment		SUB122733		Whole blood	2799
+BS709630			PV2858	SDY296	3	Days	Time of enrollment		SUB122733		Whole blood	2799
+BS709631			PV2859	SDY296	7	Days	Time of enrollment		SUB122733		Whole blood	2799
+BS709632			PV2859	SDY296	7	Days	Time of enrollment		SUB122733		Whole blood	2799
+BS709633			PV2860	SDY296	28	Days	Time of enrollment		SUB122733		Serum	2799
+BS709634			PV2860	SDY296	28	Days	Time of enrollment		SUB122733		Whole blood	2799
+BS709635			PV2860	SDY296	28	Days	Time of enrollment		SUB122733		Serum	2799
+BS709636			PV2860	SDY296	28	Days	Time of enrollment		SUB122733		Whole blood	2799
+BS709637			PV2861	SDY296	120	Days	Time of enrollment		SUB122733		Other	2799
+BS709638			PV2861	SDY296	120	Days	Time of enrollment		SUB122733		Whole blood	2799
+BS709639			PV2862	SDY296	240	Days	Time of enrollment		SUB122733		Other	2799
+BS709640			PV2862	SDY296	240	Days	Time of enrollment		SUB122733		Whole blood	2799
+BS709641			PV2855	SDY296	-7	Days	Time of enrollment		SUB122734		Whole blood	2799
+BS709642			PV2855	SDY296	-7	Days	Time of enrollment		SUB122734		Whole blood	2799
+BS709643			PV2856	SDY296	0	Days	Time of enrollment		SUB122734		Serum	2799
+BS709644			PV2856	SDY296	0	Days	Time of enrollment		SUB122734		Whole blood	2799
+BS709645			PV2856	SDY296	0	Days	Time of enrollment		SUB122734		Serum	2799
+BS709646			PV2856	SDY296	0	Days	Time of enrollment		SUB122734		Whole blood	2799
+BS709647			PV2857	SDY296	1	Days	Time of enrollment		SUB122734		Whole blood	2799
+BS709648			PV2857	SDY296	1	Days	Time of enrollment		SUB122734		Whole blood	2799
+BS709649			PV2858	SDY296	3	Days	Time of enrollment		SUB122734		Whole blood	2799
+BS709650			PV2858	SDY296	3	Days	Time of enrollment		SUB122734		Whole blood	2799
+BS709651			PV2859	SDY296	7	Days	Time of enrollment		SUB122734		Whole blood	2799
+BS709652			PV2859	SDY296	7	Days	Time of enrollment		SUB122734		Whole blood	2799
+BS709653			PV2860	SDY296	28	Days	Time of enrollment		SUB122734		Serum	2799
+BS709654			PV2860	SDY296	28	Days	Time of enrollment		SUB122734		Whole blood	2799
+BS709655			PV2860	SDY296	28	Days	Time of enrollment		SUB122734		Serum	2799
+BS709656			PV2860	SDY296	28	Days	Time of enrollment		SUB122734		Whole blood	2799
+BS709657			PV2861	SDY296	120	Days	Time of enrollment		SUB122734		Other	2799
+BS709658			PV2861	SDY296	120	Days	Time of enrollment		SUB122734		Whole blood	2799
+BS709659			PV2862	SDY296	240	Days	Time of enrollment		SUB122734		Other	2799
+BS709660			PV2862	SDY296	240	Days	Time of enrollment		SUB122734		Whole blood	2799
+BS709661			PV2855	SDY296	-7	Days	Time of enrollment		SUB122735		Whole blood	2799
+BS709662			PV2855	SDY296	-7	Days	Time of enrollment		SUB122735		Whole blood	2799
+BS709663			PV2856	SDY296	0	Days	Time of enrollment		SUB122735		Serum	2799
+BS709664			PV2856	SDY296	0	Days	Time of enrollment		SUB122735		Whole blood	2799
+BS709665			PV2856	SDY296	0	Days	Time of enrollment		SUB122735		Serum	2799
+BS709666			PV2856	SDY296	0	Days	Time of enrollment		SUB122735		Whole blood	2799
+BS709667			PV2857	SDY296	1	Days	Time of enrollment		SUB122735		Whole blood	2799
+BS709668			PV2857	SDY296	1	Days	Time of enrollment		SUB122735		Whole blood	2799
+BS709669			PV2858	SDY296	3	Days	Time of enrollment		SUB122735		Whole blood	2799
+BS709670			PV2858	SDY296	3	Days	Time of enrollment		SUB122735		Whole blood	2799
+BS709671			PV2859	SDY296	7	Days	Time of enrollment		SUB122735		Whole blood	2799
+BS709672			PV2859	SDY296	7	Days	Time of enrollment		SUB122735		Whole blood	2799
+BS709673			PV2860	SDY296	28	Days	Time of enrollment		SUB122735		Serum	2799
+BS709674			PV2860	SDY296	28	Days	Time of enrollment		SUB122735		Whole blood	2799
+BS709675			PV2860	SDY296	28	Days	Time of enrollment		SUB122735		Serum	2799
+BS709676			PV2860	SDY296	28	Days	Time of enrollment		SUB122735		Whole blood	2799
+BS709677			PV2861	SDY296	120	Days	Time of enrollment		SUB122735		Other	2799
+BS709678			PV2861	SDY296	120	Days	Time of enrollment		SUB122735		Whole blood	2799
+BS709679			PV2862	SDY296	240	Days	Time of enrollment		SUB122735		Other	2799
+BS709680			PV2862	SDY296	240	Days	Time of enrollment		SUB122735		Whole blood	2799
+BS709681			PV2855	SDY296	-7	Days	Time of enrollment		SUB122736		Other	2799
+BS709682			PV2855	SDY296	-7	Days	Time of enrollment		SUB122736		Whole blood	2799
+BS709683			PV2856	SDY296	0	Days	Time of enrollment		SUB122736		Other	2799
+BS709684			PV2856	SDY296	0	Days	Time of enrollment		SUB122736		Other	2799
+BS709685			PV2856	SDY296	0	Days	Time of enrollment		SUB122736		Other	2799
+BS709686			PV2856	SDY296	0	Days	Time of enrollment		SUB122736		Whole blood	2799
+BS709687			PV2857	SDY296	1	Days	Time of enrollment		SUB122736		Other	2799
+BS709688			PV2857	SDY296	1	Days	Time of enrollment		SUB122736		Whole blood	2799
+BS709689			PV2858	SDY296	3	Days	Time of enrollment		SUB122736		Other	2799
+BS709690			PV2858	SDY296	3	Days	Time of enrollment		SUB122736		Whole blood	2799
+BS709691			PV2859	SDY296	7	Days	Time of enrollment		SUB122736		Other	2799
+BS709692			PV2859	SDY296	7	Days	Time of enrollment		SUB122736		Whole blood	2799
+BS709693			PV2860	SDY296	28	Days	Time of enrollment		SUB122736		Other	2799
+BS709694			PV2860	SDY296	28	Days	Time of enrollment		SUB122736		Other	2799
+BS709695			PV2860	SDY296	28	Days	Time of enrollment		SUB122736		Other	2799
+BS709696			PV2860	SDY296	28	Days	Time of enrollment		SUB122736		Other	2799
+BS709697			PV2855	SDY296	-7	Days	Time of enrollment		SUB122737		Whole blood	2799
+BS709698			PV2855	SDY296	-7	Days	Time of enrollment		SUB122737		Whole blood	2799
+BS709699			PV2856	SDY296	0	Days	Time of enrollment		SUB122737		Serum	2799
+BS709700			PV2856	SDY296	0	Days	Time of enrollment		SUB122737		Whole blood	2799
+BS709701			PV2856	SDY296	0	Days	Time of enrollment		SUB122737		Serum	2799
+BS709702			PV2856	SDY296	0	Days	Time of enrollment		SUB122737		Whole blood	2799
+BS709703			PV2857	SDY296	1	Days	Time of enrollment		SUB122737		Whole blood	2799
+BS709704			PV2857	SDY296	1	Days	Time of enrollment		SUB122737		Whole blood	2799
+BS709705			PV2858	SDY296	3	Days	Time of enrollment		SUB122737		Whole blood	2799
+BS709706			PV2858	SDY296	3	Days	Time of enrollment		SUB122737		Whole blood	2799
+BS709707			PV2859	SDY296	7	Days	Time of enrollment		SUB122737		Whole blood	2799
+BS709708			PV2859	SDY296	7	Days	Time of enrollment		SUB122737		Whole blood	2799
+BS709709			PV2860	SDY296	28	Days	Time of enrollment		SUB122737		Serum	2799
+BS709710			PV2860	SDY296	28	Days	Time of enrollment		SUB122737		Whole blood	2799
+BS709711			PV2860	SDY296	28	Days	Time of enrollment		SUB122737		Serum	2799
+BS709712			PV2860	SDY296	28	Days	Time of enrollment		SUB122737		Whole blood	2799
+BS709713			PV2861	SDY296	120	Days	Time of enrollment		SUB122737		Other	2799
+BS709714			PV2861	SDY296	120	Days	Time of enrollment		SUB122737		Whole blood	2799
+BS709715			PV2862	SDY296	240	Days	Time of enrollment		SUB122737		Other	2799
+BS709716			PV2862	SDY296	240	Days	Time of enrollment		SUB122737		Whole blood	2799
+BS709717			PV2855	SDY296	-7	Days	Time of enrollment		SUB122738		Whole blood	2799
+BS709718			PV2855	SDY296	-7	Days	Time of enrollment		SUB122738		Whole blood	2799
+BS709719			PV2856	SDY296	0	Days	Time of enrollment		SUB122738		Serum	2799
+BS709720			PV2856	SDY296	0	Days	Time of enrollment		SUB122738		Whole blood	2799
+BS709721			PV2856	SDY296	0	Days	Time of enrollment		SUB122738		Serum	2799
+BS709722			PV2856	SDY296	0	Days	Time of enrollment		SUB122738		Whole blood	2799
+BS709723			PV2857	SDY296	1	Days	Time of enrollment		SUB122738		Whole blood	2799
+BS709724			PV2857	SDY296	1	Days	Time of enrollment		SUB122738		Whole blood	2799
+BS709725			PV2858	SDY296	3	Days	Time of enrollment		SUB122738		Whole blood	2799
+BS709726			PV2858	SDY296	3	Days	Time of enrollment		SUB122738		Whole blood	2799
+BS709727			PV2859	SDY296	7	Days	Time of enrollment		SUB122738		Whole blood	2799
+BS709728			PV2859	SDY296	7	Days	Time of enrollment		SUB122738		Whole blood	2799
+BS709729			PV2860	SDY296	28	Days	Time of enrollment		SUB122738		Serum	2799
+BS709730			PV2860	SDY296	28	Days	Time of enrollment		SUB122738		Whole blood	2799
+BS709731			PV2860	SDY296	28	Days	Time of enrollment		SUB122738		Serum	2799
+BS709732			PV2860	SDY296	28	Days	Time of enrollment		SUB122738		Whole blood	2799
+BS709733			PV2855	SDY296	-7	Days	Time of enrollment		SUB122739		Whole blood	2799
+BS709734			PV2855	SDY296	-7	Days	Time of enrollment		SUB122739		Whole blood	2799
+BS709735			PV2856	SDY296	0	Days	Time of enrollment		SUB122739		Serum	2799
+BS709736			PV2856	SDY296	0	Days	Time of enrollment		SUB122739		Whole blood	2799
+BS709737			PV2856	SDY296	0	Days	Time of enrollment		SUB122739		Serum	2799
+BS709738			PV2856	SDY296	0	Days	Time of enrollment		SUB122739		Whole blood	2799
+BS709739			PV2857	SDY296	1	Days	Time of enrollment		SUB122739		Whole blood	2799
+BS709740			PV2857	SDY296	1	Days	Time of enrollment		SUB122739		Whole blood	2799
+BS709741			PV2858	SDY296	3	Days	Time of enrollment		SUB122739		Whole blood	2799
+BS709742			PV2858	SDY296	3	Days	Time of enrollment		SUB122739		Whole blood	2799
+BS709743			PV2859	SDY296	7	Days	Time of enrollment		SUB122739		Whole blood	2799
+BS709744			PV2859	SDY296	7	Days	Time of enrollment		SUB122739		Whole blood	2799
+BS709745			PV2860	SDY296	28	Days	Time of enrollment		SUB122739		Serum	2799
+BS709746			PV2860	SDY296	28	Days	Time of enrollment		SUB122739		Whole blood	2799
+BS709747			PV2860	SDY296	28	Days	Time of enrollment		SUB122739		Serum	2799
+BS709748			PV2860	SDY296	28	Days	Time of enrollment		SUB122739		Whole blood	2799
+BS709749			PV2861	SDY296	120	Days	Time of enrollment		SUB122739		Other	2799
+BS709750			PV2861	SDY296	120	Days	Time of enrollment		SUB122739		Whole blood	2799
+BS709751			PV2862	SDY296	240	Days	Time of enrollment		SUB122739		Other	2799
+BS709752			PV2862	SDY296	240	Days	Time of enrollment		SUB122739		Whole blood	2799
+BS709753			PV2855	SDY296	-7	Days	Time of enrollment		SUB122740		Whole blood	2799
+BS709754			PV2855	SDY296	-7	Days	Time of enrollment		SUB122740		Whole blood	2799
+BS709755			PV2856	SDY296	0	Days	Time of enrollment		SUB122740		Serum	2799
+BS709756			PV2856	SDY296	0	Days	Time of enrollment		SUB122740		Whole blood	2799
+BS709757			PV2856	SDY296	0	Days	Time of enrollment		SUB122740		Serum	2799
+BS709758			PV2856	SDY296	0	Days	Time of enrollment		SUB122740		Whole blood	2799
+BS709759			PV2857	SDY296	1	Days	Time of enrollment		SUB122740		Whole blood	2799
+BS709760			PV2857	SDY296	1	Days	Time of enrollment		SUB122740		Whole blood	2799
+BS709761			PV2858	SDY296	3	Days	Time of enrollment		SUB122740		Whole blood	2799
+BS709762			PV2858	SDY296	3	Days	Time of enrollment		SUB122740		Whole blood	2799
+BS709763			PV2859	SDY296	7	Days	Time of enrollment		SUB122740		Whole blood	2799
+BS709764			PV2859	SDY296	7	Days	Time of enrollment		SUB122740		Whole blood	2799
+BS709765			PV2860	SDY296	28	Days	Time of enrollment		SUB122740		Serum	2799
+BS709766			PV2860	SDY296	28	Days	Time of enrollment		SUB122740		Whole blood	2799
+BS709767			PV2860	SDY296	28	Days	Time of enrollment		SUB122740		Serum	2799
+BS709768			PV2860	SDY296	28	Days	Time of enrollment		SUB122740		Whole blood	2799
+BS709769			PV2861	SDY296	120	Days	Time of enrollment		SUB122740		Other	2799
+BS709770			PV2861	SDY296	120	Days	Time of enrollment		SUB122740		Whole blood	2799
+BS709771			PV2862	SDY296	240	Days	Time of enrollment		SUB122740		Whole blood	2799
+BS709772			PV2855	SDY296	-7	Days	Time of enrollment		SUB133685		Other	2799
+BS709773			PV2856	SDY296	0	Days	Time of enrollment		SUB133685		Other	2799
+BS709774			PV2856	SDY296	0	Days	Time of enrollment		SUB133685		Other	2799
+BS709775			PV2856	SDY296	0	Days	Time of enrollment		SUB133685		Other	2799
+BS709776			PV2856	SDY296	0	Days	Time of enrollment		SUB133685		Whole blood	2799
+BS709777			PV2855	SDY296	-7	Days	Time of enrollment		SUB133685		Whole blood	2799
+BS709778			PV2855	SDY296	-7	Days	Time of enrollment		SUB133686		Other	2799
+BS709779			PV2855	SDY296	-7	Days	Time of enrollment		SUB133686		Whole blood	2799
+BS709780			PV2856	SDY296	0	Days	Time of enrollment		SUB133686		Other	2799
+BS709781			PV2856	SDY296	0	Days	Time of enrollment		SUB133686		Other	2799
+BS709782			PV2856	SDY296	0	Days	Time of enrollment		SUB133686		Other	2799
+BS709783			PV2856	SDY296	0	Days	Time of enrollment		SUB133686		Whole blood	2799
+BS709784			PV2857	SDY296	1	Days	Time of enrollment		SUB133686		Other	2799
+BS709785			PV2857	SDY296	1	Days	Time of enrollment		SUB133686		Whole blood	2799
+BS709786			PV2858	SDY296	3	Days	Time of enrollment		SUB133686		Other	2799
+BS709787			PV2858	SDY296	3	Days	Time of enrollment		SUB133686		Whole blood	2799
+BS709788			PV2855	SDY296	-7	Days	Time of enrollment		SUB122741		Whole blood	2799
+BS709789			PV2855	SDY296	-7	Days	Time of enrollment		SUB122741		Whole blood	2799
+BS709790			PV2856	SDY296	0	Days	Time of enrollment		SUB122741		Serum	2799
+BS709791			PV2856	SDY296	0	Days	Time of enrollment		SUB122741		Whole blood	2799
+BS709792			PV2856	SDY296	0	Days	Time of enrollment		SUB122741		Serum	2799
+BS709793			PV2856	SDY296	0	Days	Time of enrollment		SUB122741		Whole blood	2799
+BS709794			PV2857	SDY296	1	Days	Time of enrollment		SUB122741		Whole blood	2799
+BS709795			PV2857	SDY296	1	Days	Time of enrollment		SUB122741		Whole blood	2799
+BS709796			PV2858	SDY296	3	Days	Time of enrollment		SUB122741		Whole blood	2799
+BS709797			PV2858	SDY296	3	Days	Time of enrollment		SUB122741		Whole blood	2799
+BS709798			PV2859	SDY296	7	Days	Time of enrollment		SUB122741		Whole blood	2799
+BS709799			PV2859	SDY296	7	Days	Time of enrollment		SUB122741		Whole blood	2799
+BS709800			PV2860	SDY296	28	Days	Time of enrollment		SUB122741		Serum	2799
+BS709801			PV2860	SDY296	28	Days	Time of enrollment		SUB122741		Whole blood	2799
+BS709802			PV2860	SDY296	28	Days	Time of enrollment		SUB122741		Serum	2799
+BS709803			PV2860	SDY296	28	Days	Time of enrollment		SUB122741		Whole blood	2799
+BS709804			PV2861	SDY296	120	Days	Time of enrollment		SUB122741		Whole blood	2799
+BS709805			PV2862	SDY296	240	Days	Time of enrollment		SUB122741		Whole blood	2799
+BS709806			PV2855	SDY296	-7	Days	Time of enrollment		SUB122742		Whole blood	2799
+BS709807			PV2855	SDY296	-7	Days	Time of enrollment		SUB122742		Whole blood	2799
+BS709808			PV2856	SDY296	0	Days	Time of enrollment		SUB122742		Serum	2799
+BS709809			PV2856	SDY296	0	Days	Time of enrollment		SUB122742		Whole blood	2799
+BS709810			PV2856	SDY296	0	Days	Time of enrollment		SUB122742		Serum	2799
+BS709811			PV2856	SDY296	0	Days	Time of enrollment		SUB122742		Whole blood	2799
+BS709812			PV2857	SDY296	1	Days	Time of enrollment		SUB122742		Whole blood	2799
+BS709813			PV2857	SDY296	1	Days	Time of enrollment		SUB122742		Whole blood	2799
+BS709814			PV2858	SDY296	3	Days	Time of enrollment		SUB122742		Whole blood	2799
+BS709815			PV2858	SDY296	3	Days	Time of enrollment		SUB122742		Whole blood	2799
+BS709816			PV2859	SDY296	7	Days	Time of enrollment		SUB122742		Whole blood	2799
+BS709817			PV2859	SDY296	7	Days	Time of enrollment		SUB122742		Whole blood	2799
+BS709818			PV2860	SDY296	28	Days	Time of enrollment		SUB122742		Serum	2799
+BS709819			PV2860	SDY296	28	Days	Time of enrollment		SUB122742		Whole blood	2799
+BS709820			PV2860	SDY296	28	Days	Time of enrollment		SUB122742		Serum	2799
+BS709821			PV2860	SDY296	28	Days	Time of enrollment		SUB122742		Whole blood	2799
+BS709822			PV2861	SDY296	120	Days	Time of enrollment		SUB122742		Other	2799
+BS709823			PV2861	SDY296	120	Days	Time of enrollment		SUB122742		Whole blood	2799
+BS709824			PV2862	SDY296	240	Days	Time of enrollment		SUB122742		Whole blood	2799
+BS709825			PV2855	SDY296	-7	Days	Time of enrollment		SUB122743		Whole blood	2799
+BS709826			PV2855	SDY296	-7	Days	Time of enrollment		SUB122743		Whole blood	2799
+BS709827			PV2856	SDY296	0	Days	Time of enrollment		SUB122743		Serum	2799
+BS709828			PV2856	SDY296	0	Days	Time of enrollment		SUB122743		Whole blood	2799
+BS709829			PV2856	SDY296	0	Days	Time of enrollment		SUB122743		Serum	2799
+BS709830			PV2856	SDY296	0	Days	Time of enrollment		SUB122743		Whole blood	2799
+BS709831			PV2857	SDY296	1	Days	Time of enrollment		SUB122743		Whole blood	2799
+BS709832			PV2857	SDY296	1	Days	Time of enrollment		SUB122743		Whole blood	2799
+BS709833			PV2858	SDY296	3	Days	Time of enrollment		SUB122743		Whole blood	2799
+BS709834			PV2858	SDY296	3	Days	Time of enrollment		SUB122743		Whole blood	2799
+BS709835			PV2859	SDY296	7	Days	Time of enrollment		SUB122743		Whole blood	2799
+BS709836			PV2859	SDY296	7	Days	Time of enrollment		SUB122743		Whole blood	2799
+BS709837			PV2860	SDY296	28	Days	Time of enrollment		SUB122743		Serum	2799
+BS709838			PV2860	SDY296	28	Days	Time of enrollment		SUB122743		Whole blood	2799
+BS709839			PV2860	SDY296	28	Days	Time of enrollment		SUB122743		Serum	2799
+BS709840			PV2860	SDY296	28	Days	Time of enrollment		SUB122743		Whole blood	2799
+BS709841			PV2861	SDY296	120	Days	Time of enrollment		SUB122743		Other	2799
+BS709842			PV2861	SDY296	120	Days	Time of enrollment		SUB122743		Whole blood	2799
+BS709843			PV2862	SDY296	240	Days	Time of enrollment		SUB122743		Whole blood	2799
+BS709844			PV2855	SDY296	-7	Days	Time of enrollment		SUB122744		Whole blood	2799
+BS709845			PV2855	SDY296	-7	Days	Time of enrollment		SUB122744		Whole blood	2799
+BS709846			PV2856	SDY296	0	Days	Time of enrollment		SUB122744		Serum	2799
+BS709847			PV2856	SDY296	0	Days	Time of enrollment		SUB122744		Whole blood	2799
+BS709848			PV2856	SDY296	0	Days	Time of enrollment		SUB122744		Serum	2799
+BS709849			PV2856	SDY296	0	Days	Time of enrollment		SUB122744		Whole blood	2799
+BS709850			PV2857	SDY296	1	Days	Time of enrollment		SUB122744		Whole blood	2799
+BS709851			PV2857	SDY296	1	Days	Time of enrollment		SUB122744		Whole blood	2799
+BS709852			PV2858	SDY296	3	Days	Time of enrollment		SUB122744		Whole blood	2799
+BS709853			PV2858	SDY296	3	Days	Time of enrollment		SUB122744		Whole blood	2799
+BS709854			PV2859	SDY296	7	Days	Time of enrollment		SUB122744		Whole blood	2799
+BS709855			PV2859	SDY296	7	Days	Time of enrollment		SUB122744		Whole blood	2799
+BS709856			PV2860	SDY296	28	Days	Time of enrollment		SUB122744		Serum	2799
+BS709857			PV2860	SDY296	28	Days	Time of enrollment		SUB122744		Whole blood	2799
+BS709858			PV2860	SDY296	28	Days	Time of enrollment		SUB122744		Serum	2799
+BS709859			PV2860	SDY296	28	Days	Time of enrollment		SUB122744		Whole blood	2799
+BS709860			PV2862	SDY296	240	Days	Time of enrollment		SUB122744		Whole blood	2799
+BS709861			PV2855	SDY296	-7	Days	Time of enrollment		SUB122745		Whole blood	2799
+BS709862			PV2855	SDY296	-7	Days	Time of enrollment		SUB122745		Whole blood	2799
+BS709863			PV2856	SDY296	0	Days	Time of enrollment		SUB122745		Serum	2799
+BS709864			PV2856	SDY296	0	Days	Time of enrollment		SUB122745		Whole blood	2799
+BS709865			PV2856	SDY296	0	Days	Time of enrollment		SUB122745		Serum	2799
+BS709866			PV2856	SDY296	0	Days	Time of enrollment		SUB122745		Whole blood	2799
+BS709867			PV2857	SDY296	1	Days	Time of enrollment		SUB122745		Whole blood	2799
+BS709868			PV2857	SDY296	1	Days	Time of enrollment		SUB122745		Whole blood	2799
+BS709869			PV2858	SDY296	3	Days	Time of enrollment		SUB122745		Whole blood	2799
+BS709870			PV2858	SDY296	3	Days	Time of enrollment		SUB122745		Whole blood	2799
+BS709871			PV2859	SDY296	7	Days	Time of enrollment		SUB122745		Whole blood	2799
+BS709872			PV2859	SDY296	7	Days	Time of enrollment		SUB122745		Whole blood	2799
+BS709873			PV2860	SDY296	28	Days	Time of enrollment		SUB122745		Serum	2799
+BS709874			PV2860	SDY296	28	Days	Time of enrollment		SUB122745		Whole blood	2799
+BS709875			PV2860	SDY296	28	Days	Time of enrollment		SUB122745		Serum	2799
+BS709876			PV2860	SDY296	28	Days	Time of enrollment		SUB122745		Whole blood	2799
+BS709877			PV2855	SDY296	-7	Days	Time of enrollment		SUB122746		Other	2799
+BS709878			PV2855	SDY296	-7	Days	Time of enrollment		SUB122746		Whole blood	2799
+BS709879			PV2856	SDY296	0	Days	Time of enrollment		SUB122746		Other	2799
+BS709880			PV2856	SDY296	0	Days	Time of enrollment		SUB122746		Other	2799
+BS709881			PV2856	SDY296	0	Days	Time of enrollment		SUB122746		Other	2799
+BS709882			PV2856	SDY296	0	Days	Time of enrollment		SUB122746		Whole blood	2799
+BS709883			PV2857	SDY296	1	Days	Time of enrollment		SUB122746		Other	2799
+BS709884			PV2857	SDY296	1	Days	Time of enrollment		SUB122746		Whole blood	2799
+BS709885			PV2858	SDY296	4	Days	Time of enrollment		SUB122746		Other	2799
+BS709886			PV2858	SDY296	4	Days	Time of enrollment		SUB122746		Whole blood	2799
+BS709887			PV2859	SDY296	7	Days	Time of enrollment		SUB122746		Other	2799
+BS709888			PV2859	SDY296	7	Days	Time of enrollment		SUB122746		Whole blood	2799
+BS709889			PV2855	SDY296	-7	Days	Time of enrollment		SUB122747		Whole blood	2799
+BS709890			PV2855	SDY296	-7	Days	Time of enrollment		SUB122747		Whole blood	2799
+BS709891			PV2856	SDY296	0	Days	Time of enrollment		SUB122747		Serum	2799
+BS709892			PV2856	SDY296	0	Days	Time of enrollment		SUB122747		Whole blood	2799
+BS709893			PV2856	SDY296	0	Days	Time of enrollment		SUB122747		Serum	2799
+BS709894			PV2856	SDY296	0	Days	Time of enrollment		SUB122747		Whole blood	2799
+BS709895			PV2857	SDY296	1	Days	Time of enrollment		SUB122747		Whole blood	2799
+BS709896			PV2857	SDY296	1	Days	Time of enrollment		SUB122747		Whole blood	2799
+BS709897			PV2858	SDY296	3	Days	Time of enrollment		SUB122747		Whole blood	2799
+BS709898			PV2858	SDY296	3	Days	Time of enrollment		SUB122747		Whole blood	2799
+BS709899			PV2859	SDY296	7	Days	Time of enrollment		SUB122747		Whole blood	2799
+BS709900			PV2859	SDY296	7	Days	Time of enrollment		SUB122747		Whole blood	2799
+BS709901			PV2860	SDY296	28	Days	Time of enrollment		SUB122747		Serum	2799
+BS709902			PV2860	SDY296	28	Days	Time of enrollment		SUB122747		Whole blood	2799
+BS709903			PV2860	SDY296	28	Days	Time of enrollment		SUB122747		Serum	2799
+BS709904			PV2860	SDY296	28	Days	Time of enrollment		SUB122747		Whole blood	2799
+BS709905			PV2861	SDY296	120	Days	Time of enrollment		SUB122747		Other	2799
+BS709906			PV2861	SDY296	120	Days	Time of enrollment		SUB122747		Whole blood	2799
+BS709907			PV2862	SDY296	240	Days	Time of enrollment		SUB122747		Other	2799
+BS709908			PV2862	SDY296	240	Days	Time of enrollment		SUB122747		Whole blood	2799
+BS709909			PV2855	SDY296	-7	Days	Time of enrollment		SUB133687		Other	2799
+BS709910			PV2855	SDY296	-7	Days	Time of enrollment		SUB133687		Whole blood	2799
+BS709911			PV2855	SDY296	-7	Days	Time of enrollment		SUB122748		Whole blood	2799
+BS709912			PV2855	SDY296	-7	Days	Time of enrollment		SUB122748		Whole blood	2799
+BS709913			PV2856	SDY296	0	Days	Time of enrollment		SUB122748		Serum	2799
+BS709914			PV2856	SDY296	0	Days	Time of enrollment		SUB122748		Whole blood	2799
+BS709915			PV2856	SDY296	0	Days	Time of enrollment		SUB122748		Serum	2799
+BS709916			PV2856	SDY296	0	Days	Time of enrollment		SUB122748		Whole blood	2799
+BS709917			PV2857	SDY296	1	Days	Time of enrollment		SUB122748		Whole blood	2799
+BS709918			PV2857	SDY296	1	Days	Time of enrollment		SUB122748		Whole blood	2799
+BS709919			PV2858	SDY296	3	Days	Time of enrollment		SUB122748		Whole blood	2799
+BS709920			PV2858	SDY296	3	Days	Time of enrollment		SUB122748		Whole blood	2799
+BS709921			PV2859	SDY296	7	Days	Time of enrollment		SUB122748		Whole blood	2799
+BS709922			PV2859	SDY296	7	Days	Time of enrollment		SUB122748		Whole blood	2799
+BS709923			PV2860	SDY296	28	Days	Time of enrollment		SUB122748		Serum	2799
+BS709924			PV2860	SDY296	28	Days	Time of enrollment		SUB122748		Whole blood	2799
+BS709925			PV2860	SDY296	28	Days	Time of enrollment		SUB122748		Serum	2799
+BS709926			PV2860	SDY296	28	Days	Time of enrollment		SUB122748		Whole blood	2799
+BS709927			PV2861	SDY296	120	Days	Time of enrollment		SUB122748		Other	2799
+BS709928			PV2861	SDY296	120	Days	Time of enrollment		SUB122748		Whole blood	2799
+BS709929			PV2862	SDY296	240	Days	Time of enrollment		SUB122748		Whole blood	2799
+BS709930			PV2855	SDY296	-7	Days	Time of enrollment		SUB122749		Whole blood	2799
+BS709931			PV2855	SDY296	-7	Days	Time of enrollment		SUB122749		Whole blood	2799
+BS709932			PV2856	SDY296	0	Days	Time of enrollment		SUB122749		Serum	2799
+BS709933			PV2856	SDY296	0	Days	Time of enrollment		SUB122749		Whole blood	2799
+BS709934			PV2856	SDY296	0	Days	Time of enrollment		SUB122749		Serum	2799
+BS709935			PV2856	SDY296	0	Days	Time of enrollment		SUB122749		Whole blood	2799
+BS709936			PV2857	SDY296	1	Days	Time of enrollment		SUB122749		Whole blood	2799
+BS709937			PV2857	SDY296	1	Days	Time of enrollment		SUB122749		Whole blood	2799
+BS709938			PV2858	SDY296	3	Days	Time of enrollment		SUB122749		Whole blood	2799
+BS709939			PV2858	SDY296	3	Days	Time of enrollment		SUB122749		Whole blood	2799
+BS709940			PV2859	SDY296	7	Days	Time of enrollment		SUB122749		Whole blood	2799
+BS709941			PV2859	SDY296	7	Days	Time of enrollment		SUB122749		Whole blood	2799
+BS709942			PV2860	SDY296	28	Days	Time of enrollment		SUB122749		Serum	2799
+BS709943			PV2860	SDY296	28	Days	Time of enrollment		SUB122749		Whole blood	2799
+BS709944			PV2860	SDY296	28	Days	Time of enrollment		SUB122749		Serum	2799
+BS709945			PV2860	SDY296	28	Days	Time of enrollment		SUB122749		Whole blood	2799
+BS709946			PV2861	SDY296	120	Days	Time of enrollment		SUB122749		Other	2799
+BS709947			PV2861	SDY296	120	Days	Time of enrollment		SUB122749		Whole blood	2799
+BS709948			PV2862	SDY296	240	Days	Time of enrollment		SUB122749		Whole blood	2799
+BS709949			PV2855	SDY296	-7	Days	Time of enrollment		SUB122750		Whole blood	2799
+BS709950			PV2855	SDY296	-7	Days	Time of enrollment		SUB122750		Whole blood	2799
+BS709951			PV2856	SDY296	0	Days	Time of enrollment		SUB122750		Serum	2799
+BS709952			PV2856	SDY296	0	Days	Time of enrollment		SUB122750		Whole blood	2799
+BS709953			PV2856	SDY296	0	Days	Time of enrollment		SUB122750		Serum	2799
+BS709954			PV2856	SDY296	0	Days	Time of enrollment		SUB122750		Whole blood	2799
+BS709955			PV2857	SDY296	1	Days	Time of enrollment		SUB122750		Whole blood	2799
+BS709956			PV2857	SDY296	1	Days	Time of enrollment		SUB122750		Whole blood	2799
+BS709957			PV2858	SDY296	3	Days	Time of enrollment		SUB122750		Whole blood	2799
+BS709958			PV2858	SDY296	3	Days	Time of enrollment		SUB122750		Whole blood	2799
+BS709959			PV2859	SDY296	7	Days	Time of enrollment		SUB122750		Other	2799
+BS709960			PV2859	SDY296	7	Days	Time of enrollment		SUB122750		Whole blood	2799
+BS709961			PV2860	SDY296	28	Days	Time of enrollment		SUB122750		Serum	2799
+BS709962			PV2860	SDY296	28	Days	Time of enrollment		SUB122750		Whole blood	2799
+BS709963			PV2860	SDY296	28	Days	Time of enrollment		SUB122750		Serum	2799
+BS709964			PV2860	SDY296	28	Days	Time of enrollment		SUB122750		Whole blood	2799
+BS709965			PV2862	SDY296	240	Days	Time of enrollment		SUB122750		Other	2799
+BS709966			PV2862	SDY296	240	Days	Time of enrollment		SUB122750		Whole blood	2799
+BS709967			PV2855	SDY296	-7	Days	Time of enrollment		SUB122751		Whole blood	2799
+BS709968			PV2855	SDY296	-7	Days	Time of enrollment		SUB122751		Whole blood	2799
+BS709969			PV2856	SDY296	0	Days	Time of enrollment		SUB122751		Serum	2799
+BS709970			PV2856	SDY296	0	Days	Time of enrollment		SUB122751		Whole blood	2799
+BS709971			PV2856	SDY296	0	Days	Time of enrollment		SUB122751		Serum	2799
+BS709972			PV2856	SDY296	0	Days	Time of enrollment		SUB122751		Whole blood	2799
+BS709973			PV2857	SDY296	1	Days	Time of enrollment		SUB122751		Whole blood	2799
+BS709974			PV2857	SDY296	1	Days	Time of enrollment		SUB122751		Whole blood	2799
+BS709975			PV2858	SDY296	3	Days	Time of enrollment		SUB122751		Whole blood	2799
+BS709976			PV2858	SDY296	3	Days	Time of enrollment		SUB122751		Whole blood	2799
+BS709977			PV2859	SDY296	7	Days	Time of enrollment		SUB122751		Whole blood	2799
+BS709978			PV2859	SDY296	7	Days	Time of enrollment		SUB122751		Whole blood	2799
+BS709979			PV2860	SDY296	28	Days	Time of enrollment		SUB122751		Serum	2799
+BS709980			PV2860	SDY296	28	Days	Time of enrollment		SUB122751		Whole blood	2799
+BS709981			PV2860	SDY296	28	Days	Time of enrollment		SUB122751		Serum	2799
+BS709982			PV2860	SDY296	28	Days	Time of enrollment		SUB122751		Whole blood	2799
+BS709983			PV2861	SDY296	120	Days	Time of enrollment		SUB122751		Other	2799
+BS709984			PV2861	SDY296	120	Days	Time of enrollment		SUB122751		Whole blood	2799
+BS709985			PV2855	SDY296	-7	Days	Time of enrollment		SUB122752		Whole blood	2799
+BS709986			PV2855	SDY296	-7	Days	Time of enrollment		SUB122752		Whole blood	2799
+BS709987			PV2856	SDY296	0	Days	Time of enrollment		SUB122752		Serum	2799
+BS709988			PV2856	SDY296	0	Days	Time of enrollment		SUB122752		Whole blood	2799
+BS709989			PV2856	SDY296	0	Days	Time of enrollment		SUB122752		Serum	2799
+BS709990			PV2856	SDY296	0	Days	Time of enrollment		SUB122752		Whole blood	2799
+BS709991			PV2857	SDY296	1	Days	Time of enrollment		SUB122752		Whole blood	2799
+BS709992			PV2857	SDY296	1	Days	Time of enrollment		SUB122752		Whole blood	2799
+BS709993			PV2858	SDY296	3	Days	Time of enrollment		SUB122752		Whole blood	2799
+BS709994			PV2858	SDY296	3	Days	Time of enrollment		SUB122752		Whole blood	2799
+BS709995			PV2859	SDY296	7	Days	Time of enrollment		SUB122752		Whole blood	2799
+BS709996			PV2859	SDY296	7	Days	Time of enrollment		SUB122752		Whole blood	2799
+BS709997			PV2860	SDY296	28	Days	Time of enrollment		SUB122752		Serum	2799
+BS709998			PV2860	SDY296	28	Days	Time of enrollment		SUB122752		Whole blood	2799
+BS709999			PV2860	SDY296	28	Days	Time of enrollment		SUB122752		Serum	2799
+BS710000			PV2860	SDY296	28	Days	Time of enrollment		SUB122752		Whole blood	2799
+BS710001			PV2861	SDY296	120	Days	Time of enrollment		SUB122752		Other	2799
+BS710002			PV2861	SDY296	120	Days	Time of enrollment		SUB122752		Whole blood	2799
+BS710003			PV2862	SDY296	240	Days	Time of enrollment		SUB122752		Whole blood	2799
+BS710004			PV2855	SDY296	-7	Days	Time of enrollment		SUB122753		Whole blood	2799
+BS710005			PV2855	SDY296	-7	Days	Time of enrollment		SUB122753		Whole blood	2799
+BS710006			PV2856	SDY296	0	Days	Time of enrollment		SUB122753		Serum	2799
+BS710007			PV2856	SDY296	0	Days	Time of enrollment		SUB122753		Whole blood	2799
+BS710008			PV2856	SDY296	0	Days	Time of enrollment		SUB122753		Serum	2799
+BS710009			PV2856	SDY296	0	Days	Time of enrollment		SUB122753		Whole blood	2799
+BS710010			PV2857	SDY296	1	Days	Time of enrollment		SUB122753		Whole blood	2799
+BS710011			PV2857	SDY296	1	Days	Time of enrollment		SUB122753		Whole blood	2799
+BS710012			PV2858	SDY296	3	Days	Time of enrollment		SUB122753		Whole blood	2799
+BS710013			PV2858	SDY296	3	Days	Time of enrollment		SUB122753		Whole blood	2799
+BS710014			PV2859	SDY296	7	Days	Time of enrollment		SUB122753		Whole blood	2799
+BS710015			PV2859	SDY296	7	Days	Time of enrollment		SUB122753		Whole blood	2799
+BS710016			PV2860	SDY296	28	Days	Time of enrollment		SUB122753		Serum	2799
+BS710017			PV2860	SDY296	28	Days	Time of enrollment		SUB122753		Whole blood	2799
+BS710018			PV2860	SDY296	28	Days	Time of enrollment		SUB122753		Serum	2799
+BS710019			PV2860	SDY296	28	Days	Time of enrollment		SUB122753		Whole blood	2799
+BS710020			PV2862	SDY296	240	Days	Time of enrollment		SUB122753		Other	2799
+BS710021			PV2862	SDY296	240	Days	Time of enrollment		SUB122753		Whole blood	2799
+BS710022			PV2855	SDY296	-7	Days	Time of enrollment		SUB133688		Other	2799
+BS710023			PV2855	SDY296	-7	Days	Time of enrollment		SUB133688		Whole blood	2799
+BS710024			PV2855	SDY296	-7	Days	Time of enrollment		SUB122754		Whole blood	2799
+BS710025			PV2855	SDY296	-7	Days	Time of enrollment		SUB122754		Whole blood	2799
+BS710026			PV2856	SDY296	0	Days	Time of enrollment		SUB122754		Serum	2799
+BS710027			PV2856	SDY296	0	Days	Time of enrollment		SUB122754		Whole blood	2799
+BS710028			PV2856	SDY296	0	Days	Time of enrollment		SUB122754		Serum	2799
+BS710029			PV2856	SDY296	0	Days	Time of enrollment		SUB122754		Whole blood	2799
+BS710030			PV2857	SDY296	1	Days	Time of enrollment		SUB122754		Whole blood	2799
+BS710031			PV2857	SDY296	1	Days	Time of enrollment		SUB122754		Whole blood	2799
+BS710032			PV2858	SDY296	3	Days	Time of enrollment		SUB122754		Whole blood	2799
+BS710033			PV2858	SDY296	3	Days	Time of enrollment		SUB122754		Whole blood	2799
+BS710034			PV2859	SDY296	7	Days	Time of enrollment		SUB122754		Whole blood	2799
+BS710035			PV2859	SDY296	7	Days	Time of enrollment		SUB122754		Whole blood	2799
+BS710036			PV2860	SDY296	28	Days	Time of enrollment		SUB122754		Serum	2799
+BS710037			PV2860	SDY296	28	Days	Time of enrollment		SUB122754		Whole blood	2799
+BS710038			PV2860	SDY296	28	Days	Time of enrollment		SUB122754		Serum	2799
+BS710039			PV2860	SDY296	28	Days	Time of enrollment		SUB122754		Whole blood	2799
+BS710040			PV2855	SDY296	-7	Days	Time of enrollment		SUB122755		Whole blood	2799
+BS710041			PV2855	SDY296	-7	Days	Time of enrollment		SUB122755		Whole blood	2799
+BS710042			PV2856	SDY296	0	Days	Time of enrollment		SUB122755		Serum	2799
+BS710043			PV2856	SDY296	0	Days	Time of enrollment		SUB122755		Whole blood	2799
+BS710044			PV2856	SDY296	0	Days	Time of enrollment		SUB122755		Serum	2799
+BS710045			PV2856	SDY296	0	Days	Time of enrollment		SUB122755		Whole blood	2799
+BS710046			PV2857	SDY296	1	Days	Time of enrollment		SUB122755		Whole blood	2799
+BS710047			PV2857	SDY296	1	Days	Time of enrollment		SUB122755		Whole blood	2799
+BS710048			PV2858	SDY296	3	Days	Time of enrollment		SUB122755		Whole blood	2799
+BS710049			PV2858	SDY296	3	Days	Time of enrollment		SUB122755		Whole blood	2799
+BS710050			PV2859	SDY296	7	Days	Time of enrollment		SUB122755		Whole blood	2799
+BS710051			PV2859	SDY296	7	Days	Time of enrollment		SUB122755		Whole blood	2799
+BS710052			PV2860	SDY296	28	Days	Time of enrollment		SUB122755		Serum	2799
+BS710053			PV2860	SDY296	28	Days	Time of enrollment		SUB122755		Whole blood	2799
+BS710054			PV2860	SDY296	28	Days	Time of enrollment		SUB122755		Serum	2799
+BS710055			PV2860	SDY296	28	Days	Time of enrollment		SUB122755		Whole blood	2799
+BS710056			PV2862	SDY296	240	Days	Time of enrollment		SUB122755		Other	2799
+BS710057			PV2862	SDY296	240	Days	Time of enrollment		SUB122755		Whole blood	2799
+BS710058			PV2855	SDY296	-7	Days	Time of enrollment		SUB122756		Whole blood	2799
+BS710059			PV2855	SDY296	-7	Days	Time of enrollment		SUB122756		Whole blood	2799
+BS710060			PV2856	SDY296	0	Days	Time of enrollment		SUB122756		Serum	2799
+BS710061			PV2856	SDY296	0	Days	Time of enrollment		SUB122756		Whole blood	2799
+BS710062			PV2856	SDY296	0	Days	Time of enrollment		SUB122756		Serum	2799
+BS710063			PV2856	SDY296	0	Days	Time of enrollment		SUB122756		Whole blood	2799
+BS710064			PV2857	SDY296	1	Days	Time of enrollment		SUB122756		Whole blood	2799
+BS710065			PV2857	SDY296	1	Days	Time of enrollment		SUB122756		Whole blood	2799
+BS710066			PV2858	SDY296	3	Days	Time of enrollment		SUB122756		Other	2799
+BS710067			PV2858	SDY296	3	Days	Time of enrollment		SUB122756		Whole blood	2799
+BS710068			PV2859	SDY296	7	Days	Time of enrollment		SUB122756		Whole blood	2799
+BS710069			PV2859	SDY296	7	Days	Time of enrollment		SUB122756		Whole blood	2799
+BS710070			PV2860	SDY296	28	Days	Time of enrollment		SUB122756		Serum	2799
+BS710071			PV2860	SDY296	28	Days	Time of enrollment		SUB122756		Whole blood	2799
+BS710072			PV2860	SDY296	28	Days	Time of enrollment		SUB122756		Serum	2799
+BS710073			PV2860	SDY296	28	Days	Time of enrollment		SUB122756		Whole blood	2799
+BS710074			PV2862	SDY296	240	Days	Time of enrollment		SUB122756		Other	2799
+BS710075			PV2862	SDY296	240	Days	Time of enrollment		SUB122756		Whole blood	2799
+BS736869			PV2856	SDY296	0	Days	Time of initial vaccine administration		SUB122716		Whole blood	2799
+BS736870			PV2857	SDY296	1	Days	Time of initial vaccine administration		SUB122716		Whole blood	2799
+BS736871			PV2859	SDY296	7	Days	Time of initial vaccine administration		SUB122716		Whole blood	2799
+BS736872			PV2856	SDY296	0	Days	Time of initial vaccine administration		SUB122718		Whole blood	2799
+BS736873			PV2857	SDY296	1	Days	Time of initial vaccine administration		SUB122718		Whole blood	2799
+BS736874			PV2859	SDY296	7	Days	Time of initial vaccine administration		SUB122718		Whole blood	2799
+BS736875			PV2856	SDY296	0	Days	Time of initial vaccine administration		SUB122719		Whole blood	2799
+BS736876			PV2857	SDY296	1	Days	Time of initial vaccine administration		SUB122719		Whole blood	2799
+BS736877			PV2859	SDY296	7	Days	Time of initial vaccine administration		SUB122719		Whole blood	2799
+BS736878			PV2856	SDY296	0	Days	Time of initial vaccine administration		SUB122724		Whole blood	2799
+BS736879			PV2857	SDY296	1	Days	Time of initial vaccine administration		SUB122724		Whole blood	2799
+BS736880			PV2859	SDY296	7	Days	Time of initial vaccine administration		SUB122724		Whole blood	2799
+BS736881			PV2856	SDY296	0	Days	Time of initial vaccine administration		SUB122731		Whole blood	2799
+BS736882			PV2857	SDY296	1	Days	Time of initial vaccine administration		SUB122731		Whole blood	2799
+BS736883			PV2859	SDY296	7	Days	Time of initial vaccine administration		SUB122731		Whole blood	2799
+BS736884			PV2856	SDY296	0	Days	Time of initial vaccine administration		SUB122732		Whole blood	2799
+BS736885			PV2857	SDY296	1	Days	Time of initial vaccine administration		SUB122732		Whole blood	2799
+BS736886			PV2859	SDY296	7	Days	Time of initial vaccine administration		SUB122732		Whole blood	2799
+BS736887			PV2856	SDY296	0	Days	Time of initial vaccine administration		SUB122733		Whole blood	2799
+BS736888			PV2857	SDY296	1	Days	Time of initial vaccine administration		SUB122733		Whole blood	2799
+BS736889			PV2859	SDY296	7	Days	Time of initial vaccine administration		SUB122733		Whole blood	2799
+BS736890			PV2856	SDY296	0	Days	Time of initial vaccine administration		SUB122744		Whole blood	2799
+BS736891			PV2857	SDY296	1	Days	Time of initial vaccine administration		SUB122744		Whole blood	2799
+BS736892			PV2859	SDY296	7	Days	Time of initial vaccine administration		SUB122744		Whole blood	2799
+BS736893			PV2856	SDY296	0	Days	Time of initial vaccine administration		SUB122745		Whole blood	2799
+BS736894			PV2857	SDY296	1	Days	Time of initial vaccine administration		SUB122745		Whole blood	2799
+BS736895			PV2859	SDY296	7	Days	Time of initial vaccine administration		SUB122745		Whole blood	2799
+BS736896			PV2856	SDY296	0	Days	Time of initial vaccine administration		SUB122747		Whole blood	2799
+BS736897			PV2857	SDY296	1	Days	Time of initial vaccine administration		SUB122747		Whole blood	2799
+BS736898			PV2859	SDY296	7	Days	Time of initial vaccine administration		SUB122747		Whole blood	2799
+BS736899			PV2856	SDY296	0	Days	Time of initial vaccine administration		SUB122751		Whole blood	2799
+BS736900			PV2857	SDY296	1	Days	Time of initial vaccine administration		SUB122751		Whole blood	2799
+BS736901			PV2859	SDY296	7	Days	Time of initial vaccine administration		SUB122751		Whole blood	2799
+BS736902			PV2856	SDY296	0	Days	Time of initial vaccine administration		SUB122752		Whole blood	2799
+BS736903			PV2857	SDY296	1	Days	Time of initial vaccine administration		SUB122752		Whole blood	2799
+BS736904			PV2859	SDY296	7	Days	Time of initial vaccine administration		SUB122752		Whole blood	2799
+BS736905			PV2856	SDY296	0	Days	Time of initial vaccine administration		SUB122753		Whole blood	2799
+BS736906			PV2857	SDY296	1	Days	Time of initial vaccine administration		SUB122753		Whole blood	2799
+BS736907			PV2859	SDY296	7	Days	Time of initial vaccine administration		SUB122753		Whole blood	2799
+BS736908			PV2856	SDY296	0	Days	Time of initial vaccine administration		SUB122755		Whole blood	2799
+BS736909			PV2857	SDY296	1	Days	Time of initial vaccine administration		SUB122755		Whole blood	2799
+BS736910			PV2859	SDY296	7	Days	Time of initial vaccine administration		SUB122755		Whole blood	2799
+BS751092			PV2856	SDY296	0	Days	Time of enrollment		SUB122716		Whole blood	2799
+BS751093			PV2856	SDY296	0	Days	Time of enrollment		SUB122718		Whole blood	2799
+BS751094			PV2856	SDY296	0	Days	Time of enrollment		SUB122719		Whole blood	2799
+BS751095			PV2856	SDY296	0	Days	Time of enrollment		SUB122720		Whole blood	2799
+BS751096			PV2856	SDY296	0	Days	Time of enrollment		SUB122722		Whole blood	2799
+BS751097			PV2856	SDY296	0	Days	Time of enrollment		SUB122723		Whole blood	2799
+BS751098			PV2856	SDY296	0	Days	Time of enrollment		SUB122724		Whole blood	2799
+BS751099			PV2856	SDY296	0	Days	Time of enrollment		SUB122725		Whole blood	2799
+BS751100			PV2856	SDY296	0	Days	Time of enrollment		SUB122726		Whole blood	2799
+BS751101			PV2856	SDY296	0	Days	Time of enrollment		SUB122727		Whole blood	2799
+BS751102			PV2856	SDY296	0	Days	Time of enrollment		SUB122728		Whole blood	2799
+BS751103			PV2856	SDY296	0	Days	Time of enrollment		SUB122729		Whole blood	2799
+BS751104			PV2856	SDY296	0	Days	Time of enrollment		SUB122730		Whole blood	2799
+BS751105			PV2856	SDY296	0	Days	Time of enrollment		SUB122732		Whole blood	2799
+BS751106			PV2856	SDY296	0	Days	Time of enrollment		SUB122733		Whole blood	2799
+BS751107			PV2856	SDY296	0	Days	Time of enrollment		SUB122734		Whole blood	2799
+BS751108			PV2856	SDY296	0	Days	Time of enrollment		SUB122735		Whole blood	2799
+BS751109			PV2856	SDY296	0	Days	Time of enrollment		SUB122737		Whole blood	2799
+BS751110			PV2856	SDY296	0	Days	Time of enrollment		SUB122738		Whole blood	2799
+BS751111			PV2856	SDY296	0	Days	Time of enrollment		SUB122739		Whole blood	2799
+BS751112			PV2856	SDY296	0	Days	Time of enrollment		SUB122740		Whole blood	2799
+BS751113			PV2856	SDY296	0	Days	Time of enrollment		SUB122741		Whole blood	2799
+BS751114			PV2856	SDY296	0	Days	Time of enrollment		SUB122742		Whole blood	2799
+BS751115			PV2856	SDY296	0	Days	Time of enrollment		SUB122743		Whole blood	2799
+BS751116			PV2856	SDY296	0	Days	Time of enrollment		SUB122744		Whole blood	2799
+BS751117			PV2856	SDY296	0	Days	Time of enrollment		SUB122745		Whole blood	2799
+BS751118			PV2856	SDY296	0	Days	Time of enrollment		SUB122747		Whole blood	2799
+BS751119			PV2856	SDY296	0	Days	Time of enrollment		SUB122748		Whole blood	2799
+BS751120			PV2856	SDY296	0	Days	Time of enrollment		SUB122749		Whole blood	2799
+BS751121			PV2856	SDY296	0	Days	Time of enrollment		SUB122750		Whole blood	2799
+BS751122			PV2856	SDY296	0	Days	Time of enrollment		SUB122751		Whole blood	2799
+BS751123			PV2856	SDY296	0	Days	Time of enrollment		SUB122752		Whole blood	2799
+BS751124			PV2856	SDY296	0	Days	Time of enrollment		SUB122753		Whole blood	2799
+BS751125			PV2856	SDY296	0	Days	Time of enrollment		SUB122754		Whole blood	2799
+BS751126			PV2856	SDY296	0	Days	Time of enrollment		SUB122755		Whole blood	2799
+BS751127			PV2856	SDY296	0	Days	Time of enrollment		SUB122756		Whole blood	2799
