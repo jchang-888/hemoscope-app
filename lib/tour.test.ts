@@ -42,7 +42,7 @@ describe("tour steps", () => {
         expect(page, s.id).toContain(`tourName="${day[1]}"`);
       } else {
         expect(page, s.id).toContain(`"${s.target}"`);
-        expect(page.includes(`data-tour="${s.target}"`) || page.includes(`? "${s.target}"`) || page.includes(`: "${s.target}"`), s.id).toBe(true);
+        expect(page.includes(`data-tour="${s.target}"`) || page.includes(`tour="${s.target}"`) || page.includes(`? "${s.target}"`) || page.includes(`: "${s.target}"`), s.id).toBe(true);
       }
     }
   });
@@ -217,5 +217,30 @@ describe("no how-to guides in the repository", () => {
       hits = ""; // git grep exits with 1 when nothing matches
     }
     expect(hits).toBe("");
+  });
+});
+
+describe("tour outline stays in sync with its element", () => {
+  it("re-measures on element resize, window resize and scroll, and image and font loads", () => {
+    for (const part of ["new ResizeObserver", 'addEventListener("resize"', 'addEventListener("scroll"', '"load", measure', "document.fonts"]) {
+      expect(tourUi, part).toContain(part);
+    }
+  });
+
+  it("outlines the element with PAD and does not trim it to the tour card", () => {
+    expect(tourUi).toContain("const PAD = 6");
+    expect(tourUi).not.toContain("c.top - EDGE"); // the old rule that cut the outline off above the card
+  });
+
+  it("points steps 7, 8 and 10 at one element each", () => {
+    const [map, learn, emergency] = ["state-map", "learn", "emergency"].map((t) => TOUR_STEPS.find((s) => s.id === t)!);
+    expect([map.target, learn.target, emergency.target]).toEqual(["state-map", "learn", "emergency"]);
+    const ui = readFileSync("app/ui.tsx", "utf8");
+    expect(page).toContain('<Card tour="state-map">'); // the card itself, not a wrapper div
+    expect(page).not.toContain('<div data-tour="state-map">');
+    expect(page).not.toContain('<div data-tour="learn">');
+    expect(page).not.toContain('<div data-tour="emergency">');
+    expect(ui).toContain('<div data-tour="learn"'); // search box, jump menu and first heading
+    expect(ui).toContain('<div data-tour="emergency" className="mt-4 grid'); // the scenario cards
   });
 });

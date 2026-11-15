@@ -147,12 +147,13 @@ function bloodInput(d: BloodDraft): BloodInput {
 
 // `highlight` is the accent blue block with white bold text, used only for the essential dashboard blocks.
 // `exportMenu` puts an Export menu at the right of the title. Its PNG is a picture of the whole card.
-function Card({ title, tip, children, className = "", highlight, exportMenu, exportName }: {
+function Card({ title, tip, children, className = "", highlight, exportMenu, exportName, tour }: {
+  tour?: string; // data-tour value, so the guided tour can outline this card
   title?: string; tip?: ReactNode; children: ReactNode; className?: string; highlight?: boolean; exportMenu?: ReactNode;
   exportName?: string; // marks the card as a chart for "Export All Charts"
 }) {
   return (
-    <section data-export data-export-name={exportName} className={`rounded-2xl border p-4 sm:p-5 ${highlight ? "highlight border-transparent sm:p-6" : "border-border bg-surface"} ${className}`}>
+    <section data-export data-export-name={exportName} data-tour={tour} className={`rounded-2xl border p-4 sm:p-5 ${highlight ? "highlight border-transparent sm:p-6" : "border-border bg-surface"} ${className}`}>
       {title && (
         <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
           <h2 className={`font-heading flex flex-wrap items-center gap-x-2 font-bold ${highlight ? "text-2xl sm:text-3xl" : "text-lg"}`}>
@@ -395,7 +396,7 @@ function HealthHistory({ id, entries, dailyResults, bloodResults, todayDaily, to
             </Card>
           </div>
           <NextForecastCard blood={bloodResults} />
-          <div data-tour="state-map"><Card><ImmuneStateMap path={mapPathOf(bloodResults, a.baseline)} astronaut={id} /></Card></div>
+          <Card><ImmuneStateMap path={mapPathOf(bloodResults, a.baseline)} astronaut={id} /></Card>
           <div className="flex flex-wrap items-start justify-between gap-3">
             <Legend>
               Shaded band: the expected range from your preflight baseline times the flight phase multiplier, plus or minus 1.96 standard
@@ -541,7 +542,7 @@ function Dashboard({
 
       <div className="grid gap-4 md:grid-cols-2">
         <ImmuneScoreCard blood={blood} name={a.name} />
-        <Card>
+        <Card tour="state-map">
           <ImmuneStateMap path={mapPath} compact astronaut={id} exportName="immune-state-map" />
         </Card>
       </div>
@@ -692,7 +693,7 @@ function DailyForm({
   return (
     <Card title="Daily Check">
       <p className="mb-4 text-sm text-muted">All fields are optional. Fill at least one to submit. Mission day {TODAY}.</p>
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div data-tour="daily-form" className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {DAILY_FORM.map(({ key, step, dec, hint }) => {
           const info = CONFIG.tooltips.fields[key];
           // Scored vitals show the same normal range the results and charts use.
@@ -1049,7 +1050,7 @@ function AstronautView({
           {view === "checks" && (
             <div className="space-y-4">
               <CheckTypeToggle label="Choose a health check" value={nav.checks} onChange={(t) => setNav((n) => openChecks(n, t))} />
-              <div data-tour={nav.checks === "daily" ? "daily-form" : "blood-form"}>
+              <div data-tour={nav.checks === "daily" ? undefined : "blood-form"}>
               {nav.checks === "daily" ? (
                 <DailyForm id={id} draft={draft} setDraft={setDraft} stored={stored} onResults={toResults("daily")} />
               ) : (
@@ -1077,8 +1078,8 @@ function AstronautView({
               lastDay={LAST_HISTORY_DAY} sub={historySub} onSub={setHistorySub}
             />
           )}
-          {view === "learn" && <div data-tour="learn"><LearnView key={learnKey} anchor={learnAnchor} blood={blood} daily={daily} onEmergency={() => goEmergency()} onSearch={ask.glassPress} /></div>}
-          {view === "emergency" && <div data-tour="emergency"><EmergencyAstronaut key={emergencyKey} initial={scenario ?? undefined} /></div>}
+          {view === "learn" && <LearnView key={learnKey} anchor={learnAnchor} blood={blood} daily={daily} onEmergency={() => goEmergency()} onSearch={ask.glassPress} />}
+          {view === "emergency" && <EmergencyAstronaut key={emergencyKey} initial={scenario ?? undefined} />}
         </div>
         </LearnProvider>
       </PageMain>
@@ -1133,8 +1134,8 @@ function CrewOverview() {
         <p className="text-sm text-muted">Status as of day {LAST_HISTORY_DAY}, most urgent first. This view never changes when an astronaut submits data.</p>
         <ExportMenu astronaut="crew" name="crew-table" table={crewTable(exportRows)} />
       </div>
-      {rows.map(({ a, d, b, overall, reason, immune, streak }) => (
-        <Card key={a.id}>
+      {rows.map(({ a, d, b, overall, reason, immune, streak }, i) => (
+        <Card key={a.id} tour={i === 0 ? "crew" : undefined}>
           <div className="flex flex-wrap items-start justify-between gap-3">
             <h2 className="font-heading flex flex-wrap items-center gap-3 text-lg font-bold">
               {a.name}
@@ -1249,7 +1250,7 @@ function SurgeonView({ demo, tour }: { demo: ReactNode; tour: TourStep | null })
             </>
           )}
           <p className="text-xs text-muted">{DATA_NOTE}</p>
-          {tab === "crew" && <div data-tour="crew"><CrewOverview /></div>}
+          {tab === "crew" && <CrewOverview />}
           {tab === "detail" && detailSub === "overview" && <AstronautDetail id={id} />}
           {tab === "detail" && detailSub === "history" && <SurgeonHistory id={id} sub={sub} onSub={setSub} />}
           {tab === "emergency" && <EmergencySurgeon />}

@@ -9,7 +9,7 @@ import { TOUR_REPO_URL, TOUR_START_LABEL, TOUR_START_NOTE, TOUR_STEPS, lastStep,
 type Box = { top: number; left: number; width: number; height: number };
 // Where the card sits. "dock": fixed at the bottom of the window (always on phones). "side": beside the outlined area, next to it
 // in the page, used on wide windows when there is room so the card never covers what it points at.
-type Place = { mode: "dock" } | { mode: "side"; top: number; left: number };
+type Place = { mode: "dock"; left: boolean } | { mode: "side"; top: number; left: number };
 
 const CARD_W = 480; // card width on wide windows
 const WIDE = 640; // the window width where the card stops being full width
@@ -32,7 +32,7 @@ export function TourButton({ onClick }: { onClick: () => void }) {
 export function Tour({ index, onIndex, onExit }: { index: number; onIndex: (i: number) => void; onExit: () => void }) {
   const step = TOUR_STEPS[index];
   const [box, setBox] = useState<Box | null>(null);
-  const [place, setPlace] = useState<Place>({ mode: "dock" });
+  const [place, setPlace] = useState<Place>({ mode: "dock", left: false });
   const card = useRef<HTMLDivElement>(null);
 
   // Escape closes the tour.
@@ -43,60 +43,104 @@ export function Tour({ index, onIndex, onExit }: { index: number; onIndex: (i: n
   }, [onExit]);
 
   // (The page keys this component by step, so the outline starts empty for each step.)
-  // The page switches tabs when the step changes, so the area may not exist yet. Look for it until it does, scroll it into
-  // view once, then keep the outline and the card in step with the layout (charts and fonts can move things after the first paint).
+  // The page switches tabs when the step changes, so the area may not exist yet. Look for it until it does, scroll it into view,
+  // then keep the outline and the card in step with it. The outline is measured again when the area or the page resizes (a
+  // ResizeObserver), when the window resizes or scrolls, and when images and fonts finish loading, because those change heights.
   useEffect(() => {
     card.current?.focus({ preventScroll: true });
     if (!step.target) return;
-    let scrolled = false;
-    const find = () => {
-      const el = document.querySelector<HTMLElement>(`[data-tour="${step.target}"]`);
-      if (!el) return;
-      let r = el.getBoundingClientRect();
-      if (!scrolled) {
-        scrolled = true;
-        // A target inside a scrolling table (the day 46 row): centre it in the table first.
-        const table = el.closest<HTMLElement>("[data-export-expand]");
-        if (table) table.scrollTop += r.top - table.getBoundingClientRect().top - table.clientHeight / 2;
-        r = el.getBoundingClientRect();
-        window.scrollTo({ top: Math.max(0, window.scrollY + r.top - SCROLL_GAP), behavior: "instant" });
-        r = el.getBoundingClientRect();
+    const selector = `[data-tour="${step.target}"]`;
+    let el: HTMLElement | null = null;
+    let centred = false; // a row inside a scrolling table is centred in the table once
+    let settling = true; // for the first moments the area is kept in place while the page finishes loading
+    let userMoved = false; // ...unless the person scrolls
+    const stop: (() => void)[] = [];
+
+    // On a wide window the docked card can sit on the side the area does not reach. On phones it spans the window.
+    const dockSide = (r: DOMRect) => {
+      const wide = window.innerWidth >= WIDE;
+      const hits = (from: number, to: number) => r.right + PAD > from && r.left - PAD < to;
+      const hitsRight = !wide || hits(window.innerWidth - EDGE - CARD_W, window.innerWidth);
+      const hitsLeft = !wide || hits(0, EDGE + CARD_W);
+      return { left: wide && hitsRight && !hitsLeft, covers: wide ? hitsRight && hitsLeft : true };
+    };
+
+    // Scroll so the whole area sits above the docked card when it can, otherwise as high as the window allows.
+    const align = (r: DOMRect) => {
+      const cardH = card.current?.offsetHeight ?? 280;
+      const room = window.innerHeight - cardH - EDGE * 2 - r.height;
+      const gap = dockSide(r).covers ? Math.max(EDGE, Math.min(SCROLL_GAP, room)) : SCROLL_GAP;
+      const top = Math.max(0, window.scrollY + r.top - gap);
+      if (Math.abs(window.scrollY - top) > 1) window.scrollTo({ top, behavior: "instant" });
+    };
+
+    const ro = new ResizeObserver(() => measure());
+    const watch = (target: HTMLElement) => {
+      ro.disconnect();
+      ro.observe(target);
+      ro.observe(document.body); // content above the area growing or shrinking moves it
+      target.addEventListener("load", measure, true); // images inside the area
+      stop.push(() => target.removeEventListener("load", measure, true));
+    };
+
+    function measure() {
+      if (!el || !el.isConnected) {
+        el = document.querySelector<HTMLElement>(selector);
+        if (!el) return;
+        watch(el);
       }
-      // The outline covers the part of the area that can be seen: not past the edge of a scrolling table or the window, and (when the
-      // card is docked over it) not under the card. Tall areas, such as a whole tab, are outlined down to the card.
+      let r = el.getBoundingClientRect();
+      if (!centred) {
+        centred = true;
+        const table = el.closest<HTMLElement>("[data-export-expand]");
+        if (table) { table.scrollTop += r.top - table.getBoundingClientRect().top - table.clientHeight / 2; r = el.getBoundingClientRect(); }
+      }
+      if (settling && !userMoved) { align(r); r = el.getBoundingClientRect(); }
+
+      // The outline hugs the area, plus PAD. Only a row inside a scrolling table is trimmed to the table's edges.
       let { top, bottom, left, right } = r;
       const scroller = el.closest<HTMLElement>("[data-export-expand]")?.getBoundingClientRect();
       if (scroller) { top = Math.max(top, scroller.top); bottom = Math.min(bottom, scroller.bottom); left = Math.max(left, scroller.left); right = Math.min(right, scroller.right); }
-      left = Math.max(left, 0);
-      right = Math.min(right, document.documentElement.clientWidth);
-      const c = card.current?.getBoundingClientRect();
-      if (c && card.current?.style.top === "" && right + PAD > c.left && left - PAD < c.right && top < c.top) bottom = Math.min(bottom, c.top - EDGE - PAD);
-      bottom = Math.max(bottom, top + 24);
       const next = { top: top + window.scrollY - PAD, left: left + window.scrollX - PAD, width: right - left + PAD * 2, height: bottom - top + PAD * 2 };
       setBox((prev) => (prev && prev.top === next.top && prev.left === next.left && prev.width === next.width && prev.height === next.height ? prev : next));
 
       // On a wide window, put the card beside the area when there is room on either side. Otherwise (and on phones) dock it at the
       // bottom, where the page has been scrolled so the area sits above it.
-      let nextPlace: Place = { mode: "dock" };
+      let nextPlace: Place = { mode: "dock", left: dockSide(r).left };
       if (window.innerWidth >= WIDE) {
         const need = CARD_W + EDGE * 2;
-        const top = Math.max(window.scrollY + EDGE, next.top);
-        if (window.innerWidth - (r.right + PAD) >= need) nextPlace = { mode: "side", top, left: next.left + next.width + EDGE };
-        else if (r.left - PAD >= need) nextPlace = { mode: "side", top, left: next.left - EDGE - CARD_W };
+        const cardTop = Math.max(window.scrollY + EDGE, next.top);
+        if (window.innerWidth - (r.right + PAD) >= need) nextPlace = { mode: "side", top: cardTop, left: next.left + next.width + EDGE };
+        else if (r.left - PAD >= need) nextPlace = { mode: "side", top: cardTop, left: next.left - EDGE - CARD_W };
       }
-      setPlace((prev) => (prev.mode === nextPlace.mode && (prev.mode === "dock" || (nextPlace.mode === "side" && prev.top === nextPlace.top && prev.left === nextPlace.left)) ? prev : nextPlace));
+      setPlace((prev) => (prev.mode === "dock" && nextPlace.mode === "dock" ? (prev.left === nextPlace.left ? prev : nextPlace) : prev.mode === "side" && nextPlace.mode === "side" && prev.top === nextPlace.top && prev.left === nextPlace.left ? prev : nextPlace));
+    }
+
+    const moved = () => { userMoved = true; };
+    for (const ev of ["wheel", "touchstart", "keydown", "pointerdown"] as const) { window.addEventListener(ev, moved, { passive: true }); stop.push(() => window.removeEventListener(ev, moved)); }
+    window.addEventListener("resize", measure);
+    window.addEventListener("scroll", measure, { passive: true });
+    void document.fonts?.ready.then(measure);
+    document.fonts?.addEventListener?.("loadingdone", measure);
+    const settle = window.setTimeout(() => { settling = false; }, 2000);
+    const poll = window.setInterval(measure, 250); // finds the area after a tab switch, and catches it being replaced
+    measure();
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", measure);
+      window.removeEventListener("scroll", measure);
+      document.fonts?.removeEventListener?.("loadingdone", measure);
+      window.clearTimeout(settle);
+      window.clearInterval(poll);
+      stop.forEach((f) => f());
     };
-    find();
-    const timer = window.setInterval(find, 150);
-    window.addEventListener("resize", find);
-    return () => { window.clearInterval(timer); window.removeEventListener("resize", find); };
   }, [step.target, step.id]);
 
   const last = index === lastStep;
   const pct = Math.round(((index + 1) / TOUR_STEPS.length) * 100);
   const where = place.mode === "side"
     ? "absolute w-[480px]"
-    : "fixed inset-x-4 bottom-4 sm:inset-x-auto sm:right-4 sm:w-[480px]";
+    : `fixed inset-x-4 bottom-4 sm:inset-x-auto sm:w-[480px] ${place.left ? "sm:left-4" : "sm:right-4"}`;
 
   return (
     <>
@@ -109,7 +153,7 @@ export function Tour({ index, onIndex, onExit }: { index: number; onIndex: (i: n
       )}
       <div aria-hidden style={{ height: SPACER }} />
       <div
-        ref={card} tabIndex={-1} role="dialog" aria-label={`Tour, ${step.title}`}
+        ref={card} tabIndex={-1} role="dialog" aria-label={`Tour, ${step.title}`} data-tour-target={step.target ?? ""}
         className={`${where} z-[70] max-h-[calc(100vh-2rem)] overflow-y-auto rounded-2xl border border-accent bg-surface p-6 text-foreground shadow-xl outline-none`}
         style={place.mode === "side" ? { top: place.top, left: place.left } : undefined}
       >

@@ -1024,6 +1024,7 @@ export function LearnView({ anchor, blood, daily, onEmergency, onSearch }: {
   );
   return (
     <div className="space-y-4">
+      <div data-tour="learn" className="space-y-4">
       {onSearch && (
         <form
           role="search" className="relative"
@@ -1048,6 +1049,7 @@ export function LearnView({ anchor, blood, daily, onEmergency, onSearch }: {
       </div>
 
       <GroupHeading id={LEARN_GROUPS[0].id} title={LEARN_GROUPS[0].title} />
+      </div>
       {section(MAP_SECTION, <BodyMap active={mapSpot} setActive={setMapSpot} />)}
       {section(TIMELINE_SECTION, <Timeline />)}
       {section(CPR_SECTION, <>
@@ -1298,7 +1300,7 @@ export function EmergencyAstronaut({ initial }: { initial?: string } = {}) {
       <section className="space-y-6">
         <div>
           <h2 className="font-heading text-2xl font-bold">What Is Happening?</h2>
-          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+          <div data-tour="emergency" className="mt-4 grid gap-3 sm:grid-cols-2">
             {SCENARIOS.map((s) => (
               <button
                 key={s.id} onClick={() => open(s.id)}

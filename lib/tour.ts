@@ -60,9 +60,9 @@ export const TOUR_STEPS: TourStep[] = [
     text: "For each marker, the value expected at the next blood check and its 95% range, from this astronaut's own history. The same card is in Today's Results and summarized on the Dashboard.",
   },
   {
-    id: "state-map", who: "D", view: "history", history: "blood", target: "state-map",
+    id: "state-map", who: "D", view: "dashboard", target: "state-map",
     title: "Immune State Map",
-    text: "The mission path for Astronaut D moves toward the neutrophil side of the map as the neutrophils rise.",
+    text: "The mission path for Astronaut D moves toward the neutrophil side of the map as the neutrophils rise. Health History has a larger version.",
   },
   {
     id: "learn", who: "A", view: "learn", target: "learn",
@@ -82,7 +82,7 @@ export const TOUR_STEPS: TourStep[] = [
   {
     id: "surgeon", who: "surgeon", surgeonTab: "crew", target: "crew",
     title: "Flight Surgeon",
-    text: "The crew overview ranks every astronaut by status, most urgent first, with the top reason for each.",
+    text: "The crew overview ranks the astronauts by status, most urgent first. The top card is the one who needs attention first.",
   },
   {
     id: "azure", who: "A", view: "dashboard", target: null,
