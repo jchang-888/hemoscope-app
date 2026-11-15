@@ -1,0 +1,12 @@
+# Files Azure ML must not upload with the job (the whole repo is the job's code folder).
+# Azure ML reads this file INSTEAD of .gitignore when it exists, so secrets and junk are listed here too.
+node_modules
+.next
+.git
+*.zip
+*.pdf
+public
+.env*
+.DS_Store
+mlruns
+azure-output

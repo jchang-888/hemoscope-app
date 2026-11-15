@@ -1,0 +1,13 @@
+name: hemoscope-ml
+channels:
+  - conda-forge
+dependencies:
+  - python=3.13
+  - pip
+  - pip:
+      # The pinned training packages come from scripts/requirements.txt, installed by the job command, so the
+      # versions live in one place. Only the MLflow packages are added here.
+      # mlflow-skinny is the lightweight build of mlflow (same `import mlflow`). azureml-mlflow needs <= 3.15.0 (newer
+      # versions break artifact uploads), and the full mlflow 3.15 would force pandas<3, which scripts/requirements.txt pins.
+      - mlflow-skinny==3.15.0
+      - azureml-mlflow

@@ -1,0 +1,68 @@
+{
+ "name": "HemoScope immune risk forecast",
+ "type": "monte_carlo_deviation_score_with_logistic_calibration",
+ "draws": 2000,
+ "seed": 20261109,
+ "unusualScore": 95,
+ "calibration": {
+  "a": -0.776753,
+  "b": 0.681799
+ },
+ "metrics": {
+  "trainedOn": "ImmPort SDY180, SDY296, SDY301, SDY1252",
+  "trainPeople": 84,
+  "testPeople": 36,
+  "forecasts": 284,
+  "unusualRate": 0.169,
+  "auc": 0.5956,
+  "aucRaw": 0.5956,
+  "brier": 0.1455,
+  "brierRaw": 0.1559,
+  "brierAlwaysBaseRate": 0.1404,
+  "meanPredicted": 0.2162,
+  "brierSkill": -0.0363,
+  "calibration": [
+   {
+    "from": 0,
+    "to": 0.1,
+    "forecasts": 1,
+    "meanPredicted": 0.09754502265658135,
+    "observed": 0.0
+   },
+   {
+    "from": 0.1,
+    "to": 0.2,
+    "forecasts": 147,
+    "meanPredicted": 0.1613903514274763,
+    "observed": 0.1292517006802721
+   },
+   {
+    "from": 0.2,
+    "to": 0.3,
+    "forecasts": 113,
+    "meanPredicted": 0.23138133814045125,
+    "observed": 0.18584070796460178
+   },
+   {
+    "from": 0.3,
+    "to": 0.5,
+    "forecasts": 15,
+    "meanPredicted": 0.3859181605141855,
+    "observed": 0.4
+   },
+   {
+    "from": 0.5,
+    "to": 1.0,
+    "forecasts": 8,
+    "meanPredicted": 0.704273509691498,
+    "observed": 0.25
+   }
+  ],
+  "highRiskGroup": {
+   "threshold": 0.3,
+   "share": 0.08098591549295775,
+   "observed": 0.34782608695652173,
+   "observedOthers": 0.1532567049808429
+  }
+ }
+}

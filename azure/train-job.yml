@@ -1,0 +1,28 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+type: command
+experiment_name: hemoscope-ml
+display_name: hemoscope-train-models
+description: Trains the HemoScope forecast and Immune State Map models from the raw data in data/.
+
+# The whole repo is uploaded (see .amlignore) and becomes the job's working folder.
+code: ../
+
+command: |
+  set -euo pipefail
+  pip install -r scripts/requirements.txt
+  bash scripts/run_all.sh
+  mkdir -p ${{outputs.models}}
+  cp lib/models/*.json ${{outputs.models}}/
+  cp docs/experiments/*.json ${{outputs.models}}/
+
+environment:
+  # The base image only has to provide conda; environment.yml builds the real Python 3.13 environment on top of it.
+  image: mcr.microsoft.com/azureml/minimal-ubuntu20.04-py38-cpu-inference:latest
+  conda_file: environment.yml
+
+compute: azureml:cpu-cluster
+
+outputs:
+  models:
+    type: uri_folder
+    mode: rw_mount
