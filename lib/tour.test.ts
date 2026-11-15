@@ -164,3 +164,37 @@ describe("start popup, Demo bar and Health History layout", () => {
     expect(page).toContain("Forecast by HemoScope's machine learning model from this astronaut's own blood checks.");
   });
 });
+
+describe("tour card size and placement", () => {
+  it("is 480px wide on desktop, full width minus 32px on phones, with 24px padding", () => {
+    expect(tourUi).toContain("w-[480px]");
+    expect(tourUi).toContain("const CARD_W = 480");
+    expect(tourUi).toContain("fixed inset-x-4 bottom-4"); // 16px each side, docked at the bottom
+    expect(tourUi).toContain("p-6");
+  });
+
+  it("uses a 20px bold title and 16px body text with relaxed line height", () => {
+    expect(tourUi).toContain("font-heading text-xl font-bold");
+    expect(tourUi).toContain("text-base leading-relaxed");
+  });
+
+  it("shows Step X of N and a thin progress bar", () => {
+    expect(tourUi).toContain("stepLabel(index)");
+    expect(tourUi).toContain('role="progressbar"');
+    expect(tourUi).toContain("h-1");
+  });
+
+  it("has Back, Next and Exit buttons at least 44px tall, with Next primary", () => {
+    for (const label of ["Back", "Next", "Exit"]) {
+      const line = tourUi.split("\n").find((l) => l.includes(`>${label}<`));
+      expect(line, label).toBeDefined();
+      expect(line).toContain("!min-h-11"); // 2.75rem = 44px
+    }
+    expect(tourUi.split("\n").find((l) => l.includes(">Next<"))).toContain("btn-primary");
+  });
+
+  it("moves the card beside or below the highlighted area, not over it", () => {
+    expect(tourUi).toContain('mode: "side"');
+    expect(tourUi).toContain("SPACER"); // room to scroll the area above the docked card
+  });
+});
