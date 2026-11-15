@@ -24,7 +24,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "HemoScope",
+  title: "HemoScope | Astronaut Health Monitoring",
   description: "Health self-assessment demo for astronauts on long missions.",
 };
 
