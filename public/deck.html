@@ -14,9 +14,9 @@
 <style>
 :root{
   --bg:#060A15; --panel:#0D1428; --panel2:#121B33; --line:rgba(148,163,184,.16); --line2:rgba(148,163,184,.28);
-  --text:#E8EEF9; --muted:#93A3BC; --dim:#64748B;
+  --text:#E8EEF9; --muted:#A3B1C6; --dim:#64748B;
   --blue:#3B82F6; --blue2:#60A5FA; --blue3:#1D4ED8;
-  --green:#22C55E; --amber:#F59E0B; --orange:#F97316; --red:#EF4444; --teal:#34D399;
+  --green:#22C55E; --amber:#F59E0B; --orange:#F97316; --red:#EF4444; --teal:#34D399; --violet:#A5B4FC;
   --head:"Space Grotesk",system-ui,sans-serif; --body:"Inter",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -24,36 +24,41 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--b
 #stars{position:fixed;inset:0;width:100%;height:100%;z-index:0}
 #viewport{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:1}
 #stage{width:1600px;height:900px;position:relative;transform-origin:center center;flex:none}
-.slide{position:absolute;inset:0;padding:72px 88px 80px;display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity .5s ease,visibility 0s linear .5s}
+.slide{position:absolute;inset:0;padding:64px 88px 84px;display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity .5s ease,visibility 0s linear .5s}
 .slide.active{opacity:1;visibility:visible;transition:opacity .5s ease}
-.eyebrow{font-family:var(--mono);font-size:15px;letter-spacing:.16em;color:var(--blue2);text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.eyebrow{font-family:var(--mono);font-size:16px;letter-spacing:.16em;color:var(--blue2);text-transform:uppercase;display:flex;align-items:center;gap:12px}
 .eyebrow::before{content:"";width:28px;height:2px;background:var(--blue)}
 h1,h2,h3{font-family:var(--head);font-weight:600;letter-spacing:-.02em}
-h2{font-size:54px;line-height:1.06;margin-top:16px;max-width:1240px;text-wrap:balance}
-h3{font-size:24px;line-height:1.2}
-p{color:var(--muted);line-height:1.5}
-.mono{font-family:var(--mono)}
+h2{font-size:50px;line-height:1.08;margin-top:14px;max-width:1300px;text-wrap:balance}
+h3{font-size:26px;line-height:1.2}
+p{color:var(--muted);line-height:1.45}
 .card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:18px}
-.chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:13px;padding:6px 12px;border-radius:999px;border:1px solid var(--line2);color:var(--text);white-space:nowrap}
-.dot{width:9px;height:9px;border-radius:50%;flex:none}
-.g{color:var(--green)}.a-c{color:var(--amber)}.o{color:var(--orange)}.r{color:var(--red)}.b{color:var(--blue2)}
-.foot{position:absolute;left:88px;right:88px;bottom:30px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:13px;color:var(--dim)}
+.chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:15px;padding:8px 14px;border-radius:999px;border:1px solid var(--line2);color:var(--text);white-space:nowrap;text-decoration:none}
+.dot{width:10px;height:10px;border-radius:50%;flex:none}
+.foot{position:absolute;left:88px;right:88px;bottom:30px;font-family:var(--mono);font-size:14px;color:var(--dim);display:flex;gap:10px;align-items:center}
+.foot b{color:var(--muted);font-weight:500}
 
-/* animation system: .a elements play when their slide is active */
+/* screenshot frame + placeholder */
+.frame{display:flex;flex-direction:column;border-radius:14px;overflow:hidden;border:1px solid rgba(203,213,225,.55);background:#D5DCE7;text-decoration:none;color:inherit;box-shadow:0 24px 60px rgba(0,0,0,.45)}
+a.frame:hover{border-color:var(--blue2)}
+.frame .bar{height:28px;flex:none;display:flex;align-items:center;gap:7px;padding:0 12px;background:#C3CCDA;border-bottom:1px solid #AEB8C8}
+.frame .bar i{width:10px;height:10px;border-radius:50%;background:#8C97A8}
+.frame .bar i:nth-child(1){background:#E0796F}.frame .bar i:nth-child(2){background:#E5B65A}.frame .bar i:nth-child(3){background:#6FBF7E}
+.frame .bar span{margin-left:10px;font-family:var(--mono);font-size:12px;color:#475569}
+.frame img{display:block;width:100%;flex:1;min-height:0;object-fit:contain;object-position:center;background:#fff;padding:10px;filter:brightness(.86) contrast(1.02)}
+.ph{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:18px;margin:10px;border:2px dashed rgba(96,165,250,.55);border-radius:10px;background:repeating-linear-gradient(135deg,rgba(59,130,246,.06) 0 14px,rgba(59,130,246,.02) 14px 28px)}
+.ph b{display:block;font-family:var(--head);font-size:22px;color:#BFDBFE;margin-bottom:6px}
+.ph span{display:block;font-size:14px;color:var(--muted);line-height:1.4;max-width:460px;margin:0 auto}
+
+/* animation system */
 .a{opacity:0}
-.slide.active .a{animation:var(--anim,fadeUp) .8s cubic-bezier(.2,.7,.2,1) both;animation-delay:var(--d,0s)}
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.slide.active .a{animation:var(--anim,fadeUp) .7s cubic-bezier(.2,.7,.2,1) both;animation-delay:var(--d,0s)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-@keyframes pop{0%{opacity:0;transform:scale(.85)}70%{opacity:1;transform:scale(1.04)}100%{opacity:1;transform:none}}
-@keyframes slideR{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:none}}
-@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes pop{0%{opacity:0;transform:scale(.92)}100%{opacity:1;transform:none}}
+@keyframes slideR{from{opacity:0;transform:translateX(-26px)}to{opacity:1;transform:none}}
+@keyframes slideL{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:none}}
 @keyframes draw{to{stroke-dashoffset:0}}
-@keyframes spin{to{transform:rotate(360deg)}}
-@keyframes spinR{to{transform:rotate(-360deg)}}
-@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.12);opacity:.85}}
-@keyframes ring{0%{transform:scale(.6);opacity:.7}100%{transform:scale(1.6);opacity:0}}
-@keyframes travel{0%{left:0;opacity:0}10%{opacity:1}90%{opacity:1}100%{left:100%;opacity:0}}
-@keyframes blink{50%{opacity:.25}}
 .draw{stroke-dasharray:1;stroke-dashoffset:1}
 .slide.active .draw{animation:draw 1.6s cubic-bezier(.4,0,.2,1) forwards;animation-delay:var(--d,0s)}
 
@@ -63,218 +68,121 @@ p{color:var(--muted);line-height:1.5}
 #nav button:hover{border-color:var(--blue);color:var(--blue2)}
 #nav button:focus-visible{outline:2px solid var(--blue2);outline-offset:2px}
 #progress{position:fixed;left:0;top:0;height:3px;background:linear-gradient(90deg,var(--blue3),var(--blue2));z-index:5;transition:width .5s ease}
-#hint{position:fixed;left:22px;bottom:24px;z-index:5;font-family:var(--mono);font-size:12px;color:var(--dim)}
 
-/* ---------- slide 1 ---------- */
-.s1{justify-content:center}
-.s1 .left{max-width:900px;position:relative;z-index:2}
-.s1 h1{font-size:132px;line-height:.95;margin:22px 0 26px;background:linear-gradient(100deg,#fff 20%,var(--blue2) 60%,var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
-.s1 .tag{font-family:var(--head);font-size:31px;line-height:1.22;color:var(--text);font-weight:500}
-.s1 .sub{font-size:20px;margin-top:18px;white-space:nowrap}
-.s1 .meta{display:flex;gap:12px;margin-top:40px;flex-wrap:wrap}
-.scope{position:absolute;right:30px;top:120px;width:620px;height:620px}
-.scope .rg{position:absolute;inset:0;border-radius:50%;border:1px solid var(--line2)}
-.scope .r1{inset:40px;border-style:dashed;animation:spin 60s linear infinite}
-.scope .r2{inset:120px;border-color:rgba(96,165,250,.35);animation:spinR 40s linear infinite}
-.scope .r3{inset:200px;border-color:rgba(96,165,250,.5)}
-.scope .core{position:absolute;inset:250px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#7FB0FF,var(--blue) 45%,var(--blue3));box-shadow:0 0 80px rgba(59,130,246,.55);animation:pulse 3.2s ease-in-out infinite}
-.scope .orb{position:absolute;left:50%;top:50%;width:0;height:0}
-.scope .orb i{position:absolute;border-radius:50%;background:#F87171;box-shadow:0 0 18px rgba(248,113,113,.7)}
-.scope .orb.o1{animation:spin 14s linear infinite}.scope .orb.o1 i{width:22px;height:22px;left:-11px;top:-261px}
-.scope .orb.o2{animation:spinR 20s linear infinite}.scope .orb.o2 i{width:16px;height:16px;left:-8px;top:-199px;background:#E2E8F0;box-shadow:0 0 14px rgba(226,232,240,.6)}
-.scope .orb.o3{animation:spin 26s linear infinite;transform:rotate(140deg)}.scope .orb.o3 i{width:14px;height:14px;left:-7px;top:-261px;background:var(--blue2)}
-.scope .orb.o4{animation:spinR 11s linear infinite}.scope .orb.o4 i{width:12px;height:12px;left:-6px;top:-119px;background:#F87171}
-.scope .pulse-ring{position:absolute;inset:250px;border-radius:50%;border:2px solid var(--blue2);animation:ring 3.2s ease-out infinite}
-.ecg{position:absolute;left:0;right:0;bottom:96px;height:90px;opacity:.9}
+/* 1 title */
+.s1{display:grid;grid-template-columns:700px 1fr;gap:40px;align-items:center}
+.s1 h1{font-size:118px;line-height:.95;margin:20px 0 24px;background:linear-gradient(100deg,#fff 20%,var(--blue2) 60%,var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+.s1 .tag{font-family:var(--head);font-size:32px;line-height:1.22;color:var(--text);font-weight:500}
+.s1 .sub{font-size:21px;margin-top:18px}
+.s1 .meta{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin-top:36px}
+.s1 .meta .chip{white-space:normal;max-width:680px;line-height:1.35}
+.s1 .frame{height:620px}
+.ecg{position:absolute;left:0;right:0;bottom:70px;height:70px;opacity:.55;z-index:-1}
 
-/* ---------- slide 2 ---------- */
-.two{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:44px;flex:1;min-height:0}
-.prob{display:flex;flex-direction:column;gap:20px}
+/* 2 problem */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:40px;flex:1;min-height:0}
+.prob{display:flex;flex-direction:column;gap:18px}
 .prob .row{display:flex;gap:20px;align-items:flex-start;padding:24px 26px}
-.prob .ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;flex:none;background:rgba(59,130,246,.12);border:1px solid rgba(96,165,250,.3)}
-.prob .ic svg{width:26px;height:26px}
-.prob h3{font-size:23px;margin-bottom:6px}
-.prob p{font-size:18px}
-.chartcard{padding:28px 30px;display:flex;flex-direction:column}
-.chartcard h3{font-size:22px}
-.chartcard .cap{font-size:14px;margin-top:4px}
-.legend{display:flex;gap:22px;margin-top:14px;font-size:14px;color:var(--muted)}
+.prob .ic{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;flex:none;background:rgba(59,130,246,.12);border:1px solid rgba(96,165,250,.3)}
+.prob .ic svg{width:27px;height:27px}
+.prob h3{font-size:25px;margin-bottom:6px}
+.prob p{font-size:20px}
+.chartcard{padding:26px 30px;display:flex;flex-direction:column}
+.chartcard h3{font-size:24px}
+.chartcard .cap{font-size:16px;margin-top:4px}
+.legend{display:flex;gap:22px;margin-top:12px;font-size:16px;color:var(--muted)}
 .legend span{display:flex;align-items:center;gap:8px}
 .legend b{width:22px;height:10px;border-radius:3px;display:inline-block}
 
-/* ---------- slide 3 ---------- */
-.mission{display:grid;grid-template-columns:680px 1fr;gap:40px;margin-top:40px}
-.ladder{display:flex;flex-direction:column;gap:12px}
-.step{display:flex;align-items:center;gap:18px;padding:16px 20px;border-radius:14px;border:1px solid var(--line);background:rgba(13,20,40,.7);position:relative;overflow:hidden}
-.step .lv{font-family:var(--head);font-size:20px;font-weight:600;min-width:318px;display:flex;align-items:center;gap:12px}
-.step .lv .dot{width:12px;height:12px}
-.step p{font-size:16px}
-.step::after{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--c)}
-.pillars{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.pill{padding:24px;position:relative;overflow:hidden}
-.pill .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;margin-bottom:14px;border:1px solid}
-.pill .ic svg{width:24px;height:24px}
-.pill h3{font-size:22px;margin-bottom:8px}
-.pill p{font-size:16px}
-.badges{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+/* 3 solution */
+.sol{display:grid;grid-template-columns:860px 1fr;gap:40px;margin-top:34px;flex:1;min-height:0}
+.sol .frame{height:500px;align-self:start}
+.calls{display:flex;flex-direction:column;gap:14px}
+.call{display:flex;gap:16px;align-items:flex-start;padding:16px 18px}
+.call .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;flex:none;border:1px solid}
+.call .ic svg{width:22px;height:22px}
+.call h3{font-size:23px;margin-bottom:3px}
+.call p{font-size:17.5px}
+.sbar{margin-top:6px}
+.sbar .segs{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;height:12px}
+.sbar .segs i{border-radius:4px}
+.sbar .lbl{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin-top:8px;font-size:13px;color:var(--muted);line-height:1.25}
 
-/* ---------- slide 4 ---------- */
-.pipe{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;margin-top:44px;position:relative}
-.stage{padding:24px 24px 26px;position:relative;z-index:2}
-.stage .n{font-family:var(--mono);font-size:13px;color:var(--blue2);letter-spacing:.12em}
-.stage h3{font-size:26px;margin:8px 0 14px}
-.stage ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-.stage li{font-size:15.5px;color:var(--muted);line-height:1.4;padding-left:16px;position:relative}
-.stage li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:2px;background:var(--blue)}
-.stage li b{color:var(--text);font-weight:600}
-.link{position:absolute;top:50%;width:36px;height:2px;background:var(--line2);z-index:1;overflow:visible}
-.link i{position:absolute;top:-4px;width:10px;height:10px;border-radius:50%;background:var(--blue2);box-shadow:0 0 12px var(--blue2);animation:travel 1.8s linear infinite}
-.formula{margin-top:30px;display:grid;grid-template-columns:330px 1fr;gap:28px;align-items:center;padding:24px 30px}
-.gauge{position:relative;width:280px;height:150px}
-.gauge .val{position:absolute;left:0;right:0;bottom:6px;text-align:center;font-family:var(--head);font-size:52px;font-weight:600}
-.gauge .lab{position:absolute;left:0;right:0;bottom:-18px;text-align:center;font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.08em}
-.eq{font-family:var(--mono);font-size:19px;color:var(--text);line-height:1.8}
-.eq .k{color:var(--blue2)}
+/* 4 day */
+.day{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:30px}
+.day .frame{height:330px}
+.day .cap{margin-top:14px;display:flex;gap:14px;align-items:flex-start}
+.day .num{width:34px;height:34px;border-radius:50%;flex:none;display:grid;place-items:center;font-family:var(--mono);font-size:15px;background:var(--blue3);color:#fff}
+.day h3{font-size:24px}
+.day p{font-size:18px;margin-top:3px}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
+.strip div{padding:14px 18px;border-radius:14px;border:1px solid var(--line);background:rgba(13,20,40,.7);position:relative}
+.strip div+div::before{content:"→";position:absolute;left:-13px;top:50%;transform:translate(-50%,-50%);color:var(--blue2);font-size:18px}
+.strip b{display:block;font-family:var(--head);font-size:20px;font-weight:600}
+.strip span{font-size:16px;color:var(--muted)}
 
-/* ---------- slide 5 ---------- */
-.demo{display:grid;grid-template-columns:960px 1fr;gap:28px;margin-top:30px;flex:1;min-height:0}
-.win{align-self:start;border-radius:18px;border:1px solid var(--line2);background:#0A1122;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 30px 80px rgba(0,0,0,.45)}
-.win .bar{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line);background:#0C1428}
-.win .bar i{width:11px;height:11px;border-radius:50%;background:#334155}
-.win .bar .t{margin-left:12px;font-family:var(--mono);font-size:13px;color:var(--muted)}
-.win .body{display:grid;grid-template-columns:420px 1fr;gap:22px;padding:22px;flex:1}
-.tbl{width:100%;border-collapse:collapse;font-size:15px}
-.tbl th{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;color:var(--dim);text-align:left;padding:0 0 10px;font-weight:500}
-.tbl td{padding:10px 0;border-top:1px solid var(--line)}
-.tbl td.v{font-family:var(--mono);font-weight:600}
-.tbl td.u{font-family:var(--mono);color:var(--muted);font-size:13px}
-.ok{margin-top:14px;display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:13px;color:var(--green)}
-.status{position:relative;height:64px;margin-bottom:14px}
-.status .st{position:absolute;inset:0;display:flex;align-items:center;gap:14px;padding:0 18px;border-radius:14px;font-family:var(--head);font-size:24px;font-weight:600}
-.st.s-ok{background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.45);color:#86EFAC}
-.st.s-mon{background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.55);color:#FCD34D}
-.slide.active .st.s-ok{animation:okOut 4.2s ease forwards}
-@keyframes okOut{0%,62%{opacity:1;transform:none}70%,100%{opacity:0;transform:translateY(-10px)}}
-.st.s-mon{opacity:0}
-.slide.active .st.s-mon{animation:monIn 4.4s ease forwards}
-@keyframes monIn{0%,66%{opacity:0;transform:translateY(10px) scale(.96)}76%{opacity:1;transform:scale(1.03)}100%{opacity:1;transform:none}}
-.why{font-size:15px;color:var(--muted);display:flex;flex-direction:column;gap:9px}
-.why b{color:var(--text);font-weight:600}
-.why .h{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--dim)}
-.side{display:flex;flex-direction:column;gap:20px}
-.side .card{padding:20px 22px}
-.side h3{font-size:19px}
-.side p{font-size:14px}
-.pacer{display:flex;align-items:center;gap:22px;margin-top:12px}
-.pacer .beat{width:86px;height:86px;border-radius:50%;background:radial-gradient(circle,#F87171,var(--red));display:grid;place-items:center;font-family:var(--head);font-weight:700;font-size:26px;color:#fff;animation:pulse .545s ease-in-out infinite;box-shadow:0 0 36px rgba(239,68,68,.55);flex:none}
-.cta{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-radius:14px;background:linear-gradient(100deg,var(--blue3),var(--blue));color:#fff;text-decoration:none;font-family:var(--head);font-size:20px;font-weight:600}
-.cta span{font-family:var(--mono);font-size:14px;opacity:.9}
+/* 5 views */
+.views{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:32px}
+.views .frame{height:450px}
+.views h3{font-size:27px;margin-top:18px}
+.views p{font-size:19px;margin-top:6px}
 
-/* ---------- slide 6 ---------- */
-.data{display:grid;grid-template-columns:1fr 600px;gap:40px;margin-top:36px}
-.src{display:flex;flex-direction:column;gap:16px}
-.srcc{padding:22px 24px;display:grid;grid-template-columns:150px 1fr;gap:20px;align-items:start}
-.srcc .big{font-family:var(--head);font-size:52px;font-weight:600;line-height:1;color:#fff}
-.srcc .big small{display:block;font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.06em;margin-top:8px;font-weight:400}
-.srcc .tagl{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--blue2)}
-.srcc h3{font-size:22px;margin:4px 0 8px}
-.srcc p{font-size:15.5px}
-.srcc ul{list-style:none;margin-top:8px;display:flex;flex-direction:column;gap:5px}
-.srcc li{font-size:15px;color:var(--text);padding-left:22px;position:relative}
-.srcc li::before{content:"→";position:absolute;left:0;color:var(--blue2);font-family:var(--mono)}
-.nasa{border-color:rgba(96,165,250,.45);background:linear-gradient(160deg,rgba(29,78,216,.28),var(--panel) 60%)}
-.val{padding:24px 24px;display:flex;flex-direction:column;gap:16px}
-.val .hd{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--dim)}
-.metric .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
-.metric .top span{font-size:15.5px;color:var(--muted)}
-.metric .top b{font-family:var(--head);font-size:30px;font-weight:600}
-.track{height:12px;border-radius:6px;background:rgba(148,163,184,.12);position:relative;overflow:visible}
-.fill{position:absolute;left:0;top:0;bottom:0;border-radius:6px;background:linear-gradient(90deg,var(--blue3),var(--blue2));transform-origin:left;transform:scaleX(0)}
-.slide.active .fill{animation:grow 1.4s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:var(--d,0s)}
-.target{position:absolute;top:-6px;bottom:-6px;width:2px;background:#fff;opacity:.85}
-.target::after{content:attr(data-l);position:absolute;top:24px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap}
-.zones{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.zone{padding:14px;border-radius:12px;border:1px solid var(--line);text-align:center}
-.zone .z{font-family:var(--mono);font-size:12px;color:var(--muted)}
-.zone .h{font-family:var(--head);font-size:30px;font-weight:600;margin-top:4px}
-.vgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.vt{padding:18px 18px 20px;border-radius:14px;border:1px solid var(--line);background:rgba(6,10,21,.35)}
-.vt .vn{font-family:var(--head);font-size:40px;font-weight:600;line-height:1;color:#fff}
-.vt .vn small{font-size:18px;color:var(--muted);font-weight:500}
-.vt .vh{font-family:var(--head);font-size:18px;font-weight:600;margin:10px 0 6px}
-.vt p{font-size:14px;line-height:1.45}
-.vt p b{color:var(--text)}
-.vt.ok2{background:rgba(34,197,94,.08);border-color:rgba(34,197,94,.4)}
-.vfoot{font-family:var(--mono);font-size:11.5px;color:var(--dim)}
-.check{display:flex;gap:14px;align-items:center;padding:16px 18px;border-radius:12px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.4);font-size:16px;color:#BBF7D0}
+/* 6 data + models */
+.dm{display:grid;grid-template-columns:540px 1fr;gap:36px;margin-top:28px;flex:1;min-height:0}
+.dcol{display:flex;flex-direction:column;gap:14px}
+.ds{padding:18px 22px}
+.ds .tag{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--blue2)}
+.ds.nasa{border-color:rgba(96,165,250,.55);background:linear-gradient(160deg,rgba(29,78,216,.3),var(--panel) 65%)}
+.ds h3{font-size:22px;margin:4px 0 5px}
+.ds p{font-size:16.5px}
+.src{font-family:var(--mono);font-size:13px;color:var(--dim);margin-top:2px}
+.mcol{display:flex;flex-direction:column;gap:16px}
+.model{display:grid;grid-template-columns:1fr 290px;gap:22px;padding:20px 22px;align-items:start}
+.model .tag{font-family:var(--mono);font-size:13px;letter-spacing:.08em}
+.model h3{font-size:25px;margin:4px 0 6px}
+.model p{font-size:16.5px}
+.model .stats{display:flex;gap:22px;margin-top:12px}
+.model .stats div{flex:1}
+.model .stats b{display:block;font-family:var(--head);font-size:34px;font-weight:600;line-height:1}
+.model .stats span{display:block;font-size:14px;color:var(--muted);margin-top:5px;line-height:1.3}
+.model .frame{height:200px}
+.model .frame img{padding:6px}
+.model .frame .bar{height:20px}
+.model .ph b{font-size:16px}
+.model .ph span{font-size:12px}
 
-/* ---------- slide 7 ---------- */
-.team{display:grid;grid-template-columns:1fr 400px;gap:22px;margin-top:30px}
-.person{padding:26px}
-.person .av{width:58px;height:58px;border-radius:16px;display:grid;place-items:center;font-family:var(--head);font-size:24px;font-weight:700;background:linear-gradient(140deg,var(--blue),var(--blue3));margin-bottom:16px}
-.person h3{font-size:26px}
-.person .role{font-family:var(--mono);font-size:13px;color:var(--blue2);margin:6px 0 16px}
-.person ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-.person li{font-size:15px;color:var(--muted);padding-left:24px;position:relative;line-height:1.4}
-.person li::before{content:"";position:absolute;left:2px;top:7px;width:10px;height:10px;border-radius:3px;border:2px solid var(--blue2)}
-.person li b{color:var(--text);font-weight:600}
-.next{padding:26px}
-.skills{padding:26px}
-.person .hd2{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--dim);margin-bottom:14px}
-.focus{display:flex;flex-direction:column;gap:10px;margin-top:20px}
-.focus span{display:block;padding:12px 14px;border-radius:12px;border:1px solid rgba(96,165,250,.35);background:rgba(59,130,246,.10);font-family:var(--head);font-size:18px;font-weight:600}
-.ctab{margin-top:22px;display:flex;align-items:center;justify-content:space-between;gap:28px;padding:22px 26px;border-radius:18px;background:linear-gradient(100deg,rgba(34,197,94,.22),rgba(16,185,129,.10));border:1px solid rgba(34,197,94,.55)}
-.ctat b{display:block;font-family:var(--head);font-size:26px;font-weight:600;color:#DCFCE7}
-.ctat span{font-size:15px;color:#A7F3D0}
-.ctal{display:flex;gap:12px}
-.ctal a{display:block;padding:12px 16px;border-radius:12px;background:rgba(6,10,21,.55);border:1px solid rgba(34,197,94,.5);color:#fff;text-decoration:none;font-family:var(--mono);font-size:14px;white-space:nowrap}
-.go{display:inline-flex;align-items:center;gap:7px;margin-top:12px;padding:6px 12px;border-radius:999px;border:1px solid rgba(96,165,250,.45);background:rgba(59,130,246,.10);color:#BFDBFE;font-family:var(--mono);font-size:12.5px;line-height:1.2;text-decoration:none;white-space:nowrap}
-.go::after{content:"\2197";font-size:12px;opacity:.85}
-.go:hover{border-color:#60A5FA;background:rgba(59,130,246,.22);color:#fff}
-a.chip{text-decoration:none;color:inherit}
-.stage{display:flex;flex-direction:column}
-.stage .go{margin-top:auto;align-self:flex-start}
-.stage ul{margin-bottom:14px}
-.ctal a:hover{border-color:#4ADE80;background:rgba(34,197,94,.18)}
-.ctal a small{display:block;font-size:10.5px;letter-spacing:.12em;color:#86EFAC;margin-bottom:3px}
-.ai{font-size:13.5px;line-height:1.45;max-width:1400px}
-.ai b{color:var(--text)}
-.skills .hd{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--dim);margin-bottom:14px}
-.sk{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.sk span{min-height:0}
-.sk span{display:block;padding:14px 16px;border-radius:10px;border:1px solid var(--line);background:rgba(6,10,21,.35);font-size:13.5px;color:var(--muted);line-height:1.3}
-.sk b{display:block;font-family:var(--head);font-size:15.5px;font-weight:600;color:var(--text)}
-.next .hd{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--dim);margin-bottom:16px}
-.tl{display:flex;flex-direction:column;gap:16px;position:relative;padding-left:26px}
-.tl::before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:2px;background:var(--line2)}
-.tl div{position:relative}
-.tl div::before{content:"";position:absolute;left:-26px;top:5px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--blue2)}
-.tl div.now::before{background:var(--blue2);box-shadow:0 0 14px var(--blue2)}
-.tl b{display:block;font-family:var(--head);font-size:18px;font-weight:600}
-.tl span{font-size:15px;color:var(--muted)}
-.close{margin-top:22px;display:flex;flex-direction:column;align-items:flex-start;gap:14px}
-.close .q{font-family:var(--head);font-size:36px;font-weight:600;letter-spacing:-.02em;max-width:1100px;line-height:1.1}
-.links{display:flex;flex-direction:row;gap:10px;flex-wrap:wrap}
+/* 7 try */
+.try{display:grid;grid-template-columns:560px 1fr;gap:48px;margin-top:36px;align-items:stretch}
+.team{padding:26px 30px;border-radius:18px;border:1px solid rgba(96,165,250,.45);background:linear-gradient(160deg,rgba(29,78,216,.28),var(--panel) 65%)}
+.team .hd{font-family:var(--mono);font-size:14px;letter-spacing:.12em;color:var(--blue2)}
+.team .who{font-family:var(--head);font-size:40px;font-weight:600;margin-top:6px}
+.team ul{list-style:none;margin-top:10px;display:flex;flex-direction:column;gap:9px}
+.team li{font-size:16.5px;color:var(--muted);line-height:1.35}
+.team li b{display:block;color:var(--text);font-weight:600;font-size:17px}
+.qr{background:#fff;border-radius:22px;padding:26px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.qr svg{width:270px;height:270px;display:block}
+.qr span{font-family:var(--mono);font-size:15px;color:#0B1226}
+.links{display:flex;flex-direction:column;gap:16px;justify-content:center}
+.links a{display:flex;justify-content:space-between;align-items:center;padding:22px 28px;border-radius:16px;border:1px solid rgba(34,197,94,.45);background:rgba(34,197,94,.08);color:var(--text);text-decoration:none}
+.links a:hover{border-color:#4ADE80;background:rgba(34,197,94,.16)}
+.links small{display:block;font-family:var(--mono);font-size:14px;letter-spacing:.1em;color:#86EFAC;margin-bottom:4px}
+.links b{font-family:var(--head);font-size:30px;font-weight:600}
+.links em{font-style:normal;font-size:18px;color:var(--muted)}
+.close{font-family:var(--head);font-size:32px;line-height:1.25;color:var(--text);margin-top:34px;max-width:1150px}
+.ai{font-size:15px;color:var(--dim);margin-top:20px;max-width:1300px}
+.ai b{color:var(--muted)}
 
-/* reduced motion and print: everything in its final state */
+/* reduced motion, static export and print */
 @media (prefers-reduced-motion:reduce){
   .a,.slide.active .a{animation:none!important;opacity:1!important;transform:none!important}
   .draw,.slide.active .draw{animation:none!important;stroke-dashoffset:0!important}
-  .fill,.slide.active .fill{animation:none!important;transform:none!important}
-  .scope *,.pacer .beat,.link i{animation:none!important}
-  .slide.active .st.s-ok{animation:none!important;opacity:0}
-  .st.s-mon,.slide.active .st.s-mon{animation:none!important;opacity:1}
 }
 html.static .a{animation:none!important;opacity:1!important;transform:none!important}
 html.static .draw{animation:none!important;stroke-dashoffset:0!important}
-html.static .fill{animation:none!important;transform:none!important}
-html.static .st.s-ok{animation:none!important;opacity:0!important}
-html.static .st.s-mon{animation:none!important;opacity:1!important}
-html.static .scope *,html.static .pacer .beat,html.static .link i{animation:none!important}
 @media print{
   @page{size:1600px 900px;margin:0}
   html,body{overflow:visible;height:auto}
-  #stars,#nav,#progress,#hint{display:none}
+  #stars,#nav,#progress{display:none}
   #viewport{position:static;display:block}
   #stage{transform:none!important;height:auto;width:1600px}
   .slide{position:relative;opacity:1;visibility:visible;height:900px;page-break-after:always;break-after:page;background:var(--bg)}
@@ -288,25 +196,24 @@ html.static .scope *,html.static .pacer .beat,html.static .link i{animation:none
 
 <!-- 1 TITLE -->
 <section class="slide s1" aria-label="Slide 1: Title">
-  <div class="scope a" style="--anim:fadeIn;--d:.2s" aria-hidden="true">
-    <div class="rg"></div><div class="rg r1"></div><div class="rg r2"></div><div class="rg r3"></div>
-    <div class="pulse-ring"></div><div class="core"></div>
-    <div class="orb o1"><i></i></div><div class="orb o2"><i></i></div><div class="orb o3"><i></i></div><div class="orb o4"><i></i></div>
-  </div>
-  <div class="left">
+  <div>
     <div class="eyebrow a">NASA Space Apps Challenge 2026 · Chicago</div>
     <h1 class="a" style="--d:.15s">HemoScope</h1>
-    <div class="tag a" style="--d:.35s">A personal early warning system for every astronaut,<br>millions of miles from a doctor.</div>
+    <div class="tag a" style="--d:.35s">A personal early warning system for every astronaut, millions of miles from a doctor.</div>
     <p class="sub a" style="--d:.5s">Spaceflight-aware. Teaches astronauts. Runs fully offline.</p>
     <div class="meta">
-      <span class="chip a" style="--d:.7s"><span class="dot" style="background:var(--blue2)"></span>Challenge: Health Monitoring Software for Astronauts</span>
-      <a class="chip a" style="--d:.8s" href="https://hemoscope-app.vercel.app" target="_blank" rel="noopener"><span class="dot" style="background:var(--green)"></span>Live app: hemoscope-app.vercel.app ↗</a>
+      <span class="chip a" style="--d:.65s"><span class="dot" style="background:var(--blue2)"></span>Challenge: Create Health Monitoring Software for Astronauts on Space Missions</span>
+      <a class="chip a" style="--d:.75s" href="https://hemoscope-app.vercel.app" target="_blank" rel="noopener"><span class="dot" style="background:var(--green)"></span>Live app: hemoscope-app.vercel.app ↗</a>
     </div>
   </div>
+  <a class="frame a" style="--anim:slideL;--d:.5s" href="https://hemoscope-app.vercel.app/?tab=dashboard" target="_blank" rel="noopener">
+    <div class="bar"><i></i><i></i><i></i><span>hemoscope-app.vercel.app · Dashboard</span></div>
+    <img src="deck-shots/A.jpg" alt="HemoScope Dashboard: checklist, Immune Deviation Score and Immune State Map">
+  </a>
   <svg class="ecg" viewBox="0 0 1600 90" preserveAspectRatio="none" aria-hidden="true">
     <path class="draw" pathLength="1" style="--d:.4s" d="M0 55 H520 L545 55 L560 20 L578 84 L596 8 L614 62 L630 55 H900 L922 55 L936 30 L952 76 L968 18 L984 60 L998 55 H1600" fill="none" stroke="#60A5FA" stroke-width="2.5" stroke-linejoin="round"/>
   </svg>
-  <div class="foot"><span>Team: HemoScope</span></div>
+  <div class="foot"><b>Team HemoScope</b><span>·</span><span>Team member: Julianne Chang</span><span>·</span><span>Challenge: Create Health Monitoring Software for Astronauts on Space Missions</span></div>
 </section>
 
 <!-- 2 PROBLEM -->
@@ -317,294 +224,191 @@ html.static .scope *,html.static .pacer .beat,html.static .link i{animation:none
     <div class="prob">
       <div class="card row a" style="--anim:slideR;--d:.35s">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/><circle cx="12" cy="12" r="3"/></svg></div>
-        <div><h3>Long missions change the body</h3><p>Radiation, isolation, altered gravity and a closed environment bring immune changes, bone loss and cardiovascular risks.</p></div>
+        <div><h3>Long missions change the body</h3><p>Radiation, altered gravity and isolation shift immune cells, bones and the heart.</p></div>
       </div>
       <div class="card row a" style="--anim:slideR;--d:.55s">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-        <div><h3>Help is far away</h3><p>On a Mars mission, help is up to 22 minutes away by radio and months away in person. Crews must notice and act on changes themselves.</p></div>
+        <div><h3>Help is far away</h3><p>On a Mars mission, a radio reply takes up to 22 minutes. Crews must notice and act on their own.</p></div>
       </div>
       <div class="card row a" style="--anim:slideR;--d:.75s">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2"><path d="M9 3h6M10 3v6L4 20h16L14 9V3"/><path d="M7 15h10"/></svg></div>
-        <div><h3>Lab values alone don’t answer the real question</h3><p>Is this change unusual <em>for this astronaut</em>, and what should they do next?</p></div>
+        <div><h3>Lab ranges miss personal change</h3><p>Is this unusual <em>for this astronaut</em>, and what should they do next?</p></div>
       </div>
     </div>
     <div class="card chartcard a" style="--d:.45s">
       <h3>“Normal” for the population is not normal for each astronaut</h3>
       <p class="cap">Lymphocytes over a mission, one astronaut (illustration)</p>
       <svg viewBox="0 0 640 380" style="width:100%;flex:1;margin-top:10px" aria-hidden="true">
-        <g font-family="JetBrains Mono" font-size="12" fill="#64748B">
+        <g font-family="JetBrains Mono" font-size="13" fill="#64748B">
           <text x="0" y="44">3.5</text><text x="0" y="154">2.5</text><text x="0" y="265">1.5</text><text x="0" y="320">1.0</text>
         </g>
         <rect x="44" y="34" width="590" height="276" rx="6" fill="rgba(148,163,184,.10)" stroke="rgba(148,163,184,.25)"/>
         <rect class="a" style="--anim:fadeIn;--d:.9s" x="44" y="118" width="590" height="64" rx="6" fill="rgba(34,197,94,.16)" stroke="rgba(34,197,94,.6)" stroke-dasharray="5 4"/>
-        <text class="a" style="--anim:fadeIn;--d:1s" x="56" y="112" font-family="JetBrains Mono" font-size="12" fill="#86EFAC">This astronaut’s own normal</text>
-        <text x="56" y="56" font-family="JetBrains Mono" font-size="12" fill="#94A3B8">Population reference range</text>
+        <text class="a" style="--anim:fadeIn;--d:1s" x="56" y="112" font-family="JetBrains Mono" font-size="13" fill="#86EFAC">This astronaut’s own normal</text>
+        <text x="56" y="56" font-family="JetBrains Mono" font-size="13" fill="#94A3B8">Population reference range</text>
         <path class="draw" pathLength="1" style="--d:1.1s" d="M70 150 L150 142 L230 156 L310 168 L390 200 L470 238 L560 262" fill="none" stroke="#E8EEF9" stroke-width="3"/>
-        <g class="a" style="--anim:pop;--d:2.6s">
-          <circle cx="560" cy="262" r="10" fill="#F59E0B"/><circle cx="560" cy="262" r="18" fill="none" stroke="#F59E0B" stroke-opacity=".5"/>
-        </g>
-        <g class="a" style="--d:2.9s" font-family="Inter" font-size="15">
-          <rect x="330" y="300" width="300" height="66" rx="10" fill="#0B1226" stroke="rgba(245,158,11,.55)"/>
-          <text x="346" y="327" fill="#FCD34D" font-weight="600">Down about 40% for this astronaut</text>
-          <text x="346" y="350" fill="#94A3B8">but still “normal” on a lab report</text>
+        <g class="a" style="--anim:pop;--d:2.6s"><circle cx="560" cy="262" r="10" fill="#F59E0B"/><circle cx="560" cy="262" r="18" fill="none" stroke="#F59E0B" stroke-opacity=".5"/></g>
+        <g class="a" style="--d:2.9s" font-family="Inter" font-size="16">
+          <rect x="316" y="296" width="314" height="70" rx="10" fill="#0B1226" stroke="rgba(245,158,11,.55)"/>
+          <text x="332" y="324" fill="#FCD34D" font-weight="600">Down about 40% for this astronaut</text>
+          <text x="332" y="349" fill="#94A3B8">but still “normal” on a lab report</text>
         </g>
       </svg>
       <div class="legend"><span><b style="background:rgba(148,163,184,.3)"></b>Population range</span><span><b style="background:rgba(34,197,94,.45)"></b>Personal baseline</span></div>
     </div>
   </div>
-  <div class="foot"><span>HemoScope · NASA Space Apps 2026</span></div>
+  <div class="foot"><b>Team HemoScope</b><span>·</span><span>Team member: Julianne Chang</span><span>·</span><span>Challenge: Create Health Monitoring Software for Astronauts on Space Missions</span></div>
 </section>
 
-<!-- 3 MISSION -->
-<section class="slide" aria-label="Slide 3: Solution and mission">
+<!-- 3 SOLUTION -->
+<section class="slide" aria-label="Slide 3: Solution">
   <div class="eyebrow a">Our solution</div>
   <h2 class="a" style="--d:.1s">One clear status, measured against each astronaut’s own normal</h2>
-  <div class="mission">
-    <div>
-      <div class="ladder">
-        <div class="step a" style="--c:var(--green);--anim:slideR;--d:.4s"><div class="lv"><span class="dot" style="background:var(--green)"></span>Normal For You</div><p>Inside this astronaut’s usual range</p></div>
-        <div class="step a" style="--c:var(--amber);--anim:slideR;--d:.65s"><div class="lv"><span class="dot" style="background:var(--amber)"></span>Monitor Closely</div><p>Something moved: recheck and watch</p></div>
-        <div class="step a" style="--c:var(--orange);--anim:slideR;--d:.9s"><div class="lv"><span class="dot" style="background:var(--orange)"></span>Contact Flight Surgeon</div><p>Worth a medical conversation</p></div>
-        <div class="step a" style="--c:var(--red);--anim:slideR;--d:1.15s"><div class="lv"><span class="dot" style="background:var(--red)"></span>Contact Flight Surgeon Now</div><p>A hard safety limit was crossed</p></div>
-        <div class="step a" style="--c:var(--dim);--anim:slideR;--d:1.4s"><div class="lv"><span class="dot" style="background:var(--dim)"></span>Retake the Sample</div><p>The data looks unreliable</p></div>
-      </div>
-      <div class="badges">
-        <span class="chip a" style="--anim:pop;--d:1.7s">✓ Runs 100% offline</span>
-        <span class="chip a" style="--anim:pop;--d:1.85s">✓ Warns before a medical limit is crossed</span>
-        <span class="chip a" style="--anim:pop;--d:1.8s">✓ Every status comes with explanations</span>
-        <span class="chip a" style="--anim:pop;--d:1.9s">✓ Astronaut + Flight Surgeon views</span>
-      </div>
-      <div class="a" style="--anim:fadeIn;--d:2s"><a class="go" href="https://hemoscope-app.vercel.app/?tab=dashboard" target="_blank" rel="noopener">See each status on the Dashboard</a></div>
-    </div>
-    <div class="pillars">
-      <div class="card pill a" style="--anim:pop;--d:.5s">
-        <div class="ic" style="border-color:rgba(96,165,250,.4);background:rgba(59,130,246,.12)"><svg viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg></div>
-        <h3>Health Monitoring</h3><p>A Daily Check of vitals, sleep and symptoms, plus a Blood Check of immune cells, both analyzed for patterns and trends.</p><a class="go" href="https://hemoscope-app.vercel.app/?tab=checks" target="_blank" rel="noopener">Health Checks</a>
-      </div>
-      <div class="card pill a" style="--anim:pop;--d:.7s">
-        <div class="ic" style="border-color:rgba(129,140,248,.45);background:rgba(99,102,241,.14)"><svg viewBox="0 0 24 24" fill="none" stroke="#A5B4FC" stroke-width="2"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="8" r="2.5"/><circle cx="9" cy="18" r="2.5"/><path d="M8 7.5l8 0.8M7 8.3l1.6 7.4M16.5 10l-5.6 6.5"/></svg></div>
-        <h3>Machine Learning</h3><p>Forecasts blood checks and maps the astronaut’s immune state, running right on the device.</p><a class="go" href="https://hemoscope-app.vercel.app/?tab=dashboard" target="_blank" rel="noopener">Immune State Map</a>
-      </div>
-      <div class="card pill a" style="--anim:pop;--d:.9s">
-        <div class="ic" style="border-color:rgba(52,211,153,.45);background:rgba(52,211,153,.12)"><svg viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg></div>
-        <h3>Crew Learning</h3><p>A body map, plain-language lessons and Ask HemoScope offline search explain what every number means.</p><a class="go" href="https://hemoscope-app.vercel.app/?tab=learn" target="_blank" rel="noopener">Learn</a>
-      </div>
-      <div class="card pill a" style="--anim:pop;--d:1.1s">
-        <div class="ic" style="border-color:rgba(239,68,68,.5);background:rgba(239,68,68,.12)"><svg viewBox="0 0 24 24" fill="none" stroke="#F87171" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5h6v2M12 11v5M9.5 13.5h5"/></svg></div>
-        <h3>Emergency Response</h3><p>One tap from any screen: emergency situation guides for space and a CPR pacer.</p><a class="go" href="https://hemoscope-app.vercel.app/?tab=emergency" target="_blank" rel="noopener">Emergency Mode</a>
+  <div class="sol">
+    <a class="frame a" style="--anim:pop;--d:.3s" href="https://hemoscope-app.vercel.app/?tab=results" target="_blank" rel="noopener">
+      <div class="bar"><i></i><i></i><i></i><span>Today’s Results</span></div>
+      <img src="deck-shots/B.jpg" alt="Blood Check Results showing Monitor Closely and the marker table">
+    </a>
+    <div class="calls">
+      <div class="card call a" style="--anim:slideL;--d:.5s"><div class="ic" style="border-color:rgba(245,158,11,.5);background:rgba(245,158,11,.12)"><svg viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16.5v.5"/></svg></div><div><h3>One clear status</h3><p>Five levels, from Normal For You to Contact Flight Surgeon Now.</p></div></div>
+      <div class="card call a" style="--anim:slideL;--d:.65s"><div class="ic" style="border-color:rgba(96,165,250,.45);background:rgba(59,130,246,.12)"><svg viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2"><path d="M4 6h16M4 12h10M4 18h7"/></svg></div><div><h3>Says why</h3><p>Every status lists the values that moved and what to do next.</p></div></div>
+      <div class="card call a" style="--anim:slideL;--d:.8s"><div class="ic" style="border-color:rgba(165,180,252,.5);background:rgba(99,102,241,.14)"><svg viewBox="0 0 24 24" fill="none" stroke="#A5B4FC" stroke-width="2"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="8" r="2.5"/><circle cx="9" cy="18" r="2.5"/><path d="M8 7.5l8 .8M7 8.3l1.6 7.4M16.5 10l-5.6 6.5"/></svg></div><div><h3>Two models built in</h3><p>An immune state map and a next-check forecast.</p></div></div>
+      <div class="card call a" style="--anim:slideL;--d:.95s"><div class="ic" style="border-color:rgba(52,211,153,.45);background:rgba(52,211,153,.12)"><svg viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2"><path d="M5 12.5l4 4L19 7"/></svg></div><div><h3>Runs offline</h3><p>Everything runs on the device. No internet needed.</p></div></div>
+      <div class="sbar a" style="--anim:fadeIn;--d:1.15s">
+        <div class="segs"><i style="background:var(--green)"></i><i style="background:var(--amber)"></i><i style="background:var(--orange)"></i><i style="background:var(--red)"></i><i style="background:var(--dim)"></i></div>
+        <div class="lbl"><span>Normal For You</span><span>Monitor Closely</span><span>Contact Flight Surgeon</span><span>Contact Flight Surgeon Now</span><span>Retake the Sample</span></div>
       </div>
     </div>
   </div>
-  <div class="foot"><span>HemoScope · NASA Space Apps 2026</span></div>
+  <div class="foot"><b>Team HemoScope</b><span>·</span><span>Team member: Julianne Chang</span><span>·</span><span>Challenge: Create Health Monitoring Software for Astronauts on Space Missions</span></div>
 </section>
 
-<!-- 4 METHODS -->
-<section class="slide" aria-label="Slide 4: How it works">
-  <div class="eyebrow a">How it works</div>
-  <h2 class="a" style="--d:.1s">From a check-in to a clear next step</h2>
-  <div class="pipe">
-    <div class="card stage a" style="--d:.35s"><div class="n">01</div><h3>Collect</h3><ul>
-      <li><b>Daily Check:</b> temperature, heart rate, breathing, oxygen, blood pressure, sleep, mood, symptoms</li>
-      <li><b>Blood Check:</b> a complete blood count of five white cell types</li>
-      <li><b>NLR</b> (neutrophil to lymphocyte ratio) is calculated, and fluid shifts in microgravity don’t distort it</li></ul><a class="go" href="https://hemoscope-app.vercel.app/?tab=checks" target="_blank" rel="noopener">Health Checks</a></div>
-    <div class="card stage a" style="--d:.6s"><div class="n">02</div><h3>Personalize</h3><ul>
-      <li><b>Preflight baseline</b> sets each astronaut’s own normal</li>
-      <li><b>Spaceflight phase</b> shifts expectations: early flight (days 1 to 14) and long flight (day 15+)</li>
-      <li><b>Check my data</b> catches typing errors first</li></ul><a class="go" href="https://hemoscope-app.vercel.app/?tab=history" target="_blank" rel="noopener">Health History</a></div>
-    <div class="card stage a" style="--d:.85s"><div class="n">03</div><h3>Score</h3><ul>
-      <li><b>Adapted NEWS2</b> early warning score for vitals, tuned for spaceflight</li>
-      <li><b>Immune Deviation Score</b>, HemoScope’s own 0 to 100 statistic</li>
-      <li><b>Hard safety limits</b> (CTCAE v5) always apply</li></ul><a class="go" href="https://hemoscope-app.vercel.app/?tab=dashboard" target="_blank" rel="noopener">Dashboard</a></div>
-    <div class="card stage a" style="--d:1.1s"><div class="n">04</div><h3>Act</h3><ul>
-      <li><b>One status</b> backed by trends in the data collected</li>
-      <li><b>Forecast check:</b> “as expected” or “not what we expected”</li>
-      <li><b>Next steps</b>, lessons and Emergency Mode one tap away</li></ul><a class="go" href="https://hemoscope-app.vercel.app/?tab=results" target="_blank" rel="noopener">Today’s Results</a></div>
-    <div class="link a" style="--anim:fadeIn;--d:1.3s;left:calc(25% - 27px)"><i></i></div>
-    <div class="link a" style="--anim:fadeIn;--d:1.3s;left:calc(50% - 18px)"><i style="animation-delay:.6s"></i></div>
-    <div class="link a" style="--anim:fadeIn;--d:1.3s;left:calc(75% - 9px)"><i style="animation-delay:1.2s"></i></div>
-  </div>
-  <div class="card formula a" style="--d:1.35s">
-    <div class="gauge">
-      <svg viewBox="0 0 280 150" width="280" height="150" aria-hidden="true">
-        <path d="M20 140 A120 120 0 0 1 260 140" fill="none" stroke="rgba(148,163,184,.18)" stroke-width="18" stroke-linecap="round"/>
-        <path class="draw" pathLength="1" style="--d:1.7s;stroke-dasharray:1;stroke-dashoffset:1" d="M20 140 A120 120 0 0 1 184 28" fill="none" stroke="url(#gg)" stroke-width="18" stroke-linecap="round"/>
-        <defs><linearGradient id="gg" x1="0" x2="1"><stop offset="0" stop-color="#22C55E"/><stop offset=".6" stop-color="#F59E0B"/><stop offset="1" stop-color="#F97316"/></linearGradient></defs>
-      </svg>
-      <div class="val" data-count="62" data-d="1.7">62</div>
-      <div class="lab">IMMUNE DEVIATION SCORE</div>
+<!-- 4 DAY -->
+<section class="slide" aria-label="Slide 4: A day with HemoScope">
+  <div class="eyebrow a">The astronaut’s experience</div>
+  <h2 class="a" style="--d:.1s">A day with HemoScope</h2>
+  <div class="day">
+    <div class="a" style="--d:.3s">
+      <a class="frame" href="https://hemoscope-app.vercel.app/?tab=checks" target="_blank" rel="noopener"><div class="bar"><i></i><i></i><i></i><span>Health Checks</span></div>
+        <img src="deck-shots/C.jpg" alt="Daily Check form with the Check for Measurement Errors button"></a>
+      <div class="cap"><span class="num">1</span><div><h3>Check in</h3><p>Enter vitals and a blood count, then check for measurement errors.</p></div></div>
     </div>
-    <div class="eq">
-      <div><span class="k">1.</span> Per white cell type: z = (log today − log own mean) ÷ own spread</div>
-      <div><span class="k">2.</span> Combine the four z-scores with a chi-square method into one 0 to 100 score</div>
-      <div><span class="k">3.</span> |z| above 1.96 means a marker is outside this astronaut’s usual range</div>
-      <div><a class="go" href="https://hemoscope-app.vercel.app/?tab=dashboard" target="_blank" rel="noopener">See the score on the Dashboard</a></div>
+    <div class="a" style="--d:.5s">
+      <a class="frame" href="https://hemoscope-app.vercel.app/?tab=history" target="_blank" rel="noopener"><div class="bar"><i></i><i></i><i></i><span>Health History</span></div>
+        <img src="deck-shots/I.jpg" alt="Health History with the Immune Deviation Score timeline"></a>
+      <div class="cap"><span class="num">2</span><div><h3>Analyze</h3><p>Health History tracks every check and the Immune Deviation Score over the mission.</p></div></div>
+    </div>
+    <div class="a" style="--d:.7s">
+      <a class="frame" href="https://hemoscope-app.vercel.app/?tab=learn" target="_blank" rel="noopener"><div class="bar"><i></i><i></i><i></i><span>Learn · Ask HemoScope</span></div>
+        <img src="deck-shots/D.jpg" alt="Learn tab with Ask HemoScope answering a question"></a>
+      <div class="cap"><span class="num">3</span><div><h3>Learn</h3><p>Lessons and an offline search explain every number.</p></div></div>
     </div>
   </div>
-  <div class="foot"><span>NEWS2: Royal College of Physicians · spaceflight adjustments: Norsk 2015, Stahn 2017, Crucian 2015, Stratis 2023</span></div>
+  <div class="strip a" style="--anim:fadeIn;--d:1s">
+    <div><b>Collect</b><span>Daily Check and Blood Check</span></div>
+    <div><b>Personalize</b><span>Preflight baseline and flight phase</span></div>
+    <div><b>Score</b><span>NEWS2 and Immune Deviation Score</span></div>
+    <div><b>Act</b><span>One status; safety limits always apply</span></div>
+  </div>
+  <div class="foot"><b>Team HemoScope</b><span>·</span><span>Team member: Julianne Chang</span><span>·</span><span>Challenge: Create Health Monitoring Software for Astronauts on Space Missions</span></div>
 </section>
 
-<!-- 5 DEMO -->
-<section class="slide" aria-label="Slide 5: Demo">
-  <div class="eyebrow a">Demo · simulated 180-day mission</div>
-  <h2 class="a" style="--d:.1s">How HemoScope helps astronauts</h2>
-  <div class="demo">
-    <div class="win a" style="--anim:pop;--d:.3s">
-      <div class="bar"><i></i><i></i><i></i><span class="t">HemoScope · Astronaut D · Long flight · Mission day 46</span></div>
-      <div class="body">
+<!-- 5 VIEWS -->
+<section class="slide" aria-label="Slide 5: When it matters">
+  <div class="eyebrow a">When it matters</div>
+  <h2 class="a" style="--d:.1s">The whole crew at a glance, and help when every second counts</h2>
+  <div class="views">
+    <div class="a" style="--anim:pop;--d:.3s">
+      <a class="frame" href="https://hemoscope-app.vercel.app" target="_blank" rel="noopener"><div class="bar"><i></i><i></i><i></i><span>Flight Surgeon · Crew</span></div>
+        <img src="deck-shots/E.jpg" alt="Flight Surgeon crew view, most urgent first"></a>
+      <h3>Flight Surgeon View</h3>
+      <p>Every astronaut on one screen, most urgent first, with the top reason.</p>
+    </div>
+    <div class="a" style="--anim:pop;--d:.5s">
+      <a class="frame" href="https://hemoscope-app.vercel.app/?tab=emergency" target="_blank" rel="noopener"><div class="bar"><i></i><i></i><i></i><span>Emergency Mode</span></div>
+        <img src="deck-shots/F.jpg" alt="Emergency Mode with scenario guides and CPR pacer"></a>
+      <h3>Emergency Mode</h3>
+      <p>One tap from any screen: guides written for microgravity and a CPR pacer.</p>
+    </div>
+  </div>
+  <div class="foot"><b>Team HemoScope</b><span>·</span><span>Team member: Julianne Chang</span><span>·</span><span>Challenge: Create Health Monitoring Software for Astronauts on Space Missions</span></div>
+</section>
+
+<!-- 6 DATA + MODELS -->
+<section class="slide" aria-label="Slide 6: Data and models">
+  <div class="eyebrow a">Data and models</div>
+  <h2 class="a" style="--d:.1s">Built on NASA open data, with two tested models</h2>
+  <div class="dm">
+    <div class="dcol">
+      <div class="card ds nasa a" style="--anim:slideR;--d:.3s">
+        <div class="tag">NASA OSDR · OSD-569</div>
+        <h3>Inspiration4 blood counts</h3>
+        <p>4 civilian astronauts, 7 time points before and after flight. Real preflight baselines for the demo crew, and a real-world test of the map.</p>
+      </div>
+      <div class="card ds a" style="--anim:slideR;--d:.45s">
+        <div class="tag">NIH IMMPORT · 4 STUDIES</div>
+        <h3>1,286 repeat blood counts</h3>
+        <p>From 120 healthy adults. They train and test both models, with 36 people held out, and show how much each marker normally varies.</p>
+      </div>
+      <div class="card ds a" style="--anim:slideR;--d:.6s">
+        <div class="tag">PUBLISHED RESEARCH</div>
+        <h3>Rules from the literature</h3>
+        <p>Biological variation, spaceflight studies, NEWS2 and CTCAE v5 set the expected ranges and safety limits.</p>
+      </div>
+      <div class="src a" style="--anim:fadeIn;--d:.8s">osdr.nasa.gov · immport.org</div>
+    </div>
+    <div class="mcol">
+      <div class="card model a" style="--anim:slideL;--d:.45s">
         <div>
-          <table class="tbl">
-            <tr><th>BLOOD CHECK</th><th>TODAY</th><th>USUAL FOR D</th></tr>
-            <tr class="a" style="--anim:slideR;--d:.7s"><td>Neutrophils</td><td class="v a-c">7.4</td><td class="u">3.4 to 5.0</td></tr>
-            <tr class="a" style="--anim:slideR;--d:.9s"><td>Lymphocytes</td><td class="v">1.8</td><td class="u">1.6 to 2.4</td></tr>
-            <tr class="a" style="--anim:slideR;--d:1.1s"><td>Monocytes</td><td class="v">0.5</td><td class="u">0.3 to 0.6</td></tr>
-            <tr class="a" style="--anim:slideR;--d:1.3s"><td>Eosinophils</td><td class="v">0.2</td><td class="u">0.1 to 0.3</td></tr>
-            <tr class="a" style="--anim:slideR;--d:1.5s"><td><b>NLR</b> (calculated)</td><td class="v a-c">4.1</td><td class="u">1.6 to 2.6</td></tr>
-          </table>
-          <div class="ok a" style="--anim:fadeIn;--d:1.9s">✓ Check my data: no entry errors found</div>
-          <div class="a" style="--anim:fadeIn;--d:2s"><a class="go" href="https://hemoscope-app.vercel.app/?tab=checks" target="_blank" rel="noopener">Try a Blood Check</a></div>
+          <div class="tag" style="color:var(--violet)">MODEL 1 · UNSUPERVISED MACHINE LEARNING</div>
+          <h3>Immune State Map</h3>
+          <p>PCA and a Gaussian mixture learn where 993 healthy blood checks fall, then draw each astronaut’s mission as a path.</p>
+          <div class="stats"><div><b>92.0%</b><span>of unseen checks inside the 90% zone</span></div><div><b>4 / 4</b><span>Inspiration4 crew read as healthy after landing</span></div></div>
         </div>
+        <a class="frame" href="https://hemoscope-app.vercel.app/?tab=dashboard" target="_blank" rel="noopener"><div class="bar"><i></i><i></i><i></i></div>
+          <img src="deck-shots/G.jpg" alt="Immune State Map with an astronaut path"></a>
+      </div>
+      <div class="card model a" style="--anim:slideL;--d:.65s">
         <div>
-          <div class="status">
-            <div class="st s-ok"><span class="dot" style="background:var(--green);width:12px;height:12px"></span>Normal For You</div>
-            <div class="st s-mon"><span class="dot" style="background:var(--amber);width:12px;height:12px"></span>Monitor Closely</div>
-          </div>
-          <div class="why">
-            <div class="h a" style="--anim:fadeIn;--d:3.2s">WHY</div>
-            <div class="a" style="--d:3.35s">• <b>Neutrophils 7.4</b> are above D’s long-flight range (4.3 to 6.3)</div>
-            <div class="a" style="--d:3.55s">• <b>NLR 4.1</b> is above D’s usual 1.6 to 2.6</div>
-            <div class="a" style="--d:3.75s">• Forecast said <b>4.6 to 6.6</b>: <span class="a-c">not what we expected</span></div>
-          </div>
-          <svg viewBox="0 0 420 150" style="width:100%;margin-top:18px" aria-hidden="true">
-            <text x="0" y="12" font-family="JetBrains Mono" font-size="11" fill="#64748B">NEUTROPHILS · FORECAST RANGE</text>
-            <path class="a" style="--anim:fadeIn;--d:2s" d="M20 98 L120 92 L220 86 L320 80 L400 74 L400 40 L320 46 L220 52 L120 58 L20 64 Z" fill="rgba(96,165,250,.16)" stroke="rgba(96,165,250,.4)"/>
-            <path class="draw" pathLength="1" style="--d:2.1s" d="M20 84 L120 76 L220 72 L320 62" fill="none" stroke="#E8EEF9" stroke-width="2.5"/>
-            <g fill="#E8EEF9"><circle cx="20" cy="84" r="4"/><circle cx="120" cy="76" r="4"/><circle cx="220" cy="72" r="4"/><circle cx="320" cy="62" r="4"/></g>
-            <path class="draw" pathLength="1" style="--d:2.9s" d="M320 62 L400 22" fill="none" stroke="#F59E0B" stroke-width="2.5" stroke-dasharray="1"/>
-            <g class="a" style="--anim:pop;--d:3.1s"><circle cx="400" cy="22" r="7" fill="#F59E0B"/></g>
-            <g font-family="JetBrains Mono" font-size="11" fill="#64748B"><text x="12" y="125">D4</text><text x="110" y="125">D18</text><text x="210" y="125">D32</text><text x="300" y="125">D46</text></g>
-          </svg>
-          <div class="a" style="--anim:fadeIn;--d:3.4s"><a class="go" href="https://hemoscope-app.vercel.app/?tab=history" target="_blank" rel="noopener">Forecast: Health History, Blood</a></div>
+          <div class="tag" style="color:var(--blue2)">MODEL 2 · STATE-SPACE FORECAST</div>
+          <h3>Next Blood Check Forecast</h3>
+          <p>A Kalman filter for each marker, with parameters learned from 84 people and validated on 36 it never saw.</p>
+          <div class="stats"><div><b>96.1%</b><span>of next values inside the 95% range</span></div><div><b>14.7%</b><span>typical miss, vs 16.4% for assuming no change</span></div></div>
         </div>
+        <a class="frame" href="https://hemoscope-app.vercel.app/?tab=history" target="_blank" rel="noopener"><div class="bar"><i></i><i></i><i></i></div>
+          <img src="deck-shots/H.jpg" alt="Immune Deviation Score timeline and next blood check forecast"></a>
       </div>
-    </div>
-    <div class="side">
-      <div class="card a" style="--d:.6s">
-        <h3>Immune State Map</h3>
-        <p>Astronaut D’s mission drawn as a path across healthy zones</p>
-        <svg viewBox="0 0 400 190" style="width:100%;margin-top:8px" aria-hidden="true">
-          <ellipse cx="190" cy="100" rx="170" ry="82" fill="rgba(96,165,250,.06)" stroke="rgba(96,165,250,.25)"/>
-          <ellipse cx="190" cy="100" rx="118" ry="56" fill="rgba(96,165,250,.09)" stroke="rgba(96,165,250,.35)"/>
-          <ellipse cx="190" cy="100" rx="62" ry="30" fill="rgba(96,165,250,.14)" stroke="rgba(96,165,250,.5)"/>
-          <text x="392" y="186" text-anchor="end" font-family="JetBrains Mono" font-size="11" fill="#64748B">neutrophil side →</text>
-          <path class="draw" pathLength="1" style="--d:1s" d="M180 104 L196 96 L214 100 L240 90 L292 72" fill="none" stroke="#E8EEF9" stroke-width="2"/>
-          <g fill="#E8EEF9"><circle cx="180" cy="104" r="3.5"/><circle cx="196" cy="96" r="3.5"/><circle cx="214" cy="100" r="3.5"/><circle cx="240" cy="90" r="3.5"/></g>
-          <g class="a" style="--anim:pop;--d:2.3s"><circle cx="292" cy="72" r="7" fill="#F59E0B"/></g>
-        </svg>
-        <a class="go" href="https://hemoscope-app.vercel.app/?tab=dashboard" target="_blank" rel="noopener">Immune State Map</a>
-      </div>
-      <div class="card a" style="--d:.8s">
-        <h3>Emergency Mode</h3>
-        <div class="pacer"><div class="beat">110</div><p>CPR compression pacer at 100 to 120 per minute, with step-by-step guides written for microgravity</p></div>
-        <a class="go" href="https://hemoscope-app.vercel.app/?tab=emergency" target="_blank" rel="noopener">Emergency Mode</a>
-      </div>
-      <a class="cta a" style="--d:1s" href="https://hemoscope-app.vercel.app" target="_blank" rel="noopener">Try it live <span>hemoscope-app.vercel.app →</span></a>
     </div>
   </div>
-  <div class="foot"><span>Demo astronauts start from real Inspiration4 preflight blood counts. In-flight values are simulated and illustrative.</span></div>
+  <div class="foot"><b>Team HemoScope</b><span>·</span><span>Team member: Julianne Chang</span><span>·</span><span>Challenge: Create Health Monitoring Software for Astronauts on Space Missions</span></div>
 </section>
 
-<!-- 6 DATA -->
-<section class="slide" aria-label="Slide 6: NASA data">
-  <div class="eyebrow a">NASA data</div>
-  <h2 class="a" style="--d:.1s">Built on real spaceflight and clinical data</h2>
-  <div class="data">
-    <div class="src">
-      <div class="card srcc nasa a" style="--anim:slideR;--d:.35s">
-        <div class="big"><span data-count="28" data-d=".6">28</span><small>BLOOD COUNTS</small></div>
-        <div><div class="tagl">NASA OSDR · OSD-569</div><h3>Inspiration4 complete blood counts</h3>
-          <p>4 civilian astronauts, 7 time points from 92 days before launch to 194 days after landing</p>
-          <ul><li>Real preflight baselines for HemoScope’s demo crew</li><li>Real-world check of the Immune State Map</li></ul></div>
-      </div>
-      <div class="card srcc a" style="--anim:slideR;--d:.6s">
-        <div class="big"><span data-count="1286" data-d=".9">1,286</span><small>BLOOD COUNTS</small></div>
-        <div><div class="tagl">NIH IMMPORT · SDY180 · SDY296 · SDY301 · SDY1252</div><h3>120 healthy adults, tested over time</h3>
-          <ul><li>Trains and tests both models, with 30% of people held out</li><li>Measures how much each marker normally varies in one person</li></ul></div>
-      </div>
-      <div class="card srcc a" style="--anim:slideR;--d:.85s">
-        <div class="big"><span data-count="7" data-d="1.2">7</span><small>RESEARCH SOURCES</small></div>
-        <div><div class="tagl">PUBLISHED RESEARCH</div><h3>Rules grounded in the literature</h3>
-          <p>Biological variation (Clin Chem Lab Med) · Crucian 2015 · Stratis 2023 · Norsk 2015 · Stahn 2017 · NEWS2 · CTCAE v5</p></div>
-      </div>
+<!-- 7 TRY -->
+<section class="slide" aria-label="Slide 7: Try HemoScope">
+  <div class="eyebrow a">Team and links</div>
+  <h2 class="a" style="--d:.1s">See HemoScope for yourself</h2>
+  <div class="try">
+    <div class="team a" style="--anim:pop;--d:.3s">
+      <div class="hd">TEAM MEMBERS</div>
+      <div class="who">Julianne Chang</div>
+      <div class="hd" style="margin-top:22px">SKILLS USED</div>
+      <ul>
+        <li><b>Full-stack web app</b> TypeScript, React, Next.js</li>
+        <li><b>Machine learning and statistics</b> Python, PCA, Gaussian mixtures, Kalman filters, Azure ML</li>
+        <li><b>Data science</b> NASA OSDR and NIH ImmPort data</li>
+        <li><b>Clinical scoring</b> NEWS2 and CTCAE v5, adapted for spaceflight</li>
+        <li><b>Design</b> Offline-first, explainable crew tools</li>
+      </ul>
     </div>
-    <div class="card val a" style="--d:.5s">
-      <div class="hd">DID IT WORK? TESTED ON PEOPLE THE MODELS NEVER SAW</div>
-      <div class="vgrid">
-        <div class="vt a" style="--anim:pop;--d:.9s">
-          <div class="vn" data-count="96.1" data-dec="1" data-suf="%" data-d="1">96.1%</div>
-          <div class="vh">Forecasts land in range</div>
-          <p>HemoScope predicts a range for each astronaut’s next blood check. The real value fell inside it <b>96.1%</b> of the time. Goal: 95%.</p>
-          <div class="track" style="margin-top:12px"><div class="fill" style="width:96.1%;--d:1s"></div><div class="target" style="left:95%"></div></div>
-        </div>
-        <div class="vt a" style="--anim:pop;--d:1.1s">
-          <div class="vn"><span data-count="10" data-d="1.2">10</span>% <small>smaller</small></div>
-          <div class="vh">More accurate than guessing</div>
-          <p>Typical forecast miss: <b>14.7%</b>, vs <b>16.4%</b> for simply assuming the next value matches the last one.</p>
-        </div>
-        <div class="vt a" style="--anim:pop;--d:1.3s">
-          <div class="vn" data-count="92.0" data-dec="1" data-suf="%" data-d="1.4">92.0%</div>
-          <div class="vh">The healthy map is calibrated</div>
-          <p>The zone built to hold 90% of healthy blood checks held <b>92.0%</b>. The 50% and 99% zones held 51.2% and 99.7%.</p>
-        </div>
-        <div class="vt ok2 a" style="--anim:pop;--d:1.5s">
-          <div class="vn g">4 / 4</div>
-          <div class="vh">Real astronauts read as healthy</div>
-          <p>All four Inspiration4 crew members’ blood counts after landing fell inside the 90% healthy zone.</p>
-        </div>
-      </div>
-      <div class="vfoot">Kalman filter forecast · PCA + Gaussian mixture map · trained on Microsoft Azure ML · runs offline in the browser</div>
+    <div class="links">
+      <a class="a" style="--anim:slideL;--d:.45s" href="https://hemoscope-app.vercel.app" target="_blank" rel="noopener"><div><small>APP DEMO</small><b>hemoscope-app.vercel.app</b></div><em>Try it live ↗</em></a>
+      <a class="a" style="--anim:slideL;--d:.6s" href="https://hemoscope.framer.website/" target="_blank" rel="noopener"><div><small>WEBSITE</small><b>hemoscope.framer.website</b></div><em>How it works ↗</em></a>
+      <a class="a" style="--anim:slideL;--d:.75s" href="https://github.com/jchang-888/hemoscope-app" target="_blank" rel="noopener"><div><small>GITHUB</small><b>jchang-888/hemoscope-app</b></div><em>The code ↗</em></a>
     </div>
   </div>
-  <div class="foot"><span>osdr.nasa.gov · immport.org (Bhattacharya et al. 2018, Scientific Data)</span></div>
-</section>
-
-<!-- 7 TEAM + NEXT -->
-<section class="slide" aria-label="Slide 7: Team and next steps">
-  <div class="eyebrow a">Methods and next steps</div>
-  <h2 class="a" style="--d:.1s">How HemoScope was built, and what’s next</h2>
-  <div class="team">
-    <div class="card skills a" style="--anim:pop;--d:.55s">
-      <div class="hd">TOOLS AND SKILLS USED TO BUILD HEMOSCOPE</div>
-      <div class="sk">
-        <span class="a" style="--anim:pop;--d:.8s"><b>Full-stack web app</b>TypeScript, React, Next.js, Tailwind CSS</span>
-        <span class="a" style="--anim:pop;--d:.9s"><b>Machine learning</b>Kalman filters, PCA and Gaussian mixtures in Python, trained on Azure ML</span>
-        <span class="a" style="--anim:pop;--d:1s"><b>Data science</b>NASA OSDR and NIH ImmPort data prep in R and Python</span>
-        <span class="a" style="--anim:pop;--d:1.1s"><b>Statistics</b>Personal baselines, z-scores, held-out testing</span>
-        <span class="a" style="--anim:pop;--d:1.2s"><b>Clinical scoring</b>NEWS2 and CTCAE v5, adapted for spaceflight</span>
-        <span class="a" style="--anim:pop;--d:1.3s"><b>Design for crews</b>Offline-first, explainable, emergency-ready</span>
-        <span class="a" style="--anim:pop;--d:1.4s"><b>Engineering</b>123 automated tests, Git, GitHub, Vercel</span>
-        <span class="a" style="--anim:pop;--d:1.5s"><b>Public website</b>Framer explainer site</span>
-      </div>
-    </div>
-    <div class="card next a" style="--d:.75s">
-      <div class="hd">WHAT’S NEXT</div>
-      <div class="tl">
-        <div class="now a" style="--d:1s"><b>Now</b><span>Working offline app with two tested models</span></div>
-        <div class="a" style="--d:1.2s"><b>Long-duration data</b><span>Validate with ISS crew data from NASA’s Life Sciences Data Archive</span></div>
-        <div class="a" style="--d:1.4s"><b>Wearables</b><span>Read vitals straight from crew devices</span></div>
-        <div class="a" style="--d:1.6s"><b>Analog missions</b><span>Test with crews in isolated settings like HERA and Antarctic stations</span></div>
-      </div>
-    </div>
-  </div>
-  <div class="ctab a" style="--anim:pop;--d:1.7s">
-    <div class="ctat"><b>See HemoScope for yourself</b><span>Try the live demo, read how it works, or explore the code.</span></div>
-    <div class="ctal">
-      <a href="https://hemoscope-app.vercel.app" target="_blank" rel="noopener"><small>APP DEMO</small>hemoscope-app.vercel.app</a>
-      <a href="https://hemoscope.framer.website/" target="_blank" rel="noopener"><small>WEBSITE</small>hemoscope.framer.website</a>
-      <a href="https://github.com/jchang-888/hemoscope-app" target="_blank" rel="noopener"><small>GITHUB</small>jchang-888/hemoscope-app</a>
-    </div>
-  </div>
-  <p class="ai a" style="--anim:fadeIn;--d:2s;margin-top:16px"><b>AI disclosure:</b> Claude (Anthropic) was used as a coding and writing assistant. All data, methods and design choices were made by the team, and all AI-assisted code was reviewed and tested. HemoScope itself uses no generative AI.</p>
-  <div class="foot"><span>HemoScope · NASA Space Apps 2026</span></div>
+  <p class="close a" style="--d:.95s">A personal early warning system for every astronaut, millions of miles from a doctor.</p>
+  <p class="ai a" style="--anim:fadeIn;--d:1.2s"><b>AI disclosure:</b> Claude (Anthropic) was used as a coding and writing assistant. All data, methods and design choices were made by the team, and all AI-assisted code was reviewed and tested. HemoScope itself uses no generative AI.</p>
+  <div class="foot"><b>Team HemoScope</b><span>·</span><span>Team member: Julianne Chang</span><span>·</span><span>Challenge: Create Health Monitoring Software for Astronauts on Space Missions</span></div>
 </section>
 
 </div></div>
@@ -615,29 +419,14 @@ html.static .scope *,html.static .pacer .beat,html.static .link i{animation:none
   var slides=[].slice.call(document.querySelectorAll('.slide'));
   var stage=document.getElementById('stage'), count=document.getElementById('count'), bar=document.getElementById('progress');
   var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var i=0, timers=[];
+  var i=0;
   function fit(){var s=Math.min(innerWidth/1600,innerHeight/900);stage.style.transform='scale('+s+')';}
   addEventListener('resize',fit);fit();
-
-  function fmt(v,dec,suf){var t=dec?v.toFixed(dec):Math.round(v).toLocaleString('en-US');return t+(suf||'');}
-  function counters(sl){
-    timers.forEach(clearTimeout);timers=[];
-    sl.querySelectorAll('[data-count]').forEach(function(el){
-      var to=parseFloat(el.dataset.count),dec=+(el.dataset.dec||0),suf=el.dataset.suf||'',d=parseFloat(el.dataset.d||0)*1000;
-      if(reduce){el.textContent=fmt(to,dec,suf);return;}
-      el.textContent=fmt(0,dec,suf);
-      timers.push(setTimeout(function(){
-        var t0=performance.now(),dur=1300;
-        (function tick(now){var p=Math.min(1,(now-t0)/dur),e=1-Math.pow(1-p,3);el.textContent=fmt(to*e,dec,suf);if(p<1)requestAnimationFrame(tick);})(t0);
-      },d));
-    });
-  }
   function go(n){
     n=Math.max(0,Math.min(slides.length-1,n));
     slides.forEach(function(s,k){if(k!==n)s.classList.remove('active');});
     var s=slides[n];s.classList.remove('active');void s.offsetWidth;s.classList.add('active');
     i=n;count.textContent=(n+1)+' / '+slides.length;bar.style.width=((n+1)/slides.length*100)+'%';
-    counters(s);
     if(location.hash!=='#'+(n+1))history.replaceState(null,'','#'+(n+1));
   }
   document.getElementById('next').onclick=function(e){e.stopPropagation();go(i+1);};
@@ -656,9 +445,7 @@ html.static .scope *,html.static .pacer .beat,html.static .link i{animation:none
   addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>50)go(dx<0?i+1:i-1);x0=null;},{passive:true});
   var h=parseInt((location.hash||'').slice(1),10);
   go(h>=1&&h<=slides.length?h-1:0);
-  window.hemoGo=go;
 
-  // starfield
   var c=document.getElementById('stars'),x=c.getContext('2d'),st=[];
   function size(){c.width=innerWidth*devicePixelRatio;c.height=innerHeight*devicePixelRatio;}
   size();addEventListener('resize',size);
