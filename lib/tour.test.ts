@@ -4,7 +4,7 @@ import { getAstronaut } from "./data";
 import { evaluateBloodSeries } from "./engine";
 import { FORECAST_NOT_EXPECTED, bloodHistoryTable } from "./export";
 import { TAB_IDS } from "./nav";
-import { TOUR_FINAL_TEXT, TOUR_ML_DOC_URL, TOUR_REPO_URL, TOUR_STEPS, lastStep, nextStep, prevStep, stepLabel } from "./tour";
+import { TOUR_FINAL_TEXT, TOUR_START_LABEL, TOUR_START_NOTE, TOUR_ML_DOC_URL, TOUR_REPO_URL, TOUR_STEPS, lastStep, nextStep, prevStep, stepLabel } from "./tour";
 
 const page = readFileSync("app/page.tsx", "utf8");
 const tourUi = readFileSync("app/tour.tsx", "utf8");
@@ -13,7 +13,7 @@ const tourText = readFileSync("lib/tour.ts", "utf8");
 describe("tour steps", () => {
   it("has the expected steps in order, with unique ids", () => {
     expect(TOUR_STEPS.map((s) => s.id)).toEqual([
-      "dashboard", "daily-check", "blood-check", "todays-results", "day-46", "state-map", "learn", "ask", "emergency", "surgeon", "azure",
+      "dashboard", "daily-check", "blood-check", "todays-results", "day-46", "forecast", "state-map", "learn", "ask", "emergency", "surgeon", "azure",
     ]);
     expect(new Set(TOUR_STEPS.map((s) => s.id)).size).toBe(TOUR_STEPS.length);
   });
@@ -115,5 +115,52 @@ describe("tour never changes stored data", () => {
   it("closes with Escape and has Back, Next and Exit buttons", () => {
     expect(tourUi).toContain('"Escape"');
     for (const label of [">Back<", ">Next<", ">Exit<"]) expect(tourUi).toContain(label);
+  });
+});
+
+describe("start popup, Demo bar and Health History layout", () => {
+  const at = (text: string) => { const i = page.indexOf(text); expect(i, text).toBeGreaterThan(-1); return i; };
+  const demoBarCode = () => page.slice(at("const demo = who &&"), at('return (\n    <div className="min-h-screen">'));
+
+  it("puts Take the Tour (for Judges) at the top of the start popup and not in the Demo bar", () => {
+    expect(TOUR_START_LABEL).toBe("Take the Tour (for Judges)");
+    expect(TOUR_START_NOTE).toBe("A 2-minute guided walkthrough of HemoScope.");
+    expect(tourUi).toContain("TOUR_START_LABEL");
+    expect(tourUi).toContain("TOUR_START_NOTE");
+    const popup = page.slice(at("Who Do You Want to View the App As?"));
+    expect(popup.indexOf("<TourButton")).toBeGreaterThan(-1);
+    expect(popup.indexOf("<TourButton")).toBeLessThan(popup.indexOf("choice"));
+    expect(demoBarCode()).not.toContain("TourButton");
+  });
+
+  it("shows the start popup again when the tour ends", () => {
+    expect(page).toContain("const exitTour = () => { setTourIndex(null); setWho(null); }");
+  });
+
+  it("has Reset Demo in the Demo bar, and not on the Dashboard", () => {
+    expect(demoBarCode()).toContain("Reset Demo");
+    expect(demoBarCode()).toContain("onClick={resetDemo}");
+    expect(page.match(/>Reset Demo</g)?.length).toBe(1); // one button, none on the Dashboard
+    expect(page).toContain('setNotice("Demo reset")');
+    const reset = page.slice(at("const resetDemo = () => {"), at("const pickView"));
+    for (const part of ['writeRaw("")', "setDrafts({})", "setFromReset(true)", "setResetCount"]) expect(reset).toContain(part);
+    // The same Demo bar goes to the astronaut view and the Flight Surgeon view.
+    expect(page).toContain("<SurgeonView key={`${tourIndex ?? \"none\"}-${resetCount}`} demo={demo}");
+    expect(page).toContain("demo={demo} tour={tourStep} startOnDashboard={fromReset}");
+  });
+
+  it("orders Health History > Blood Check: score and timeline, forecast, map, table, charts", () => {
+    const blood = page.slice(at('{sub === "blood" && ('));
+    const order = ["<ImmuneScoreCard", "Immune Deviation Score Timeline", "<NextForecastCard", "<ImmuneStateMap", "<HistoryTable", "BLOOD_CHARTS.map"].map((t) => blood.indexOf(t));
+    expect(order.every((i) => i > -1)).toBe(true);
+    expect([...order].sort((a, b) => a - b)).toEqual(order);
+    expect(blood.match(/Immune Deviation Score Timeline/g)?.length).toBe(1); // not shown twice
+    expect(blood).toContain("forecast={forecastPoint(forecasts.find"); // dashed forecast points stay on the charts
+  });
+
+  it("shows the forecast card in Today's Results > Blood and a summary on the Dashboard", () => {
+    expect(page).toContain("<NextForecastCard blood={blood} />");
+    expect(page).toContain("View Next Blood Check Forecast");
+    expect(page).toContain("Forecast by HemoScope's machine learning model from this astronaut's own blood checks.");
   });
 });

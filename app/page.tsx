@@ -20,6 +20,7 @@ import {
   type ImmuneScore, type Mark, type StatusId, type StreakInfo, type VitalKey,
 } from "../lib/engine";
 import { forecastSeries, type Forecast } from "../lib/ml";
+import { NUMBERS_TEXT } from "../lib/content";
 import {
   bloodHistoryTable, crewTable, dailyHistoryTable, flaggedTable, markersTable, type Cell, type CrewRow, type Table,
 } from "../lib/export";
@@ -31,7 +32,7 @@ import {
 import { AskForm, AskPanel, AskTab, useAsk } from "./ask";
 import { ImmuneStateMap } from "./state-map";
 import { CheckTypeToggle } from "../components/CheckTypeToggle";
-import { isHealth, navFromParam, openChecks, openPage, openResults, type ChecksTab, type NavState } from "../lib/nav";
+import { NAV_START, isHealth, navFromParam, openChecks, openPage, openResults, type ChecksTab, type NavState } from "../lib/nav";
 import type { SearchTarget } from "../lib/search";
 import { TOUR_STEPS, type TourStep } from "../lib/tour";
 import { Tour, TourButton } from "./tour";
@@ -96,11 +97,6 @@ function saveEntry(stored: Stored, id: AstronautId, patch: { daily?: DailyEntry;
   writeRaw(JSON.stringify({ ...stored, [id]: { ...stored[id], ...patch } }));
 }
 
-function clearEntries(stored: Stored, id: AstronautId) {
-  const rest = { ...stored };
-  delete rest[id];
-  writeRaw(Object.keys(rest).length ? JSON.stringify(rest) : "");
-}
 
 // ---------------------------------------------------------------------------
 // Form drafts (kept while switching between astronauts, cleared by Reset demo)
@@ -188,6 +184,53 @@ function ImmuneBadge({ immune }: { immune: ImmuneScore }) {
       <MarkIcon mark={immune.unusual ? "warn" : "ok"} />
       {immune.unusual ? "Unusual" : "Typical for You"}
     </span>
+  );
+}
+
+// The forecast for the next blood check (one week after today), from every usable sample so far.
+const nextForecasts = (blood: BloodResult[]) =>
+  forecastSeries(blood.filter((r) => r.kind !== "retake").map((r) => r.sample), CONFIG.mission.today + NUMBERS_TEXT.forecastDays).next;
+const FORECAST_NOTE = "Forecast by HemoScope's machine learning model from this astronaut's own blood checks.";
+
+// Next Blood Check Forecast: the expected value and 95% range for each marker. Shown in Health History, Today's Results and (as a summary) the Dashboard.
+function NextForecastCard({ blood }: { blood: BloodResult[] }) {
+  const next = nextForecasts(blood);
+  return (
+    <div data-tour="forecast-card">
+      <Card title={`Next Blood Check Forecast (Day ${CONFIG.mission.today + NUMBERS_TEXT.forecastDays})`}>
+        {next.length === 0 ? (
+          <p className="text-sm text-muted">There are not enough preflight blood checks to make a forecast.</p>
+        ) : (
+          <ul className="grid gap-x-6 gap-y-1.5 text-sm sm:grid-cols-2">
+            {next.map((f) => (
+              <li key={f.marker}>
+                <span className="font-semibold">{MARKER_NAMES[f.marker]}:</span> expected <span className="font-mono">{f.expected.toFixed(2)}</span> (<span className="font-mono">{fmtRange(f.lo, f.hi, 2)}</span>) {BLOOD_UNIT}
+              </li>
+            ))}
+          </ul>
+        )}
+        <p className="mt-3 text-xs text-muted">{FORECAST_NOTE}</p>
+      </Card>
+    </div>
+  );
+}
+
+// The same Immune Deviation Score card on the Dashboard and at the top of Health History > Blood Check.
+function ImmuneScoreCard({ blood, name }: { blood: BloodResult[]; name: string }) {
+  const { shown, isToday } = immuneShown(blood);
+  return (
+    <Card title="Immune Deviation Score" tip={<ImmuneTip />}>
+      {shown?.immune ? (
+        <>
+          <p className="font-mono text-sm text-muted">
+            {isToday ? `${name}, Mission Day ${TODAY}` : `Latest blood check, Mission Day ${shown.day}`}
+          </p>
+          <p className="mt-2"><ScoreNumber immune={shown.immune} big /></p>
+          <p className="mt-2"><ImmuneBadge immune={shown.immune} /></p>
+          <p className="mt-3 text-sm">{immuneMeaning(shown.immune.score)}</p>
+        </>
+      ) : <p className="text-sm text-muted">No scored blood check yet.</p>}
+    </Card>
   );
 }
 
@@ -345,6 +388,13 @@ function HealthHistory({ id, entries, dailyResults, bloodResults, todayDaily, to
 
       {sub === "blood" && (
         <div data-export-all className="space-y-4">
+          <div className="grid gap-4 md:grid-cols-2">
+            <ImmuneScoreCard blood={bloodResults} name={a.name} />
+            <Card title="Immune Deviation Score Timeline" tip={<ImmuneTip />} exportName="immune-deviation-score-timeline" exportMenu={<ExportMenu astronaut={id} name="immune-deviation-score-timeline" />}>
+              <ScoreTimeline points={scorePoints} highlightDay={shown?.day ?? null} highlightLabel={isToday ? "Today" : "Latest"} />
+            </Card>
+          </div>
+          <NextForecastCard blood={bloodResults} />
           <div data-tour="state-map"><Card><ImmuneStateMap path={mapPathOf(bloodResults, a.baseline)} astronaut={id} /></Card></div>
           <div className="flex flex-wrap items-start justify-between gap-3">
             <Legend>
@@ -358,9 +408,6 @@ function HealthHistory({ id, entries, dailyResults, bloodResults, todayDaily, to
             <HistoryTable table={bloodHistoryTable(bloodResults)} tourName="blood" />
           </Card>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            <Card title="Immune Deviation Score Timeline" tip={<ImmuneTip />} exportName="immune-deviation-score-timeline" exportMenu={<ExportMenu astronaut={id} name="immune-deviation-score-timeline" />}>
-              <ScoreTimeline points={scorePoints} highlightDay={shown?.day ?? null} highlightLabel={isToday ? "Today" : "Latest"} />
-            </Card>
             {BLOOD_CHARTS.map((m) => {
               const line: Pt[] = a.blood
                 .filter((s) => s.day >= 1 && s.day <= lastDay)
@@ -430,6 +477,7 @@ function Flame() {
   );
 }
 
+const plural2 = (n: number, word: string) => `${n} ${word}${n === 1 ? "" : "s"}`;
 const plural = (n: number) => `${n} ${n === 1 ? "day" : "days"}`;
 
 // Daily Check streak inside Today's Checklist, with a badge at the 7, 30 and 60 day milestones.
@@ -465,15 +513,14 @@ function PreviewRow({ day, status, follow }: { day: number; status: Cell; follow
 }
 
 function Dashboard({
-  id, daily, blood, todayDaily, todayBlood, current, streak, go, goResults, goHistory, onReset,
+  id, daily, blood, todayDaily, todayBlood, current, streak, go, goResults, goHistory,
 }: {
   id: AstronautId; daily: DailyResult[]; blood: BloodResult[]; todayDaily?: DailyEntry; todayBlood?: BloodSample;
-  current: StatusId; streak: StreakInfo; go: (tab: ChecksTab) => void; goResults: (tab: ChecksTab) => void; goHistory: (sub: HistorySub) => void; onReset: () => void;
+  current: StatusId; streak: StreakInfo; go: (tab: ChecksTab) => void; goResults: (tab: ChecksTab) => void; goHistory: (sub: HistorySub) => void;
 }) {
   const a = getAstronaut(id);
   const latestDaily = daily.filter((d) => d.day < TODAY).slice(-1)[0];
   const latestBlood = blood.filter((b) => b.day > 0 && b.day < TODAY).slice(-1)[0];
-  const { shown, isToday } = immuneShown(blood);
   const dailyRows = dailyHistoryTable(todayDaily ? [...a.daily, todayDaily] : a.daily, daily).rows.slice(-3);
   const bloodRows = bloodHistoryTable(blood).rows.slice(-3);
   const link = "mt-3 text-sm font-semibold text-accent-text underline";
@@ -489,23 +536,11 @@ function Dashboard({
           <ChecklistRow done={!!todayBlood} title="Blood Check" onGo={() => go("blood")} onResults={() => goResults("blood")} />
           <SurgeonRow status={current} />
         </ul>
-        <button type="button" className="btn mt-3 !px-2.5 !py-1 !text-xs" onClick={onReset}>Reset Demo</button>
       </Card>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
-        <Card title="Immune Deviation Score" tip={<ImmuneTip />}>
-          {shown?.immune ? (
-            <>
-              <p className="font-mono text-sm text-muted">
-                {isToday ? `${a.name}, Mission Day ${TODAY}` : `Latest blood check, Mission Day ${shown.day}`}
-              </p>
-              <p className="mt-2"><ScoreNumber immune={shown.immune} big /></p>
-              <p className="mt-2"><ImmuneBadge immune={shown.immune} /></p>
-              <p className="mt-3 text-sm">{immuneMeaning(shown.immune.score)}</p>
-            </>
-          ) : <p className="text-sm text-muted">No scored blood check yet.</p>}
-        </Card>
+        <ImmuneScoreCard blood={blood} name={a.name} />
         <Card>
           <ImmuneStateMap path={mapPath} compact astronaut={id} exportName="immune-state-map" />
         </Card>
@@ -529,6 +564,11 @@ function Dashboard({
           ) : <p className="text-sm text-muted">No in-flight blood check yet.</p>}
         </Card>
       </div>
+
+      <Card title="Next Blood Check Forecast">
+        <p className="text-sm">Next check: day {TODAY + NUMBERS_TEXT.forecastDays}. {plural2(nextForecasts(blood).length, "marker")} forecast.</p>
+        <button type="button" className={link} onClick={() => goHistory("blood")}>View Next Blood Check Forecast</button>
+      </Card>
 
       <div className="grid gap-4 lg:grid-cols-2">
         <Card title="Blood Check History">
@@ -913,15 +953,15 @@ const HEALTH_TABS: TabDef[] = [
 ];
 
 function AstronautView({
-  id, stored, draft, setDraft, demo, onReset, tour,
-}: { id: AstronautId; stored: Stored; draft: Draft; setDraft: (f: (d: Draft) => Draft) => void; demo: ReactNode; onReset: () => void; tour: TourStep | null }) {
+  id, stored, draft, setDraft, demo, tour, startOnDashboard,
+}: { id: AstronautId; stored: Stored; draft: Draft; setDraft: (f: (d: Draft) => Draft) => void; demo: ReactNode; tour: TourStep | null; startOnDashboard: boolean }) {
   // The open tab is kept in the address (?tab=learn) so a link opens the same tab, with no extra history entries.
   const params = useSearchParams();
   const pathname = usePathname();
   // A tour step opens its own tab. The page remounts this view for each step (see key in Home), so the tab is set here, not in an effect.
   // This only chooses what is shown, never the stored data.
   const [nav, setNav] = useState<NavState>(() => {
-    const start = navFromParam(params.get("tab"));
+    const start = startOnDashboard ? NAV_START : navFromParam(params.get("tab")); // Reset Demo returns to the Dashboard
     return tour?.view ? { view: tour.view, checks: tour.checks ?? start.checks, results: tour.results ?? start.results } : start;
   });
   const [learnAnchor, setLearnAnchor] = useState<string | null>(null);
@@ -974,7 +1014,6 @@ function AstronautView({
     entry ? (daily.find((d) => d.day === TODAY)?.status ?? "normal") : "normal",
     todayBlood ? (blood.find((b) => b.day === TODAY)?.status ?? "normal") : "normal",
   ]);
-  const toDashboard = () => setNav((n) => ({ ...n, view: "dashboard" }));
   const toResults = (tab: ChecksTab) => () => setNav((n) => openResults(n, tab));
   const todayDaily = daily.find((d) => d.day === TODAY);
   const todayBloodResult = blood.find((b) => b.day === TODAY);
@@ -1004,7 +1043,7 @@ function AstronautView({
           {view === "dashboard" && (
             <Dashboard
               id={id} daily={daily} blood={blood} todayDaily={entry} todayBlood={todayBlood} current={current} streak={streak}
-              go={(tab) => setNav((n) => openChecks(n, tab))} goResults={(tab) => setNav((n) => openResults(n, tab))} goHistory={goHistory} onReset={() => { toDashboard(); onReset(); }}
+              go={(tab) => setNav((n) => openChecks(n, tab))} goResults={(tab) => setNav((n) => openResults(n, tab))} goHistory={goHistory}
             />
           )}
           {view === "checks" && (
@@ -1025,7 +1064,10 @@ function AstronautView({
               {nav.results === "daily" ? (
                 entry && todayDaily ? <DailyResults entry={entry} result={todayDaily} /> : <NoResultsYet kind="Daily Check" onChecks={() => setNav((n) => openChecks(n, "daily"))} />
               ) : (
-                todayBlood && todayBloodResult ? <BloodResults id={id} result={todayBloodResult} /> : <NoResultsYet kind="Blood Check" onChecks={() => setNav((n) => openChecks(n, "blood"))} />
+                <>
+                  {todayBlood && todayBloodResult ? <BloodResults id={id} result={todayBloodResult} /> : <NoResultsYet kind="Blood Check" onChecks={() => setNav((n) => openChecks(n, "blood"))} />}
+                  <NextForecastCard blood={blood} />
+                </>
               )}
             </div>
           )}
@@ -1225,27 +1267,42 @@ export default function Home() {
   const [who, setWho] = useState<Who | null>(null);
   const [drafts, setDrafts] = useState<Partial<Record<AstronautId, Draft>>>({});
   const stored = useStored();
-  // Take the Tour. The tour only chooses which astronaut and tab to show. It never touches the stored entries or the drafts.
+  // Take the Tour (started from the start popup). The tour only chooses which astronaut and tab to show. It never touches the stored entries or the drafts.
   const [tourIndex, setTourIndex] = useState<number | null>(null);
-  const [tourOrigin, setTourOrigin] = useState<Who | null>(null);
   const goTour = (i: number) => { setTourIndex(i); setWho(TOUR_STEPS[i].who); };
-  const startTour = () => { setTourOrigin(who); goTour(0); };
-  const exitTour = () => { setTourIndex(null); if (tourOrigin) setWho(tourOrigin); };
+  const exitTour = () => { setTourIndex(null); setWho(null); }; // back to the start popup
   const tourStep = tourIndex === null ? null : TOUR_STEPS[tourIndex];
 
   const draftOf = (id: AstronautId) => drafts[id] ?? EMPTY_DRAFT;
   const setDraft = (id: AstronautId) => (f: (d: Draft) => Draft) => setDrafts((all) => ({ ...all, [id]: f(all[id] ?? EMPTY_DRAFT) }));
-  const reset = (id: AstronautId) => {
-    clearEntries(stored, id);
-    setDrafts((all) => ({ ...all, [id]: EMPTY_DRAFT }));
+
+  // Reset Demo (in the Demo bar, so it works in the astronaut view and the Flight Surgeon view): clears every astronaut's submitted
+  // checks and form drafts, then reopens the Dashboard (or the Crew tab for the Flight Surgeon).
+  const [resetCount, setResetCount] = useState(0);
+  const [fromReset, setFromReset] = useState(false);
+  const [notice, setNotice] = useState("");
+  useEffect(() => {
+    if (!notice) return;
+    const t = window.setTimeout(() => setNotice(""), 3000);
+    return () => window.clearTimeout(t);
+  }, [notice]);
+  const resetDemo = () => {
+    writeRaw("");
+    setDrafts({});
+    setTourIndex(null);
+    setFromReset(true);
+    setResetCount((c) => c + 1);
+    setNotice("Demo reset");
   };
+  const pickView = (w: Who) => { setFromReset(false); setWho(w); };
 
   const demo = who && (
     <>
-      <TourButton onClick={startTour} />
+      <button type="button" className="strip-ctl" onClick={resetDemo}>Reset Demo</button>
+      {notice && <span role="status" className="text-xs font-semibold text-ok">{notice}</span>}
       <label className="flex items-center gap-2 whitespace-nowrap">
         <span className="text-foreground">View As</span>
-        <select className="strip-ctl" value={who} onChange={(e) => setWho(e.target.value as Who)}>
+        <select className="strip-ctl" value={who} onChange={(e) => pickView(e.target.value as Who)}>
           {ASTRONAUT_IDS.map((id) => <option key={id} value={id}>Astronaut {id}</option>)}
           <option value="surgeon">Flight Surgeon</option>
         </select>
@@ -1255,10 +1312,10 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
-      {who === "surgeon" && <SurgeonView key={tourIndex ?? "none"} demo={demo} tour={tourStep} />}
+      {who === "surgeon" && <SurgeonView key={`${tourIndex ?? "none"}-${resetCount}`} demo={demo} tour={tourStep} />}
       {who && who !== "surgeon" && (
         <Suspense fallback={<SiteHeader />}>
-          <AstronautView key={tourIndex === null ? who : `${who}-${tourIndex}`} id={who} stored={stored} draft={draftOf(who)} setDraft={setDraft(who)} demo={demo} onReset={() => reset(who)} tour={tourStep} />
+          <AstronautView key={`${who}-${tourIndex ?? "none"}-${resetCount}`} id={who} stored={stored} draft={draftOf(who)} setDraft={setDraft(who)} demo={demo} tour={tourStep} startOnDashboard={fromReset} />
         </Suspense>
       )}
       {!who && <SiteHeader />}
@@ -1267,11 +1324,14 @@ export default function Home() {
       {!who && (
         <Modal title="Who Do You Want to View the App As?">
           <p className="mt-1 text-sm text-muted">Today is day {TODAY} of the mission. Check the HemoScope Dashboard to view your health monitoring checklist.</p>
+          <div className="mt-4">
+            <TourButton onClick={() => goTour(0)} />
+          </div>
           <div className="mt-4 grid gap-2">
             {ASTRONAUT_IDS.map((id) => (
-              <button key={id} className="choice" onClick={() => setWho(id)}>{getAstronaut(id).name}</button>
+              <button key={id} className="choice" onClick={() => pickView(id)}>{getAstronaut(id).name}</button>
             ))}
-            <button className="choice" onClick={() => setWho("surgeon")}>Flight Surgeon</button>
+            <button className="choice" onClick={() => pickView("surgeon")}>Flight Surgeon</button>
           </div>
         </Modal>
       )}

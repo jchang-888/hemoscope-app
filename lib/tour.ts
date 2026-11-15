@@ -25,6 +25,8 @@ export type TourStep = {
 
 export const TOUR_REPO_URL = "https://github.com/jchang-888/hemoscope-app";
 export const TOUR_ML_DOC_URL = `${TOUR_REPO_URL}/blob/main/docs/MACHINE_LEARNING.md`;
+export const TOUR_START_LABEL = "Take the Tour (for Judges)";
+export const TOUR_START_NOTE = "A 2-minute guided walkthrough of HemoScope.";
 export const TOUR_FINAL_TEXT = "Models trained on Microsoft Azure Machine Learning, run offline on the spacecraft.";
 
 export const TOUR_STEPS: TourStep[] = [
@@ -52,6 +54,11 @@ export const TOUR_STEPS: TourStep[] = [
     id: "day-46", who: "D", view: "history", history: "blood", target: "blood-day-46",
     title: "Astronaut D, Day 46",
     text: "Neutrophils rise on day 46. The Forecast column reads \"Not what we expected\" because the value fell outside the forecast range.",
+  },
+  {
+    id: "forecast", who: "D", view: "history", history: "blood", target: "forecast-card",
+    title: "Next Blood Check Forecast",
+    text: "For each marker, the value expected at the next blood check and its 95% range, from this astronaut's own history. The same card is in Today's Results and summarized on the Dashboard.",
   },
   {
     id: "state-map", who: "D", view: "history", history: "blood", target: "state-map",

@@ -4,18 +4,20 @@
 // outline and the card. The page moves to the right tab for each step. Nothing here reads or writes the astronaut's stored data.
 
 import { useEffect, useRef, useState } from "react";
-import { TOUR_ML_DOC_URL, TOUR_REPO_URL, TOUR_STEPS, lastStep, nextStep, prevStep, stepLabel } from "../lib/tour";
+import { TOUR_ML_DOC_URL, TOUR_REPO_URL, TOUR_START_LABEL, TOUR_START_NOTE, TOUR_STEPS, lastStep, nextStep, prevStep, stepLabel } from "../lib/tour";
 
 type Box = { top: number; left: number; width: number; height: number };
 
 const PAD = 6; // space between the outlined area and its outline
 const SCROLL_GAP = 90; // the outlined area is scrolled to this far from the top of the window
 
+// The highlighted button at the top of the start popup.
 export function TourButton({ onClick }: { onClick: () => void }) {
   return (
-    <button type="button" className="strip-ctl !bg-accent !font-bold !text-white hover:!bg-accent-hover" onClick={onClick}>
-      Take the Tour
-    </button>
+    <div>
+      <button type="button" className="btn btn-primary w-full !py-2.5 !text-base" onClick={onClick}>{TOUR_START_LABEL}</button>
+      <p className="mt-1 text-sm text-muted">{TOUR_START_NOTE}</p>
+    </div>
   );
 }
 
