@@ -5,7 +5,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { createContext, useContext, useEffect, useId, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
 import { CONFIG, type Band, type FieldInfo } from "../lib/config";
 import {
@@ -18,7 +17,6 @@ import {
 } from "../lib/content";
 import { downloadPng, downloadTable, type Table } from "../lib/export";
 import { MAP_ZONE_TEXT, forecastSeries, type MapZone } from "../lib/ml";
-import { ABOUT_PAGES, aboutHref } from "../lib/methods";
 import {
   MARKER_NAMES, STATUS_TEXT, phaseOf, type BloodResult, type DailyResult, type FieldCheck, type Mark, type Reason, type StatusId,
 } from "../lib/engine";
@@ -230,65 +228,10 @@ export function ExportAllButton({ astronaut }: { astronaut: string }) {
 }
 
 // ---------------------------------------------------------------------------
-// Header: the About HemoScope menu sits next to the logo in the app's nav bar
+// Header
 // ---------------------------------------------------------------------------
 
-// Button with a dropdown of the About HemoScope pages. Hover opens it, a click or tap pins it open, Escape closes it
-// and returns focus to the button. The links are ordinary links, so they work with the keyboard.
-function AboutMenu() {
-  const [open, setOpen] = useState(false);
-  const [pinned, setPinned] = useState(false);
-  const box = useRef<HTMLDivElement>(null);
-  const button = useRef<HTMLButtonElement>(null);
-  const path = usePathname();
-  const listId = useId();
-  const close = () => { setOpen(false); setPinned(false); };
-  useEffect(() => {
-    if (!open) return;
-    const away = (e: Event) => {
-      if (box.current && !box.current.contains(e.target as Node)) close();
-    };
-    document.addEventListener("pointerdown", away);
-    return () => document.removeEventListener("pointerdown", away);
-  }, [open]);
-  return (
-    <div
-      ref={box} className="relative"
-      onMouseEnter={() => setOpen(true)} onMouseLeave={() => !pinned && setOpen(false)}
-      onKeyDown={(e) => { if (e.key === "Escape") { close(); button.current?.focus(); } }}
-      onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node | null)) close(); }}
-    >
-      <button
-        ref={button} type="button" className="strip-ctl" aria-expanded={open} aria-controls={listId}
-        onClick={() => { if (pinned) close(); else { setOpen(true); setPinned(true); } }}
-      >
-        About HemoScope
-        <svg className="ml-1.5 inline-block" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-          <path d="M2 3.5L5 6.5L8 3.5" />
-        </svg>
-      </button>
-      {open && (
-        <ul id={listId} className="absolute right-0 top-full z-50 w-48 rounded-lg border border-border bg-surface p-1 shadow-lg">
-          {ABOUT_PAGES.map((p) => {
-            const href = aboutHref(p.slug);
-            return (
-              <li key={p.slug}>
-                <Link
-                  href={href} onClick={close} aria-current={path === href ? "page" : undefined}
-                  className={`block rounded-md px-3 py-1.5 text-sm font-semibold text-foreground hover:bg-accent/15 ${path === href ? "bg-accent/15" : ""}`}
-                >
-                  {p.title}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      )}
-    </div>
-  );
-}
-
-// Top of every page, in two parts. The thin Demo strip is for judges (View As, About HemoScope, light or dark). It is not part of
+// Top of every page, in two parts. The thin Demo strip is for judges (View As, light or dark). It is not part of
 // the app. Under it is the app's own nav bar: the logo, then `nav` (the tabs), then `search` on the right.
 export function SiteHeader({ demo, nav, search }: { demo?: ReactNode; nav?: ReactNode; search?: ReactNode }) {
   return (
@@ -298,7 +241,6 @@ export function SiteHeader({ demo, nav, search }: { demo?: ReactNode; nav?: Reac
           <span className="inline-flex h-6 items-center rounded border border-border px-2 font-sans text-xs font-medium uppercase tracking-[0.05em] text-muted">Demo</span>
           <div className="ml-auto flex flex-wrap items-center justify-end gap-x-3 gap-y-1">
             {demo}
-            <AboutMenu />
             <ThemeToggle compact />
           </div>
         </div>
@@ -306,7 +248,7 @@ export function SiteHeader({ demo, nav, search }: { demo?: ReactNode; nav?: Reac
       <div className="border-b border-border bg-surface">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-5 gap-y-1 px-4 py-2">
           <Link href="/" className="order-1 font-heading text-3xl font-bold text-foreground" aria-label="HemoScope home">
-            Hema<span className="text-accent-text">Scope</span>
+            Hemo<span className="text-accent-text">Scope</span>
           </Link>
           {nav && <div className="order-3 w-full sm:order-2 sm:w-auto">{nav}</div>}
           {search && <div className="order-2 ml-auto sm:order-3">{search}</div>}
@@ -316,7 +258,7 @@ export function SiteHeader({ demo, nav, search }: { demo?: ReactNode; nav?: Reac
   );
 }
 
-// The page container used by the demo tabs and the About HemoScope pages, so both have the same width, margins and padding.
+// The page container used by the demo tabs, so every tab has the same width, margins and padding.
 export function PageMain({ children, className = "" }: { children: ReactNode; className?: string }) {
   return <main className={`mx-auto max-w-6xl px-4 py-5 ${className}`.trim()}>{children}</main>;
 }

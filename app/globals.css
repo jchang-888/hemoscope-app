@@ -204,16 +204,6 @@ summary.learn-summary { list-style: none; }
 summary.learn-summary::-webkit-details-marker { display: none; }
 details[open] > summary .chevron { transform: rotate(90deg); }
 
-/* About HemoScope pipeline: each step lights up in turn. The delay is set inline per step. */
-@keyframes flow {
-  0%, 12%, 100% { background-color: var(--surface); border-color: var(--border); color: var(--text); }
-  4%, 8% { background-color: var(--accent); border-color: var(--accent); color: #FFFFFF; }
-}
-.flow-step { animation: flow 8.4s ease-in-out infinite; }
-@media (prefers-reduced-motion: reduce) {
-  .flow-step { animation: none; }
-}
-
 /* Body Map dots: a ring pulses gently around each one. The color of the dot and the ring is set where the dot is used. */
 .hotspot {
   position: absolute;
