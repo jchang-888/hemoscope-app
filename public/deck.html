@@ -228,6 +228,13 @@ p{color:var(--muted);line-height:1.5}
 .ctat span{font-size:15px;color:#A7F3D0}
 .ctal{display:flex;gap:12px}
 .ctal a{display:block;padding:12px 16px;border-radius:12px;background:rgba(6,10,21,.55);border:1px solid rgba(34,197,94,.5);color:#fff;text-decoration:none;font-family:var(--mono);font-size:14px;white-space:nowrap}
+.go{display:inline-flex;align-items:center;gap:7px;margin-top:12px;padding:6px 12px;border-radius:999px;border:1px solid rgba(96,165,250,.45);background:rgba(59,130,246,.10);color:#BFDBFE;font-family:var(--mono);font-size:12.5px;line-height:1.2;text-decoration:none;white-space:nowrap}
+.go::after{content:"\2197";font-size:12px;opacity:.85}
+.go:hover{border-color:#60A5FA;background:rgba(59,130,246,.22);color:#fff}
+a.chip{text-decoration:none;color:inherit}
+.stage{display:flex;flex-direction:column}
+.stage .go{margin-top:auto;align-self:flex-start}
+.stage ul{margin-bottom:14px}
 .ctal a:hover{border-color:#4ADE80;background:rgba(34,197,94,.18)}
 .ctal a small{display:block;font-size:10.5px;letter-spacing:.12em;color:#86EFAC;margin-bottom:3px}
 .ai{font-size:13.5px;line-height:1.45;max-width:1400px}
@@ -293,7 +300,7 @@ html.static .scope *,html.static .pacer .beat,html.static .link i{animation:none
     <p class="sub a" style="--d:.5s">Learns each astronaut’s normal. Spaceflight-aware. Teaches astronauts. Runs fully offline.</p>
     <div class="meta">
       <span class="chip a" style="--d:.7s"><span class="dot" style="background:var(--blue2)"></span>Challenge: Health Monitoring Software for Astronauts</span>
-      <span class="chip a" style="--d:.8s"><span class="dot" style="background:var(--green)"></span>Live app: hemoscope-app.vercel.app</span>
+      <a class="chip a" style="--d:.8s" href="https://hemoscope-app.vercel.app" target="_blank" rel="noopener"><span class="dot" style="background:var(--green)"></span>Live app: hemoscope-app.vercel.app ↗</a>
     </div>
   </div>
   <svg class="ecg" viewBox="0 0 1600 90" preserveAspectRatio="none" aria-hidden="true">
@@ -367,23 +374,24 @@ html.static .scope *,html.static .pacer .beat,html.static .link i{animation:none
         <span class="chip a" style="--anim:pop;--d:1.8s">✓ Every status comes with explanations</span>
         <span class="chip a" style="--anim:pop;--d:1.9s">✓ Astronaut + Flight Surgeon views</span>
       </div>
+      <div class="a" style="--anim:fadeIn;--d:2s"><a class="go" href="https://hemoscope-app.vercel.app/?tab=dashboard" target="_blank" rel="noopener">See each status on the Dashboard</a></div>
     </div>
     <div class="pillars">
       <div class="card pill a" style="--anim:pop;--d:.5s">
         <div class="ic" style="border-color:rgba(96,165,250,.4);background:rgba(59,130,246,.12)"><svg viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg></div>
-        <h3>Health Monitoring</h3><p>A Daily Check of vitals, sleep and symptoms, plus a Blood Check of immune cells, both analyzed for patterns and trends.</p>
+        <h3>Health Monitoring</h3><p>A Daily Check of vitals, sleep and symptoms, plus a Blood Check of immune cells, both analyzed for patterns and trends.</p><a class="go" href="https://hemoscope-app.vercel.app/?tab=checks" target="_blank" rel="noopener">Health Checks</a>
       </div>
       <div class="card pill a" style="--anim:pop;--d:.7s">
         <div class="ic" style="border-color:rgba(129,140,248,.45);background:rgba(99,102,241,.14)"><svg viewBox="0 0 24 24" fill="none" stroke="#A5B4FC" stroke-width="2"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="8" r="2.5"/><circle cx="9" cy="18" r="2.5"/><path d="M8 7.5l8 0.8M7 8.3l1.6 7.4M16.5 10l-5.6 6.5"/></svg></div>
-        <h3>Machine Learning</h3><p>Forecasts blood checks and maps the astronaut’s immune state, running right on the device.</p>
+        <h3>Machine Learning</h3><p>Forecasts blood checks and maps the astronaut’s immune state, running right on the device.</p><a class="go" href="https://hemoscope-app.vercel.app/?tab=dashboard" target="_blank" rel="noopener">Immune State Map</a>
       </div>
       <div class="card pill a" style="--anim:pop;--d:.9s">
         <div class="ic" style="border-color:rgba(52,211,153,.45);background:rgba(52,211,153,.12)"><svg viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg></div>
-        <h3>Crew Learning</h3><p>A body map, plain-language lessons and Ask HemoScope offline search explain what every number means.</p>
+        <h3>Crew Learning</h3><p>A body map, plain-language lessons and Ask HemoScope offline search explain what every number means.</p><a class="go" href="https://hemoscope-app.vercel.app/?tab=learn" target="_blank" rel="noopener">Learn</a>
       </div>
       <div class="card pill a" style="--anim:pop;--d:1.1s">
         <div class="ic" style="border-color:rgba(239,68,68,.5);background:rgba(239,68,68,.12)"><svg viewBox="0 0 24 24" fill="none" stroke="#F87171" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5h6v2M12 11v5M9.5 13.5h5"/></svg></div>
-        <h3>Emergency Response</h3><p>One tap from any screen: emergency situation guides for space and a CPR pacer.</p>
+        <h3>Emergency Response</h3><p>One tap from any screen: emergency situation guides for space and a CPR pacer.</p><a class="go" href="https://hemoscope-app.vercel.app/?tab=emergency" target="_blank" rel="noopener">Emergency Mode</a>
       </div>
     </div>
   </div>
@@ -398,19 +406,19 @@ html.static .scope *,html.static .pacer .beat,html.static .link i{animation:none
     <div class="card stage a" style="--d:.35s"><div class="n">01</div><h3>Collect</h3><ul>
       <li><b>Daily Check:</b> temperature, heart rate, breathing, oxygen, blood pressure, sleep, mood, symptoms</li>
       <li><b>Blood Check:</b> a complete blood count of five white cell types</li>
-      <li><b>NLR</b> (neutrophil to lymphocyte ratio) is calculated, and fluid shifts in microgravity don’t distort it</li></ul></div>
+      <li><b>NLR</b> (neutrophil to lymphocyte ratio) is calculated, and fluid shifts in microgravity don’t distort it</li></ul><a class="go" href="https://hemoscope-app.vercel.app/?tab=checks" target="_blank" rel="noopener">Health Checks</a></div>
     <div class="card stage a" style="--d:.6s"><div class="n">02</div><h3>Personalize</h3><ul>
       <li><b>Preflight baseline</b> sets each astronaut’s own normal</li>
       <li><b>Spaceflight phase</b> shifts expectations: early flight (days 1 to 14) and long flight (day 15+)</li>
-      <li><b>Check my data</b> catches typing errors first</li></ul></div>
+      <li><b>Check my data</b> catches typing errors first</li></ul><a class="go" href="https://hemoscope-app.vercel.app/?tab=history" target="_blank" rel="noopener">Health History</a></div>
     <div class="card stage a" style="--d:.85s"><div class="n">03</div><h3>Score</h3><ul>
       <li><b>Adapted NEWS2</b> early warning score for vitals, tuned for spaceflight</li>
       <li><b>Immune Deviation Score</b>, HemoScope’s own 0 to 100 statistic</li>
-      <li><b>Hard safety limits</b> (CTCAE v5) always apply</li></ul></div>
+      <li><b>Hard safety limits</b> (CTCAE v5) always apply</li></ul><a class="go" href="https://hemoscope-app.vercel.app/?tab=dashboard" target="_blank" rel="noopener">Dashboard</a></div>
     <div class="card stage a" style="--d:1.1s"><div class="n">04</div><h3>Act</h3><ul>
       <li><b>One status</b> backed by trends in the data collected</li>
       <li><b>Forecast check:</b> “as expected” or “not what we expected”</li>
-      <li><b>Next steps</b>, lessons and Emergency Mode one tap away</li></ul></div>
+      <li><b>Next steps</b>, lessons and Emergency Mode one tap away</li></ul><a class="go" href="https://hemoscope-app.vercel.app/?tab=results" target="_blank" rel="noopener">Today’s Results</a></div>
     <div class="link a" style="--anim:fadeIn;--d:1.3s;left:calc(25% - 27px)"><i></i></div>
     <div class="link a" style="--anim:fadeIn;--d:1.3s;left:calc(50% - 18px)"><i style="animation-delay:.6s"></i></div>
     <div class="link a" style="--anim:fadeIn;--d:1.3s;left:calc(75% - 9px)"><i style="animation-delay:1.2s"></i></div>
@@ -429,6 +437,7 @@ html.static .scope *,html.static .pacer .beat,html.static .link i{animation:none
       <div><span class="k">1.</span> Per white cell type: z = (log today − log own mean) ÷ own spread</div>
       <div><span class="k">2.</span> Combine the four z-scores with a chi-square method into one 0 to 100 score</div>
       <div><span class="k">3.</span> |z| above 1.96 means a marker is outside this astronaut’s usual range</div>
+      <div><a class="go" href="https://hemoscope-app.vercel.app/?tab=dashboard" target="_blank" rel="noopener">See the score on the Dashboard</a></div>
     </div>
   </div>
   <div class="foot"><span>NEWS2: Royal College of Physicians · spaceflight adjustments: Norsk 2015, Stahn 2017, Crucian 2015, Stratis 2023</span></div>
@@ -452,6 +461,7 @@ html.static .scope *,html.static .pacer .beat,html.static .link i{animation:none
             <tr class="a" style="--anim:slideR;--d:1.5s"><td><b>NLR</b> (calculated)</td><td class="v a-c">4.1</td><td class="u">1.6 to 2.6</td></tr>
           </table>
           <div class="ok a" style="--anim:fadeIn;--d:1.9s">✓ Check my data: no entry errors found</div>
+          <div class="a" style="--anim:fadeIn;--d:2s"><a class="go" href="https://hemoscope-app.vercel.app/?tab=checks" target="_blank" rel="noopener">Try a Blood Check</a></div>
         </div>
         <div>
           <div class="status">
@@ -473,6 +483,7 @@ html.static .scope *,html.static .pacer .beat,html.static .link i{animation:none
             <g class="a" style="--anim:pop;--d:3.1s"><circle cx="400" cy="22" r="7" fill="#F59E0B"/></g>
             <g font-family="JetBrains Mono" font-size="11" fill="#64748B"><text x="12" y="125">D4</text><text x="110" y="125">D18</text><text x="210" y="125">D32</text><text x="300" y="125">D46</text></g>
           </svg>
+          <div class="a" style="--anim:fadeIn;--d:3.4s"><a class="go" href="https://hemoscope-app.vercel.app/?tab=history" target="_blank" rel="noopener">Forecast: Health History, Blood</a></div>
         </div>
       </div>
     </div>
@@ -489,12 +500,14 @@ html.static .scope *,html.static .pacer .beat,html.static .link i{animation:none
           <g fill="#E8EEF9"><circle cx="180" cy="104" r="3.5"/><circle cx="196" cy="96" r="3.5"/><circle cx="214" cy="100" r="3.5"/><circle cx="240" cy="90" r="3.5"/></g>
           <g class="a" style="--anim:pop;--d:2.3s"><circle cx="292" cy="72" r="7" fill="#F59E0B"/></g>
         </svg>
+        <a class="go" href="https://hemoscope-app.vercel.app/?tab=dashboard" target="_blank" rel="noopener">Immune State Map</a>
       </div>
       <div class="card a" style="--d:.8s">
         <h3>Emergency Mode</h3>
         <div class="pacer"><div class="beat">110</div><p>CPR compression pacer at 100 to 120 per minute, with step-by-step guides written for microgravity</p></div>
+        <a class="go" href="https://hemoscope-app.vercel.app/?tab=emergency" target="_blank" rel="noopener">Emergency Mode</a>
       </div>
-      <a class="cta a" style="--d:1s" href="/">Try it live <span>hemoscope-app.vercel.app →</span></a>
+      <a class="cta a" style="--d:1s" href="https://hemoscope-app.vercel.app" target="_blank" rel="noopener">Try it live <span>hemoscope-app.vercel.app →</span></a>
     </div>
   </div>
   <div class="foot"><span>Demo astronauts start from real Inspiration4 preflight blood counts. In-flight values are simulated and illustrative.</span></div>
