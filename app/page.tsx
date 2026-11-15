@@ -33,6 +33,8 @@ import { ImmuneStateMap } from "./state-map";
 import { CheckTypeToggle } from "../components/CheckTypeToggle";
 import { isHealth, navFromParam, openChecks, openPage, openResults, type ChecksTab, type NavState } from "../lib/nav";
 import type { SearchTarget } from "../lib/search";
+import { TOUR_STEPS, type TourStep } from "../lib/tour";
+import { Tour, TourButton } from "./tour";
 
 const TODAY = CONFIG.mission.today;
 const LAST_HISTORY_DAY = TODAY - 1;
@@ -234,7 +236,7 @@ function Legend({ children }: { children: ReactNode }) {
 const statusFromLabel = (label: Cell): StatusId | undefined =>
   (Object.keys(STATUS_TEXT) as StatusId[]).find((k) => STATUS_TEXT[k].label === label);
 
-function HistoryTable({ table }: { table: Table }) {
+function HistoryTable({ table, tourName }: { table: Table; tourName?: string }) {
   return (
     <div data-export-expand className="max-h-96 overflow-auto rounded-lg border border-border">
       <table className="w-full min-w-max text-sm">
@@ -243,7 +245,7 @@ function HistoryTable({ table }: { table: Table }) {
         </thead>
         <tbody>
           {table.rows.map((r, i) => (
-            <tr key={i} className="border-t border-border">
+            <tr key={i} className="border-t border-border" data-tour={tourName ? `${tourName}-day-${r["Mission Day"]}` : undefined}>
               {table.columns.map((c) => {
                 const v = r[c] ?? "";
                 const status = c === "Status" ? statusFromLabel(v) : undefined;
@@ -343,7 +345,7 @@ function HealthHistory({ id, entries, dailyResults, bloodResults, todayDaily, to
 
       {sub === "blood" && (
         <div data-export-all className="space-y-4">
-          <Card><ImmuneStateMap path={mapPathOf(bloodResults, a.baseline)} astronaut={id} /></Card>
+          <div data-tour="state-map"><Card><ImmuneStateMap path={mapPathOf(bloodResults, a.baseline)} astronaut={id} /></Card></div>
           <div className="flex flex-wrap items-start justify-between gap-3">
             <Legend>
               Shaded band: the expected range from your preflight baseline times the flight phase multiplier, plus or minus 1.96 standard
@@ -353,7 +355,7 @@ function HealthHistory({ id, entries, dailyResults, bloodResults, todayDaily, to
             <ExportAllButton astronaut={id} />
           </div>
           <Card title="Blood Check History" exportMenu={<ExportMenu astronaut={id} name="blood-check-history" table={bloodHistoryTable(bloodResults)} />}>
-            <HistoryTable table={bloodHistoryTable(bloodResults)} />
+            <HistoryTable table={bloodHistoryTable(bloodResults)} tourName="blood" />
           </Card>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             <Card title="Immune Deviation Score Timeline" tip={<ImmuneTip />} exportName="immune-deviation-score-timeline" exportMenu={<ExportMenu astronaut={id} name="immune-deviation-score-timeline" />}>
@@ -479,6 +481,7 @@ function Dashboard({
 
   return (
     <div className="space-y-4">
+      <div data-tour="dashboard-status">
       <Card title={`Today's Checklist, Mission Day ${TODAY}`} highlight>
         <StreakLine streak={streak} doneToday={!!todayDaily} />
         <ul className="space-y-3">
@@ -488,6 +491,7 @@ function Dashboard({
         </ul>
         <button type="button" className="btn mt-3 !px-2.5 !py-1 !text-xs" onClick={onReset}>Reset Demo</button>
       </Card>
+      </div>
 
       <div className="grid gap-4 md:grid-cols-2">
         <Card title="Immune Deviation Score" tip={<ImmuneTip />}>
@@ -909,17 +913,22 @@ const HEALTH_TABS: TabDef[] = [
 ];
 
 function AstronautView({
-  id, stored, draft, setDraft, demo, onReset,
-}: { id: AstronautId; stored: Stored; draft: Draft; setDraft: (f: (d: Draft) => Draft) => void; demo: ReactNode; onReset: () => void }) {
+  id, stored, draft, setDraft, demo, onReset, tour,
+}: { id: AstronautId; stored: Stored; draft: Draft; setDraft: (f: (d: Draft) => Draft) => void; demo: ReactNode; onReset: () => void; tour: TourStep | null }) {
   // The open tab is kept in the address (?tab=learn) so a link opens the same tab, with no extra history entries.
   const params = useSearchParams();
   const pathname = usePathname();
-  const [nav, setNav] = useState<NavState>(() => navFromParam(params.get("tab")));
+  // A tour step opens its own tab. The page remounts this view for each step (see key in Home), so the tab is set here, not in an effect.
+  // This only chooses what is shown, never the stored data.
+  const [nav, setNav] = useState<NavState>(() => {
+    const start = navFromParam(params.get("tab"));
+    return tour?.view ? { view: tour.view, checks: tour.checks ?? start.checks, results: tour.results ?? start.results } : start;
+  });
   const [learnAnchor, setLearnAnchor] = useState<string | null>(null);
   const [learnKey, setLearnKey] = useState(0); // a new key reopens the Learn tab at the new place
   const [scenario, setScenario] = useState<string | null>(null);
   const [emergencyKey, setEmergencyKey] = useState(0);
-  const [historySub, setHistorySub] = useState<HistorySub>("daily");
+  const [historySub, setHistorySub] = useState<HistorySub>(tour?.history ?? "daily");
   const view = nav.view;
   useEffect(() => {
     if (params.get("tab") === view) return;
@@ -975,7 +984,7 @@ function AstronautView({
       <SiteHeader
         demo={demo}
         nav={<NavTabs label="HemoScope" tabs={MAIN_TABS} active={isHealth(view) ? "health" : view} onChange={onTab} />}
-        search={<AskForm ask={ask} />}
+        search={<div data-tour="ask"><AskForm ask={ask} /></div>}
       />
       <div className={`transition-[padding] duration-200 ${ask.open ? "lg:pr-[400px]" : ""}`}>
       <PageMain>
@@ -1001,15 +1010,17 @@ function AstronautView({
           {view === "checks" && (
             <div className="space-y-4">
               <CheckTypeToggle label="Choose a health check" value={nav.checks} onChange={(t) => setNav((n) => openChecks(n, t))} />
+              <div data-tour={nav.checks === "daily" ? "daily-form" : "blood-form"}>
               {nav.checks === "daily" ? (
                 <DailyForm id={id} draft={draft} setDraft={setDraft} stored={stored} onResults={toResults("daily")} />
               ) : (
                 <BloodForm id={id} draft={draft} setDraft={setDraft} stored={stored} onResults={toResults("blood")} />
               )}
+              </div>
             </div>
           )}
           {view === "results" && (
-            <div className="space-y-4">
+            <div className="space-y-4" data-tour="results">
               <CheckTypeToggle label="Choose which results to show" value={nav.results} onChange={(t) => setNav((n) => openResults(n, t))} />
               {nav.results === "daily" ? (
                 entry && todayDaily ? <DailyResults entry={entry} result={todayDaily} /> : <NoResultsYet kind="Daily Check" onChecks={() => setNav((n) => openChecks(n, "daily"))} />
@@ -1024,8 +1035,8 @@ function AstronautView({
               lastDay={LAST_HISTORY_DAY} sub={historySub} onSub={setHistorySub}
             />
           )}
-          {view === "learn" && <LearnView key={learnKey} anchor={learnAnchor} blood={blood} daily={daily} onEmergency={() => goEmergency()} onSearch={ask.glassPress} />}
-          {view === "emergency" && <EmergencyAstronaut key={emergencyKey} initial={scenario ?? undefined} />}
+          {view === "learn" && <div data-tour="learn"><LearnView key={learnKey} anchor={learnAnchor} blood={blood} daily={daily} onEmergency={() => goEmergency()} onSearch={ask.glassPress} /></div>}
+          {view === "emergency" && <div data-tour="emergency"><EmergencyAstronaut key={emergencyKey} initial={scenario ?? undefined} /></div>}
         </div>
         </LearnProvider>
       </PageMain>
@@ -1178,8 +1189,8 @@ function SurgeonHistory({ id, sub, onSub }: { id: AstronautId; sub: HistorySub; 
   );
 }
 
-function SurgeonView({ demo }: { demo: ReactNode }) {
-  const [tab, setTab] = useState("crew");
+function SurgeonView({ demo, tour }: { demo: ReactNode; tour: TourStep | null }) {
+  const [tab, setTab] = useState<string>(tour?.surgeonTab ?? "crew"); // the page reopens this view for each tour step (see key in Home)
   const [detailSub, setDetailSub] = useState("overview");
   const [id, setId] = useState<AstronautId>("A");
   const [sub, setSub] = useState<HistorySub>("daily");
@@ -1196,7 +1207,7 @@ function SurgeonView({ demo }: { demo: ReactNode }) {
             </>
           )}
           <p className="text-xs text-muted">{DATA_NOTE}</p>
-          {tab === "crew" && <CrewOverview />}
+          {tab === "crew" && <div data-tour="crew"><CrewOverview /></div>}
           {tab === "detail" && detailSub === "overview" && <AstronautDetail id={id} />}
           {tab === "detail" && detailSub === "history" && <SurgeonHistory id={id} sub={sub} onSub={setSub} />}
           {tab === "emergency" && <EmergencySurgeon />}
@@ -1214,6 +1225,13 @@ export default function Home() {
   const [who, setWho] = useState<Who | null>(null);
   const [drafts, setDrafts] = useState<Partial<Record<AstronautId, Draft>>>({});
   const stored = useStored();
+  // Take the Tour. The tour only chooses which astronaut and tab to show. It never touches the stored entries or the drafts.
+  const [tourIndex, setTourIndex] = useState<number | null>(null);
+  const [tourOrigin, setTourOrigin] = useState<Who | null>(null);
+  const goTour = (i: number) => { setTourIndex(i); setWho(TOUR_STEPS[i].who); };
+  const startTour = () => { setTourOrigin(who); goTour(0); };
+  const exitTour = () => { setTourIndex(null); if (tourOrigin) setWho(tourOrigin); };
+  const tourStep = tourIndex === null ? null : TOUR_STEPS[tourIndex];
 
   const draftOf = (id: AstronautId) => drafts[id] ?? EMPTY_DRAFT;
   const setDraft = (id: AstronautId) => (f: (d: Draft) => Draft) => setDrafts((all) => ({ ...all, [id]: f(all[id] ?? EMPTY_DRAFT) }));
@@ -1223,24 +1241,28 @@ export default function Home() {
   };
 
   const demo = who && (
-    <label className="flex items-center gap-2 whitespace-nowrap">
-      <span className="text-foreground">View As</span>
-      <select className="strip-ctl" value={who} onChange={(e) => setWho(e.target.value as Who)}>
-        {ASTRONAUT_IDS.map((id) => <option key={id} value={id}>Astronaut {id}</option>)}
-        <option value="surgeon">Flight Surgeon</option>
-      </select>
-    </label>
+    <>
+      <TourButton onClick={startTour} />
+      <label className="flex items-center gap-2 whitespace-nowrap">
+        <span className="text-foreground">View As</span>
+        <select className="strip-ctl" value={who} onChange={(e) => setWho(e.target.value as Who)}>
+          {ASTRONAUT_IDS.map((id) => <option key={id} value={id}>Astronaut {id}</option>)}
+          <option value="surgeon">Flight Surgeon</option>
+        </select>
+      </label>
+    </>
   );
 
   return (
     <div className="min-h-screen">
-      {who === "surgeon" && <SurgeonView demo={demo} />}
+      {who === "surgeon" && <SurgeonView key={tourIndex ?? "none"} demo={demo} tour={tourStep} />}
       {who && who !== "surgeon" && (
         <Suspense fallback={<SiteHeader />}>
-          <AstronautView key={who} id={who} stored={stored} draft={draftOf(who)} setDraft={setDraft(who)} demo={demo} onReset={() => reset(who)} />
+          <AstronautView key={tourIndex === null ? who : `${who}-${tourIndex}`} id={who} stored={stored} draft={draftOf(who)} setDraft={setDraft(who)} demo={demo} onReset={() => reset(who)} tour={tourStep} />
         </Suspense>
       )}
       {!who && <SiteHeader />}
+      {tourIndex !== null && <Tour key={tourIndex} index={tourIndex} onIndex={goTour} onExit={exitTour} />}
 
       {!who && (
         <Modal title="Who Do You Want to View the App As?">
