@@ -3,15 +3,15 @@
 import type { PageId } from "./search";
 
 export type ChecksTab = "daily" | "blood";
-// My Health has four sub-tabs (dashboard, checks, results, history). Learn, Real Crew Replay and Emergency Mode are the other main tabs.
-export type View = "dashboard" | "checks" | "results" | "history" | "learn" | "replay" | "emergency";
+// My Health has four sub-tabs (dashboard, checks, results, history). Learn and Emergency Mode are the other two main tabs.
+export type View = "dashboard" | "checks" | "results" | "history" | "learn" | "emergency";
 // `checks` is the last selected inner tab of Health Checks. It is remembered for the visit, even while another tab is open.
 // `results` is the same for Today's Results (Daily or Blood).
 export type NavState = { view: View; checks: ChecksTab; results: ChecksTab };
 export const NAV_START: NavState = { view: "dashboard", checks: "daily", results: "daily" };
 
 // The tab ids the astronaut view accepts in the address (?tab=learn). Anything else is ignored.
-export const TAB_IDS: View[] = ["dashboard", "checks", "results", "history", "learn", "replay", "emergency"];
+export const TAB_IDS: View[] = ["dashboard", "checks", "results", "history", "learn", "emergency"];
 export const tabFromParam = (value: string | null | undefined): View => TAB_IDS.find((t) => t === value) ?? "dashboard";
 // The page opens on the tab named in the address, and on the Dashboard when there is none or it is not a known tab.
 export const navFromParam = (value: string | null | undefined): NavState => ({ ...NAV_START, view: tabFromParam(value) });

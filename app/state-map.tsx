@@ -31,7 +31,7 @@ const SWATCH: Record<MapZone, number> = { "Very Common": 0.56, Common: 0.31, Unc
 const { w: W, h: H, plot: PLOT } = VIEW;
 const FULL_LIMIT = MAP_GEOMETRY.limit;
 
-export const zoneLine = (p: MapPoint) => `${p.label ?? `Mission day ${p.day}`}: ${p.zone}. ${MAP_ZONE_TEXT[p.zone]} More typical than ${p.typicality}% of healthy checks.`;
+export const zoneLine = (p: MapPoint) => `Mission day ${p.day}: ${p.zone}. ${MAP_ZONE_TEXT[p.zone]} More typical than ${p.typicality}% of healthy checks.`;
 
 // Older points are lighter and newer ones darker (stronger), from 35% to 100% of the line color.
 const shade = (i: number, n: number) => `color-mix(in srgb, var(--chart-line) ${n <= 1 ? 100 : Math.round(35 + (65 * i) / (n - 1))}%, var(--surface))`;
@@ -191,7 +191,7 @@ export function ImmuneStateMap({ path, compact, astronaut, exportName = "immune-
       <div aria-live="polite" className={`rounded-xl border border-border p-3 text-sm ${compact && !point ? "hidden" : "min-h-[3rem]"}`}>
         {point ? (
           <>
-            <p className="font-semibold">{point.label ?? `Mission day ${point.day}`}: {point.zone}</p>
+            <p className="font-semibold">Mission day {point.day}: {point.zone}</p>
             <p>{MAP_ZONE_TEXT[point.zone]}</p>
             <p className="text-muted">More typical than {point.typicality}% of healthy checks.</p>
           </>

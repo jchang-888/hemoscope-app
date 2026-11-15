@@ -24,12 +24,11 @@ import {
   bloodHistoryTable, crewTable, dailyHistoryTable, flaggedTable, markersTable, type Cell, type CrewRow, type Table,
 } from "../lib/export";
 import {
-  Card, EmergencyAstronaut, EmergencySurgeon, ExportAllButton, ExportMenu, ImmuneBadge, ScoreNumber, immuneMeaning, FormField, ImmuneTip, InfoTip, LearnProvider, LearnView, MarkIcon, Modal, NumbersExplained,
+  EmergencyAstronaut, EmergencySurgeon, ExportAllButton, ExportMenu, FormField, ImmuneTip, InfoTip, LearnProvider, LearnView, MarkIcon, Modal, NumbersExplained,
   NavTabs, News2Tip, PageMain, ScoreTimeline, SiteHeader, StatusText, Tabs, TrendChart, WhyList, stepBand,
   type BandPt, type Pt, type ScorePoint, type TabDef,
 } from "./ui";
 import { AskForm, AskPanel, AskTab, useAsk } from "./ask";
-import { ReplayView } from "./replay";
 import { ImmuneStateMap } from "./state-map";
 import { CheckTypeToggle } from "../components/CheckTypeToggle";
 import { isHealth, navFromParam, openChecks, openPage, openResults, type ChecksTab, type NavState } from "../lib/nav";
@@ -147,6 +146,48 @@ function bloodInput(d: BloodDraft): BloodInput {
 // ---------------------------------------------------------------------------
 // Small layout pieces
 // ---------------------------------------------------------------------------
+
+// `highlight` is the accent blue block with white bold text, used only for the essential dashboard blocks.
+// `exportMenu` puts an Export menu at the right of the title. Its PNG is a picture of the whole card.
+function Card({ title, tip, children, className = "", highlight, exportMenu, exportName }: {
+  title?: string; tip?: ReactNode; children: ReactNode; className?: string; highlight?: boolean; exportMenu?: ReactNode;
+  exportName?: string; // marks the card as a chart for "Export All Charts"
+}) {
+  return (
+    <section data-export data-export-name={exportName} className={`rounded-2xl border p-4 sm:p-5 ${highlight ? "highlight border-transparent sm:p-6" : "border-border bg-surface"} ${className}`}>
+      {title && (
+        <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+          <h2 className={`font-heading flex flex-wrap items-center gap-x-2 font-bold ${highlight ? "text-2xl sm:text-3xl" : "text-lg"}`}>
+            {title}
+            {tip}
+          </h2>
+          {exportMenu}
+        </div>
+      )}
+      {children}
+    </section>
+  );
+}
+
+// Immune Deviation Score pieces shared by the dashboard, results and the flight surgeon view.
+const immuneMeaning = (score: number) => `More unusual than ${score}% of this astronaut's normal readings, after adjusting for spaceflight.`;
+
+function ScoreNumber({ immune, big }: { immune: ImmuneScore; big?: boolean }) {
+  return (
+    <span className={`chip inline-block rounded-lg bg-background px-3 py-1 font-mono font-bold ${immune.unusual ? "text-caution" : "text-ok"} ${big ? "text-5xl" : "text-2xl"}`}>
+      {immune.score}<span className={`${big ? "text-2xl" : "text-base"} text-muted`}> / 100</span>
+    </span>
+  );
+}
+
+function ImmuneBadge({ immune }: { immune: ImmuneScore }) {
+  return (
+    <span className={`chip inline-flex items-center gap-1.5 rounded-lg bg-background px-2.5 py-1 font-semibold ${immune.unusual ? "text-caution" : "text-ok"}`}>
+      <MarkIcon mark={immune.unusual ? "warn" : "ok"} />
+      {immune.unusual ? "Unusual" : "Typical for You"}
+    </span>
+  );
+}
 
 function ActionList() {
   return (
@@ -858,7 +899,6 @@ function BloodResults({ id, result }: { id: AstronautId; result: BloodResult }) 
 const MAIN_TABS: TabDef[] = [
   { id: "health", label: "My Health" },
   { id: "learn", label: "Learn" },
-  { id: "replay", label: "Real Crew Replay" },
   { id: "emergency", label: "Emergency Mode", emergency: true },
 ];
 const HEALTH_TABS: TabDef[] = [
@@ -908,7 +948,6 @@ function AstronautView({
   const onTab = (t: string) => {
     if (t === "learn") goLearn(null);
     else if (t === "emergency") goEmergency();
-    else if (t === "replay") setNav((n) => ({ ...n, view: "replay" }));
     else setNav((n) => ({ ...n, view: "dashboard" }));
   };
   const onSearchGo = (t: SearchTarget) => {
@@ -942,18 +981,16 @@ function AstronautView({
       <PageMain>
         <LearnProvider value={goLearn}>
         <div className="space-y-4">
-          {view !== "replay" && (
-            <div>
-              <h1 className="font-heading text-2xl font-bold">{a.name}</h1>
-              <p className="text-sm text-muted">
-                Mission day {TODAY}. Days 1 to {LAST_HISTORY_DAY} are already recorded. Check the Dashboard to view your health monitoring checklist.
-              </p>
-            </div>
-          )}
+          <div>
+            <h1 className="font-heading text-2xl font-bold">{a.name}</h1>
+            <p className="text-sm text-muted">
+              Mission day {TODAY}. Days 1 to {LAST_HISTORY_DAY} are already recorded. Check the Dashboard to view your health monitoring checklist.
+            </p>
+          </div>
           {isHealth(view) && (
             <Tabs tabs={HEALTH_TABS} active={view} onChange={(t) => (t === "history" ? goHistory(historySub) : setNav((n) => ({ ...n, view: t as NavState["view"] })))} />
           )}
-          {view !== "replay" && <p className="text-xs text-muted">{DATA_NOTE}</p>}
+          <p className="text-xs text-muted">{DATA_NOTE}</p>
 
           {view === "dashboard" && (
             <Dashboard
@@ -988,7 +1025,6 @@ function AstronautView({
             />
           )}
           {view === "learn" && <LearnView key={learnKey} anchor={learnAnchor} blood={blood} daily={daily} onEmergency={() => goEmergency()} onSearch={ask.glassPress} />}
-          {view === "replay" && <ReplayView />}
           {view === "emergency" && <EmergencyAstronaut key={emergencyKey} initial={scenario ?? undefined} />}
         </div>
         </LearnProvider>
