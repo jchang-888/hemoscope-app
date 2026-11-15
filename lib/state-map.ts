@@ -89,15 +89,19 @@ export function directionText(first: MapPoint, last: MapPoint): string | null {
   return small[0] >= MOVE_EPS && small[0] >= big[0] / 2 ? `toward ${big[1]} and ${small[1]}` : `toward ${big[1]}`;
 }
 
+// How a point is named in text: its own label (Real Crew Replay) or the mission day.
+export const dayName = (p: MapPoint) => p.label ?? `Day ${p.day}`;
+
 export function summaryLine(path: MapPoint[]): string {
   if (path.length === 0) return "No in-flight blood check yet.";
   const last = path[path.length - 1];
   const first = path[0];
-  const lead = last.day === CONFIG.mission.today ? "Today's check" : `The latest check (day ${last.day})`;
+  const lead = last.label ? `The check at ${last.label}` : last.day === CONFIG.mission.today ? "Today's check" : `The latest check (day ${last.day})`;
   const head = `${lead} is ${last.zone}: ${MAP_ZONE_TEXT[last.zone]}`;
-  if (path.length === 1) return `${head} It is the first in-flight check.`;
+  if (path.length === 1) return `${head} ${last.label ? "It is the first check after preflight." : "It is the first in-flight check."}`;
   const dir = directionText(first, last);
-  return dir ? `${head} It moved ${dir} since day ${first.day}.` : `${head} It has stayed close to where it was on day ${first.day}.`;
+  const since = first.label ?? `day ${first.day}`;
+  return dir ? `${head} It moved ${dir} since ${since}.` : `${head} It has stayed close to where it was at ${since}.`;
 }
 
 // ---------------------------------------------------------------------------
@@ -175,14 +179,14 @@ export function pointLabels(path: MapPoint[], lim: number, fs: number, hintFs: n
   const hints = [...hintLayout(hintFs).map((h) => h.box), { x: c.px - 9, y: c.py - 9, w: 18, h: 18 }]; // the "+" at the center counts as a hint
   const lastP = path[path.length - 1];
   const lp = project(lastP.x, lastP.y, lim);
-  const lastText = `${lastP.day === CONFIG.mission.today ? "Today" : "Latest"}, day ${lastP.day}`;
+  const lastText = lastP.label ?? `${lastP.day === CONFIG.mission.today ? "Today" : "Latest"}, day ${lastP.day}`;
   const last = placeLabel(lastText, { ...lp, r: dotR.last + 5 }, fs, hints) ?? placeLabel(lastText, { ...lp, r: dotR.last + 5 }, fs, []);
   if (path.length === 1) return { last, first: null };
   const firstP = path[0];
   const fp = project(firstP.x, firstP.y, lim);
   const lastDot: Box = { x: lp.px - dotR.last - 6, y: lp.py - dotR.last - 6, w: 2 * dotR.last + 12, h: 2 * dotR.last + 12 };
   const avoid = [...hints, ...(last ? [last.box] : []), lastDot];
-  const first = placeLabel(`Day ${firstP.day}`, { ...fp, r: dotR.first }, fs, avoid);
+  const first = placeLabel(dayName(firstP), { ...fp, r: dotR.first }, fs, avoid);
   return { last, first };
 }
 
@@ -191,5 +195,5 @@ export function tooltipLabel(p: MapPoint, lim: number, fs: number, hintFs: numbe
   const c = project(0, 0, lim);
   const hints = [...hintLayout(hintFs).map((h) => h.box), { x: c.px - 9, y: c.py - 9, w: 18, h: 18 }];
   const avoid = [...hints, ...(fixed.last ? [fixed.last.box] : []), ...(fixed.first ? [fixed.first.box] : [])];
-  return placeLabel(`Day ${p.day}`, { ...project(p.x, p.y, lim), r: dotR }, fs, avoid);
+  return placeLabel(dayName(p), { ...project(p.x, p.y, lim), r: dotR }, fs, avoid);
 }

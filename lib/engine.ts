@@ -63,6 +63,9 @@ export type BloodSample = {
   monPct?: number;
   eosPct?: number;
   basPct?: number;
+  // Set only for checks taken back on Earth (Real Crew Replay). Overrides the phase that the day would give, so no
+  // spaceflight adjustment is applied. Left out for every demo astronaut check.
+  phase?: Phase;
 };
 
 // One daily check. Every vital is optional. Sleep fields describe the night before this day.
@@ -179,8 +182,8 @@ export const PHASE_NAMES: Record<Phase, string> = {
 };
 
 // Expected value, spread and usual range for one marker on one mission day.
-export function expectedFor(m: Marker, base: Baseline, day: number) {
-  const phase = CONFIG.spaceflight.phases[phaseOf(day)];
+export function expectedFor(m: Marker, base: Baseline, day: number, phaseOverride?: Phase) {
+  const phase = CONFIG.spaceflight.phases[phaseOverride ?? phaseOf(day)];
   const long = day - base.lastDay >= CONFIG.blood.longTermDays; // day 60 counts as long
   const sdMarker = CONFIG.variation.sd[m][long ? "long" : "short"];
   const expected = base.values[m] * phase.multiplier[m];
@@ -268,7 +271,7 @@ export function immuneForSample(s: BloodSample, baseline: Baseline): ImmuneScore
   for (const m of CONFIG.immune.markers) {
     const v = markerValue(s, m);
     if (!has(v) || v <= 0) continue;
-    const e = expectedFor(m, baseline, s.day);
+    const e = expectedFor(m, baseline, s.day, s.phase);
     used.push(m);
     zs.push(Math.log(v / e.expected) / e.sd);
   }
@@ -341,7 +344,7 @@ export function evaluateBloodSeries(
     for (const m of MARKERS) {
       const value = markerValue(s, m);
       if (!has(value)) continue;
-      const e = expectedFor(m, baseline, s.day);
+      const e = expectedFor(m, baseline, s.day, s.phase);
       const zValue = Math.log(Math.max(value, 1e-9) / e.expected) / e.sd;
       const flag = Math.abs(zValue) <= z ? "in" : zValue > 0 ? "above" : "below";
       const before = prevFlight?.markers.find((p) => p.marker === m);

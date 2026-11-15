@@ -6,7 +6,7 @@
 
 import forecastModel from "./models/forecast-model.json";
 import stateMap from "./models/state-map.json";
-import { expectedFor, phaseOf, type BloodSample, type Baseline } from "./engine";
+import { expectedFor, phaseOf, type BloodSample, type Baseline, type Phase } from "./engine";
 import { CONFIG, type Marker } from "./config";
 
 const has = (n: number | undefined): n is number => typeof n === "number" && Number.isFinite(n);
@@ -22,7 +22,7 @@ const countOf = (s: BloodSample, k: CountKey) => (k === "wbc" ? s.wbc : s[k]);
 
 export type Forecast = { marker: Marker; day: number; expected: number; lo: number; hi: number };
 
-const multiplierOn = (m: Marker, day: number) => CONFIG.spaceflight.phases[phaseOf(day)].multiplier[m];
+const multiplierOn = (m: Marker, day: number, phase?: Phase) => CONFIG.spaceflight.phases[phase ?? phaseOf(day)].multiplier[m];
 
 // Runs the filter through every usable sample (preflight first). Values are divided by the spaceflight multiplier
 // so the filter tracks the astronaut's own level. Returns the forecast for `day` and, for each in-flight sample,
@@ -45,19 +45,19 @@ export function forecastSeries(samples: BloodSample[], day: number) {
     let level = pre.reduce((a, v) => a + Math.log(v), 0) / pre.length;
     let v = (r * r) / pre.length;
     let last = Math.max(...preflight.map((s) => s.day));
-    const predict = (d: number): Forecast => {
+    const predict = (d: number, phase?: Phase): Forecast => {
       const vp = v + (q * Math.max(d - last, 0.1)) / 30;
       const sd = Math.sqrt(vp + r * r);
-      const mean = level + Math.log(multiplierOn(m, d));
+      const mean = level + Math.log(multiplierOn(m, d, phase));
       return { marker: m, day: d, expected: Math.exp(mean), lo: Math.exp(mean - fm.z * sd), hi: Math.exp(mean + fm.z * sd) };
     };
     for (const s of flight) {
       const val = countOf(s, k);
       if (!has(val) || val <= 0) continue;
-      (before[s.day] ??= []).push(predict(s.day));
+      (before[s.day] ??= []).push(predict(s.day, s.phase));
       const vp = v + (q * Math.max(s.day - last, 0.1)) / 30;
       const gain = vp / (vp + r * r);
-      level += gain * (Math.log(val / multiplierOn(m, s.day)) - level);
+      level += gain * (Math.log(val / multiplierOn(m, s.day, s.phase)) - level);
       v = (1 - gain) * vp;
       last = s.day;
     }
@@ -96,6 +96,7 @@ export type MapPoint = {
   y: number; // axis 2: neutrophil-lymphocyte balance (positive = neutrophils up, lymphocytes and eosinophils down)
   zone: MapZone;
   typicality: number; // 0 to 100: share of healthy checks that were further from the centre than this one
+  label?: string; // shown instead of "Day N" when set (Real Crew Replay uses the file's timepoint, for example "R+45")
 };
 
 // z-scores against the astronaut's expected values for that day (same z as the Immune Deviation Score).
@@ -103,7 +104,7 @@ export function mapZ(s: BloodSample, baseline: Baseline): number[] | null {
   const vals = [s.neu, s.lym, s.mon, s.eos];
   if (vals.some((v) => !has(v) || (v as number) <= 0)) return null;
   return MAP_MARKERS.map((m, i) => {
-    const e = expectedFor(m, baseline, s.day);
+    const e = expectedFor(m, baseline, s.day, s.phase);
     return Math.log((vals[i] as number) / e.expected) / e.sd;
   });
 }

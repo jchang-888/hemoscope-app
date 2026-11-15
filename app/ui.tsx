@@ -18,7 +18,7 @@ import {
 import { downloadPng, downloadTable, type Table } from "../lib/export";
 import { MAP_ZONE_TEXT, forecastSeries, type MapZone } from "../lib/ml";
 import {
-  MARKER_NAMES, STATUS_TEXT, phaseOf, type BloodResult, type DailyResult, type FieldCheck, type Mark, type Reason, type StatusId,
+  MARKER_NAMES, STATUS_TEXT, phaseOf, type BloodResult, type DailyResult, type FieldCheck, type ImmuneScore, type Mark, type Reason, type StatusId,
 } from "../lib/engine";
 
 // ---------------------------------------------------------------------------
@@ -420,6 +420,49 @@ export function FormField({
     </div>
   );
 }
+
+// `highlight` is the accent blue block with white bold text, used only for the essential dashboard blocks.
+// `exportMenu` puts an Export menu at the right of the title. Its PNG is a picture of the whole card.
+export function Card({ title, tip, children, className = "", highlight, exportMenu, exportName }: {
+  title?: string; tip?: ReactNode; children: ReactNode; className?: string; highlight?: boolean; exportMenu?: ReactNode;
+  exportName?: string; // marks the card as a chart for "Export All Charts"
+}) {
+  return (
+    <section data-export data-export-name={exportName} className={`rounded-2xl border p-4 sm:p-5 ${highlight ? "highlight border-transparent sm:p-6" : "border-border bg-surface"} ${className}`}>
+      {title && (
+        <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+          <h2 className={`font-heading flex flex-wrap items-center gap-x-2 font-bold ${highlight ? "text-2xl sm:text-3xl" : "text-lg"}`}>
+            {title}
+            {tip}
+          </h2>
+          {exportMenu}
+        </div>
+      )}
+      {children}
+    </section>
+  );
+}
+
+// Immune Deviation Score pieces shared by the dashboard, results and the flight surgeon view.
+export const immuneMeaning = (score: number) => `More unusual than ${score}% of this astronaut's normal readings, after adjusting for spaceflight.`;
+
+export function ScoreNumber({ immune, big }: { immune: ImmuneScore; big?: boolean }) {
+  return (
+    <span className={`chip inline-block rounded-lg bg-background px-3 py-1 font-mono font-bold ${immune.unusual ? "text-caution" : "text-ok"} ${big ? "text-5xl" : "text-2xl"}`}>
+      {immune.score}<span className={`${big ? "text-2xl" : "text-base"} text-muted`}> / 100</span>
+    </span>
+  );
+}
+
+export function ImmuneBadge({ immune }: { immune: ImmuneScore }) {
+  return (
+    <span className={`chip inline-flex items-center gap-1.5 rounded-lg bg-background px-2.5 py-1 font-semibold ${immune.unusual ? "text-caution" : "text-ok"}`}>
+      <MarkIcon mark={immune.unusual ? "warn" : "ok"} />
+      {immune.unusual ? "Unusual" : "Typical for You"}
+    </span>
+  );
+}
+
 
 // ---------------------------------------------------------------------------
 // "Why" list
