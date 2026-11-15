@@ -24,7 +24,6 @@ export type TourStep = {
 };
 
 export const TOUR_REPO_URL = "https://github.com/jchang-888/hemoscope-app";
-export const TOUR_ML_DOC_URL = `${TOUR_REPO_URL}/blob/main/docs/MACHINE_LEARNING.md`;
 export const TOUR_START_LABEL = "Take the Tour (for Judges)";
 export const TOUR_START_NOTE = "A 2-minute guided walkthrough of HemoScope.";
 export const TOUR_FINAL_TEXT = "Models trained on Microsoft Azure Machine Learning, run offline on the spacecraft.";

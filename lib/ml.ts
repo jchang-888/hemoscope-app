@@ -1,4 +1,4 @@
-// HemoScope machine learning. Models are trained offline by the scripts in scripts/ (see docs/MACHINE_LEARNING.md)
+// HemoScope machine learning. Models are trained offline by the scripts in scripts/
 // and saved as JSON in lib/models/. Both run on the device with no connection needed.
 // 1. Next blood check forecast: a Kalman filter per marker that predicts the next value and a 95% range.
 // 2. Immune State Map: PCA turns a blood check into a point on a 2D map; a Gaussian mixture model learned from

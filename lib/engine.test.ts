@@ -808,7 +808,8 @@ describe("Immune State Map and the cleanup of the error detector", () => {
     const readme = read("README.md");
     expect(readme).toContain(pc(ML_METRICS.forecast.coverage95));
     expect(readme).toContain(pc(ML_METRICS.stateMap.testZoneCoverage["0.9"]));
-    expect(readme).toContain("docs/MACHINE_LEARNING.md");
+    expect(readme).toContain("(azure/)");
+    expect(readme).not.toMatch(/## Run it|npm install|npm run dev|pip install/); // no how-to steps
     expect(readme).toContain("data/README.md");
   });
 });

@@ -9,7 +9,7 @@ Tested on people the model never saw: AUC, Brier score and a calibration table.
 
 Usage: python scripts/experiment_risk_model.py data/processed/cbc.csv docs/experiments/risk-model-results.json
 
-EXPERIMENT ONLY: this model was tested and NOT used in the app (see docs/MACHINE_LEARNING.md).
+EXPERIMENT ONLY: this model was tested and NOT used in the app.
 """
 import json
 import math

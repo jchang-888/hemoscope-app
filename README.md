@@ -18,16 +18,9 @@ Trained on 1,286 blood counts from 120 healthy adults (ImmPort) and tested on pe
 - **Next Blood Check Forecast** (Kalman filter): the 95% range held the real next value 96.1% of the time.
 - **Immune State Map** (PCA and a Gaussian mixture model): the 50%, 90% and 99% zones held 51.2%, 92.0% and 99.7% of checks.
 
-Training runs on **Microsoft Azure Machine Learning** ([`azure/`](azure/README.md)). The app reads the finished models from `lib/models/`. Full write-up: [`docs/MACHINE_LEARNING.md`](docs/MACHINE_LEARNING.md).
+The models are trained with **Microsoft Azure Machine Learning** ([`azure/`](azure/)). The app reads the finished models from `lib/models/`.
 
 ## Data
 NASA Open Science Data Repository OSD-569 (Inspiration4 blood counts) and ImmPort studies SDY180, SDY296, SDY301 and SDY1252. Sources, credit and terms: [`data/README.md`](data/README.md).
-
-## Run it
-```
-npm install
-npm run dev     # http://localhost:3000
-npm test
-```
 
 HemoScope is a hackathon prototype for demonstration, not a medical device.

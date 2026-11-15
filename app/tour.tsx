@@ -4,7 +4,7 @@
 // outline and the card. The page moves to the right tab for each step. Nothing here reads or writes the astronaut's stored data.
 
 import { useEffect, useRef, useState } from "react";
-import { TOUR_ML_DOC_URL, TOUR_REPO_URL, TOUR_START_LABEL, TOUR_START_NOTE, TOUR_STEPS, lastStep, nextStep, prevStep, stepLabel } from "../lib/tour";
+import { TOUR_REPO_URL, TOUR_START_LABEL, TOUR_START_NOTE, TOUR_STEPS, lastStep, nextStep, prevStep, stepLabel } from "../lib/tour";
 
 type Box = { top: number; left: number; width: number; height: number };
 // Where the card sits. "dock": fixed at the bottom of the window (always on phones). "side": beside the outlined area, next to it
@@ -125,7 +125,6 @@ export function Tour({ index, onIndex, onExit }: { index: number; onIndex: (i: n
         {last && (
           <p className="mt-3 flex flex-col gap-1 text-base leading-relaxed">
             <a href={TOUR_REPO_URL} target="_blank" rel="noopener noreferrer" className="underline">GitHub repository</a>
-            <a href={TOUR_ML_DOC_URL} target="_blank" rel="noopener noreferrer" className="underline">How the models work (MACHINE_LEARNING.md)</a>
           </p>
         )}
         <div className="mt-5 flex flex-wrap items-center gap-3">

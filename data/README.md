@@ -1,6 +1,6 @@
 # Data
 
-Everything the training scripts need is in this folder. Nothing is downloaded at build time.
+The training data used by HemoScope, with its sources and terms.
 
 | Path | What it is | Source |
 |---|---|---|
@@ -15,7 +15,7 @@ Each ImmPort folder holds four tables from the study's "Tab" download: `lab_test
 
 ## Totals
 
-- 1,286 ImmPort blood samples from 120 people, in 146 person-study series (26 people are in both SDY296 and SDY301). Two samples with obvious entry errors are removed during training; see `docs/MACHINE_LEARNING.md`.
+- 1,286 ImmPort blood samples from 120 people, in 146 person-study series (26 people are in both SDY296 and SDY301). Two samples with obvious entry errors are removed during training.
 - 28 Inspiration4 samples from 4 crew members.
 
 ## Credit and terms

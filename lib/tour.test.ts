@@ -1,10 +1,11 @@
-import { readFileSync } from "node:fs";
+import { execFileSync } from "node:child_process";
+import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { getAstronaut } from "./data";
 import { evaluateBloodSeries } from "./engine";
 import { FORECAST_NOT_EXPECTED, bloodHistoryTable } from "./export";
 import { TAB_IDS } from "./nav";
-import { TOUR_FINAL_TEXT, TOUR_START_LABEL, TOUR_START_NOTE, TOUR_ML_DOC_URL, TOUR_REPO_URL, TOUR_STEPS, lastStep, nextStep, prevStep, stepLabel } from "./tour";
+import { TOUR_FINAL_TEXT, TOUR_START_LABEL, TOUR_START_NOTE, TOUR_REPO_URL, TOUR_STEPS, lastStep, nextStep, prevStep, stepLabel } from "./tour";
 
 const page = readFileSync("app/page.tsx", "utf8");
 const tourUi = readFileSync("app/tour.tsx", "utf8");
@@ -63,15 +64,14 @@ describe("tour steps", () => {
     expect(row!.Forecast).toBe(FORECAST_NOT_EXPECTED);
   });
 
-  it("ends with the Azure card and links to the repository and the machine learning write-up", () => {
+  it("ends with the Azure card and one link, to the repository", () => {
     const final = TOUR_STEPS[lastStep];
     expect(final.text).toBe(TOUR_FINAL_TEXT);
     expect(final.text).toBe("Models trained on Microsoft Azure Machine Learning, run offline on the spacecraft.");
     expect(final.target).toBeNull();
     expect(TOUR_REPO_URL).toBe("https://github.com/jchang-888/hemoscope-app");
-    expect(TOUR_ML_DOC_URL).toBe(`${TOUR_REPO_URL}/blob/main/docs/MACHINE_LEARNING.md`);
     expect(tourUi).toContain("TOUR_REPO_URL");
-    expect(tourUi).toContain("TOUR_ML_DOC_URL");
+    expect(tourUi.match(/<a href=/g)?.length).toBe(1); // one link, to the repository
   });
 
   it("has no Real Crew Replay step, because that view is not in this branch", () => {
@@ -196,5 +196,26 @@ describe("tour card size and placement", () => {
   it("moves the card beside or below the highlighted area, not over it", () => {
     expect(tourUi).toContain('mode: "side"');
     expect(tourUi).toContain("SPACER"); // room to scroll the area above the docked card
+  });
+});
+
+describe("no how-to guides in the repository", () => {
+  // The names are built from parts so this file does not match its own search.
+  const deleted = ["docs/MACHINE" + "_LEARNING.md", "scripts/" + "README.md", "azure/" + "README.md"];
+
+  it("has deleted the how-to guides and kept the data credit and the Azure job files", () => {
+    for (const f of deleted) expect(existsSync(f), f).toBe(false);
+    for (const f of ["data/README.md", "azure/train-job.yml", "azure/environment.yml", "azure/compare_models.py", ".amlignore"]) expect(existsSync(f), f).toBe(true);
+  });
+
+  it("has no reference to a deleted guide in any tracked file, comments, tests and the pitch deck included", () => {
+    const pattern = ["MACHINE" + "_LEARNING", "azure/" + "README", "scripts/" + "README"].join("|");
+    let hits = "";
+    try {
+      hits = execFileSync("git", ["grep", "-nIE", pattern, "--", ".", ":(exclude)lib/tour.test.ts"], { encoding: "utf8" });
+    } catch {
+      hits = ""; // git grep exits with 1 when nothing matches
+    }
+    expect(hits).toBe("");
   });
 });
