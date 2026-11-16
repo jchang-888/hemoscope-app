@@ -547,6 +547,21 @@ const learnSourceList = (): Source[] => {
 };
 export const LEARN_SOURCES: Source[] = learnSourceList();
 
+// The short note at the bottom of the Learn tab and of Emergency Mode: who wrote the content, what it is not, and a link to every source.
+// The note reads label, text, link in that order, for example "About this content: Lessons are written ... See all sources".
+export const SOURCES_PAGE_URL = "https://hemoscope.framer.website/data-and-sources";
+export type Disclaimer = { label: string; text: string; link: string };
+export const LEARN_DISCLAIMER: Disclaimer = {
+  label: "About this content:",
+  text: "Lessons are written by the HemoScope team in plain language from published research and NASA sources. They are educational and are not medical advice.",
+  link: "See all sources",
+};
+export const EMERGENCY_DISCLAIMER: Disclaimer = {
+  label: "About these guides:",
+  text: "Guides are written by the HemoScope team and adapted from published CPR, microgravity and allergy guidance. They are a hackathon demonstration, not an approved NASA procedure, and the crew's medical checklist and flight surgeon always come first.",
+  link: "See all sources",
+};
+
 // Every place in the Learn tab that a search result or a Learn More link can open: the sections, measurements and markers
 // plus each Body Map card, Mission Timeline stop and status card.
 export const LEARN_TARGET_IDS: string[] = [

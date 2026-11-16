@@ -12,8 +12,8 @@ import {
   DAILY_SOURCES, IMMUNE_SECTION, IMMUNE_TIP, LEARN_ANCHOR, LEARN_IMAGES, LEARN_MARKERS, LEARN_GROUPS, LEARN_MEASUREMENTS,
   LEARN_SOURCES, MAP_GROUPS, MAP_HINT, MAP_SECTION, MAP_SPOTS, NEWS2_SECTION, NEWS2_SOURCES, NEWS2_TEXT, NEWS2_TIP, NLR_SECTION,
   NUMBERS_SECTION, NUMBERS_TEXT, NUMBER_MARKERS, OPEN_EMERGENCY, PACER_BPM, PACER_REMINDER, PACER_SOURCE, REFERENCE_SECTION,
-  SCENARIOS, SOURCES_SECTION, STATE_MAP_SECTION, STATUS_MEANINGS, STATUS_ORDER, STATUS_SECTION, STATUS_SOURCE, TIMELINE_SECTION, TIMELINE_STOPS,
-  type EmergencyStep, type LearnImage, type Scenario, type Source,
+  EMERGENCY_DISCLAIMER, LEARN_DISCLAIMER, SCENARIOS, SOURCES_PAGE_URL, SOURCES_SECTION, STATE_MAP_SECTION, STATUS_MEANINGS, STATUS_ORDER, STATUS_SECTION, STATUS_SOURCE, TIMELINE_SECTION, TIMELINE_STOPS,
+  type Disclaimer, type EmergencyStep, type LearnImage, type Scenario, type Source,
 } from "../lib/content";
 import { downloadPng, downloadTable, type Table } from "../lib/export";
 import { MAP_ZONE_TEXT, forecastSeries, type MapZone } from "../lib/ml";
@@ -1145,6 +1145,7 @@ export function LearnView({ anchor, blood, daily, onEmergency, onSearch }: {
           ))}
         </ul>
       ))}
+      <DisclaimerNote note={LEARN_DISCLAIMER} />
     </div>
   );
 }
@@ -1152,6 +1153,16 @@ export function LearnView({ anchor, blood, daily, onEmergency, onSearch }: {
 // ---------------------------------------------------------------------------
 // Emergency Mode
 // ---------------------------------------------------------------------------
+
+// The note at the very bottom of the Learn tab and of Emergency Mode (text in lib/content.ts).
+function DisclaimerNote({ note, className = "" }: { note: Disclaimer; className?: string }) {
+  return (
+    <p data-disclaimer className={`rounded-xl border border-border px-3 py-2 text-xs text-muted ${className}`.trim()}>
+      <b className="font-bold text-foreground">{note.label}</b> {note.text}{" "}
+      <a href={SOURCES_PAGE_URL} target="_blank" rel="noopener noreferrer" className="underline">{note.link}</a>
+    </p>
+  );
+}
 
 function SourceNote({ source }: { source: Source }) {
   return (
@@ -1286,6 +1297,7 @@ function StepCard({ scenario, step, onStep, onSwitch, onRestart, onHome }: {
           <button className="btn !px-5 !py-3 !text-base" onClick={onHome}>All Scenarios</button>
         </div>
       </div>
+      <DisclaimerNote note={EMERGENCY_DISCLAIMER} className="mt-6" />
     </section>
   );
 }
@@ -1313,6 +1325,7 @@ export function EmergencyAstronaut({ initial }: { initial?: string } = {}) {
           </div>
         </div>
         <CompressionPacer />
+        <DisclaimerNote note={EMERGENCY_DISCLAIMER} />
       </section>
     );
   }
