@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
-/* Theme tokens. Dark is the default, light applies when <html data-theme="light">.
+/* Theme tokens. Light is the default (app/layout.tsx sets <html data-theme="light"> unless the saved choice is "dark").
+   The dark tokens below are the base and apply when data-theme is "dark".
    Components use these variables (through the Tailwind names below) and never a hex value. */
 :root,
 :root[data-theme="dark"] {

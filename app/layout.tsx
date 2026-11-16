@@ -28,9 +28,9 @@ export const metadata: Metadata = {
   description: "Health self-assessment demo for astronauts on long missions.",
 };
 
-// Runs before the first paint so the saved theme is applied without a flash. Dark is the default.
+// Runs before the first paint so the saved theme is applied without a flash. Light is the default: dark is used only when the saved choice is exactly "dark".
 // The key must match THEME_KEY in app/ui.tsx.
-const THEME_SCRIPT = `try{var t=localStorage.getItem("hemoscope-theme");document.documentElement.setAttribute("data-theme",t==="light"?"light":"dark")}catch(e){}`;
+const THEME_SCRIPT = `try{var t=localStorage.getItem("hemoscope-theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light")}catch(e){}`;
 
 export default function RootLayout({
   children,
@@ -40,7 +40,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      data-theme="dark"
+      data-theme="light"
       suppressHydrationWarning
       className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >

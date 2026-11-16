@@ -2,7 +2,7 @@
 
 Spaceflight-aware health monitoring for astronauts on long missions. HemoScope compares each astronaut with their own preflight normal, adjusts for the phase of the mission, and turns daily vitals and blood counts into one clear status.
 
-**Live app:** [hemoscope-app.vercel.app](https://hemoscope-app.vercel.app) · Built for the NASA Space Apps Challenge 2026: *Create Health Monitoring Software for Astronauts on Space Missions*
+**Live app:** [hemoscope.vercel.app](https://hemoscope.vercel.app) · Built for the NASA Space Apps Challenge 2026: *Create Health Monitoring Software for Astronauts on Space Missions*
 
 ## What it does
 - **Daily Check:** vital signs, sleep, mood and symptoms, scored with NEWS2 adjusted for spaceflight.

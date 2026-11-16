@@ -101,11 +101,11 @@ export function CheckLine({ check, onMeasureAgain }: { check: FieldCheck; onMeas
 // Theme toggle and export menu
 // ---------------------------------------------------------------------------
 
-// The theme lives on <html data-theme>. app/layout.tsx sets it before the first paint from this saved choice.
+// The theme lives on <html data-theme>. app/layout.tsx sets it before the first paint from this saved choice. Light is the default.
 const THEME_KEY = "hemoscope-theme";
 type Theme = "dark" | "light";
 const themeListeners = new Set<() => void>();
-const readTheme = (): Theme => (document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark");
+const readTheme = (): Theme => (document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light");
 const subscribeTheme = (l: () => void) => {
   themeListeners.add(l);
   return () => void themeListeners.delete(l);
@@ -123,7 +123,7 @@ function setTheme(next: Theme) {
 
 // Sun icon in dark mode (press to go light), moon icon in light mode (press to go dark).
 export function ThemeToggle({ compact }: { compact?: boolean } = {}) {
-  const theme = useSyncExternalStore(subscribeTheme, readTheme, () => "dark" as Theme);
+  const theme = useSyncExternalStore(subscribeTheme, readTheme, () => "light" as Theme);
   const next: Theme = theme === "dark" ? "light" : "dark";
   const size = compact ? 14 : 20;
   const p = { width: size, height: size, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round" as const, strokeLinejoin: "round" as const, "aria-hidden": true };
