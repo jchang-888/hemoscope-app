@@ -7,7 +7,7 @@ import { getAstronaut } from "./data";
 import { evaluateBloodSeries, evaluateDailySeries } from "./engine";
 import { bloodHistoryTable, crewTable, dailyHistoryTable } from "./export";
 import {
-  BREATH_CYCLES, BREATH_PHASES, BREATH_SECONDS, BREATH_TOTAL_SECONDS, JOURNAL_KEY, JOURNAL_PRIVACY, MAX_NOTE,
+  ACTIVITIES, BREATHE_CARD_ID, activityLabel, BREATH_CYCLES, BREATH_PHASES, BREATH_SECONDS, BREATH_TOTAL_SECONDS, JOURNAL_KEY, JOURNAL_PRIVACY, MAX_NOTE,
   addEntry, breathAt, deleteEntry, entriesNewestFirst, parseJournal, type Journal,
 } from "./mind";
 import { isHealth, navFromParam, TAB_IDS } from "./nav";
@@ -173,5 +173,69 @@ describe("Breathe pacer", () => {
     expect(block).toContain("transition: none");
     expect(block).toContain("transform: none");
     expect(read("app/mind.tsx")).toContain("breath-circle");
+  });
+});
+
+describe("Activities", () => {
+  const html = renderToStaticMarkup(createElement(MindView, { id: "A" }));
+  const byId = (id: string) => ACTIVITIES.find((a) => a.id === id)!;
+
+  it("has the six activities, with their minutes and kind", () => {
+    expect(ACTIVITIES.map((a) => [a.title, a.minutes, a.kind])).toEqual([
+      ["Box breathing", 2, "Mind"],
+      ["Five senses grounding", 3, "Mind"],
+      ["A message home", 5, "Mind"],
+      ["Evening wind-down", 4, "Mind"],
+      ["Neck and shoulder release", 3, "Body"],
+      ["Gentle full-body stretch", 5, "Body"],
+    ]);
+    expect(ACTIVITIES.map(activityLabel)).toEqual(["2 MIN · MIND", "3 MIN · MIND", "5 MIN · MIND", "4 MIN · MIND", "3 MIN · BODY", "5 MIN · BODY"]);
+  });
+
+  it("gives every card a title, a one-line description, a label and a Start button, below Breathe", () => {
+    expect(html).toContain("Activities");
+    expect(html.indexOf("Activities")).toBeGreaterThan(html.indexOf("Breathe"));
+    for (const a of ACTIVITIES) {
+      expect(a.description, a.id).not.toContain("\n");
+      expect(html).toContain(a.title);
+      expect(html).toContain(activityLabel(a));
+    }
+    expect(html.match(/>Start</g)?.length).toBe(1 + ACTIVITIES.length); // the Breathe pacer, then one per card
+  });
+
+  it("has the steps for each routine", () => {
+    expect(byId("five-senses").steps.map((s) => s.match(/\d/)?.[0])).toEqual(["5", "4", "3", "2", "1"]);
+    expect(byId("five-senses").steps.join(" ")).toMatch(/see.*touch.*hear.*smell.*taste/);
+    expect(byId("message-home").steps).toHaveLength(3);
+    expect(byId("message-home").steps.join(" ")).toMatch(/mood journal note/);
+    expect(byId("wind-down").steps.join(" ")).toMatch(/Dim the lights.*screens.*three slow breaths.*tomorrow's first task.*Rest/);
+    expect(byId("neck-shoulders").steps.join(" ")).toMatch(/tilt.*roll.*shoulder blades.*foot hold.*handrail/i);
+    expect(byId("full-body-stretch").steps.join(" ")).toMatch(/overhead.*side.*hips and calves.*20 seconds.*anchored/);
+  });
+
+  it("starts Box breathing by scrolling to the breathing pacer, which has no steps of its own", () => {
+    expect(byId("box-breathing").steps).toEqual([]);
+    const code = read("app/mind.tsx");
+    expect(code).toContain("scrollIntoView");
+    expect(code).toContain("BREATHE_CARD_ID");
+    expect(html).toContain(`id="${BREATHE_CARD_ID}"`);
+    expect(code).toContain("prefers-reduced-motion"); // scrolls without animation when motion is reduced
+  });
+
+  it("opens the steps in the card with a Done button, and tracks and saves nothing", () => {
+    const code = read("app/mind.tsx");
+    const section = code.slice(code.indexOf("function Activities()"), code.indexOf("export function MindView"));
+    expect(section).toContain(">Done<");
+    expect(section).toContain("<ol");
+    expect(section).not.toMatch(/writeRaw|localStorage|sessionStorage|JOURNAL_KEY|count|streak|score/i);
+    for (const a of ACTIVITIES) expect(JSON.stringify(a)).not.toMatch(/—|colou?r/i);
+  });
+
+  it("stays private like the journal: only the Mind page uses it", () => {
+    for (const f of ["lib/engine.ts", "lib/export.ts", "lib/search.ts", "lib/content.ts", "lib/tour.ts", "app/ask.tsx", "app/ui.tsx"]) {
+      expect(read(f), f).not.toMatch(/ACTIVITIES|activityLabel|lib\/mind|\.\/mind/);
+    }
+    expect(JSON.stringify(allChunks())).not.toContain("Five senses grounding");
+    expect(search("five senses grounding").results.every((h) => h.section !== "My Health" || h.title !== "Five senses grounding")).toBe(true);
   });
 });

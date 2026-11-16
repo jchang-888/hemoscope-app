@@ -7,8 +7,8 @@ import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { CONFIG } from "../lib/config";
 import type { AstronautId } from "../lib/data";
 import {
-  BREATH_CYCLES, BREATH_NOTE, BREATH_SECONDS, JOURNAL_KEY, JOURNAL_PRIVACY, MAX_NOTE, addEntry, breathAt, deleteEntry, entriesNewestFirst, parseJournal,
-  type Journal,
+  ACTIVITIES, BREATHE_CARD_ID, BREATH_CYCLES, BREATH_NOTE, BREATH_SECONDS, JOURNAL_KEY, JOURNAL_PRIVACY, MAX_NOTE, activityLabel, addEntry, breathAt, deleteEntry, entriesNewestFirst, parseJournal,
+  type Activity, type Journal,
 } from "../lib/mind";
 import { Card, MoodFace, MoodPicker } from "./ui";
 
@@ -170,6 +170,47 @@ function BreathingPacer() {
   );
 }
 
+// ---------------------------------------------------------------------------
+// Activities: a grid of short routines. Start opens the steps inside the card. Nothing is saved, tracked or scored.
+// ---------------------------------------------------------------------------
+
+function Activities() {
+  const [open, setOpen] = useState<string | null>(null);
+  const start = (a: Activity) => {
+    if (a.steps.length === 0) {
+      // Box breathing is the Breathe card above, so go there.
+      const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+      document.getElementById(BREATHE_CARD_ID)?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+      return;
+    }
+    setOpen(a.id);
+  };
+  return (
+    <Card title="Activities">
+      <p className="text-sm text-muted">Short routines for your mind and body. Nothing here is tracked or saved.</p>
+      <ul className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {ACTIVITIES.map((a) => (
+          <li key={a.id} className="flex flex-col rounded-xl border border-border bg-background p-4">
+            <h3 className="font-heading text-lg font-bold">{a.title}</h3>
+            <p className="mt-1 text-sm">{a.description}</p>
+            <p className="mt-2 font-mono text-xs font-semibold text-muted">{activityLabel(a)}</p>
+            {open === a.id ? (
+              <div className="mt-3" role="group" aria-label={`${a.title} steps`}>
+                <ol className="list-decimal space-y-1.5 pl-5 text-sm">
+                  {a.steps.map((s) => <li key={s}>{s}</li>)}
+                </ol>
+                <button type="button" className="btn btn-primary mt-4" onClick={() => setOpen(null)}>Done</button>
+              </div>
+            ) : (
+              <button type="button" className="btn btn-primary mt-3 self-start" onClick={() => start(a)}>Start</button>
+            )}
+          </li>
+        ))}
+      </ul>
+    </Card>
+  );
+}
+
 export function MindView({ id }: { id: AstronautId }) {
   return (
     <div className="space-y-4">
@@ -179,8 +220,9 @@ export function MindView({ id }: { id: AstronautId }) {
       </div>
       <div className="grid gap-4 lg:grid-cols-2 lg:items-start">
         <MoodJournal id={id} />
-        <BreathingPacer />
+        <div id={BREATHE_CARD_ID}><BreathingPacer /></div>
       </div>
+      <Activities />
     </div>
   );
 }

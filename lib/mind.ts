@@ -82,3 +82,74 @@ export function breathAt(elapsedMs: number): BreathState {
   const secondsLeft = BREATH_SECONDS - Math.floor(inCycle - phase * BREATH_SECONDS);
   return { done: false, cycle, phase, label: BREATH_PHASES[phase], secondsLeft, big: phase <= 1 };
 }
+
+// ---------------------------------------------------------------------------
+// Activities: short guided routines. Nothing about them is saved, tracked or scored. They follow the same private rules as the journal.
+// ---------------------------------------------------------------------------
+
+export type ActivityKind = "Mind" | "Body";
+export type Activity = {
+  id: string;
+  title: string;
+  description: string;
+  minutes: number;
+  kind: ActivityKind;
+  steps: string[]; // empty for Box breathing, which scrolls to the breathing pacer instead
+};
+
+export const ACTIVITIES: Activity[] = [
+  {
+    id: "box-breathing", title: "Box breathing", description: "Four slow breaths in a steady square rhythm.", minutes: 2, kind: "Mind", steps: [],
+  },
+  {
+    id: "five-senses", title: "Five senses grounding", description: "Settle your attention by naming what you notice around you.", minutes: 3, kind: "Mind",
+    steps: [
+      "Name 5 things you can see.",
+      "Name 4 things you can touch.",
+      "Name 3 things you can hear.",
+      "Name 2 things you can smell.",
+      "Name 1 thing you can taste.",
+    ],
+  },
+  {
+    id: "message-home", title: "A message home", description: "Prepare a few words for someone you miss.", minutes: 5, kind: "Mind",
+    steps: [
+      "Think of one person you want to reach.",
+      "Think of one thing you would like to tell them.",
+      "Write it in your mood journal note, or save it for your next call.",
+    ],
+  },
+  {
+    id: "wind-down", title: "Evening wind-down", description: "A short routine to help you rest.", minutes: 4, kind: "Mind",
+    steps: [
+      "Dim the lights.",
+      "Put screens away.",
+      "Take three slow breaths.",
+      "Set tomorrow's first task.",
+      "Rest.",
+    ],
+  },
+  {
+    id: "neck-shoulders", title: "Neck and shoulder release", description: "Ease the tension that builds up during long tasks.", minutes: 3, kind: "Body",
+    steps: [
+      "Slowly tilt your head toward one shoulder, then the other.",
+      "Roll your shoulders back, then forward.",
+      "Squeeze your shoulder blades together, then let go.",
+      "Keep a foot in a foot hold or a hand on a handrail the whole time.",
+    ],
+  },
+  {
+    id: "full-body-stretch", title: "Gentle full-body stretch", description: "Slow stretches you can do while anchored in place.", minutes: 5, kind: "Body",
+    steps: [
+      "Reach both arms overhead.",
+      "Stretch to one side, then the other.",
+      "Stretch your hips and calves.",
+      "Hold each stretch for 20 seconds.",
+      "Stay anchored the whole time, with a foot hold or a handrail.",
+    ],
+  },
+];
+
+// The small label on each card, for example "3 MIN \u00b7 MIND".
+export const activityLabel = (a: Activity) => `${a.minutes} MIN \u00b7 ${a.kind.toUpperCase()}`;
+export const BREATHE_CARD_ID = "breathe"; // the Breathe card, where Box breathing scrolls to
