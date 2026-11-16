@@ -36,6 +36,7 @@ import { NAV_START, isHealth, navFromParam, openChecks, openPage, openResults, t
 import type { SearchTarget } from "../lib/search";
 import { TOUR_STEPS, type TourStep } from "../lib/tour";
 import { Tour, TourButton } from "./tour";
+import { BadgesCard, clearBadges } from "./badges";
 import { MindView, clearJournal } from "./mind";
 
 const TODAY = CONFIG.mission.today;
@@ -492,10 +493,10 @@ function PreviewRow({ day, status, follow }: { day: number; status: Cell; follow
 }
 
 function Dashboard({
-  id, daily, blood, todayDaily, todayBlood, current, streak, go, goResults, goHistory, onMind,
+  id, daily, blood, todayDaily, todayBlood, current, streak, checks, go, goResults, goHistory, onMind,
 }: {
   id: AstronautId; daily: DailyResult[]; blood: BloodResult[]; todayDaily?: DailyEntry; todayBlood?: BloodSample;
-  current: StatusId; streak: StreakInfo; go: (tab: ChecksTab) => void; goResults: (tab: ChecksTab) => void; goHistory: (sub: HistorySub) => void; onMind: () => void;
+  current: StatusId; streak: StreakInfo; checks: number; go: (tab: ChecksTab) => void; goResults: (tab: ChecksTab) => void; goHistory: (sub: HistorySub) => void; onMind: () => void;
 }) {
   const a = getAstronaut(id);
   const latestDaily = daily.filter((d) => d.day < TODAY).slice(-1)[0];
@@ -517,6 +518,7 @@ function Dashboard({
         </ul>
       </Card>
       </div>
+      <BadgesCard id={id} checks={checks} longestStreak={streak.longest} />
       <p className="text-sm">
         <button type="button" className="font-semibold text-accent-text underline" onClick={onMind}>Need a minute? Open Mind</button>
       </p>
@@ -994,7 +996,7 @@ function AstronautView({
 
           {view === "dashboard" && (
             <Dashboard
-              id={id} daily={daily} blood={blood} todayDaily={entry} todayBlood={todayBlood} current={current} streak={streak}
+              id={id} daily={daily} blood={blood} todayDaily={entry} todayBlood={todayBlood} current={current} streak={streak} checks={dailyAll.length}
               go={(tab) => setNav((n) => openChecks(n, tab))} goResults={(tab) => setNav((n) => openResults(n, tab))} goHistory={goHistory} onMind={() => setNav((n) => ({ ...n, view: "mind" }))}
             />
           )}
@@ -1242,6 +1244,7 @@ export default function Home() {
   const resetDemo = () => {
     writeRaw("");
     clearJournal(); // Reset Demo also clears the private Mood Journal
+    clearBadges(); // ...and the private badge counts
     setDrafts({});
     setTourIndex(null);
     setFromReset(true);

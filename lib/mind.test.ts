@@ -222,12 +222,13 @@ describe("Activities", () => {
     expect(code).toContain("prefers-reduced-motion"); // scrolls without animation when motion is reduced
   });
 
-  it("opens the steps in the card with a Done button, and tracks and saves nothing", () => {
+  it("opens the steps in the card with a Done button, and keeps no list of what was done", () => {
     const code = read("app/mind.tsx");
-    const section = code.slice(code.indexOf("function Activities()"), code.indexOf("export function MindView"));
+    const section = code.slice(code.indexOf("function Activities("), code.indexOf("export function MindView"));
     expect(section).toContain(">Done<");
     expect(section).toContain("<ol");
-    expect(section).not.toMatch(/writeRaw|localStorage|sessionStorage|JOURNAL_KEY|count|streak|score/i);
+    // Activities keep no list or history of what was done. The only thing kept is the private badge counter (see lib/badges.test.ts).
+    expect(section).not.toMatch(/writeRaw|localStorage|sessionStorage|JOURNAL_KEY|streak|score|history/i);
     for (const a of ACTIVITIES) expect(JSON.stringify(a)).not.toMatch(/—|colou?r/i);
   });
 

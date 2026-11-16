@@ -10,6 +10,7 @@ import {
   ACTIVITIES, BREATHE_CARD_ID, BREATH_CYCLES, BREATH_NOTE, BREATH_SECONDS, JOURNAL_KEY, JOURNAL_PRIVACY, MAX_NOTE, activityLabel, addEntry, breathAt, deleteEntry, entriesNewestFirst, parseJournal,
   type Activity, type Journal,
 } from "../lib/mind";
+import { recordBodyActivity, recordCalmMoment } from "./badges";
 import { Card, MoodFace, MoodPicker } from "./ui";
 
 // ---------------------------------------------------------------------------
@@ -122,7 +123,7 @@ function MoodJournal({ id }: { id: AstronautId }) {
 // Breathe: box breathing. Timing from the clock (like the Compression Pacer), animation from CSS.
 // ---------------------------------------------------------------------------
 
-function BreathingPacer() {
+function BreathingPacer({ id }: { id: AstronautId }) {
   const [running, setRunning] = useState(false);
   const [elapsed, setElapsed] = useState(0); // milliseconds since Start
   const startedAt = useRef(0);
@@ -132,10 +133,15 @@ function BreathingPacer() {
     const timer = window.setInterval(() => {
       const ms = Date.now() - startedAt.current;
       setElapsed(ms);
-      if (breathAt(ms).done) setRunning(false); // stops by itself after the last cycle
+      if (breathAt(ms).done) {
+        // Stops by itself after the last cycle. A finished session counts once toward a private badge.
+        window.clearInterval(timer);
+        setRunning(false);
+        recordCalmMoment(id);
+      }
     }, 200);
     return () => window.clearInterval(timer);
-  }, [running]);
+  }, [running, id]);
 
   const start = () => { startedAt.current = Date.now(); setElapsed(0); setRunning(true); };
   const stop = () => { setRunning(false); setElapsed(0); };
@@ -174,7 +180,7 @@ function BreathingPacer() {
 // Activities: a grid of short routines. Start opens the steps inside the card. Nothing is saved, tracked or scored.
 // ---------------------------------------------------------------------------
 
-function Activities() {
+function Activities({ id }: { id: AstronautId }) {
   const [open, setOpen] = useState<string | null>(null);
   const start = (a: Activity) => {
     if (a.steps.length === 0) {
@@ -184,6 +190,12 @@ function Activities() {
       return;
     }
     setOpen(a.id);
+  };
+  // Done counts once toward a private badge. Nothing else about the activity is kept.
+  const finish = (a: Activity) => {
+    if (a.kind === "Body") recordBodyActivity(id);
+    else recordCalmMoment(id);
+    setOpen(null);
   };
   return (
     <Card title="Activities">
@@ -199,7 +211,7 @@ function Activities() {
                 <ol className="list-decimal space-y-1.5 pl-5 text-sm">
                   {a.steps.map((s) => <li key={s}>{s}</li>)}
                 </ol>
-                <button type="button" className="btn btn-primary mt-4" onClick={() => setOpen(null)}>Done</button>
+                <button type="button" className="btn btn-primary mt-4" onClick={() => finish(a)}>Done</button>
               </div>
             ) : (
               <button type="button" className="btn btn-primary mt-3 self-start" onClick={() => start(a)}>Start</button>
@@ -220,9 +232,9 @@ export function MindView({ id }: { id: AstronautId }) {
       </div>
       <div className="grid gap-4 lg:grid-cols-2 lg:items-start">
         <MoodJournal id={id} />
-        <div id={BREATHE_CARD_ID}><BreathingPacer /></div>
+        <div id={BREATHE_CARD_ID}><BreathingPacer id={id} /></div>
       </div>
-      <Activities />
+      <Activities id={id} />
     </div>
   );
 }
