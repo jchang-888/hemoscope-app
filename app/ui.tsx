@@ -138,6 +138,78 @@ export function ThemeToggle({ compact }: { compact?: boolean } = {}) {
   );
 }
 
+// ---------------------------------------------------------------------------
+// Card and mood picker, shared by the main page and the Mind page
+// ---------------------------------------------------------------------------
+
+// `highlight` is the accent blue block with white bold text, used only for the essential dashboard blocks.
+// `exportMenu` puts an Export menu at the right of the title. Its PNG is a picture of the whole card.
+export function Card({ title, tip, children, className = "", highlight, exportMenu, exportName, tour }: {
+  tour?: string; // data-tour value, so the guided tour can outline this card
+  title?: string; tip?: ReactNode; children: ReactNode; className?: string; highlight?: boolean; exportMenu?: ReactNode;
+  exportName?: string; // marks the card as a chart for "Export All Charts"
+}) {
+  return (
+    <section data-export data-export-name={exportName} data-tour={tour} className={`rounded-2xl border p-4 sm:p-5 ${highlight ? "highlight border-transparent sm:p-6" : "border-border bg-surface"} ${className}`}>
+      {title && (
+        <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+          <h2 className={`font-heading flex flex-wrap items-center gap-x-2 font-bold ${highlight ? "text-2xl sm:text-3xl" : "text-lg"}`}>
+            {title}
+            {tip}
+          </h2>
+          {exportMenu}
+        </div>
+      )}
+      {children}
+    </section>
+  );
+}
+
+const FACES = [
+  "M9 22 Q16 14 23 22", "M9 21 Q16 17 23 21", "M9 20 L23 20", "M9 19 Q16 24 23 19", "M8 18 Q16 28 24 18",
+];
+
+export function MoodPicker({ value, onChange }: { value: string; onChange: (v: string) => void }) {
+  const Y = "var(--mood)";
+  return (
+    <div role="radiogroup" aria-label="Mood" className="flex gap-2">
+      {FACES.map((mouth, i) => {
+        const v = String(i + 1);
+        const on = value === v;
+        // Selected face: filled yellow with dark features. Others: yellow outline only.
+        const ink = on ? "var(--background)" : Y;
+        return (
+          <button
+            key={v} type="button" role="radio" aria-checked={on} aria-label={`Mood ${v} of 5`}
+            onClick={() => onChange(on ? "" : v)}
+            className="rounded-full p-0.5 hover:bg-accent/15"
+          >
+            <svg width="36" height="36" viewBox="0 0 32 32" fill="none" stroke={ink} strokeWidth="1.8" strokeLinecap="round" aria-hidden>
+              <circle cx="16" cy="16" r="13" fill={on ? Y : "none"} stroke={Y} />
+              <circle cx="11.5" cy="12.5" r="1" fill={ink} />
+              <circle cx="20.5" cy="12.5" r="1" fill={ink} />
+              <path d={mouth} />
+            </svg>
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+// A small mood face for the journal list: the same faces as the Daily Check mood picker, drawn as a filled yellow circle.
+export function MoodFace({ value, size = 24 }: { value: number; size?: number }) {
+  const mouth = FACES[Math.min(Math.max(value, 1), 5) - 1];
+  return (
+    <svg width={size} height={size} viewBox="0 0 32 32" fill="none" stroke="var(--background)" strokeWidth="1.8" strokeLinecap="round" aria-hidden>
+      <circle cx="16" cy="16" r="13" fill="var(--mood)" stroke="var(--mood)" />
+      <circle cx="11.5" cy="12.5" r="1" fill="var(--background)" />
+      <circle cx="20.5" cy="12.5" r="1" fill="var(--background)" />
+      <path d={mouth} />
+    </svg>
+  );
+}
+
 // Export menu for a table (PNG, CSV, JSON) or a chart (PNG only, when no table is given).
 // The PNG is a picture of the nearest ancestor marked data-export, in the current theme.
 export function ExportMenu({ astronaut, name, table }: { astronaut: string; name: string; table?: Table }) {
@@ -309,14 +381,14 @@ export function Tabs({ tabs, active, onChange }: { tabs: TabDef[]; active: strin
 // The app's main tabs, inside the nav bar. Emergency Mode keeps its red style and alert icon and sits apart from the other tabs.
 export function NavTabs({ tabs, active, onChange, label }: { tabs: TabDef[]; active: string; onChange: (id: string) => void; label: string }) {
   return (
-    <div role="tablist" aria-label={label} className="flex items-center gap-1">
+    <div role="tablist" aria-label={label} className="flex flex-wrap items-center gap-1">
       {tabs.map((t) => (
         <button
           key={t.id} role="tab" aria-selected={active === t.id} onClick={() => onChange(t.id)}
           className={
             t.emergency
-              ? `ml-2 inline-flex items-center gap-1.5 whitespace-nowrap rounded-lg border-2 bg-emergency px-3 py-1.5 text-sm font-bold text-on-emergency hover:brightness-110 sm:ml-5 ${active === t.id ? "border-on-emergency" : "border-transparent"}`
-              : `whitespace-nowrap rounded-lg border-b-4 px-3 py-1.5 text-sm ${active === t.id ? "border-accent font-bold text-foreground" : "border-transparent font-semibold text-muted hover:bg-accent/15 hover:text-foreground"}`
+              ? `ml-1 inline-flex items-center gap-1.5 whitespace-nowrap rounded-lg border-2 bg-emergency px-2 py-1.5 text-sm font-bold text-on-emergency hover:brightness-110 sm:ml-5 sm:px-3 ${active === t.id ? "border-on-emergency" : "border-transparent"}`
+              : `whitespace-nowrap rounded-lg border-b-4 px-1.5 py-1.5 text-sm sm:px-3 ${active === t.id ? "border-accent font-bold text-foreground" : "border-transparent font-semibold text-muted hover:bg-accent/15 hover:text-foreground"}`
           }
         >
           {t.emergency && <AlertIcon />}

@@ -25,7 +25,7 @@ import {
   bloodHistoryTable, crewTable, dailyHistoryTable, flaggedTable, markersTable, type Cell, type CrewRow, type Table,
 } from "../lib/export";
 import {
-  EmergencyAstronaut, EmergencySurgeon, ExportAllButton, ExportMenu, FormField, ImmuneTip, InfoTip, LearnProvider, LearnView, MarkIcon, Modal, NumbersExplained,
+  Card, EmergencyAstronaut, EmergencySurgeon, ExportAllButton, ExportMenu, FormField, ImmuneTip, InfoTip, LearnProvider, LearnView, MarkIcon, Modal, MoodPicker, NumbersExplained,
   NavTabs, News2Tip, PageMain, ScoreTimeline, SiteHeader, StatusText, Tabs, TrendChart, WhyList, stepBand,
   type BandPt, type Pt, type ScorePoint, type TabDef,
 } from "./ui";
@@ -36,6 +36,7 @@ import { NAV_START, isHealth, navFromParam, openChecks, openPage, openResults, t
 import type { SearchTarget } from "../lib/search";
 import { TOUR_STEPS, type TourStep } from "../lib/tour";
 import { Tour, TourButton } from "./tour";
+import { MindView, clearJournal } from "./mind";
 
 const TODAY = CONFIG.mission.today;
 const LAST_HISTORY_DAY = TODAY - 1;
@@ -144,29 +145,6 @@ function bloodInput(d: BloodDraft): BloodInput {
 // ---------------------------------------------------------------------------
 // Small layout pieces
 // ---------------------------------------------------------------------------
-
-// `highlight` is the accent blue block with white bold text, used only for the essential dashboard blocks.
-// `exportMenu` puts an Export menu at the right of the title. Its PNG is a picture of the whole card.
-function Card({ title, tip, children, className = "", highlight, exportMenu, exportName, tour }: {
-  tour?: string; // data-tour value, so the guided tour can outline this card
-  title?: string; tip?: ReactNode; children: ReactNode; className?: string; highlight?: boolean; exportMenu?: ReactNode;
-  exportName?: string; // marks the card as a chart for "Export All Charts"
-}) {
-  return (
-    <section data-export data-export-name={exportName} data-tour={tour} className={`rounded-2xl border p-4 sm:p-5 ${highlight ? "highlight border-transparent sm:p-6" : "border-border bg-surface"} ${className}`}>
-      {title && (
-        <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
-          <h2 className={`font-heading flex flex-wrap items-center gap-x-2 font-bold ${highlight ? "text-2xl sm:text-3xl" : "text-lg"}`}>
-            {title}
-            {tip}
-          </h2>
-          {exportMenu}
-        </div>
-      )}
-      {children}
-    </section>
-  );
-}
 
 // Immune Deviation Score pieces shared by the dashboard, results and the flight surgeon view.
 const immuneMeaning = (score: number) => `More unusual than ${score}% of this astronaut's normal readings, after adjusting for spaceflight.`;
@@ -514,10 +492,10 @@ function PreviewRow({ day, status, follow }: { day: number; status: Cell; follow
 }
 
 function Dashboard({
-  id, daily, blood, todayDaily, todayBlood, current, streak, go, goResults, goHistory,
+  id, daily, blood, todayDaily, todayBlood, current, streak, go, goResults, goHistory, onMind,
 }: {
   id: AstronautId; daily: DailyResult[]; blood: BloodResult[]; todayDaily?: DailyEntry; todayBlood?: BloodSample;
-  current: StatusId; streak: StreakInfo; go: (tab: ChecksTab) => void; goResults: (tab: ChecksTab) => void; goHistory: (sub: HistorySub) => void;
+  current: StatusId; streak: StreakInfo; go: (tab: ChecksTab) => void; goResults: (tab: ChecksTab) => void; goHistory: (sub: HistorySub) => void; onMind: () => void;
 }) {
   const a = getAstronaut(id);
   const latestDaily = daily.filter((d) => d.day < TODAY).slice(-1)[0];
@@ -539,6 +517,9 @@ function Dashboard({
         </ul>
       </Card>
       </div>
+      <p className="text-sm">
+        <button type="button" className="font-semibold text-accent-text underline" onClick={onMind}>Need a minute? Open Mind</button>
+      </p>
 
       <div className="grid gap-4 md:grid-cols-2">
         <ImmuneScoreCard blood={blood} name={a.name} />
@@ -602,38 +583,6 @@ function Dashboard({
 // ---------------------------------------------------------------------------
 // Astronaut tabs 2 and 3: the forms
 // ---------------------------------------------------------------------------
-
-const FACES = [
-  "M9 22 Q16 14 23 22", "M9 21 Q16 17 23 21", "M9 20 L23 20", "M9 19 Q16 24 23 19", "M8 18 Q16 28 24 18",
-];
-
-function MoodPicker({ value, onChange }: { value: string; onChange: (v: string) => void }) {
-  const Y = "var(--mood)";
-  return (
-    <div role="radiogroup" aria-label="Mood" className="flex gap-2">
-      {FACES.map((mouth, i) => {
-        const v = String(i + 1);
-        const on = value === v;
-        // Selected face: filled yellow with dark features. Others: yellow outline only.
-        const ink = on ? "var(--background)" : Y;
-        return (
-          <button
-            key={v} type="button" role="radio" aria-checked={on} aria-label={`Mood ${v} of 5`}
-            onClick={() => onChange(on ? "" : v)}
-            className="rounded-full p-0.5 hover:bg-accent/15"
-          >
-            <svg width="36" height="36" viewBox="0 0 32 32" fill="none" stroke={ink} strokeWidth="1.8" strokeLinecap="round" aria-hidden>
-              <circle cx="16" cy="16" r="13" fill={on ? Y : "none"} stroke={Y} />
-              <circle cx="11.5" cy="12.5" r="1" fill={ink} />
-              <circle cx="20.5" cy="12.5" r="1" fill={ink} />
-              <path d={mouth} />
-            </svg>
-          </button>
-        );
-      })}
-    </div>
-  );
-}
 
 function FillBar({ onDemo, demoLoaded, onCheck, onSubmit, canSubmit, note }: {
   onDemo: () => void; demoLoaded: boolean; onCheck: () => void; onSubmit: () => void; canSubmit: boolean; note?: string;
@@ -944,6 +893,7 @@ function BloodResults({ id, result }: { id: AstronautId; result: BloodResult }) 
 const MAIN_TABS: TabDef[] = [
   { id: "health", label: "My Health" },
   { id: "learn", label: "Learn" },
+  { id: "mind", label: "Mind" },
   { id: "emergency", label: "Emergency Mode", emergency: true },
 ];
 const HEALTH_TABS: TabDef[] = [
@@ -997,6 +947,7 @@ function AstronautView({
   const goEmergency = (sid: string | null = null) => { setScenario(sid); setEmergencyKey((k) => k + 1); setNav((n) => ({ ...n, view: "emergency" })); };
   const onTab = (t: string) => {
     if (t === "learn") goLearn(null);
+    else if (t === "mind") setNav((n) => ({ ...n, view: "mind" }));
     else if (t === "emergency") goEmergency();
     else setNav((n) => ({ ...n, view: "dashboard" }));
   };
@@ -1044,7 +995,7 @@ function AstronautView({
           {view === "dashboard" && (
             <Dashboard
               id={id} daily={daily} blood={blood} todayDaily={entry} todayBlood={todayBlood} current={current} streak={streak}
-              go={(tab) => setNav((n) => openChecks(n, tab))} goResults={(tab) => setNav((n) => openResults(n, tab))} goHistory={goHistory}
+              go={(tab) => setNav((n) => openChecks(n, tab))} goResults={(tab) => setNav((n) => openResults(n, tab))} goHistory={goHistory} onMind={() => setNav((n) => ({ ...n, view: "mind" }))}
             />
           )}
           {view === "checks" && (
@@ -1079,6 +1030,7 @@ function AstronautView({
             />
           )}
           {view === "learn" && <LearnView key={learnKey} anchor={learnAnchor} blood={blood} daily={daily} onEmergency={() => goEmergency()} onSearch={ask.glassPress} />}
+          {view === "mind" && <MindView id={id} />}
           {view === "emergency" && <EmergencyAstronaut key={emergencyKey} initial={scenario ?? undefined} />}
         </div>
         </LearnProvider>
@@ -1289,6 +1241,7 @@ export default function Home() {
   }, [notice]);
   const resetDemo = () => {
     writeRaw("");
+    clearJournal(); // Reset Demo also clears the private Mood Journal
     setDrafts({});
     setTourIndex(null);
     setFromReset(true);

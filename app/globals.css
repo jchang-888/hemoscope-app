@@ -197,6 +197,11 @@ select.strip-ctl { background: var(--background); padding-right: 6px; }
   15% { transform: scale(1.1); opacity: 1; }
 }
 
+/* Breathe pacer: the circle grows and shrinks with the breath. With reduced motion it stays still and the words and countdown lead. */
+@media (prefers-reduced-motion: reduce) {
+  .breath-circle { transition: none !important; transform: none !important; }
+}
+
 /* Native dropdown lists follow the theme so option text stays readable. */
 select option { background: var(--background); color: var(--text); }
 
